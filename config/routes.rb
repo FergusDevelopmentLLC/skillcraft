@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :answers
   resources :interactions
   resources :topics
   resources :people

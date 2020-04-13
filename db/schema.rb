@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_184836) do
-
-  create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "created_by_person_id"
-    t.string "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_04_13_133928) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -26,16 +18,9 @@ ActiveRecord::Schema.define(version: 2020_04_09_184836) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "course_students", force: :cascade do |t|
+  create_table "course_people", force: :cascade do |t|
     t.integer "course_id"
     t.integer "student_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "course_teachers", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "teacher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,6 +55,18 @@ ActiveRecord::Schema.define(version: 2020_04_09_184836) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "content"
+    t.string "type"
+    t.integer "score"
+    t.string "letter_grade"
+    t.string "instructor"
+    t.integer "created_by_person_id"
+    t.integer "interaction_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

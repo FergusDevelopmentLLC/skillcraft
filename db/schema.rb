@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
 
   create_table "course_people", force: :cascade do |t|
     t.integer "course_id"
-    t.integer "student_id"
+    t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.string "type"
     t.integer "topic_id"
     t.integer "course_id"
+    t.integer "teacher_id"
+    t.integer "classroom_id"
     t.string "title"
     t.date "start_date"
     t.date "end_date"
@@ -65,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.integer "score"
     t.string "letter_grade"
     t.string "instructor"
-    t.integer "created_by_person_id"
+    t.integer "student_id"
     t.integer "interaction_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -4,3 +4,14 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+desc 'Generate Entity Relationship Diagram'
+task :generate_erd do
+  File.delete('./db/development.sqlite3')
+  File.delete('./db/schema.rb')
+  system "rails db:migrate"
+  system "EAGER_LOAD=1 bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content"
+  system "dot -Tpng erd.dot > ./db/erd/generated/erd_#{DateTime.now.strftime('%Q')}.png"
+  File.delete('erd.dot')
+  File.delete('erd.pdf')
+end

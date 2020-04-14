@@ -1,1 +1,32 @@
 https://github.com/voormedia/rails-erd
+
+CREATE TABLE responses
+(
+  response_id INT NOT NULL,
+  content VARCHAR NOT NULL,
+  created_at DATE NOT NULL,
+  updated_at DATE NOT NULL,
+  type_(Assignment,_Quiz,_Test) VARCHAR NOT NULL,
+  score INT NOT NULL,
+  letter_grade VARCHAR NOT NULL,
+  instructor_comment VARCHAR NOT NULL,
+  created_by_person_id INT NOT NULL,
+  interaction_id INT NOT NULL,
+  PRIMARY KEY (response_id),
+  FOREIGN KEY (created_by_person_id) REFERENCES people(person_id),
+  FOREIGN KEY (interaction_id) REFERENCES interactions(interaction_id)
+);
+
+CREATE TABLE graded_results
+(
+  graded_result_id INT NOT NULL,
+  type_(Assignment,_Quiz,_Test) VARCHAR NOT NULL,
+  score_attained INT NOT NULL,
+  score_possible INT NOT NULL,
+  letter_attained CHAR NOT NULL,
+  response_id INT NOT NULL,
+  person_id INT NOT NULL,
+  PRIMARY KEY (graded_result_id),
+  FOREIGN KEY (response_id) REFERENCES responses(response_id),
+  FOREIGN KEY (person_id) REFERENCES people(person_id)
+);

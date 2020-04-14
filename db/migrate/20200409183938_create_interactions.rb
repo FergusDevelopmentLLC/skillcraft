@@ -4,6 +4,8 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
       t.string :type
       t.integer :topic_id
       t.integer :course_id
+      t.integer :teacher_id
+      t.integer :classroom_id
       t.string :title
       t.date :start_date
       t.date :end_date

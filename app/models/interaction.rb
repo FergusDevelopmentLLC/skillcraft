@@ -1,3 +1,6 @@
 class Interaction < ApplicationRecord
-    belongs_to :topic, class_name: "topic", foreign_key: "topic_id"
+    belongs_to :topic
+    belongs_to :course
+    belongs_to :classroom
+    belongs_to :teacher
 end

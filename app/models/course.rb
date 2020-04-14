@@ -1,3 +1,5 @@
 class Course < ApplicationRecord
-    belongs_to :classroom, class_name: "Classroom", foreign_key: "classroom_id"
+    belongs_to :classroom
+    has_many :interactions
+    has_many :topics
 end

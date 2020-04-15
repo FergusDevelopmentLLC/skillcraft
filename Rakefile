@@ -7,8 +7,8 @@ Rails.application.load_tasks
 
 desc 'Generate Entity Relationship Diagram'
 task :generate_erd do
-  File.delete('./db/development.sqlite3')
-  File.delete('./db/schema.rb')
+  File.delete('./db/development.sqlite3') if File.exist?('./db/development.sqlite3')
+  File.delete('./db/schema.rb') if File.exist?('./db/schema.rb')
   system "rails db:migrate"
   system "EAGER_LOAD=1 bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content"
   system "dot -Tpng erd.dot > ./db/erd/generated/erd_#{DateTime.now.strftime('%Q')}.png"

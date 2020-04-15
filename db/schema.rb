@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.string "type"
     t.integer "score"
     t.string "letter_grade"
-    t.string "instructor"
     t.integer "student_id"
     t.integer "interaction_id"
     t.datetime "created_at", precision: 6, null: false

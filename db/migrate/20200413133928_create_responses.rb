@@ -5,9 +5,9 @@ class CreateResponses < ActiveRecord::Migration[6.0]
       t.string :type
       t.integer :score
       t.string :letter_grade
-      t.string :instructor
       t.belongs_to :student
       t.belongs_to :interaction
+      
       t.timestamps
     end
   end

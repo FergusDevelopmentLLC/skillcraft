@@ -30,3 +30,6 @@ CREATE TABLE graded_results
   FOREIGN KEY (response_id) REFERENCES responses(response_id),
   FOREIGN KEY (person_id) REFERENCES people(person_id)
 );
+
+
+https://www.youtube.com/watch?v=Pb67l_JIFHk

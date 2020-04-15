@@ -1,3 +1,3 @@
 class Topic < ApplicationRecord
-    has_many :interactions, dependent: :destroy
+    has_many :interactions
 end

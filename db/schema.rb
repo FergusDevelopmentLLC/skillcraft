@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_course_people_on_course_id"
+    t.index ["person_id"], name: "index_course_people_on_person_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -30,14 +32,15 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_courses_on_classroom_id"
   end
 
   create_table "interactions", force: :cascade do |t|
     t.string "type"
+    t.integer "classroom_id"
     t.integer "topic_id"
     t.integer "course_id"
     t.integer "teacher_id"
-    t.integer "classroom_id"
     t.string "title"
     t.date "start_date"
     t.date "end_date"
@@ -48,6 +51,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.string "instructions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_interactions_on_classroom_id"
+    t.index ["course_id"], name: "index_interactions_on_course_id"
+    t.index ["teacher_id"], name: "index_interactions_on_teacher_id"
+    t.index ["topic_id"], name: "index_interactions_on_topic_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -71,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.integer "interaction_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["interaction_id"], name: "index_responses_on_interaction_id"
+    t.index ["student_id"], name: "index_responses_on_student_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_topics_on_course_id"
   end
 
 end

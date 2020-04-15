@@ -2,10 +2,12 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
   def change
     create_table :interactions do |t|
       t.string :type
-      t.integer :topic_id
-      t.integer :course_id
-      t.integer :teacher_id
-      t.integer :classroom_id
+           
+      t.belongs_to :classroom
+      t.belongs_to :topic
+      t.belongs_to :course
+      t.belongs_to :teacher
+      
       t.string :title
       t.date :start_date
       t.date :end_date

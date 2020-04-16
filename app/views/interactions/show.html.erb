@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Classroom:</strong>
+  <%= @interaction.classroom_id %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @interaction.topic_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @interaction.course_id %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @interaction.teacher_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @interaction.type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @interaction.title %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @interaction.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @interaction.end_date %>
+</p>
+
+<p>
+  <strong>Posted date:</strong>
+  <%= @interaction.posted_date %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @interaction.due_date %>
+</p>
+
+<p>
+  <strong>Graded:</strong>
+  <%= @interaction.graded %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @interaction.points %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @interaction.instructions %>
+</p>
+
+<%= link_to 'Edit', edit_interaction_path(@interaction) %> |
+<%= link_to 'Back', interactions_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interaction:</strong>
+  <%= @response.interaction_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @response.student_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @response.type %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @response.content %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @response.score %>
+</p>
+
+<p>
+  <strong>Letter grade:</strong>
+  <%= @response.letter_grade %>
+</p>
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

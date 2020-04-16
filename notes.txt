@@ -20,6 +20,7 @@ rails destroy scaffold Topic
 rails destroy Interaction
 rails destroy Response
 
+http://scottradcliff.com/using-pkill-to-kill-all-ruby-processes.html
 
 CREATE TABLE responses
 (

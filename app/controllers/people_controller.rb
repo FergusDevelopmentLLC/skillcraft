@@ -14,7 +14,6 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    binding.pry
     @person = Person.new
   end
 

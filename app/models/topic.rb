@@ -1,3 +1,3 @@
 class Topic < ApplicationRecord
-    has_many :interactions
+  belongs_to :course
 end

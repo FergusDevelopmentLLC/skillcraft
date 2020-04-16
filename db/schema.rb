@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_133928) do
+ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -19,28 +19,28 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
   end
 
   create_table "course_people", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "person_id"
+    t.integer "person_id", null: false
+    t.integer "classroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_course_people_on_course_id"
+    t.index ["classroom_id"], name: "index_course_people_on_classroom_id"
     t.index ["person_id"], name: "index_course_people_on_person_id"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.integer "classroom_id"
     t.string "name"
+    t.integer "classroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_courses_on_classroom_id"
   end
 
   create_table "interactions", force: :cascade do |t|
+    t.integer "classroom_id", null: false
+    t.integer "topic_id", null: false
+    t.integer "course_id", null: false
+    t.integer "teacher_id", null: false
     t.string "type"
-    t.integer "classroom_id"
-    t.integer "topic_id"
-    t.integer "course_id"
-    t.integer "teacher_id"
     t.string "title"
     t.date "start_date"
     t.date "end_date"
@@ -69,12 +69,12 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.string "content"
+    t.integer "interaction_id", null: false
+    t.integer "student_id", null: false
     t.string "type"
+    t.string "content"
     t.integer "score"
     t.string "letter_grade"
-    t.integer "student_id"
-    t.integer "interaction_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["interaction_id"], name: "index_responses_on_interaction_id"
@@ -82,11 +82,21 @@ ActiveRecord::Schema.define(version: 2020_04_13_133928) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.integer "course_id"
+    t.integer "course_id", null: false
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_topics_on_course_id"
   end
 
+  add_foreign_key "course_people", "classrooms"
+  add_foreign_key "course_people", "people"
+  add_foreign_key "courses", "classrooms"
+  add_foreign_key "interactions", "classrooms"
+  add_foreign_key "interactions", "courses"
+  add_foreign_key "interactions", "teachers"
+  add_foreign_key "interactions", "topics"
+  add_foreign_key "responses", "interactions"
+  add_foreign_key "responses", "students"
+  add_foreign_key "topics", "courses"
 end

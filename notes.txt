@@ -1,5 +1,26 @@
 https://github.com/voormedia/rails-erd
 
+https://github.com/voormedia/rails-erd
+
+rails g scaffold Classroom name:string
+rails g scaffold Course name:string classroom:belongs_to
+rails g scaffold Person user_name:string type:string password_digest:string first_name:string last_name:string email:string
+rails g scaffold CoursePerson person:references classroom:references
+rails g scaffold Topic course:belongs_to title:string
+rails g scaffold Interaction classroom:belongs_to topic:belongs_to course:belongs_to teacher:belongs_to type:string title:string start_date:date end_date:date posted_date:date due_date:date graded:boolean points:integer instructions:string
+rails g scaffold Response interaction:belongs_to student:belongs_to type:string content:string score:integer letter_grade:string 
+
+rake generate_erd
+
+rails destroy scaffold Person
+rails destroy scaffold Classroom
+rails destroy scaffold Course
+rails destroy scaffold CoursePerson
+rails destroy scaffold Topic
+rails destroy Interaction
+rails destroy Response
+
+
 CREATE TABLE responses
 (
   response_id INT NOT NULL,

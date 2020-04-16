@@ -1,3 +1,5 @@
 class Teacher < Person
-    has_many :interactions, dependent: :destroy
+    has_many :interactions
+    has_many :course_people
+    has_many :courses, through: :course_people
 end

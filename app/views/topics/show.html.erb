@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Course:</strong>
-  <%= @topic.course_id %>
-</p>
+    <p>
+      <strong>Course:</strong>
+      <%= @topic.course_id %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @topic.title %>
+    </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+    <%= link_to 'Edit', edit_topic_path(@topic) %> |
+    <%= link_to 'Back', topics_path %>
+  </main>
+</div>

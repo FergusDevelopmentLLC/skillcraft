@@ -1,34 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="full">
+  <main class="main">
 
-<p>
-  <strong>User name:</strong>
-  <%= @teacher.user_name %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @teacher.type %>
-</p>
+    <p>
+      <strong>User name:</strong>
+      <%= @teacher.user_name %>
+    </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @teacher.password_digest %>
-</p>
+    <p>
+      <strong>Type:</strong>
+      <%= @teacher.type %>
+    </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @teacher.first_name %>
-</p>
+    <p>
+      <strong>Password digest:</strong>
+      <%= @teacher.password_digest %>
+    </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @teacher.last_name %>
-</p>
+    <p>
+      <strong>First name:</strong>
+      <%= @teacher.first_name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @teacher.email %>
-</p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @teacher.last_name %>
+    </p>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+    <p>
+      <strong>Email:</strong>
+      <%= @teacher.email %>
+    </p>
+
+    <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+    <%= link_to 'Back', teachers_path %>
+  </main>
+  
+</div>

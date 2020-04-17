@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= form.text_field :classroom_id %>
+    <%=collection_radio_buttons(:course, :classroom_id, Classroom.all, :id, :name)%>
   </div>
 
   <div class="actions">

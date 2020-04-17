@@ -1,34 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="full">
+  <main class="main">
 
-<p>
-  <strong>Interaction:</strong>
-  <%= @response.interaction_id %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @response.student_id %>
-</p>
+    <p>
+      <strong>Interaction:</strong>
+      <%= @response.interaction_id %>
+    </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @response.type %>
-</p>
+    <p>
+      <strong>Student:</strong>
+      <%= @response.student_id %>
+    </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @response.content %>
-</p>
+    <p>
+      <strong>Type:</strong>
+      <%= @response.type %>
+    </p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @response.score %>
-</p>
+    <p>
+      <strong>Content:</strong>
+      <%= @response.content %>
+    </p>
 
-<p>
-  <strong>Letter grade:</strong>
-  <%= @response.letter_grade %>
-</p>
+    <p>
+      <strong>Score:</strong>
+      <%= @response.score %>
+    </p>
 
-<%= link_to 'Edit', edit_response_path(@response) %> |
-<%= link_to 'Back', responses_path %>
+    <p>
+      <strong>Letter grade:</strong>
+      <%= @response.letter_grade %>
+    </p>
+
+    <%= link_to 'Edit', edit_response_path(@response) %> |
+    <%= link_to 'Back', responses_path %>
+  </main>
+</div>

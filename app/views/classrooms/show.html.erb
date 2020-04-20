@@ -9,15 +9,17 @@
     <% if @classroom.courses.count > 0 %>
     <p>
       <strong>Courses:</strong>
-      <ul>
+
+      <ul class="courses">
         <% @classroom.courses.each {|course| %>
         <li><%= link_to course.name, course_path(course) %></li>
         <% } %>
-      <ul>
+      </ul>
     </p>
     <% end %>
-
-    <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-    <%= link_to 'Back', classrooms_path %>
+    <div class="actions">
+      <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
+      <%= link_to 'Back', classrooms_path %>
+    </div>
   </main>
 </div>

@@ -556,6 +556,10 @@ table th {
     margin: .5rem 0 .5rem 0;
 }
 
+.courses {
+    margin: 0;
+}
+
 .field {
     display: flex;
     justify-content: flex-start;
@@ -570,7 +574,7 @@ label {
     align-self: flex-start;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], select {
     margin-top: .3rem;
     max-width: 33%;
 }

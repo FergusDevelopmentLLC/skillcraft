@@ -13,12 +13,22 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= form.text_field :classroom_id %>
+    <%= collection_radio_buttons(:interaction, :classroom_id, Classroom.all, :id, :name) do |b| %>
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :topic_id %>
-    <%= form.text_field :topic_id %>
+    <%= collection_radio_buttons(:interaction, :topic_id, Topic.all, :id, :name) do |b| %>
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
 
   <div class="field">
@@ -41,27 +51,27 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field date-select">
     <%= form.label :start_date %>
     <%= form.date_select :start_date %>
   </div>
 
-  <div class="field">
+  <div class="field date-select">
     <%= form.label :end_date %>
     <%= form.date_select :end_date %>
   </div>
-
-  <div class="field">
+ 
+  <div class="field date-select">
     <%= form.label :posted_date %>
     <%= form.date_select :posted_date %>
   </div>
 
-  <div class="field">
+  <div class="field date-select">
     <%= form.label :due_date %>
     <%= form.date_select :due_date %>
   </div>
 
-  <div class="field">
+  <div class="field graded">
     <%= form.label :graded %>
     <%= form.check_box :graded %>
   </div>

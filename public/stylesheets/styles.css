@@ -547,6 +547,47 @@ table th {
 }
 
 
+.field {
+    margin-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.field div {
+    margin: .3rem 0 .3rem;
+    
+}
+
+.actions {
+    margin: 0 0 .5rem 0;
+}
+
+.field {
+    display: flex;
+    justify-content: flex-start;
+}
+
+label {
+    min-width: 100px;
+    align-self: flex-start;
+    margin-top: .2em;
+}
+
+input[type="text"], input[type="number"] {
+    margin-top: .3rem;
+    max-width: 33%;
+}
+
+.date-select {
+    display: flex;
+    flex-direction: row;
+}
+
+.graded {
+    display: flex;
+    flex-direction: row;
+}
+
 
 @media screen and (max-width: 768px) {
     .nav-title {

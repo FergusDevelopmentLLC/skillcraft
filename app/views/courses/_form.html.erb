@@ -17,14 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :classroom_id %>
+    <%= form.label :classroom, class: "radio_button_label" %>
     <%= collection_radio_buttons(:course, :classroom_id, Classroom.all, :id, :name) do |b| %>
-        <div>
-          <%= b.radio_button %>
-          <%= b.label %>
-        </div>
-      <% end %>
-  
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">

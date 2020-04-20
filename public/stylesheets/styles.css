@@ -538,6 +538,7 @@ table td {
 }
 table th {
     text-align: left;
+    padding: 0 .5rem .5rem 0;
 }
 
 

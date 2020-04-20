@@ -13,27 +13,17 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= collection_radio_buttons(:interaction, :classroom_id, Classroom.all, :id, :name) do |b| %>
-      <div>
-        <%= b.radio_button %>
-        <%= b.label %>
-      </div>
-    <% end %>
+    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :topic_id %>
-    <%= collection_radio_buttons(:interaction, :topic_id, Topic.all, :id, :name) do |b| %>
-      <div>
-        <%= b.radio_button %>
-        <%= b.label %>
-      </div>
-    <% end %>
+    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.text_field :course_id %>
+    <%= collection_select(:course, :course_id, Course.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">

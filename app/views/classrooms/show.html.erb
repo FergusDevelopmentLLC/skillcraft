@@ -5,6 +5,18 @@
       <strong>Name:</strong>
       <%= @classroom.name %>
     </p>
+
+    <% if @classroom.courses.count > 0 %>
+    <p>
+      <strong>Courses:</strong>
+      <ul>
+        <% @classroom.courses.each {|course| %>
+        <li><%=course.name%></li>
+        <% } %>
+      <ul>
+    </p>
+    <% end %>
+
     <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
     <%= link_to 'Back', classrooms_path %>
   </main>

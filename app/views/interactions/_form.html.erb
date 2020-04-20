@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :topic_id %>
-    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title, prompt: true) %>
+    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= collection_select(:course, :course_id, Course.all, :id, :name, prompt: true) %>
+    <%= collection_select(:course, :course_id, Course.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :topic_id %>
+    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title) %>
   </div>
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id %>
+    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name) %>
   </div>
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= collection_select(:type, :type_id, Type.all, :id, :title) %>
   </div>
 
   <div class="field">
@@ -79,5 +79,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-  
+
 <% end %>

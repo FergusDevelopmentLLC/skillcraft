@@ -63,9 +63,7 @@ body {
 
 .header { 
     grid-area: header;
-    background: #94bde9;
-    border-left: 1px solid #727272;
-    border-right: 1px solid #727272;
+    background: red;
     border-bottom: 1px solid lightgray;
     display: flex;
     align-items: flex-end;
@@ -146,9 +144,7 @@ body {
 
 .footer { 
     grid-area: footer;
-    background: #94bde9;
-    border-left: 1px solid #727272;
-    border-right: 1px solid #727272;
+    background: red;
     text-align: center;
     padding-top: .2em;
     color: lightyellow;
@@ -156,10 +152,8 @@ body {
 
 .main { 
     grid-area: main;
-    border-left: 1px solid #727272;
-    border-right: 1px solid lightgray;
     padding: .75em 1em .75em 1em;
-    background: lightyellow;
+    background: white;
 }
 
 .full .main {

@@ -16,11 +16,8 @@
     <%= form.text_field :user_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
-  </div>
-
+  <%= form.hidden_field :teacher_id, :value => @teacher.id %>
+  
   <div class="field">
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest %>

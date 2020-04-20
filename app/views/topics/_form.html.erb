@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :course, class: "radio_button_label" %>
+    <%= form.label :course%>
     <%= collection_select(:topic, :course_id, Course.all, :id, :name, prompt: true) %>
   </div>
 

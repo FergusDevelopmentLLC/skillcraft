@@ -2,6 +2,8 @@
   <main class="main">
     <h1>New Quiz</h1>
     <%= render 'form', quiz: @quiz %>
-    <%= link_to 'Back', quizzes_path %>
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

@@ -33,7 +33,8 @@
       <%= @response.letter_grade %>
     </p>
 
-    <%= link_to 'Edit', edit_response_path(@response) %> |
-    <%= link_to 'Back', responses_path %>
+   <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

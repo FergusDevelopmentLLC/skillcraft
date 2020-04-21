@@ -2,7 +2,8 @@
   <main class="main">
     <h1>Editing Announcement</h1>
     <%= render 'form', announcement: @announcement %>
-    <%= link_to 'Show', @announcement %> |
-    <%= link_to 'Back', announcements_path %>
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

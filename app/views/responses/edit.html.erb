@@ -2,7 +2,8 @@
   <main class="main">
     <h1>Editing Response</h1>
     <%= render 'form', response: @response %>
-    <%= link_to 'Show', @response %> |
-    <%= link_to 'Back', responses_path %>
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

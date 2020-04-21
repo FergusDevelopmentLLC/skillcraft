@@ -66,3 +66,13 @@ collection_radio_buttons(:topic, :course_id, Course.all, :id, :name) do |b| %>
 
 What is an E coach?
 Certain teacher that has e-learning experience
+
+
+<%= link_to 'Edit Topic', edit_topic_path(@topic) %>
+<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
+<%= link_to 'Edit Student', edit_student_path(@student) %>
+<%= link_to 'Edit Announcement', edit_announcement_path(@announcement) %>
+<%= link_to 'Edit Question', edit_question_path(@question) %>
+<%= link_to 'Edit Quiz', edit_quiz_path(@quiz) %>
+<%= link_to 'Edit Test', edit_test_path(@test) %>
+<%= link_to 'Edit Question', edit_question_path(@question) %>

@@ -2,6 +2,10 @@
   <main class="main">
     <h1>New Classroom</h1>
     <%= render 'form', classroom: @classroom %>
-    <%= link_to 'Back', classrooms_path %>
+
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+    
   </main>
 </div>

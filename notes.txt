@@ -62,3 +62,7 @@ collection_radio_buttons(:topic, :course_id, Course.all, :id, :name) do |b| %>
         <%= b.label %>
       </div>
     <% end 
+
+
+What is an E coach?
+Certain teacher that has e-learning experience

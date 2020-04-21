@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name) %>
+    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, :prompt => '-Select classroom-') %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= collection_select(:course, :course_id, Course.all, :id, :name) %>
+    <%= collection_select(:course, :course_id, Course.all, :id, :name, :prompt => '-Select course-') %>
   </div>
 
   <div class="field">
     <%= form.label :topic_id %>
-    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title) %>
+    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title, :prompt => '-Select topic-') %>
   </div>
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name) %>
+    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select type-') %>
   </div>
 
   <div class="field">
     <%= form.label :type %>
-    <%= collection_select(:type, :type_id, Type.all, :id, :title) %>
+    <%= form.select :type, [["Assignment", "assignment"], ["Quiz", "quiz"], ["Test", "test"], ["Question", "question"]], :prompt => '-Select type-' %>
   </div>
 
   <div class="field">

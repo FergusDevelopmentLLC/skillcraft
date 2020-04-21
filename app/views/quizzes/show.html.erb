@@ -1,0 +1,73 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Classroom:</strong>
+      <%= @quiz.classroom_id %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @quiz.topic_id %>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <%= @quiz.course_id %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong>
+      <%= @quiz.teacher_id %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @quiz.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @quiz.title %>
+    </p>
+
+    <p>
+      <strong>Start date:</strong>
+      <%= @quiz.start_date %>
+    </p>
+
+    <p>
+      <strong>End date:</strong>
+      <%= @quiz.end_date %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong>
+      <%= @quiz.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong>
+      <%= @quiz.due_date %>
+    </p>
+
+    <p>
+      <strong>Graded:</strong>
+      <%= @quiz.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong>
+      <%= @quiz.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong>
+      <%= @quiz.instructions %>
+    </p>
+
+    <%= link_to 'Edit', edit_quizzes_path(@quiz) %> |
+    <%= link_to 'Back', quizzes_path %>
+  </main>
+</div>

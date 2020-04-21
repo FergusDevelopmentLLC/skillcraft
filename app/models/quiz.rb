@@ -1,0 +1,2 @@
+class Quiz < Interaction
+end

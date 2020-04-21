@@ -2,6 +2,9 @@
   <main class="main">
     <h1>New Test</h1>
     <%= render 'form', test: @test %>
-    <%= link_to 'Back', tests_path %>
+    <br/>
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

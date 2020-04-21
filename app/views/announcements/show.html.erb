@@ -1,0 +1,73 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Classroom:</strong>
+      <%= @announcement.classroom_id %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @announcement.topic_id %>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <%= @announcement.course_id %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong>
+      <%= @announcement.teacher_id %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @announcement.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @announcement.title %>
+    </p>
+
+    <p>
+      <strong>Start date:</strong>
+      <%= @announcement.start_date %>
+    </p>
+
+    <p>
+      <strong>End date:</strong>
+      <%= @announcement.end_date %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong>
+      <%= @announcement.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong>
+      <%= @announcement.due_date %>
+    </p>
+
+    <p>
+      <strong>Graded:</strong>
+      <%= @announcement.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong>
+      <%= @announcement.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong>
+      <%= @announcement.instructions %>
+    </p>
+
+    <%= link_to 'Edit', edit_announcements_path(@announcement) %> |
+    <%= link_to 'Back', announcements_path %>
+  </main>
+</div>

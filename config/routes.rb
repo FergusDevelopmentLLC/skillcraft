@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :interactions
   resources :responses
   resources :topics
+  resources :announcements
+  resources :questions
+  resources :tests
+  resources :quizzes
 
   root 'classrooms#index' # shortcut for the above
 

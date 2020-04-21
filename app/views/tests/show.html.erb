@@ -1,0 +1,73 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Classroom:</strong>
+      <%= @test.classroom_id %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @test.topic_id %>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <%= @test.course_id %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong>
+      <%= @test.teacher_id %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @test.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @test.title %>
+    </p>
+
+    <p>
+      <strong>Start date:</strong>
+      <%= @test.start_date %>
+    </p>
+
+    <p>
+      <strong>End date:</strong>
+      <%= @test.end_date %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong>
+      <%= @test.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong>
+      <%= @test.due_date %>
+    </p>
+
+    <p>
+      <strong>Graded:</strong>
+      <%= @test.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong>
+      <%= @test.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong>
+      <%= @test.instructions %>
+    </p>
+
+    <%= link_to 'Edit', edit_tests_path(@test) %> |
+    <%= link_to 'Back', tests_path %>
+  </main>
+</div>

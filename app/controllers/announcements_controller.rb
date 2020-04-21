@@ -56,7 +56,7 @@ class AnnouncementsController < ApplicationController
     def destroy
       @announcement.destroy
       respond_to do |format|
-        format.html { redirect_to interactions_url, notice: 'Announcement was successfully destroyed.' }
+        format.html { redirect_to announcements_url, notice: 'Announcement was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -69,7 +69,7 @@ class AnnouncementsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def announcement_params
-        params.require(:interaction).permit(:classroom_id, :topic_id, :course_id, :teacher_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
+        params.require(:announcement).permit(:classroom_id, :topic_id, :course_id, :teacher_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
       end
   end
   

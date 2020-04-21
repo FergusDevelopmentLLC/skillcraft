@@ -1,10 +1,10 @@
-<%= form_with(model: quiz, local: true) do |form| %>
-  <% if quiz.errors.any? %>
+<%= form_with(model: question, local: true) do |form| %>
+  <% if question.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
       <ul>
-        <% quiz.errors.full_messages.each do |message| %>
+        <% question.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -31,7 +31,7 @@
     <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select teacher-') %>
   </div>
 
-  <%= form.hidden_field :type, :value => 'quiz'%>
+  <%= form.hidden_field :type, :value => 'question'%>
   
   <div class="field">
     <%= form.label :title %>

@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select type-') %>
+    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select teacher-') %>
   </div>
 
   <%= form.hidden_field :type, :value => 'Announcement'%>

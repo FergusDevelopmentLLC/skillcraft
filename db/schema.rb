@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_205544) do
+ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -35,17 +35,12 @@ ActiveRecord::Schema.define(version: 2020_04_20_205544) do
     t.index ["classroom_id"], name: "index_courses_on_classroom_id"
   end
 
-  create_table "interaction_types", force: :cascade do |t|
-    t.integer "interaction_id", null: false
-    t.string "name"
-    t.index ["interaction_id"], name: "index_interaction_types_on_interaction_id"
-  end
-
   create_table "interactions", force: :cascade do |t|
     t.integer "classroom_id", null: false
     t.integer "topic_id", null: false
     t.integer "course_id", null: false
     t.integer "teacher_id", null: false
+    t.string "type"
     t.string "title"
     t.date "start_date"
     t.date "end_date"
@@ -97,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_205544) do
   add_foreign_key "course_people", "classrooms"
   add_foreign_key "course_people", "people"
   add_foreign_key "courses", "classrooms"
-  add_foreign_key "interaction_types", "interactions"
   add_foreign_key "interactions", "classrooms"
   add_foreign_key "interactions", "courses"
   add_foreign_key "interactions", "teachers"

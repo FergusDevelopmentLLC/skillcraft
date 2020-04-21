@@ -13,42 +13,12 @@ node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =
 edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
 rankdir = "TB";
 label = "SkillCraft domain model\n\n";
-m_Announcement [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+m_Announcement [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Announcement</font></td></tr>
 </table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="classroom_id">classroom_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="graded">graded <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-  <tr><td align="left" width="130" port="instructions">instructions <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="posted_date">posted_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="teacher_id">teacher_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="topic_id">topic_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-</table>
 }>];
-m_Assignment [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+m_Assignment [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Assignment</font></td></tr>
-</table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="classroom_id">classroom_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="graded">graded <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-  <tr><td align="left" width="130" port="instructions">instructions <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="posted_date">posted_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="teacher_id">teacher_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="topic_id">topic_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
 </table>
 }>];
 m_Classroom [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -96,15 +66,6 @@ m_Interaction [label = <{<table border="0" align="center" cellspacing="0.5" cell
   <tr><td align="left" width="130" port="topic_id">topic_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
 </table>
 }>];
-m_InteractionType [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
-  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">InteractionType</font></td></tr>
-</table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="interaction_id">interaction_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
-  <tr><td align="left" width="130" port="name">name <font face="Arial Italic" color="grey60">string</font></td></tr>
-</table>
-}>];
 m_Person [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Person</font></td></tr>
 </table>
@@ -117,42 +78,16 @@ m_Person [label = <{<table border="0" align="center" cellspacing="0.5" cellpaddi
   <tr><td align="left" width="130" port="user_name">user_name <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 }>];
-m_Post [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+m_Post [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Post</font></td></tr>
 </table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="classroom_id">classroom_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="graded">graded <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-  <tr><td align="left" width="130" port="instructions">instructions <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="posted_date">posted_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="teacher_id">teacher_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="topic_id">topic_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-</table>
 }>];
-m_Question [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+m_Question [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Question</font></td></tr>
 </table>
-|
-<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
-  <tr><td align="left" width="130" port="classroom_id">classroom_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="graded">graded <font face="Arial Italic" color="grey60">boolean</font></td></tr>
-  <tr><td align="left" width="130" port="instructions">instructions <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
-  <tr><td align="left" width="130" port="posted_date">posted_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="teacher_id">teacher_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
-  <tr><td align="left" width="130" port="topic_id">topic_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+}>];
+m_Quiz [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Quiz</font></td></tr>
 </table>
 }>];
 m_Response [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -175,6 +110,10 @@ m_Teacher [color = "grey60", fontcolor = "grey60", label = <{<table border="0" a
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Teacher</font></td></tr>
 </table>
 }>];
+m_Test [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Test</font></td></tr>
+</table>
+}>];
 m_Topic [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Topic</font></td></tr>
 </table>
@@ -184,13 +123,18 @@ m_Topic [label = <{<table border="0" align="center" cellspacing="0.5" cellpaddin
   <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 }>];
+  m_Interaction -> m_Announcement [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Interaction -> m_Assignment [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Interaction -> m_Post [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Interaction -> m_Question [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Interaction -> m_Quiz [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Interaction -> m_Test [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Person -> m_Student [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Person -> m_Teacher [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
-  m_Classroom -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "5"];
-  m_Topic -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "5"];
-  m_Course -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "5"];
-  m_Teacher -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "6"];
-  m_Interaction -> m_InteractionType [arrowhead = "none", arrowtail = "none", weight = "5"];
+  m_Classroom -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "7"];
+  m_Topic -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "7"];
+  m_Course -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "7"];
+  m_Teacher -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "8"];
   m_Classroom -> m_Course [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_Course -> m_Topic [arrowhead = "normal", arrowtail = "none", weight = "2"];
   m_CoursePerson -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];

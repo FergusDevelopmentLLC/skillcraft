@@ -31,7 +31,7 @@
     <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select teacher-') %>
   </div>
 
-  <%= form.hidden_field :type, :value => 'question'%>
+  <%= form.hidden_field :type, :value => 'Question'%>
   
   <div class="field">
     <%= form.label :title %>

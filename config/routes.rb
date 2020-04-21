@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  resources :teachers
-  resources :students
-  resources :people
   resources :classrooms
   resources :courses
-  resources :interactions
-  resources :responses
   resources :topics
+
+  resources :teachers
+  resources :students
+  
   resources :announcements
   resources :questions
   resources :tests
   resources :quizzes
+
+  resources :responses
 
   root 'classrooms#index' # shortcut for the above
 

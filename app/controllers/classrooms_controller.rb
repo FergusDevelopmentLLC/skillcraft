@@ -15,7 +15,6 @@ class ClassroomsController < ApplicationController
 
   # GET /classrooms/new
   def new
-    console
     @classroom = Classroom.new
   end
 

@@ -3,18 +3,19 @@ class TestsController < ApplicationController
   
     # GET /tests
     # GET /tests.json
-    def indexs
-      @announcements = Test.all
+    def index
+      @tests = Test.all
     end
   
     # GET /tests/1
     # GET /tests/1.json
     def show
+      @tests = Test.all
     end
   
     # GET /tests/new
     def new
-      @test = Test.new
+      @test = Test.new(params[:id])
     end
   
     # GET /tests/1/edit

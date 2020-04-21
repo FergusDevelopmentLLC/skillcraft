@@ -67,7 +67,9 @@
       <%= @test.instructions %>
     </p>
 
-    <%= link_to 'Edit', edit_tests_path(@test) %> |
-    <%= link_to 'Back', tests_path %>
+    <br/>
+    <div class="actions">
+      <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

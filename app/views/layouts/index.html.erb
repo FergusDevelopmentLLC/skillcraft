@@ -1,0 +1,35 @@
+<div class="home">
+    <main class="main">
+        <div class="latest-wrapper">
+            <%if @latest_game%>
+
+            <div class="latest-img">
+                <a href='/games/<%=@latest_game.id%>'><img src="<%=@latest_game.image%>"/></a>
+            </div>
+            <div class="latest-description">
+                <h3>Latest game: <a href='/games/<%=@latest_game.id%>'><%=@latest_game.name%></a></h3>
+                <p><strong><%=@latest_game.short_description%></strong></p>
+                <p><%=@latest_game.description%></p>
+                <ul>
+                    <li>Type: <a href='/types/<%=@latest_game.type.id%>'><%=@latest_game.type.name%></a></li>
+                    <%if !@latest_game.number_of_players.blank?%><li>Number of players: <%=@latest_game.number_of_players%></li><%end%>
+                    <%if !@latest_game.play_length.blank?%><li>Play length: <%=@latest_game.play_length%></li><%end%>
+                    <%if !@latest_game.tags.empty?%><li>Tags: <%=@latest_game.tag_links%></li><%end%>
+                </ul>
+                <%if !@latest_game.comments.empty?%><p class="latest-comment"><em><%=@latest_game.comments.last.content%></em> - <%=@latest_game.comments.last.user.username%> <%=Time.at(@latest_game.comments.last.updated_at).to_datetime.strftime("%m/%d/%Y")%></p><%end%>
+            </div>
+            
+            <%end%>
+        </div>
+        <div class="types-wrapper">
+            <h4><a href='/types'>Game Types</a></h4>
+            <div class="types">
+                <%# check notes.txt %>
+            </div>
+        </div>
+    </main>
+    <aside class="right">
+        <h3>Featured Games</h3>
+        <%# check notes.txt %>
+    </aside>
+</div>

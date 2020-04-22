@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :people
 
   resources :announcements
+  resources :assignments
   resources :questions
   resources :tests
   resources :quizzes

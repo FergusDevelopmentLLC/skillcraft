@@ -24,6 +24,7 @@ class AnnouncementsController < ApplicationController
     # POST /announcements
     # POST /announcements.json
     def create
+      
       @announcement = Announcement.new(announcement_params)
   
       respond_to do |format|

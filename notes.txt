@@ -76,3 +76,9 @@ Certain teacher that has e-learning experience
 <%= link_to 'Edit Quiz', edit_quiz_path(@quiz) %>
 <%= link_to 'Edit Test', edit_test_path(@test) %>
 <%= link_to 'Edit Question', edit_question_path(@question) %>
+
+
+ // <div class="field">
+  //   <%= form.label :classroom%>
+  //   <%= collection_select(:topic, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
+  // </div>

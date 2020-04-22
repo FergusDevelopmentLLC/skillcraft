@@ -19,8 +19,8 @@
         <% @topics.each do |topic| %>
           <tr>
             <td><%= topic.course.classroom.name %></td>
-            <td><%= topic.title %></td>
             <td><%= topic.course.name %></td>
+            <td><%= topic.title %></td>
             <td><%= link_to 'Show', topic %></td>
             <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
             <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,13 +28,10 @@
         <% end %>
       </tbody>
     </table>
-    
-    <br/>
-    <hr/>
-    <br/>
-    
+
     <div class="actions">
-      <%= link_to  'New Topic', new_topic_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'New Topic', new_topic_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
+
   </main>
 </div>

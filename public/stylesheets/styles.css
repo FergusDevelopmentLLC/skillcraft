@@ -701,9 +701,6 @@ input[type="text"], input[type="number"], select {
                             1fr
                             30px;
     }
-
-    
-
     .nav ul {
         flex-direction: column;
     }

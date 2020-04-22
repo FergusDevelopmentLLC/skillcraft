@@ -2,11 +2,6 @@
   <main class="main">
     <h1>New Assignment</h1>
     <%= render 'form', assignment: @assignment %>
-    
-    <br/>
-    <hr/>
-    <br/>
-
     <div class="actions">
       <%= link_to  'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>

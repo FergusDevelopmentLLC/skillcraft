@@ -32,13 +32,9 @@
       <strong>Letter grade:</strong>
       <%= @response.letter_grade %>
     </p>
-
-    <br/>
-    <hr/>
-    <br/>
-
+    
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Responses', responses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
     
   </main>

@@ -2,7 +2,10 @@
   <main class="main">
     <h1>Editing Topic</h1>
     <%= render 'form', topic: @topic %>
-    <%= link_to 'Show', @topic %> |
-    <%= link_to 'Back', topics_path %>
+
+    <div class="actions">
+      <%= link_to 'Topics', topics_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+    
   </main>
 </div>

@@ -29,13 +29,10 @@
       <%= @teacher.email %>
     </p>
 
-    <br/>
-    <hr/>
-    <br/>
-
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
+
   </main>
   
 </div>

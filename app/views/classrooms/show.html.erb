@@ -18,14 +18,11 @@
         <% } %>
       </ul>
     </p>
-    <% end %>
-    
-    <br/>
-    <hr/>
-    <br/>
-    
+    <% end %>   
+
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to  'Classrooms', classrooms_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
+    
   </main>
 </div>

@@ -3,11 +3,10 @@
     <h1>New Topic</h1>
 
     <%= render 'form', topic: @topic %>
-    <br/>
-    <hr/>
-    <br/>
+    
     <div class="actions">
       <%= link_to 'Topics', topics_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
+    
     </main>
 </div>

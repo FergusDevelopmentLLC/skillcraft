@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resources :teachers
   resources :students
-  
+  resources :people
+
   resources :announcements
   resources :questions
   resources :tests
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :responses
 
-  root 'classrooms#index' # shortcut for the above
+  root 'layouts#index' # shortcut for the above
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

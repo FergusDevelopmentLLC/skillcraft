@@ -82,3 +82,36 @@ Certain teacher that has e-learning experience
   //   <%= form.label :classroom%>
   //   <%= collection_select(:topic, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
   // </div>
+
+  <% if flash.has?(:message) %> %>
+    <div class="flash-message"><%=flash[:message]%></div> %>
+  <% end %> %>
+
+
+  <% Type.all.each { |type|%>
+                <div class="type">
+                    <h3><a href='/types/<%=type.id%>'><%=type.name%></a></h3>
+                    <ul>
+                        <%type.games.limit(3).each { |game|%>
+                        <li><a href='/games/<%=game.id%>'><%=game.name%></a></li>
+                        <%}%>
+                        <%if type.games.count > 3%>
+                        <li><a href='/types/<%=type.id%>'>[More]</a></li>
+                        <%end%>
+                        <%if type.games.empty?%>
+                        <li>None</li>
+                        <%end%>
+                    </ul>
+                </div>
+                <%}%>
+
+<% @featured.each { |featured| %>
+            <div class="feature">
+                <div class="feature-image">
+                    <a href='/games/<%=featured.id%>'><img src="../../../uploads/<%=featured.image%>"/></a>
+                </div>
+                <div class="feature-desc">
+                    <a href='/games/<%=featured.id%>'><%=featured.name%></a> - <%=featured.short_description%>
+                </div>
+            </div>
+        <%}%>                

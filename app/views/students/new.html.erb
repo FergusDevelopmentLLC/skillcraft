@@ -3,8 +3,10 @@
     <h1>New Student</h1>
     <%= render 'form', student: @student %>
     <br/>
+    <hr/>
+    <br/>
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
   </main>
 </div>

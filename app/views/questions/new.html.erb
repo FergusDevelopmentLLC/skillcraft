@@ -2,8 +2,11 @@
   <main class="main">
     <h1>New Question</h1>
     <%= render 'form', question: @question %>
+    <br/>
+    <hr/>
+    <br/>
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Questions', questions_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
   </main>
 </div>

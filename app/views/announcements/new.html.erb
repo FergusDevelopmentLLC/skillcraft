@@ -2,9 +2,11 @@
   <main class="main">
     <h1>New Announcement</h1>
     <%= render 'form', announcement: @announcement %>
+    <br/>
     <hr/>
+    <br/>
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
 
   </main>

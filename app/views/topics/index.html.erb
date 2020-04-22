@@ -28,9 +28,9 @@
         <% end %>
       </tbody>
     </table>
-
     <br>
-
-    <%= link_to 'New Topic', new_topic_path %>
+    <div class="actions">
+      <%= link_to  'New Topic', new_topic_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
   </main>
 </div>

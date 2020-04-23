@@ -2,7 +2,8 @@
   <main class="main">
     <p id="notice"><%= notice %></p>
 
-    <h1>Topic</h1>
+    <h1>Show Topic: <%= @topic.title %></h1>
+
     <%= render 'form', topic: @topic %>
     
     <div class="actions">

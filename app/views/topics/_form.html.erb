@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <br/>
-  <br/>
-  <br/>
-
- <div class="field">
+  <div class="field">
     <%= form.label :classroom%>
     <%= collection_select(:announcement, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
   </div>
@@ -26,19 +22,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :topic%>
-    <%= collection_select(:course, :topic_id, Topic.all, :id, :name, prompt: true) %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <br/>
-  <hr/>
-  <br/>
-  
   <div class="actions">
     <%= form.submit %>
   </div>

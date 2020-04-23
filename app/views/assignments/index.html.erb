@@ -25,30 +25,30 @@
       </thead>
 
       <tbody>
-        <% @assignments.each do |question| %>
+        <% @assignments.each do |assignment| %>
           <tr>
-            <td><%= question.classroom_id %></td>
-            <td><%= question.topic_id %></td>
-            <td><%= question.course_id %></td>
-            <td><%= question.teacher_id %></td>
-            <td><%= question.type %></td>
-            <td><%= question.title %></td>
-            <td><%= question.start_date %></td>
-            <td><%= question.end_date %></td>
-            <td><%= question.posted_date %></td>
-            <td><%= question.due_date %></td>
-            <td><%= question.graded %></td>
-            <td><%= question.points %></td>
-            <td><%= question.instructions %></td>
-            <td><%= link_to 'Show', question %></td>
-            <td><%= link_to 'Edit', edit_question_path(question) %></td>
-            <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= assignment.classroom_id %></td>
+            <td><%= assignment.topic_id %></td>
+            <td><%= assignment.course_id %></td>
+            <td><%= assignment.teacher_id %></td>
+            <td><%= assignment.type %></td>
+            <td><%= assignment.title %></td>
+            <td><%= assignment.start_date %></td>
+            <td><%= assignment.end_date %></td>
+            <td><%= assignment.posted_date %></td>
+            <td><%= assignment.due_date %></td>
+            <td><%= assignment.graded %></td>
+            <td><%= assignment.points %></td>
+            <td><%= assignment.instructions %></td>
+            <td><%= link_to 'Show', assignment %></td>
+            <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+            <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
     <div class="actions">
-      <%= link_to  'New Assignment', new_assignment_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'New Assignment', new_assignment_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
   </main>
 </div>

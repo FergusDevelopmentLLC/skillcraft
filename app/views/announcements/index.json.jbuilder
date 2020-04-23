@@ -1,1 +1,1 @@
-json.array! @announcement, partial: "announcements/announcement", as: :announcement
+json.array! @announcement, partial: "announcement/announcements", as: :announcement

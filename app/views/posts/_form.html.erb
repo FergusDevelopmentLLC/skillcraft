@@ -1,10 +1,10 @@
-<%= form_with(model: assignment, local: true) do |form| %>
-  <% if assignment.errors.any? %>
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-        <% assignment.errors.full_messages.each do |message| %>
+        <% post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -31,7 +31,7 @@
     <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select teacher-') %>
   </div>
 
-  <%= form.hidden_field :type, :value => 'Assignment'%>
+  <%= form.hidden_field :type, :value => 'Post'%>
   
   <div class="field">
     <%= form.label :title %>

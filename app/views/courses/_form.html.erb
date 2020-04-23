@@ -21,11 +21,8 @@
     <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
   </div>
 
-  <br/>
-  <hr/>
-  <br/>
-  
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>

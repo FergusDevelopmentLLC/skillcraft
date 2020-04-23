@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :announcements
   resources :assignments
+  resources :posts
   resources :questions
   resources :tests
   resources :quizzes

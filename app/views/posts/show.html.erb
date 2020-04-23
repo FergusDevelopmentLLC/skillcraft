@@ -4,70 +4,72 @@
 
     <p>
       <strong>Classroom:</strong>
-      <%= @announcement.classroom_id %>
+      <%= @post.classroom_id %>
     </p>
 
     <p>
       <strong>Topic:</strong>
-      <%= @announcement.topic_id %>
+      <%= @post.topic_id %>
     </p>
 
     <p>
       <strong>Course:</strong>
-      <%= @announcement.course_id %>
+      <%= @post.course_id %>
     </p>
 
     <p>
       <strong>Teacher:</strong>
-      <%= @announcement.teacher_id %>
+      <%= @post.teacher_id %>
     </p>
 
     <p>
       <strong>Type:</strong>
-      <%= @announcement.type %>
+      <%= @post.type %>
     </p>
 
     <p>
       <strong>Title:</strong>
-      <%= @announcement.title %>
+      <%= @post.title %>
     </p>
 
     <p>
       <strong>Start date:</strong>
-      <%= @announcement.start_date %>
+      <%= @post.start_date %>
     </p>
 
     <p>
       <strong>End date:</strong>
-      <%= @announcement.end_date %>
+      <%= @post.end_date %>
     </p>
 
     <p>
       <strong>Posted date:</strong>
-      <%= @announcement.posted_date %>
+      <%= @post.posted_date %>
     </p>
 
     <p>
       <strong>Due date:</strong>
-      <%= @announcement.due_date %>
+      <%= @post.due_date %>
     </p>
 
     <p>
       <strong>Graded:</strong>
-      <%= @announcement.graded %>
+      <%= @post.graded %>
     </p>
 
     <p>
       <strong>Points:</strong>
-      <%= @announcement.points %>
+      <%= @post.points %>
     </p>
 
     <p>
       <strong>Instructions:</strong>
-      <%= @announcement.instructions %>
+      <%= @post.instructions %>
     </p>
+
     <div class="actions">
-     <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Posts', posts_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
+
   </main>
 </div>

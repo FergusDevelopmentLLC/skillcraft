@@ -26,7 +26,6 @@ class ClassroomsController < ApplicationController
   # POST /classrooms.json
   def create
     @classroom = Classroom.new(classroom_params)
-
     respond_to do |format|
       if @classroom.save
         format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }

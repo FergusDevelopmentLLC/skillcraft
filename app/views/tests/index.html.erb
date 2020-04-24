@@ -27,10 +27,10 @@
       <tbody>
         <% @tests.each do |test| %>
           <tr>
-            <td><%= test.classroom_id %></td>
-            <td><%= test.topic_id %></td>
-            <td><%= test.course_id %></td>
-            <td><%= test.teacher_id %></td>
+            <td><%= test.classroom.name %></td>
+            <td><%= test.topic.title %></td>
+            <td><%= test.course.name %></td>
+            <td><%= test.person.user_name %></td>
             <td><%= test.type %></td>
             <td><%= test.title %></td>
             <td><%= test.start_date %></td>
@@ -41,7 +41,7 @@
             <td><%= test.points %></td>
             <td><%= test.instructions %></td>
             <td><%= link_to 'Show', test %></td>
-            <td><%= link_to 'Edit', edit_tests_path(test) %></td>
+            <td><%= link_to 'Edit', edit_test_path(test) %></td>
             <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

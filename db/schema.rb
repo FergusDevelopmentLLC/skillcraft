@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.integer "classroom_id", null: false
     t.integer "topic_id", null: false
     t.integer "course_id", null: false
-    t.integer "teacher_id", null: false
+    t.integer "person_id", null: false
     t.string "type"
     t.string "title"
     t.date "start_date"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_interactions_on_classroom_id"
     t.index ["course_id"], name: "index_interactions_on_course_id"
-    t.index ["teacher_id"], name: "index_interactions_on_teacher_id"
+    t.index ["person_id"], name: "index_interactions_on_person_id"
     t.index ["topic_id"], name: "index_interactions_on_topic_id"
   end
 
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
   add_foreign_key "courses", "classrooms"
   add_foreign_key "interactions", "classrooms"
   add_foreign_key "interactions", "courses"
-  add_foreign_key "interactions", "teachers"
+  add_foreign_key "interactions", "people"
   add_foreign_key "interactions", "topics"
   add_foreign_key "responses", "interactions"
   add_foreign_key "responses", "students"

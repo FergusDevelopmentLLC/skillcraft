@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:classroom_id, :topic_id, :course_id, :teacher_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
+        params.require(:post).permit(:classroom_id, :topic_id, :course_id, :person_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
       end
   end
   

@@ -2,24 +2,26 @@
   <main class="main">
     <p id="notice"><%= notice %></p>
 
+    <h1>Test: <%= @test.title %></h1>
+
     <p>
       <strong>Classroom:</strong>
-      <%= @test.classroom_id %>
+      <%= @test.classroom.name %>
     </p>
 
     <p>
       <strong>Topic:</strong>
-      <%= @test.topic_id %>
+      <%= @test.topic.title %>
     </p>
 
     <p>
       <strong>Course:</strong>
-      <%= @test.course_id %>
+      <%= @test.course.name %>
     </p>
 
     <p>
       <strong>Teacher:</strong>
-      <%= @test.teacher_id %>
+      <%= @test.person.user_name %>
     </p>
 
     <p>

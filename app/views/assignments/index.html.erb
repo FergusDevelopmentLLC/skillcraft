@@ -27,10 +27,11 @@
       <tbody>
         <% @assignments.each do |assignment| %>
           <tr>
-            <td><%= assignment.classroom_id %></td>
-            <td><%= assignment.topic_id %></td>
-            <td><%= assignment.course_id %></td>
-            <td><%= assignment.teacher_id %></td>
+      
+            <td><%= assignment.classroom.name %></td>
+            <td><%= assignment.topic.title %></td>
+            <td><%= assignment.course.name %></td>
+            <td><%= assignment.person.user_name %></td>
             <td><%= assignment.type %></td>
             <td><%= assignment.title %></td>
             <td><%= assignment.start_date %></td>

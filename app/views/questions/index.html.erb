@@ -27,10 +27,10 @@
       <tbody>
         <% @questions.each do |question| %>
           <tr>
-            <td><%= question.classroom_id %></td>
-            <td><%= question.topic_id %></td>
-            <td><%= question.course_id %></td>
-            <td><%= question.teacher_id %></td>
+            <td><%= question.classroom.name %></td>
+            <td><%= question.topic.title %></td>
+            <td><%= question.course.name %></td>
+            <td><%= question.person.user_name %></td>
             <td><%= question.type %></td>
             <td><%= question.title %></td>
             <td><%= question.start_date %></td>

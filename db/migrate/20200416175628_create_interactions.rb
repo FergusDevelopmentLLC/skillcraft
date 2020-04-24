@@ -4,7 +4,7 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
       t.belongs_to :classroom, null: false, foreign_key: true
       t.belongs_to :topic, null: false, foreign_key: true
       t.belongs_to :course, null: false, foreign_key: true
-      t.belongs_to :teacher, null: false, foreign_key: true
+      t.belongs_to :person, null: false, foreign_key: true
       t.string :type
       t.string :title
       t.date :start_date

@@ -6,22 +6,22 @@
 
     <p>
       <strong>Classroom:</strong>
-      <%= @question.classroom_id %>
+      <%= @question.classroom.name %>
     </p>
 
     <p>
       <strong>Topic:</strong>
-      <%= @question.topic_id %>
+      <%= @question.topic.title %>
     </p>
 
     <p>
       <strong>Course:</strong>
-      <%= @question.course_id %>
+      <%= @question.course.name %>
     </p>
 
     <p>
       <strong>Teacher:</strong>
-      <%= @question.teacher_id %>
+      <%= @question.person.user_name %>
     </p>
 
     <p>

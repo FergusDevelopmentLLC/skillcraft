@@ -27,10 +27,10 @@
       <tbody>
         <% @quizzes.each do |quiz| %>
           <tr>
-            <td><%= quiz.classroom_id %></td>
-            <td><%= quiz.topic_id %></td>
-            <td><%= quiz.course_id %></td>
-            <td><%= quiz.teacher_id %></td>
+            <td><%= quiz.classroom.name %></td>
+            <td><%= quiz.topic.title %></td>
+            <td><%= quiz.course.name %></td>
+            <td><%= quiz.person.user_name %></td>
             <td><%= quiz.type %></td>
             <td><%= quiz.title %></td>
             <td><%= quiz.start_date %></td>
@@ -41,7 +41,7 @@
             <td><%= quiz.points %></td>
             <td><%= quiz.instructions %></td>
             <td><%= link_to 'Show', quiz %></td>
-            <td><%= link_to 'Edit', edit_quizzes_path(quiz) %></td>
+            <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
             <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

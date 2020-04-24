@@ -26,12 +26,13 @@ class AnnouncementsController < ApplicationController
     def create
       
       @announcement = Announcement.new(announcement_params)
-  
+      
       respond_to do |format|
         if @announcement.save
           format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
           format.json { render :show, status: :created, location: @announcement }
         else
+          binding.pry
           format.html { render :new }
           format.json { render json: @announcement.errors, status: :unprocessable_entity }
         end
@@ -70,7 +71,6 @@ class AnnouncementsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def announcement_params
-        params.require(:announcement).permit(:classroom_id, :topic_id, :course_id, :teacher_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
+        params.require(:announcement).permit(:classroom_id, :topic_id, :course_id, :person_id, :type, :title, :start_date, :end_date, :posted_date, :due_date, :graded, :points, :instructions)
       end
   end
-  

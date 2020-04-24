@@ -27,10 +27,10 @@
       <tbody>
         <% @posts.each do |post| %>
           <tr>
-            <td><%= post.classroom_id %></td>
-            <td><%= post.topic_id %></td>
-            <td><%= post.course_id %></td>
-            <td><%= post.teacher_id %></td>
+            <td><%= post.classroom.name %></td>
+            <td><%= post.topic.title %></td>
+            <td><%= post.course.name %></td>
+            <td><%= post.person.user_name %></td>
             <td><%= post.type %></td>
             <td><%= post.title %></td>
             <td><%= post.start_date %></td>
@@ -41,7 +41,7 @@
             <td><%= post.points %></td>
             <td><%= post.instructions %></td>
             <td><%= link_to 'Show', post %></td>
-            <td><%= link_to 'Edit', edit_question_path(post) %></td>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
             <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

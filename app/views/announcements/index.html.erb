@@ -27,10 +27,10 @@
       <tbody>
         <% @announcements.each do |announcement| %>
           <tr>
-            <td><%= announcement.classroom_id %></td>
-            <td><%= announcement.topic_id %></td>
-            <td><%= announcement.course_id %></td>
-            <td><%= announcement.teacher_id %></td>
+            <td><%= announcement.classroom.name %></td>
+            <td><%= announcement.topic.title %></td>
+            <td><%= announcement.course.name %></td>
+            <td><%= announcement.person.user_name %></td>
             <td><%= announcement.type %></td>
             <td><%= announcement.title %></td>
             <td><%= announcement.start_date %></td>
@@ -41,7 +41,7 @@
             <td><%= announcement.points %></td>
             <td><%= announcement.instructions %></td>
             <td><%= link_to 'Show', announcement %></td>
-            <td><%= link_to 'Edit', edit_announcements_path(announcement) %></td>
+            <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
             <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

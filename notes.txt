@@ -114,4 +114,6 @@ Certain teacher that has e-learning experience
                     <a href='/games/<%=featured.id%>'><%=featured.name%></a> - <%=featured.short_description%>
                 </div>
             </div>
-        <%}%>                
+        <%}%>               
+https://github.com/rroblak/seed_dump/issues/143
+        https://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html

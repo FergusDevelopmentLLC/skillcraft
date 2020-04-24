@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :classroom_id %>
-    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, :prompt => '-Select classroom-') %>
+    <%= collection_select(:question, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= collection_select(:course, :course_id, Course.all, :id, :name, :prompt => '-Select course-') %>
+    <%= collection_select(:question, :course_id, Course.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :topic_id %>
-    <%= collection_select(:topic, :topic_id, Topic.all, :id, :title, :prompt => '-Select topic-') %>
+    <%= collection_select(:question, :topic_id, Topic.all, :id, :title, prompt: true) %>
   </div>
 
   <div class="field">
-    <%= form.label :teacher_id %>
-    <%= collection_select(:teacher, :teacher_id, Teacher.all, :id, :user_name, :prompt => '-Select teacher-') %>
+    <%= form.label :person_id %>
+    <%= collection_select(:question, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
   </div>
 
   <%= form.hidden_field :type, :value => 'Question'%>

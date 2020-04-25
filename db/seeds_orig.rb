@@ -37,7 +37,3 @@ Quiz.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=
 
 Test.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"1", "title"=>"Test 1")
 Test.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"2", "title"=>"Test 2")
-
-
-
-

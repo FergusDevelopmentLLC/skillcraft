@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :person_id %>
+    <%= form.label :teacher_id %>
     <%= collection_select(:announcement, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
   </div>
 

@@ -18,8 +18,8 @@
       <tbody>
         <% @responses.each do |response| %>
           <tr>
-            <td><%= response.interaction_id %></td>
-            <td><%= response.student_id %></td>
+            <td><%= response.interaction.title %></td>
+            <td><%= response.person.user_name %></td>
             <td><%= response.type %></td>
             <td><%= response.content %></td>
             <td><%= response.score %></td>

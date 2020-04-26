@@ -13,19 +13,16 @@
 
   <div class="field">
     <%= form.label :interaction_id %>
-    <%= form.text_field :interaction_id %>
+    <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
+    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, prompt: true) %>
   </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
-  </div>
-
+  <%= form.hidden_field :type, :value => "Response" %>
+  
   <div class="field">
     <%= form.label :content %>
     <%= form.text_field :content %>

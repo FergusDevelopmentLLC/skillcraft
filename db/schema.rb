@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "responses", force: :cascade do |t|
     t.integer "interaction_id", null: false
-    t.integer "student_id", null: false
+    t.integer "person_id", null: false
     t.string "type"
     t.string "content"
     t.integer "score"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["interaction_id"], name: "index_responses_on_interaction_id"
-    t.index ["student_id"], name: "index_responses_on_student_id"
+    t.index ["person_id"], name: "index_responses_on_person_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
   add_foreign_key "interactions", "people"
   add_foreign_key "interactions", "topics"
   add_foreign_key "responses", "interactions"
-  add_foreign_key "responses", "students"
+  add_foreign_key "responses", "people"
   add_foreign_key "topics", "classrooms"
   add_foreign_key "topics", "courses"
 end

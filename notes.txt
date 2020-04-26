@@ -117,3 +117,5 @@ Certain teacher that has e-learning experience
         <%}%>               
 https://github.com/rroblak/seed_dump/issues/143
         https://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
+
+https://medium.com/stackfame/how-to-update-node-js-to-latest-version-linux-ubuntu-osx-windows-others-105749e90040

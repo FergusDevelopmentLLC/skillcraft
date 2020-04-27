@@ -16,9 +16,9 @@
       </thead>
 
       <tbody>
-        <% @responses.each do |response| %>
+        <% @responses.each_with_index do |response, index| %>
           <tr>
-            <td><%= response.interaction.title %></td>
+            <td><%= response.interaction.title  %></td>
             <td><%= response.person.user_name %></td>
             <td><%= response.type %></td>
             <td><%= response.content %></td>
@@ -26,7 +26,7 @@
             <td><%= response.letter_grade %></td>
             <td><%= link_to 'Show', response %></td>
             <td><%= link_to 'Edit', edit_response_path(response) %></td>
-            <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Destroy',  { action: :destroy, id: response.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

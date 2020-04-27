@@ -119,3 +119,26 @@ https://github.com/rroblak/seed_dump/issues/143
         https://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
 
 https://medium.com/stackfame/how-to-update-node-js-to-latest-version-linux-ubuntu-osx-windows-others-105749e90040
+
+<%= link_to 'Destroy', response_path(response), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+
+https://github.com/rails/jquery-ujs
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js" />
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+
+ <form action="/responses/<%=response.id%>" method="post" id="delete_form_<%= index %>">
+                <%= form_authenticity_token %>
+                <input type='hidden' name='_method' value="delete" />
+              </form>
+              <input type="submit" value="Destroy Response" form="delete_form_<%= index %>" />
+
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+https://stackoverflow.com/questions/3774925/delete-link-sends-get-instead-of-delete-in-rails-3-view
+<td><%= link_to 'Destroy',  { action: :destroy, id: post.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>

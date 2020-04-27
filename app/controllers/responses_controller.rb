@@ -10,6 +10,7 @@ class ResponsesController < ApplicationController
   # GET /responses/1
   # GET /responses/1.json
   def show
+    
   end
 
   # GET /responses/new
@@ -25,8 +26,6 @@ class ResponsesController < ApplicationController
   # POST /responses.json
   def create
     @response = Response.new(response_params)
-
-    binding.pry
     respond_to do |format|
       if @response.save
         format.html { redirect_to @response, notice: 'Response was successfully created.' }

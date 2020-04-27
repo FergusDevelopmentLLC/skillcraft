@@ -16,11 +16,6 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :classroom %>
-    <%= collection_select(:course, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

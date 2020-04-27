@@ -16,7 +16,7 @@ sort: true
 warn: true
 title: skillCraft erd v016
 exclude: null
-only: "Course,Classroom,CoursePerson,Person,Topic,Interaction,Response,GradedResponse"
+only: "Course,CoursePerson,Person,Interaction,Response"
 only_recursion_depth: null
 prepend_primary: false
 cluster: false

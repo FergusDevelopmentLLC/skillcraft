@@ -7,8 +7,6 @@ f<div class="full">
     <table>
       <thead>
         <tr>
-          <th>Classroom</th>
-          <th>Topic</th>
           <th>Course</th>
           <th>Teacher</th>
           <th>Type</th>
@@ -27,8 +25,6 @@ f<div class="full">
       <tbody>
         <% @announcements.each do |announcement| %>
           <tr>
-            <td><%= announcement.classroom.name %></td>
-            <td><%= announcement.topic.title %></td>
             <td><%= announcement.course.name %></td>
             <td><%= announcement.person.user_name %></td>
             <td><%= announcement.type %></td>

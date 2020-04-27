@@ -15,4 +15,5 @@ task :generate_erd do
   File.delete('erd.dot') if File.exist?('erd.dot') if File.exist?('erd.dot')
   File.delete('erd.pdf') if File.exist?('erd.pdf') if File.exist?('erd.pdf')
   system "rake db:seed"
+  system "rails s"
 end

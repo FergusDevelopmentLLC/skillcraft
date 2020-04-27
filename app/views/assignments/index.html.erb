@@ -7,8 +7,6 @@
     <table>
       <thead>
         <tr>
-          <th>Classroom</th>
-          <th>Topic</th>
           <th>Course</th>
           <th>Teacher</th>
           <th>Type</th>
@@ -27,9 +25,6 @@
       <tbody>
         <% @assignments.each do |assignment| %>
           <tr>
-      
-            <td><%= assignment.classroom.name %></td>
-            <td><%= assignment.topic.title %></td>
             <td><%= assignment.course.name %></td>
             <td><%= assignment.person.user_name %></td>
             <td><%= assignment.type %></td>

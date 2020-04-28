@@ -4,7 +4,7 @@ attributes:
   - foreign_key
   - inheritance
 disconnected: true
-filename: skillCraft_erd_v016
+filename: skillCraft
 filetype: pdf
 indirect: true
 inheritance: true
@@ -14,7 +14,7 @@ orientation: vertical
 polymorphism: true
 sort: true
 warn: true
-title: skillCraft erd v016
+title: skillCraft
 exclude: null
 only: "Course,CoursePerson,Person,Interaction,Response"
 only_recursion_depth: null

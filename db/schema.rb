@@ -13,9 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "course_people", force: :cascade do |t|
+    t.integer "course_id", null: false
     t.integer "person_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_course_people_on_course_id"
     t.index ["person_id"], name: "index_course_people_on_person_id"
   end
 
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.index ["person_id"], name: "index_responses_on_person_id"
   end
 
+  add_foreign_key "course_people", "courses"
   add_foreign_key "course_people", "people"
   add_foreign_key "interactions", "courses"
   add_foreign_key "interactions", "people"

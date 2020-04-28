@@ -26,7 +26,6 @@ class AnnouncementsController < ApplicationController
     def create
       
       @announcement = Announcement.new(announcement_params)
-      binding.pry
       
       respond_to do |format|
         if @announcement.save

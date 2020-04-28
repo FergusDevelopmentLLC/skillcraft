@@ -1,8 +1,12 @@
-Course.create("name"=>"English 101")
-Course.create("name"=>"Math 101")
-Course.create("name"=>"Science 101")
-Course.create("name"=>"Volleyball")
-Course.create("name"=>"Watercolors 101")
+Classroom.create("name"=>"Main")
+Classroom.create("name"=>"Gym")
+Classroom.create("name"=>"Art Studio")
+
+Course.create("name"=>"English 101", "classroom_id"=>1)
+Course.create("name"=>"Math 101", "classroom_id"=>1)
+Course.create("name"=>"Science 101", "classroom_id"=>1)
+Course.create("name"=>"Volleyball", "classroom_id"=>2)
+Course.create("name"=>"Watercolors 101", "classroom_id"=>3)
 
 Teacher.create("user_name"=>"LarryTeacher", "password_digest"=>"xxx", "first_name"=>"Larry", "last_name"=>"Teacher", "email"=>"larry@email.com")
 Teacher.create("user_name"=>"MoeTeacher", "password_digest"=>"xxx", "first_name"=>"Moe", "last_name"=>"Teacher", "email"=>"moe@email.com")
@@ -12,11 +16,25 @@ Student.create("user_name"=>"JimmyStudent", "password_digest"=>"xxx", "first_nam
 Student.create("user_name"=>"BillyStudent", "password_digest"=>"xxx", "first_name"=>"Billy", "last_name"=>"Teacher", "email"=>"billy@email.com")
 Student.create("user_name"=>"KeatonStudent", "password_digest"=>"xxx", "first_name"=>"Keaton", "last_name"=>"Teacher", "email"=>"keaton@email.com")
 
-Interaction.create("course_id" => "1", "person_id" => "2", "type" => "Announcement", "title" => "First Announcement", "start_date" => "2020-04-27", "end_date" => "2020-04-27", "posted_date" => "2020-04-27", "due_date" => "2020-04-27", "graded" => "true", "points" => 100, "instructions" => "Do it") 
-Interaction.create("course_id" => "2", "person_id" => "3", "type" => "Announcement", "title" => "Secon Announcement", "start_date" => "2020-04-27", "end_date" => "2020-04-27", "posted_date" => "2020-04-27", "due_date" => "2020-04-27", "graded" => "true", "points" => 100, "instructions" => "Do it")
+Topic.create("classroom_id"=>"1", "course_id"=>"1", "title"=>"Shakespeare")
+Topic.create("classroom_id"=>"1", "course_id"=>"2", "title"=>"Fractions")
+Topic.create("classroom_id"=>"1", "course_id"=>"3", "title"=>"Physics")
 
-Interaction.create("course_id" => "3", "person_id" => "1", "type" => "Assignment", "title" => "First Assignment", "start_date" => "2020-04-27", "end_date" => "2020-04-27", "posted_date" => "2020-04-27", "due_date" => "2020-04-27", "graded" => "true", "points" => 100, "instructions" => "Do it") 
-Interaction.create("course_id" => "4", "person_id" => "1", "type" => "Assignment", "title" => "Secon Assignment", "start_date" => "2020-04-27", "end_date" => "2020-04-27", "posted_date" => "2020-04-27", "due_date" => "2020-04-27", "graded" => "true", "points" => 100, "instructions" => "Do it")
+Announcement.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"1", "title"=>"Larry's Announcement")
+Announcement.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"2", "title"=>"Practice Fractions")
 
-Response.create("interaction_id"=>"1", "person_id"=>"4", "type"=>"Response", "content" => "bla, bla, bla", "score"=>92, "letter_grade"=>"A")
-Response.create("interaction_id"=>"2", "person_id"=>"5", "type"=>"Response", "content" => "bla, bla, bla", "score"=>92, "letter_grade"=>"A")
+Assignment.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"3", "title"=>"Turtle Report")
+Assignment.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"1", "title"=>"Romeo & Juliet Report")
+
+Post.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"3", "title"=>"Postmania")
+Post.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"1", "title"=>"Do math")
+
+Question.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"1", "title"=>"How old is Shakespeare?")
+Question.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"2", "title"=>"Who is the father of physics?")
+
+Quiz.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"1", "title"=>"Quiz 1")
+Quiz.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"2", "title"=>"Quiz 2")
+
+Test.create("classroom_id"=>"1", "course_id"=>"1", "person_id"=>"1", "topic_id"=>"1", "title"=>"Test 1")
+Test.create("classroom_id"=>"1", "course_id"=>"2", "person_id"=>"1", "topic_id"=>"2", "title"=>"Test 2")
+

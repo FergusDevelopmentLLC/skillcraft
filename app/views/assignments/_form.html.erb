@@ -12,8 +12,18 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :classroom_id %>
+    <%= collection_select(:assignment, :classroom_id, Classroom.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div class="field">
     <%= form.label :course_id %>
     <%= collection_select(:assignment, :course_id, Course.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :topic_id %>
+    <%= collection_select(:assignment, :topic_id, Topic.all, :id, :title, prompt: true) %>
   </div>
 
   <div class="field">

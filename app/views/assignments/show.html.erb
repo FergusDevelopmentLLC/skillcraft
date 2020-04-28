@@ -5,6 +5,16 @@
     <h1>Assignment: <%= @assignment.title %></h1>
 
     <p>
+      <strong>Classroom:</strong>
+      <%= @assignment.classroom.name %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @assignment.topic.title %>
+    </p>
+
+    <p>
       <strong>Course:</strong>
       <%= @assignment.course.name %>
     </p>

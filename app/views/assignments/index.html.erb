@@ -7,9 +7,12 @@
     <table>
       <thead>
         <tr>
-          <th>Title</th>  
+          <th>Classroom</th>
+          <th>Topic</th>
           <th>Course</th>
           <th>Teacher</th>
+          <th>Type</th>
+          <th>Title</th>
           <th>Start date</th>
           <th>End date</th>
           <th>Posted date</th>
@@ -24,9 +27,13 @@
       <tbody>
         <% @assignments.each do |assignment| %>
           <tr>
-            <td><%= assignment.title %></td>
+      
+            <td><%= assignment.classroom.name %></td>
+            <td><%= assignment.topic.title %></td>
             <td><%= assignment.course.name %></td>
             <td><%= assignment.person.user_name %></td>
+            <td><%= assignment.type %></td>
+            <td><%= assignment.title %></td>
             <td><%= assignment.start_date %></td>
             <td><%= assignment.end_date %></td>
             <td><%= assignment.posted_date %></td>

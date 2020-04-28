@@ -1,0 +1,43 @@
+
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Show Student: <%= @student.user_name %></h1>
+
+    <p>
+      <strong>User name:</strong>
+      <%= @student.user_name %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @student.type %>
+    </p>
+
+    <p>
+      <strong>Password digest:</strong>
+      <%= @student.password_digest %>
+    </p>
+
+    <p>
+      <strong>First name:</strong>
+      <%= @student.first_name %>
+    </p>
+
+    <p>
+      <strong>Last name:</strong>
+      <%= @student.last_name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @student.email %>
+    </p>
+    
+    <div class="actions">
+      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+    
+  </main>
+</div>

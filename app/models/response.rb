@@ -1,4 +1,4 @@
 class Response < ApplicationRecord
-    belongs_to :interaction
-    has_many :students
+  belongs_to :interaction
+  belongs_to :person
 end

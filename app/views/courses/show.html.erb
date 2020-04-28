@@ -1,0 +1,21 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+    
+    <h1>Show Course: <%= @course.name %></h1>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @course.name %>
+    </p>
+    <p>
+      <strong>Classroom:</strong>
+      <%= @course.classroom.name %>
+    </p>    
+
+    <div class="actions">
+      <%= link_to  'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+
+  </main>
+</div>

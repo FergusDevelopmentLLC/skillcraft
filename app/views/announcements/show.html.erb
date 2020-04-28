@@ -1,0 +1,75 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Announcement: <%= @announcement.title %></h1>
+
+    <p>
+      <strong>Classroom:</strong>
+      <%= @announcement.classroom.name %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @announcement.topic.title %>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <%= @announcement.course.name %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong>
+      <%= @announcement.person.user_name %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @announcement.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @announcement.title %>
+    </p>
+
+    <p>
+      <strong>Start date:</strong>
+      <%= @announcement.start_date %>
+    </p>
+
+    <p>
+      <strong>End date:</strong>
+      <%= @announcement.end_date %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong>
+      <%= @announcement.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong>
+      <%= @announcement.due_date %>
+    </p>
+
+    <p>
+      <strong>Graded:</strong>
+      <%= @announcement.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong>
+      <%= @announcement.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong>
+      <%= @announcement.instructions %>
+    </p>
+    <div class="actions">
+     <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+  </main>
+</div>

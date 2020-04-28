@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interaction: one
+  student: one
+  type: 
+  content: MyString
+  score: 1
+  letter_grade: MyString
+
+two:
+  interaction: two
+  student: two
+  type: 
+  content: MyString
+  score: 1
+  letter_grade: MyString

@@ -1,0 +1,76 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Assignment: <%= @assignment.title %></h1>
+
+    <p>
+      <strong>Classroom:</strong>
+      <%= @assignment.classroom.name %>
+    </p>
+
+    <p>
+      <strong>Topic:</strong>
+      <%= @assignment.topic.title %>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <%= @assignment.course.name %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong>
+      <%= @assignment.person.user_name %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @assignment.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @assignment.title %>
+    </p>
+
+    <p>
+      <strong>Start date:</strong>
+      <%= @assignment.start_date %>
+    </p>
+
+    <p>
+      <strong>End date:</strong>
+      <%= @assignment.end_date %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong>
+      <%= @assignment.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong>
+      <%= @assignment.due_date %>
+    </p>
+
+    <p>
+      <strong>Graded:</strong>
+      <%= @assignment.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong>
+      <%= @assignment.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong>
+      <%= @assignment.instructions %>
+    </p>
+
+    <div class="actions">
+      <%= link_to  'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+  </main>
+</div>

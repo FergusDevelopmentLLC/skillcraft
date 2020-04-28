@@ -1,0 +1,11 @@
+<div class="full">
+  <main class="main">
+    <h1>Editing Course</h1>
+    <%= render 'form', course: @course %>    
+
+    <div class="actions">
+      <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+    </div>
+
+  </main>
+</div>

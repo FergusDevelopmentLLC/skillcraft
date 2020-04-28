@@ -1,0 +1,45 @@
+<%= form_with(model: response, local: true) do |form| %>
+  <% if response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+      <ul>
+        <% response.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :interaction_id %>
+    <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, prompt: true) %>
+  </div>
+
+  <%= form.hidden_field :type, :value => "Response" %>
+  
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.number_field :score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :letter_grade %>
+    <%= form.text_field :letter_grade %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

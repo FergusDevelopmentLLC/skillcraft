@@ -1,4 +1,4 @@
 class Person < ApplicationRecord
-    has_many :course_people, dependent: :destroy
-    has_many :courses, through: :course_people
+    has_many :interactions
+    has_many :responses
 end

@@ -1,5 +1,21 @@
 https://github.com/voormedia/rails-erd
 
+https://github.com/voormedia/rails-erd
+
+rails g scaffold Person user_name:string type:string password_digest:string first_name:string last_name:string email:string
+rails g scaffold Interaction course:belongs_to teacher:belongs_to type:string title:string start_date:date end_date:date posted_date:date due_date:date graded:boolean points:integer instructions:string
+rails g scaffold Response interaction:belongs_to student:belongs_to type:string content:string score:integer letter_grade:string 
+
+rake generate_erd
+
+rails destroy scaffold Person
+rails destroy scaffold Course
+rails destroy scaffold CoursePerson
+rails destroy Interaction
+rails destroy Response
+
+http://scottradcliff.com/using-pkill-to-kill-all-ruby-processes.html
+
 CREATE TABLE responses
 (
   response_id INT NOT NULL,
@@ -30,3 +46,86 @@ CREATE TABLE graded_results
   FOREIGN KEY (response_id) REFERENCES responses(response_id),
   FOREIGN KEY (person_id) REFERENCES people(person_id)
 );
+
+
+https://www.youtube.com/watch?v=Pb67l_JIFHk
+
+collection_radio_buttons(:topic, :course_id, Course.all, :id, :name) do |b| %>
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
+      </div>
+    <% end 
+
+
+What is an E coach?
+Certain teacher that has e-learning experience
+
+
+<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
+<%= link_to 'Edit Student', edit_student_path(@student) %>
+<%= link_to 'Edit Announcement', edit_announcement_path(@announcement) %>
+<%= link_to 'Edit Question', edit_question_path(@question) %>
+<%= link_to 'Edit Quiz', edit_quiz_path(@quiz) %>
+<%= link_to 'Edit Test', edit_test_path(@test) %>
+<%= link_to 'Edit Question', edit_question_path(@question) %>
+
+  <% if flash.has?(:message) %> %>
+    <div class="flash-message"><%=flash[:message]%></div> %>
+  <% end %> %>
+
+
+  <% Type.all.each { |type|%>
+                <div class="type">
+                    <h3><a href='/types/<%=type.id%>'><%=type.name%></a></h3>
+                    <ul>
+                        <%type.games.limit(3).each { |game|%>
+                        <li><a href='/games/<%=game.id%>'><%=game.name%></a></li>
+                        <%}%>
+                        <%if type.games.count > 3%>
+                        <li><a href='/types/<%=type.id%>'>[More]</a></li>
+                        <%end%>
+                        <%if type.games.empty?%>
+                        <li>None</li>
+                        <%end%>
+                    </ul>
+                </div>
+                <%}%>
+
+<% @featured.each { |featured| %>
+            <div class="feature">
+                <div class="feature-image">
+                    <a href='/games/<%=featured.id%>'><img src="../../../uploads/<%=featured.image%>"/></a>
+                </div>
+                <div class="feature-desc">
+                    <a href='/games/<%=featured.id%>'><%=featured.name%></a> - <%=featured.short_description%>
+                </div>
+            </div>
+        <%}%>               
+https://github.com/rroblak/seed_dump/issues/143
+        https://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
+
+https://medium.com/stackfame/how-to-update-node-js-to-latest-version-linux-ubuntu-osx-windows-others-105749e90040
+
+<%= link_to 'Destroy', response_path(response), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+
+https://github.com/rails/jquery-ujs
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js" />
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+
+ <form action="/responses/<%=response.id%>" method="post" id="delete_form_<%= index %>">
+                <%= form_authenticity_token %>
+                <input type='hidden' name='_method' value="delete" />
+              </form>
+              <input type="submit" value="Destroy Response" form="delete_form_<%= index %>" />
+
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+
+https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
+https://stackoverflow.com/questions/3774925/delete-link-sends-get-instead-of-delete-in-rails-3-view
+<td><%= link_to 'Destroy',  { action: :destroy, id: post.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>

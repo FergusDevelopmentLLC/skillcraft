@@ -26,13 +26,13 @@ class AnnouncementsController < ApplicationController
     def create
       
       @announcement = Announcement.new(announcement_params)
+      binding.pry
       
       respond_to do |format|
         if @announcement.save
           format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
           format.json { render :show, status: :created, location: @announcement }
         else
-          binding.pry
           format.html { render :new }
           format.json { render json: @announcement.errors, status: :unprocessable_entity }
         end

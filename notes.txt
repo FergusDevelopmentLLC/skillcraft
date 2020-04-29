@@ -50,13 +50,6 @@ CREATE TABLE graded_results
 
 https://www.youtube.com/watch?v=Pb67l_JIFHk
 
-collection_radio_buttons(:topic, :course_id, Course.all, :id, :name) do |b| %>
-      <div>
-        <%= b.radio_button %>
-        <%= b.label %>
-      </div>
-    <% end 
-
 
 What is an E coach?
 Certain teacher that has e-learning experience

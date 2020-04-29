@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  classroom: one
 
 two:
   name: MyString
-  classroom: two

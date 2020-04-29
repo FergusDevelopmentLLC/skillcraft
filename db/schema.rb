@@ -12,32 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
-  create_table "classrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "course_people", force: :cascade do |t|
     t.integer "person_id", null: false
-    t.integer "classroom_id", null: false
+    t.integer "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_course_people_on_classroom_id"
+    t.index ["course_id"], name: "index_course_people_on_course_id"
     t.index ["person_id"], name: "index_course_people_on_person_id"
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.integer "classroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_courses_on_classroom_id"
   end
 
   create_table "interactions", force: :cascade do |t|
-    t.integer "classroom_id", null: false
-    t.integer "topic_id", null: false
     t.integer "course_id", null: false
     t.integer "person_id", null: false
     t.string "type"
@@ -51,10 +41,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.string "instructions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_interactions_on_classroom_id"
     t.index ["course_id"], name: "index_interactions_on_course_id"
     t.index ["person_id"], name: "index_interactions_on_person_id"
-    t.index ["topic_id"], name: "index_interactions_on_topic_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -81,25 +69,10 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.index ["person_id"], name: "index_responses_on_person_id"
   end
 
-  create_table "topics", force: :cascade do |t|
-    t.integer "classroom_id", null: false
-    t.integer "course_id", null: false
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_topics_on_classroom_id"
-    t.index ["course_id"], name: "index_topics_on_course_id"
-  end
-
-  add_foreign_key "course_people", "classrooms"
+  add_foreign_key "course_people", "courses"
   add_foreign_key "course_people", "people"
-  add_foreign_key "courses", "classrooms"
-  add_foreign_key "interactions", "classrooms"
   add_foreign_key "interactions", "courses"
   add_foreign_key "interactions", "people"
-  add_foreign_key "interactions", "topics"
   add_foreign_key "responses", "interactions"
   add_foreign_key "responses", "people"
-  add_foreign_key "topics", "classrooms"
-  add_foreign_key "topics", "courses"
 end

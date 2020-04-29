@@ -14,7 +14,6 @@ class InteractionsTest < ApplicationSystemTestCase
     visit interactions_url
     click_on "New Interaction"
 
-    fill_in "Classroom", with: @interaction.classroom_id
     fill_in "Course", with: @interaction.course_id
     fill_in "Due date", with: @interaction.due_date
     fill_in "End date", with: @interaction.end_date
@@ -23,9 +22,8 @@ class InteractionsTest < ApplicationSystemTestCase
     fill_in "Points", with: @interaction.points
     fill_in "Posted date", with: @interaction.posted_date
     fill_in "Start date", with: @interaction.start_date
-    fill_in "Teacher", with: @interaction.teacher_id
+    fill_in "Person", with: @interaction.person_id
     fill_in "Title", with: @interaction.title
-    fill_in "Topic", with: @interaction.topic_id
     fill_in "Type", with: @interaction.type
     click_on "Create Interaction"
 
@@ -37,7 +35,6 @@ class InteractionsTest < ApplicationSystemTestCase
     visit interactions_url
     click_on "Edit", match: :first
 
-    fill_in "Classroom", with: @interaction.classroom_id
     fill_in "Course", with: @interaction.course_id
     fill_in "Due date", with: @interaction.due_date
     fill_in "End date", with: @interaction.end_date
@@ -48,7 +45,6 @@ class InteractionsTest < ApplicationSystemTestCase
     fill_in "Start date", with: @interaction.start_date
     fill_in "Teacher", with: @interaction.teacher_id
     fill_in "Title", with: @interaction.title
-    fill_in "Topic", with: @interaction.topic_id
     fill_in "Type", with: @interaction.type
     click_on "Update Interaction"
 

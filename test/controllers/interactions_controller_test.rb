@@ -17,7 +17,7 @@ class InteractionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create interaction" do
     assert_difference('Interaction.count') do
-      post interactions_url, params: { interaction: { classroom_id: @interaction.classroom_id, course_id: @interaction.course_id, due_date: @interaction.due_date, end_date: @interaction.end_date, graded: @interaction.graded, instructions: @interaction.instructions, points: @interaction.points, posted_date: @interaction.posted_date, start_date: @interaction.start_date, teacher_id: @interaction.teacher_id, title: @interaction.title, topic_id: @interaction.topic_id, type: @interaction.type } }
+      post interactions_url, params: { interaction: { course_id: @interaction.course_id, due_date: @interaction.due_date, end_date: @interaction.end_date, graded: @interaction.graded, instructions: @interaction.instructions, points: @interaction.points, posted_date: @interaction.posted_date, start_date: @interaction.start_date, person_id: @interaction.person_id, title: @interaction.title, type: @interaction.type } }
     end
 
     assert_redirected_to interaction_url(Interaction.last)
@@ -34,7 +34,7 @@ class InteractionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update interaction" do
-    patch interaction_url(@interaction), params: { interaction: { classroom_id: @interaction.classroom_id, course_id: @interaction.course_id, due_date: @interaction.due_date, end_date: @interaction.end_date, graded: @interaction.graded, instructions: @interaction.instructions, points: @interaction.points, posted_date: @interaction.posted_date, start_date: @interaction.start_date, teacher_id: @interaction.teacher_id, title: @interaction.title, topic_id: @interaction.topic_id, type: @interaction.type } }
+    patch interaction_url(@interaction), params: { interaction: { course_id: @interaction.course_id, due_date: @interaction.due_date, end_date: @interaction.end_date, graded: @interaction.graded, points: @interaction.points, posted_date: @interaction.posted_date, start_date: @interaction.start_date, person_id: @interaction.person_id, title: @interaction.title, type: @interaction.type } }
     assert_redirected_to interaction_url(@interaction)
   end
 

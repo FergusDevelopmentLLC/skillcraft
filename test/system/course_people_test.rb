@@ -14,7 +14,7 @@ class CoursePeopleTest < ApplicationSystemTestCase
     visit course_people_url
     click_on "New Course Person"
 
-    fill_in "Classroom", with: @course_person.classroom_id
+    fill_in "Course", with: @course_person.course_id
     fill_in "Person", with: @course_person.person_id
     click_on "Create Course person"
 
@@ -26,7 +26,7 @@ class CoursePeopleTest < ApplicationSystemTestCase
     visit course_people_url
     click_on "Edit", match: :first
 
-    fill_in "Classroom", with: @course_person.classroom_id
+    fill_in "Course", with: @course_person.course_id
     fill_in "Person", with: @course_person.person_id
     click_on "Update Course person"
 

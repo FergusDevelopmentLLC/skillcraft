@@ -1,8 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  classroom: one
-  topic: one
   course: one
   teacher: one
   type: 
@@ -16,8 +14,6 @@ one:
   instructions: MyString
 
 two:
-  classroom: two
-  topic: two
   course: two
   teacher: two
   type: 

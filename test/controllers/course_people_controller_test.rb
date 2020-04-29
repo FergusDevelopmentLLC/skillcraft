@@ -17,7 +17,7 @@ class CoursePeopleControllerTest < ActionDispatch::IntegrationTest
 
   test "should create course_person" do
     assert_difference('CoursePerson.count') do
-      post course_people_url, params: { course_person: { classroom_id: @course_person.classroom_id, person_id: @course_person.person_id } }
+      post course_people_url, params: { course_person: { course_id: @course_person.course_id, person_id: @course_person.person_id } }
     end
 
     assert_redirected_to course_person_url(CoursePerson.last)
@@ -34,7 +34,7 @@ class CoursePeopleControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update course_person" do
-    patch course_person_url(@course_person), params: { course_person: { classroom_id: @course_person.classroom_id, person_id: @course_person.person_id } }
+    patch course_person_url(@course_person), params: { course_person: { course_id: @course_person.course_id, person_id: @course_person.person_id } }
     assert_redirected_to course_person_url(@course_person)
   end
 

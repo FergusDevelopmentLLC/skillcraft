@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :assignments
   
   resources :responses
-  root 'layouts#index' # shortcut for the above
+  #root 'layouts#index' # shortcut for the above
+  root 'layouts#choice'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

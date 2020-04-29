@@ -1,0 +1,13 @@
+<div class="full">
+    <main class="main">
+        <p>I am a...</p>
+        <br/>
+        <%= form_with model: @teacher do |f| %>
+            <%= f.submit "Teacher" %>
+        <% end %>
+        <br/>
+        <%= form_with model: @student do |f| %>
+            <%= f.submit "Student" %>
+        <% end %>
+    </main>
+</div>

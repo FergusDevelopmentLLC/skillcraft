@@ -122,3 +122,6 @@ https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working
 https://stackoverflow.com/questions/18154916/rails-4-link-to-destroy-not-working-in-getting-started-tutorial
 https://stackoverflow.com/questions/3774925/delete-link-sends-get-instead-of-delete-in-rails-3-view
 <td><%= link_to 'Destroy',  { action: :destroy, id: post.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-number-in-ruby

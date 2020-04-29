@@ -20,13 +20,13 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    @course.code = 4.times.map{rand(4)}.join
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
@@ -42,7 +42,8 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1.json
   def update
     respond_to do |format|
-      if @course.update(course_params)
+      @course.update(course_params)
+      if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
@@ -70,6 +71,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name)
+      params.require(:course).permit(:name, :code)
     end
 end

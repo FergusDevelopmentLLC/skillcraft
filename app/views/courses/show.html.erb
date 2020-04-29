@@ -8,6 +8,11 @@
       <strong>Name:</strong>
       <%= @course.name %>
     </p>
+
+    <p>
+      <strong>Code:</strong>
+      <%= @course.code %>
+    </p>
     
     <div class="actions">
       <%= link_to  'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>

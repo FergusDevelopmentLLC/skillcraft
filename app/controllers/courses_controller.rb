@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
-    @course.code = 4.times.map{rand(4)}.join
+    @course.code ||= @course.code4.times.map{rand(4)}.join
   end
 
   # POST /courses

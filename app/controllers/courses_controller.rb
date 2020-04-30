@@ -16,11 +16,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @course.code ||= @course.code = 4.times.map{rand(4)}.join
   end
 
   # GET /courses/1/edit
   def edit
-    @course.code ||= @course.code4.times.map{rand(4)}.join
+    @course.code ||= @course.code = 4.times.map{rand(4)}.join
   end
 
   # POST /courses
@@ -42,8 +43,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1.json
   def update
     respond_to do |format|
-      @course.update(course_params)
-      if @course.save
+      if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else

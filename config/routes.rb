@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # get '/choose_course', to: '/people#new'
   # resources :people, controller: 'people#index'
-  get '/choose_course', :method => "get", :to => 'people#index'
+  get '/choose_course', :method => "get", :to => 'courses#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -36,7 +36,7 @@ m_CoursePerson [label = <{<table border="0" align="center" cellspacing="0.5" cel
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
-  <tr><td align="left" width="130" port="person_id">person_id <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="person_id">person_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
 </table>
 }>];
 m_Interaction [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
@@ -94,9 +94,8 @@ m_Teacher [color = "grey60", fontcolor = "grey60", label = <{<table border="0" a
   m_Person -> m_Teacher [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Person -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "6"];
   m_Person -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "4"];
-  m_Student -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Person -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "4"];
   m_Course -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "3"];
   m_Interaction -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "4"];
-  m_CoursePerson -> m_Person [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_CoursePerson -> m_Course [arrowhead = "normal", arrowtail = "none", weight = "1"];
 }

@@ -10,7 +10,8 @@ class LayoutsController < ApplicationController
     # GET /choice
     def choice
         @person = Person.new
-        #binding.pry
     end
+
+    
     
 end

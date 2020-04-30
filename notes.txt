@@ -55,7 +55,7 @@ What is an E coach?
 Certain teacher that has e-learning experience
 
 
-<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
+<%= link_to 'Edit Teacher', edit_person_path(@teacher) %>
 <%= link_to 'Edit Student', edit_student_path(@student) %>
 <%= link_to 'Edit Announcement', edit_announcement_path(@announcement) %>
 <%= link_to 'Edit Question', edit_question_path(@question) %>
@@ -125,3 +125,32 @@ https://stackoverflow.com/questions/3774925/delete-link-sends-get-instead-of-del
 
 
 https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-number-in-ruby
+
+
+<td><%= link_to 'Show', person %></td>
+<td><%= link_to 'Edit', edit_people_path(person) %></td>
+<td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+<td><%= link_to 'Show', person %></td>
+<td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+<td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<td><%= link_to 'Show', person %></td>
+<td><%= link_to 'Edit', edit_person_path(person) %></td>
+<td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+<%= form_with(url: "/choose_course", method: "get") do %>
+            <%= submit_tag("Teacher") %>
+            <br/><br/>
+            <%= submit_tag("Student") %>
+        <% end %>
+
+
+ <div class="field">
+    <%= form.label :student_id %>
+    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, prompt: true) %>
+  </div>
+
+  <%= form.hidden_field :student_id, :value => @student.id %>

@@ -1,10 +1,10 @@
 <div class="full">
     <main class="main">
-        <p>I am a...</p>
+        <p>Select your course...</p>
         <br/>
-        <%= form_with url: "/choose_course", model: @person, local: true, method: "get" do |f| %>
+        <%= form_with model: @teacher do |f| %>
             <%= f.submit "Teacher" %>
         <% end %>
-    
+        <%= f.submit "New" %>
     </main>
 </div>

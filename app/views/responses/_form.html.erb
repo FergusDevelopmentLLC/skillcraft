@@ -16,10 +16,7 @@
     <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
   </div>
 
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, prompt: true) %>
-  </div>
+ 
 
   <%= form.hidden_field :type, :value => "Response" %>
   

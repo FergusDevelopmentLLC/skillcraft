@@ -1,5 +1,5 @@
 <%= form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
+  <% if course && course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
 

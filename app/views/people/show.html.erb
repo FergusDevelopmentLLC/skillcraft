@@ -3,40 +3,40 @@
   <main class="main">
     <p id="notice"><%= notice %></p>
 
-    <h1>Show student: <%= @Student.user_name %></h1>
+    <h1>Show Person: <%= @student.user_name %></h1>
 
     <p>
       <strong>User name:</strong>
-      <%= @Student.user_name %>
+      <%= @student.user_name %>
     </p>
 
     <p>
       <strong>Type:</strong>
-      <%= @Student.type %>
+      <%= @student.type %>
     </p>
 
     <p>
       <strong>Password digest:</strong>
-      <%= @Student.password_digest %>
+      <%= @student.password_digest %>
     </p>
 
     <p>
       <strong>First name:</strong>
-      <%= @Student.first_name %>
+      <%= @student.first_name %>
     </p>
 
     <p>
       <strong>Last name:</strong>
-      <%= @Student.last_name %>
+      <%= @student.last_name %>
     </p>
 
     <p>
       <strong>Email:</strong>
-      <%= @Student.email %>
+      <%= @student.email %>
     </p>
     
     <div class="actions">
-      <%= link_to 'students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
     
   </main>

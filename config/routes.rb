@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :courses
   resources :people
-  #resources :teachers
-  #resources :students
+  resources :teachers
+  resources :students
   
   resources :announcements
   resources :assignments
@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get '/choose_course', :method => "get", :to => 'courses#index'
 
   get '/login', :method => "get", :to => 'people#login'
+
+  #get '/teachers', :method => "get", :to => 'teachers#index'
+
+  #get '/students', :method => "get", :to => 'students#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

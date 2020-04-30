@@ -154,3 +154,11 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   </div>
 
   <%= form.hidden_field :student_id, :value => @student.id %>
+
+  <% if flash.has?(:message) %>
+      <div class="flash-message"><%=flash[:message]%></div>
+  <% end %>
+  <h2>Log in</h2>
+  <% if flash.has?(:error) %>
+      <div class="flash-error"><%=flash[:error]%></div>
+  <% end %>

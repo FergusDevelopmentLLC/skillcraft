@@ -1,12 +1,5 @@
 <div class="full">
     <main class="main">
-        <% if flash.has?(:message) %>
-            <div class="flash-message"><%=flash[:message]%></div>
-        <% end %>
-        <h2>Log in</h2>
-        <% if flash.has?(:error) %>
-            <div class="flash-error"><%=flash[:error]%></div>
-        <% end %>
         <form method="post" action="/login" class="form">
             <div class="form-item">
                 <label for="username">User name</label>

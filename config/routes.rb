@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   # resources :people, controller: 'people#index'
   get '/choose_course', :method => "get", :to => 'courses#index'
 
+  get '/login', :method => "get", :to => 'people#login'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

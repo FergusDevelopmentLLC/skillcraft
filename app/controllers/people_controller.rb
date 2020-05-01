@@ -70,6 +70,13 @@ class PeopleController < ApplicationController
     
   end
   
+  def signup
+    respond_to do |format|
+      format.html { render :template => "people/new" }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person

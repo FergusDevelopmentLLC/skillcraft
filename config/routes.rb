@@ -20,9 +20,7 @@ Rails.application.routes.draw do
 
   get '/login', :method => "get", :to => 'people#login'
 
-  #get '/teachers', :method => "get", :to => 'teachers#index'
-
-  #get '/students', :method => "get", :to => 'students#index'
+  get '/signup', :method => "get", :to => 'people#signup'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

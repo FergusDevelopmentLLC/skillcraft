@@ -62,10 +62,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def choose_course
-    
-  end
-
   def login
     
   end

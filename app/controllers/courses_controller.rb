@@ -63,6 +63,14 @@ class CoursesController < ApplicationController
     end
   end
 
+  def choose_course
+    @courses = Course.all
+    respond_to do |format|
+      format.html { render :template => "courses/index" }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

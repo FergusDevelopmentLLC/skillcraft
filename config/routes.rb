@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # get '/choose_course', to: '/people#new'
   # resources :people, controller: 'people#index'
-  get '/choose_course', :method => "get", :to => 'courses#index'
+  get '/choose_course', :method => "get", :to => 'courses#choose_course'
 
   get '/login', :method => "get", :to => 'people#login'
 

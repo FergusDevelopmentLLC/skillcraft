@@ -1,15 +1,39 @@
 <div class="full">
-    <main class="main">
-        <form method="post" action="/login" class="form">
-            <div class="form-item">
-                <label for="username">User name</label>
-                <input type="text" name="user[username]" id="username" placeholder="User name" value="" />
-            </div>
-            <div class="form-item">
-                <label for="password">Password</label>
-                <input type="password" name="user[password]" id="password" placeholder="Password" value="" />
-            </div>
-            <input type="submit" value="Log in" />
-        </form>
-    </main>
+  <main class="main">
+    <%= form_with url: "/login", model: @person, local: true, method: "post" do |form| %>
+  
+      <% if @person && @person.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+          <ul>
+            <% @person.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :user_name %>
+        <%= form.text_field :user_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.text_field :password %>
+      </div>
+
+      or
+      
+      <div class="field">
+        <%= form.label :course_code %>
+        <%= form.text_field :code %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
 </div>

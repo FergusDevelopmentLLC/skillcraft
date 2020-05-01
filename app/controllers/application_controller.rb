@@ -1,8 +1,4 @@
-# require 'rack-flash'
-
 class ApplicationController < ActionController::Base
-
-    # use Rack::Flash
 
     # configure do
     #     set :public_folder, 'public'

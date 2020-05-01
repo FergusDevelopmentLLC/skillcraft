@@ -164,3 +164,5 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   <% end %>
 
   https://medium.com/@theresamorelli/collection-select-what-the-heck-4e1cabc4be4b
+
+  https://www.peachpit.com/articles/article.aspx?p=1278994&seqNum=5

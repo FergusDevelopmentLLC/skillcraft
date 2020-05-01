@@ -25,17 +25,22 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
+    
     @person = Person.new(person_params)
 
+
     respond_to do |format|
-      if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
-        format.json { render :show, status: :created, location: @person }
-      else
-        format.html { render :new }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
+      if(@person.valid?)
+        if @person.save
+          format.html { redirect_to @person, notice: 'Person was successfully created.' }
+          format.json { render :show, status: :created, location: @person }
+        else
+          format.html { render :new }
+          format.json { render json: @person.errors, status: :unprocessable_entity }
+        end
+      end  
     end
+    
   end
 
   # PATCH/PUT /people/1
@@ -81,6 +86,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:user_name, :type, :password_digest, :first_name, :last_name, :email)
+      params.require(:person).permit(:user_name, :type, :password, :first_name, :last_name, :email)
     end
 end

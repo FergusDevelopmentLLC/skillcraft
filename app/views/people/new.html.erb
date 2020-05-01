@@ -1,6 +1,7 @@
 <div class="full">
   <main class="main">
-    <%= form_with url: "/edit", model: @person, local: true, method: "get" do |form| %>
+    <h1>Sign upx</h1>
+    <%= form_with url: "/people", model: @person, local: true, method: "post" do |form| %>
   
       <% if @person && @person.errors.any? %>
         <div id="error_explanation">
@@ -22,6 +23,11 @@
       <div class="field">
         <%= form.label :password %>
         <%= form.text_field :password %>
+      </div>
+
+      <div class="field">
+        I am a ... <br/>
+        <%= collection_select(:person, :type, @people.uniq {|s| s.type == "Student" || s.type = "Teacher"}, :type, :type) %>
       </div>
 
       <div class="actions">

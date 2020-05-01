@@ -162,3 +162,5 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   <% if flash.has?(:error) %>
       <div class="flash-error"><%=flash[:error]%></div>
   <% end %>
+
+  https://medium.com/@theresamorelli/collection-select-what-the-heck-4e1cabc4be4b

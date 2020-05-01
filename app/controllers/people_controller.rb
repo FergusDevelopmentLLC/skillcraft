@@ -15,6 +15,8 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    @people = Person.all
+    binding.pry
   end
 
   # GET /people/1/edit
@@ -68,7 +70,7 @@ class PeopleController < ApplicationController
   
   def signup
     respond_to do |format|
-      format.html { render :template => "people/new" }
+      format.html { redirect_to new_person_url }
       format.json { head :no_content }
     end
   end

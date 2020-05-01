@@ -26,13 +26,29 @@
       </div>
 
       <div class="field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
+      
+      <div class="field">
         I am a ... <br/>
-        <%= collection_select(:person, :type, Person.all.uniq {|s| s.type == "Student" || s.type = "Teacher"}, :type, :type) %>
+        <%= collection_select(:person, :type, Person.all.uniq {|s| s.type == "Student" || s.type == "Teacher"}, :type, :type) %>
       </div>
 
       <div class="actions">
         <%= form.submit %>
       </div>
+
     <% end %>
   </div>
 </div>

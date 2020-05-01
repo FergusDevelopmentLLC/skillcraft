@@ -1,12 +1,11 @@
 <div class="full">
   <main class="main">
-    
-  <h1>Editing Student</h1>
+    <h1>Editing Student</h1>
 
-    <%= render 'form', person: @student %>
+    <%= render 'form', student: @student %>
     
     <div class="actions">
-      <%= link_to 'New Student', new_student_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'New Student', new_student_path(@student) %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
 
   </main>

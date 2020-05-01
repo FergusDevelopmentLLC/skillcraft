@@ -8,9 +8,9 @@ class LayoutsController < ApplicationController
 
     # GET /choice
     # GET /choice
-    def choice
-        @person = Person.new
-    end
+    # def choice
+    #     @person = Person.new
+    # end
 
     
     

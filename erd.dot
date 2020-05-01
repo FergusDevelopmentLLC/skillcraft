@@ -92,10 +92,14 @@ m_Teacher [color = "grey60", fontcolor = "grey60", label = <{<table border="0" a
   m_Interaction -> m_Assignment [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Person -> m_Student [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Person -> m_Teacher [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
-  m_Person -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "4"];
-  m_Person -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "6"];
-  m_Person -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_Student -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Student -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Teacher -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Teacher -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_Course -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_Person -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "3"];
   m_Interaction -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "4"];
+  m_Person -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "1"];
   m_Course -> m_CoursePerson [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Person -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "1"];
 }

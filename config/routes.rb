@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #get "/choose_course", to: '/people#new'
 
   resources :courses
-  resources :people
+  #resources :people
   resources :teachers
   resources :students
   
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/login', :method => "get", :to => 'people#login'
 
-  get '/signup', :method => "get", :to => 'people#signup'
+  get '/signup', :method => "get", :to => 'students#signup'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

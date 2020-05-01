@@ -1,6 +1,6 @@
+
 <div class="full">
   <main class="main">
-
     <p id="notice"><%= notice %></p>
 
     <h1>Show Teacher: <%= @teacher.user_name %></h1>
@@ -8,6 +8,11 @@
     <p>
       <strong>User name:</strong>
       <%= @teacher.user_name %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @teacher.type %>
     </p>
 
     <p>
@@ -29,11 +34,10 @@
       <strong>Email:</strong>
       <%= @teacher.email %>
     </p>
-
+    
     <div class="actions">
       <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
-
+    
   </main>
-  
 </div>

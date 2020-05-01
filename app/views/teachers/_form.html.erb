@@ -1,10 +1,10 @@
-<%= form_with(model: @teacher, local: true) do |form| %>
+<%= form_with url: "/teachers", model: @teacher, local: true, method: "get" do |form| %>
   <% if @teacher && @teacher.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
       <ul>
-        <% teacher.errors.full_messages.each do |message| %>
+        <% @teacher.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -16,11 +16,9 @@
     <%= form.text_field :user_name %>
   </div>
 
-  <%= form.hidden_field :teacher_id, :value => @teacher.id %>
-  
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
   </div>
 
   <div class="field">

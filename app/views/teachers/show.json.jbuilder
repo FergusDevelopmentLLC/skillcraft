@@ -1,1 +1,1 @@
-json.partial! "teacher/teacher", teacher: @teacher
+json.partial! "teacher/teachers", person: @teacher

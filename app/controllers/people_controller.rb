@@ -27,8 +27,6 @@ class PeopleController < ApplicationController
   def create
     
     @person = Person.new(person_params)
-
-
     respond_to do |format|
       if(@person.valid?)
         if @person.save
@@ -47,6 +45,9 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
+      
+      binding.pry
+
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
@@ -71,13 +72,6 @@ class PeopleController < ApplicationController
     
   end
   
-  def signup
-    respond_to do |format|
-      format.html { redirect_to new_person_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person

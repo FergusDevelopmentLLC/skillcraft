@@ -24,6 +24,7 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+
     @student = Student.new(student_params)
 
     respond_to do |format|
@@ -40,7 +41,11 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    
+    binding.pry
+
     respond_to do |format|
+      
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
@@ -61,6 +66,13 @@ class StudentsController < ApplicationController
     end
   end
 
+  def signup
+    respond_to do |format|
+      format.html { redirect_to new_student_url }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -69,6 +81,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:user_name, :type, :password_digest, :first_name, :last_name, :email)
+      params.require(:student).permit(:user_name, :type, :password, :password_digest, :first_name, :last_name, :email)
     end
 end

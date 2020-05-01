@@ -1,6 +1,6 @@
 <div class="full">
   <main class="main">
-    <h1>Sign upx</h1>
+    <h1>Sign up</h1>
     <%= form_with url: "/people", model: @person, local: true, method: "post" do |form| %>
   
       <% if @person && @person.errors.any? %>
@@ -27,7 +27,7 @@
 
       <div class="field">
         I am a ... <br/>
-        <%= collection_select(:person, :type, @people.uniq {|s| s.type == "Student" || s.type = "Teacher"}, :type, :type) %>
+        <%= collection_select(:person, :type, Person.all.uniq {|s| s.type == "Student" || s.type = "Teacher"}, :type, :type) %>
       </div>
 
       <div class="actions">

@@ -15,8 +15,6 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
-    @people = Person.all
-    binding.pry
   end
 
   # GET /people/1/edit

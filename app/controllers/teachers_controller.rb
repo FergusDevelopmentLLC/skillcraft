@@ -16,7 +16,7 @@ class TeachersController < ApplicationController
 
     # GET /teachers/new
     def new
-        #binding.pry
+        binding.pry
         @teacher = Teacher.new
     end
 

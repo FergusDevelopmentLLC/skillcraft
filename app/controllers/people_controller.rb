@@ -4,27 +4,32 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
+    #binding.pry
     @people = Person.all
   end
 
   # GET /people/1
   # GET /people/1.json
   def show
+    #binding.pry
   end
 
   # GET /people/new
   def new
+    #binding.pry
     @person = Person.new
   end
 
   # GET /people/1/edit
   def edit
-    
+    #binding.pry
   end
 
   # POST /people
   # POST /people.json
   def create
+
+    #binding.pry
     
     @person = Person.new(person_params)
     respond_to do |format|
@@ -38,16 +43,15 @@ class PeopleController < ApplicationController
         end
       end  
     end
-    
   end
 
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
-    respond_to do |format|
-      
-      binding.pry
 
+    #binding.pry
+    
+    respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
         format.json { render :show, status: :ok, location: @person }
@@ -61,6 +65,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
+    #binding.pry
     @person.destroy
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }

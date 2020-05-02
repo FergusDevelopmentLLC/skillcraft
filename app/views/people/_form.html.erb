@@ -1,4 +1,5 @@
-<%= form_with url: "/edit", model: @person, local: true, method: "get" do |form| %>
+<%= form_with url: "/people", model: @person, local: true, method: "get" do |form| %>
+
   <% if @person && @person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>

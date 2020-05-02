@@ -1,10 +1,12 @@
 <div class="full">
   <main class="main">
     <h1>Editing Teacher</h1>
+
     <%= render 'form', teacher: @teacher %>
+
     <div class="actions">
-      <%= link_to 'New Teacher', new_teacher_path(@teacher) %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>
 
-  </main>
+    </main>
 </div>

@@ -1,5 +1,5 @@
-<%= form_with(model: assignment, local: true) do |form| %>
-  <% if assignment.errors.any? %>
+<%= form_with url: "/assignments", model: @student, local: true, method: "post" do |form| %>
+  <% if @assignment && assignment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #get "/choose_course", to: '/people#new'
 
   resources :courses
-  #resources :people
+  resources :people
   resources :teachers
   resources :students
   

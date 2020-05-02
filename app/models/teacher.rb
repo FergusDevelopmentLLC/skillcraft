@@ -1,6 +1,9 @@
 class Teacher < Person
     has_secure_password  
-    #has_many :interactions, dependent: :destroy #teacher has interactions
-    #has_many :course_people, dependent: :destroy
-    #has_many :courses, through: :course_people, dependent: :destroy
+    
+    validates :user_name, presence: true, uniqueness: true
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :email, presence: true, uniqueness: true
+    #validates_format_of :email, :with => /\w+@\w+\.\w+/
 end

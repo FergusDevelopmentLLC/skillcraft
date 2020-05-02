@@ -1,5 +1,4 @@
 <%= form_with url: "/students/#{@student.id}", model: @student, local: true, method: "patch" do |form| %>
-
   <% if @student && @student.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -11,12 +10,13 @@
       </ul>
     </div>
   <% end %>
+
+  <%= form.hidden_field :id, :value => @student.id%>
   
   <div class="field">
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest %>
   </div>
-
   <div class="field">
     <%= form.label :user_name %>
     <%= form.text_field :user_name %>

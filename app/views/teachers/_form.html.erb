@@ -1,4 +1,4 @@
-<%= form_with url: "/teachers", model: @teacher, local: true, method: "post" do |form| %>
+<%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
   
   <% if @teacher && @teacher.errors.any? %>
     <div id="error_explanation">
@@ -11,15 +11,16 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= form.label :user_name %>
-    <%= form.text_field :user_name %>
-  </div>
 
+  <%= form.hidden_field :id, :value => @teacher.id%>
+  
   <div class="field">
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest %>
+  </div>
+  <div class="field">
+    <%= form.label :user_name %>
+    <%= form.text_field :user_name %>
   </div>
 
   <div class="field">

@@ -16,7 +16,7 @@ class TeachersController < ApplicationController
 
     # GET /teachers/new
     def new
-        binding.pry
+        #binding.pry
         @teacher = Teacher.new
     end
 
@@ -50,13 +50,13 @@ class TeachersController < ApplicationController
         #binding.pry
 
         respond_to do |format|
-        if @teacher.update(teacher_params)
-            format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
-            format.json { render :show, status: :ok, location: @teacher }
-        else
-            format.html { render :edit }
-            format.json { render json: @teacher.errors, status: :unprocessable_entity }
-        end
+            if @teacher.update(teacher_params)
+                format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
+                format.json { render :show, status: :ok, location: @teacher }
+            else
+                format.html { render :edit }
+                format.json { render json: @teacher.errors, status: :unprocessable_entity }
+            end
         end
     end
 

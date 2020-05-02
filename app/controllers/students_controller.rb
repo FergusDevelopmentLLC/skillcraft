@@ -1,41 +1,36 @@
 class StudentsController < ApplicationController
-    before_action :set_student, only: [:show, :edit, :update, :destroy]
+    before_action :set_student, only: [:show, :edit, :destroy]
 
   # GET /students
   # GET /students.json
   def index
-    #binding.pry
     @students = Student.all
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
-    #binding.pry
+    
   end
 
   # GET /students/new
   def new
-    #binding.pry
     @student = Student.new
   end
 
   # GET /students/1/edit
   def edit
-    #binding.pry
   end
 
   # POST /students
   # POST /students.json
   def create
 
-    #binding.pry
-    
     @student = Student.new(student_params)
     
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to students_url, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -48,11 +43,11 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     
-    #binding.pry
-
+    @student = Student.find(student_params[:id])
+    
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to students_url, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -64,9 +59,6 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-
-    #binding.pry
-    
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
@@ -75,9 +67,6 @@ class StudentsController < ApplicationController
   end
 
   def signup
-    
-    #binding.pry
-
     respond_to do |format|
       format.html { redirect_to new_student_url }
       format.json { head :no_content }
@@ -92,6 +81,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:user_name, :type, :password, :password_digest, :first_name, :last_name, :email)
+      params.require(:student).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
     end
 end

@@ -21,7 +21,7 @@
           <tr>
             <td><%= teacher.user_name %></td>
             <td><%= teacher.type %></td>
-            <td><%= teacher.password_digest %></td>
+            <td><%= teacher.password_digest.truncate(10) %></td>
             <td><%= teacher.first_name %></td>
             <td><%= teacher.last_name %></td>
             <td><%= teacher.email %></td>

@@ -12,14 +12,16 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :id, :value => @person.id%>
+  
   <div class="field">
     <%= form.label :user_name %>
     <%= form.text_field :user_name %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= form.label :password_digest %>
+    <%= form.text_field :password_digest %>
   </div>
 
   <div class="field">
@@ -35,6 +37,11 @@
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
   </div>
 
   <div class="actions">

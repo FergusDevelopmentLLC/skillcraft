@@ -1,7 +1,21 @@
 <div class="full">
   <main class="main">
     <h1>Editing Person</h1>
+
+    <% if @person && @person.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+        <ul>
+          <% @person.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= render 'form', person: @person %>
+    
     <div class="actions">
       <%= link_to 'People', people_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>

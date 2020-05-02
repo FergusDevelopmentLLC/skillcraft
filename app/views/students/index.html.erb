@@ -20,7 +20,7 @@
           <tr>
             <td><%= student.user_name %></td>
             <td><%= student.type %></td>
-            <td><%= student.password_digest %></td>
+            <td><%= student.password_digest.truncate(10) %></td>
             <td><%= student.first_name %></td>
             <td><%= student.last_name %></td>
             <td><%= student.email %></td>

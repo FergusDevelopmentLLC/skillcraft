@@ -1,11 +1,57 @@
 <div class="full">
   <main class="main">
+
     <h1>New Response</h1>
-    <%= render 'form', response: @response %>    
+    <% if @response && @response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+      <ul>
+        <% @response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <%= form_with url: "/responses/#{@response.id}", model: @response, local: true, method: "post" do |form| %>
+
+    <%= form.hidden_field :id, :value => @response.id%>
+    <div class="field">
+      <%= form.label :interaction_id %>
+      <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
+    </div>
+
+
+
+    <%= form.hidden_field :type, :value => "Response" %>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </div>
+
+    <div class="field">
+      <%= form.label :score %>
+      <%= form.number_field :score %>
+    </div>
+
+    <div class="field">
+      <%= form.label :letter_grade %>
+      <%= form.text_field :letter_grade %>
+    </div>
 
     <div class="actions">
-      <%= link_to 'Responses', responses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= form.submit %>
     </div>
-    
+
+    <% end %>
+
+
+
+    <div class="actions">
+      <%= link_to 'Responses', responses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+    </div>
+
   </main>
 </div>

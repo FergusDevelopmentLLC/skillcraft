@@ -3,59 +3,59 @@
     <h1>Editing Student</h1>
 
     <% if @student && @student.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
-        <ul>
-          <% @student.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+      <ul>
+        <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
 
     <%= form_with url: "/students/#{@student.id}", model: @student, local: true, method: "patch" do |form| %>
-    
-      <%= form.hidden_field :id, :value => @student.id%>
-      
-      <div class="field">
-        <%= form.label :user_name %>
-        <%= form.text_field :user_name %>
-      </div>
 
-      <div class="field">
-        <%= form.label :password_digest %>
-        <%= form.text_field :password_digest %>
-      </div>
-      
-      <div class="field">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-      </div>
+    <%= form.hidden_field :id, :value => @student.id%>
 
-      <div class="field">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-      </div>
+    <div class="field">
+      <%= form.label :user_name %>
+      <%= form.text_field :user_name %>
+    </div>
 
-      <div class="field">
-        <%= form.label :email %>
-        <%= form.text_field :email %>
-      </div>
+    <div class="field">
+      <%= form.label :password_digest %>
+      <%= form.text_field :password_digest %>
+    </div>
 
-      <div class="field">
-        <%= form.label :type %>
-        <%= form.text_field :type %>
-      </div>
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
 
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-      
-    <% end %>
-    
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :type %>
+      <%= form.text_field :type %>
+    </div>
+
     <div class="actions">
-      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= form.submit %>
+    </div>
+
+    <% end %>
+
+    <div class="actions">
+      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
 
   </main>

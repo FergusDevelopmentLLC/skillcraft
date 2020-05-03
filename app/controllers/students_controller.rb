@@ -65,7 +65,7 @@ class StudentsController < ApplicationController
   end
 
   def login
-    binding.pry
+    
   end
   
   def signup

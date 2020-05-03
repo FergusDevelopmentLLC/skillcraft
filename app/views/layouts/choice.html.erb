@@ -1,13 +1,13 @@
 <div class="full">
     <main class="main">
         <p>I am a...</p>
-        <br/>
+        <br />
         <%= form_with url: "/choose_course", model: @person, local: true, method: "get" do |f| %>
-            <%= f.submit "Student" %>
-            <br/>
-            <br/>
-            <%= f.submit "Teacher" %>
+        <%= f.submit "Student" %>
+        <br />
+        <br />
+        <%= f.submit "Teacher" %>
         <% end %>
-    
+
     </main>
 </div>

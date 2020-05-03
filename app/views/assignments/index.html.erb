@@ -24,27 +24,28 @@
 
       <tbody>
         <% @assignments.each do |assignment| %>
-          <tr>
-            <td><%= assignment.course.name %></td>
-            <td><%= assignment.person.user_name %></td>
-            <td><%= assignment.type %></td>
-            <td><%= assignment.title %></td>
-            <td><%= assignment.start_date %></td>
-            <td><%= assignment.end_date %></td>
-            <td><%= assignment.posted_date %></td>
-            <td><%= assignment.due_date %></td>
-            <td><%= assignment.graded %></td>
-            <td><%= assignment.points %></td>
-            <td><%= assignment.instructions %></td>
-            <td><%= link_to 'Show', assignment %></td>
-            <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-            <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+        <tr>
+          <td><%= assignment.course.name %></td>
+          <td><%= assignment.person.user_name %></td>
+          <td><%= assignment.type %></td>
+          <td><%= assignment.title %></td>
+          <td><%= assignment.start_date %></td>
+          <td><%= assignment.end_date %></td>
+          <td><%= assignment.posted_date %></td>
+          <td><%= assignment.due_date %></td>
+          <td><%= assignment.graded %></td>
+          <td><%= assignment.points %></td>
+          <td><%= assignment.instructions %></td>
+          <td><%= link_to 'Show', assignment_path(assignment) %></td>
+          <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+          <td><%= link_to 'Destroy', assignment_path(assignment), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
         <% end %>
       </tbody>
     </table>
     <div class="actions">
-      <%= link_to 'New Assignment', new_assignment_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to 'New Assignment', new_assignment_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>
 </div>

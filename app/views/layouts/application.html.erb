@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>SkillCraft</title>
@@ -8,6 +9,7 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tag %>
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
@@ -30,11 +32,12 @@
                 </div>
             </div>
             <div class="header-welcome">
-           
+
             </div>
         </div>
     </header>
     <%= yield %>
     <footer class="footer">&copy;<%=Time.new.year%> SkillCraft</footer>
 </body>
+
 </html>

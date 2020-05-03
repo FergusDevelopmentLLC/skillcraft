@@ -1,22 +1,82 @@
 <div class="full">
-  <main class="main">
-    <h1>New Assignment</h1>
+	<main class="main">
+		<h1>New Assignment</h1>
 
-    <% if @assignment && @assignment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
-      <ul>
-        <% @assignment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
+		<% if @assignment && @assignment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+			<ul>
+				<% @assignment.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
 
-    <%= render 'form', assignment: @assignment %>
+		<%= form_with url: "/assignment/#{@assignment.id}", model: @assignment, local: true, method: "post" do |form| %>
 
-    <div class="actions">
-      <%= link_to 'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
-    </div>
-  </main>
+		<%= form.hidden_field :id, :value => @assignment.id%>
+
+		<div class="field">
+			<%= form.label :course_id %>
+			<%= collection_select(:assignment, :course_id, Course.all, :id, :name, prompt: true) %>
+		</div>
+
+		<div class="field">
+			<%= form.label :teacher_id %>
+			<%= collection_select(:assignment, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
+		</div>
+
+		<%= form.hidden_field :type, :value => 'Assignment'%>
+
+		<div class="field">
+			<%= form.label :title %>
+			<%= form.text_field :title %>
+		</div>
+
+		<div class="field date-select">
+			<%= form.label :start_date %>
+			<%= form.date_select :start_date %>
+		</div>
+
+		<div class="field date-select">
+			<%= form.label :end_date %>
+			<%= form.date_select :end_date %>
+		</div>
+
+		<div class="field date-select">
+			<%= form.label :posted_date %>
+			<%= form.date_select :posted_date %>
+		</div>
+
+		<div class="field date-select">
+			<%= form.label :due_date %>
+			<%= form.date_select :due_date %>
+		</div>
+
+		<div class="field graded">
+			<%= form.label :graded %>
+			<%= form.check_box :graded %>
+		</div>
+
+		<div class="field">
+			<%= form.label :points %>
+			<%= form.number_field :points %>
+		</div>
+
+		<div class="field">
+			<%= form.label :instructions %>
+			<%= form.text_field :instructions %>
+		</div>
+
+		<div class="actions">
+			<%= form.submit %>
+		</div>
+
+		<% end %>
+
+		<div class="actions">
+			<%= link_to 'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+		</div>
+	</main>
 </div>

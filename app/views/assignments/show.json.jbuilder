@@ -1,1 +1,1 @@
-json.partial! "assignments/assignment", assignment: @assignment
+json.partial! "assignment/assignments", assignment: @assignment

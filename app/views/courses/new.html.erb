@@ -1,11 +1,45 @@
 <div class="full">
   <main class="main">
+
     <h1>New Course</h1>
 
-    <%= render 'form', course: @course %>
-    
+    <% if @course && @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% @course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
+    <%= form_with url: "/course/#{@course.id}", model: @course, local: true, method: "post" do |form| %>
+
+    <%= form.hidden_field :id, :value => @course.id%>
+
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :code %>
+      <%= form.text_field :code %>
+    </div>
+
     <div class="actions">
-      <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= form.submit %>
+    </div>
+
+    <% end %>
+
+
+    <div class="actions">
+      <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
 
   </main>

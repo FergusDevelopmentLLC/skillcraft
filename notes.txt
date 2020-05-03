@@ -199,3 +199,6 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
       #   <%= form.label :course_code %>
       #   <%= form.text_field :code %>
       # </div>
+
+
+    https://medium.com/@costa.alexoglou/enable-formatting-with-erb-files-in-vscode-d4b4ff537017

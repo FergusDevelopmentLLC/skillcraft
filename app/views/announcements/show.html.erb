@@ -2,7 +2,7 @@
   <main class="main">
     <p id="notice"><%= notice %></p>
 
-    <h1>Announcement: <%= @announcement.title %></h1>
+    <h1>Show Announcement: <%= @announcement.title %></h1>
 
     <p>
       <strong>Course:</strong>
@@ -59,7 +59,7 @@
       <%= @announcement.instructions %>
     </p>
     <div class="actions">
-     <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
+      <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>
 </div>

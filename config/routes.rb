@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # resources :people, controller: 'people#index'
   get '/choose_course', :method => "get", :to => 'courses#choose_course'
 
-  get '/login', :method => "get", :to => 'people#login'
+  get '/login', :method => "get", :to => 'students#login'
 
   get '/signup', :method => "get", :to => 'students#signup'
 

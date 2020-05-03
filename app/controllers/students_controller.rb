@@ -64,6 +64,10 @@ class StudentsController < ApplicationController
     end
   end
 
+  def login
+    binding.pry
+  end
+  
   def signup
     respond_to do |format|
       format.html { redirect_to new_student_url }

@@ -178,5 +178,24 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   ===================================================================================================
   ===================================================================================================
 
-  destroy student   Yes
-  edit student       
+  create student      Pass (password_digest?)
+  update student
+  destroy student     Pass
+  empty attr student
+
+  create teacher    
+  update teacher
+  destroy teacher     Pass
+  empty attr teacher
+
+  edit teacher     
+
+
+  # <br/>
+      # -OR-
+      # <br/><br/>
+      
+      # <div class="field">
+      #   <%= form.label :course_code %>
+      #   <%= form.text_field :code %>
+      # </div>

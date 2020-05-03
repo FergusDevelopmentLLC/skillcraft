@@ -4,33 +4,26 @@ class TeachersController < ApplicationController
     # GET /teachers
     # GET /teachers.json
     def index
-        #binding.pry
         @teachers = Teacher.all
     end
 
     # GET /teachers/1
     # GET /teachers/1.json
     def show
-        #binding.pry
     end
 
     # GET /teachers/new
     def new
-        #binding.pry
         @teacher = Teacher.new
     end
 
     # GET /teachers/1/edit
     def edit
-        #binding.pry
     end
 
     # POST /teachers
     # POST /teachers.json
     def create
-        
-        #binding.pry
-
         @teacher = Teacher.new(teacher_params)
         respond_to do |format|
         if @teacher.save
@@ -46,9 +39,6 @@ class TeachersController < ApplicationController
     # PATCH/PUT /teachers/1
     # PATCH/PUT /teachers/1.json
     def update
-        
-        #binding.pry
-
         respond_to do |format|
             if @teacher.update(teacher_params)
                 format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
@@ -63,9 +53,6 @@ class TeachersController < ApplicationController
     # DELETE /teachers/1
     # DELETE /teachers/1.json
     def destroy
-        
-        #binding.pry
-
         @teacher.destroy
         respond_to do |format|
             format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }

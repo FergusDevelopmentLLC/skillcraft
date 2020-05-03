@@ -1,9 +1,12 @@
 <div class="full">
   <main class="main">
     <h1>Sign up</h1>
-    <% if @person && @person.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+    
+    <%= form_with url: "/people/#{@person.id}", model: @person, local: true, method: "post" do |form| %>
+    
+      <% if @person && @person.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
           <ul>
             <% @person.errors.full_messages.each do |message| %>
@@ -13,8 +16,44 @@
         </div>
       <% end %>
 
-    <%= render 'form', person: @person %>
+      <%= form.hidden_field :id, :value => @person.id%>
+      
+      <div class="field">
+        <%= form.label :user_name %>
+        <%= form.text_field :user_name %>
+      </div>
 
+      <div class="field">
+        <%= form.label :password_digest %>
+        <%= form.text_field :password_digest %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
+
+      <div class="field">
+        <%= form.label :type %>
+        <%= form.text_field :type %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+      
+    <% end %>
+    
     <div class="actions">
       <%= link_to 'People', people_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>

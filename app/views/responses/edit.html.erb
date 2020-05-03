@@ -16,14 +16,12 @@
 
     <%= form_with url: "/responses/#{@response.id}", model: @response, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :id, :value => @response.id%>
+    <%= form.hidden_field :type, :value => 'Response'%>
 
     <div class="field">
       <%= form.label :interaction_id %>
       <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
     </div>
-
-    <%= form.hidden_field :type, :value => "Response" %>
 
     <div class="field">
       <%= form.label :content %>

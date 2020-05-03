@@ -16,7 +16,7 @@
 
     <%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :id, :value => @teacher.id%>
+    <%= form.hidden_field :type, :value => 'Teacher'%>
 
     <div class="field">
       <%= form.label :user_name %>

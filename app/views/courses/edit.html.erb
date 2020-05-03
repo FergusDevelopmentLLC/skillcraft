@@ -16,7 +16,7 @@
 
     <%= form_with url: "/courses/#{@course.id}", model: @course, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :id, :value => @course.id%>
+    <%= form.hidden_field :type, :value => 'Course'%>
 
     <div class="field">
       <%= form.label :name %>
@@ -36,7 +36,7 @@
 
 
     <div class="actions">
-      <%= link_to 'Courses', courses_path(@course) %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= link_to 'Courses', course_path(@course) %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
 
   </main>

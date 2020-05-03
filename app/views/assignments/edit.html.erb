@@ -16,7 +16,7 @@
 
 		<%= form_with url: "/assignments/#{@assignment.id}", model: @assignment, local: true, method: "patch" do |form| %>
 
-		<%= form.hidden_field :id, :value => @assignment.id%>
+		<%= form.hidden_field :type, :value => 'Assignment'%>
 
 		<div class="field">
 			<%= form.label :course_id %>

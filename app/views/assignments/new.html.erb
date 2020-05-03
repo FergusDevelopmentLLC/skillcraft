@@ -13,9 +13,9 @@
 		</div>
 		<% end %>
 
-		<%= form_with url: "/assignment/#{@assignment.id}", model: @assignment, local: true, method: "post" do |form| %>
+		<%= form_with url: "/assignment", model: @assignment, local: true, method: "post" do |form| %>
 
-		<%= form.hidden_field :id, :value => @assignment.id%>
+		<%= form.hidden_field :type, :value => 'Assignment'%>
 
 		<div class="field">
 			<%= form.label :course_id %>
@@ -26,8 +26,6 @@
 			<%= form.label :teacher_id %>
 			<%= collection_select(:assignment, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
 		</div>
-
-		<%= form.hidden_field :type, :value => 'Assignment'%>
 
 		<div class="field">
 			<%= form.label :title %>

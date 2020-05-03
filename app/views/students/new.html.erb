@@ -15,9 +15,9 @@
     </div>
     <% end %>
 
-    <%= form_with url: "/students/#{@student.id}", model: @student, local: true, method: "post" do |form| %>
+    <%= form_with url: "/students", model: @student, local: true, method: "post" do |form| %>
 
-    <%= form.hidden_field :id, :value => @student.id%>
+    <%= form.hidden_field :type, :value => 'Student'%>
 
     <div class="field">
       <%= form.label :user_name %>

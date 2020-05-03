@@ -16,7 +16,7 @@
 
     <%= form_with url: "/announcements/#{@announcement.id}", model: @announcement, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :id, :value => @announcement.id%>
+    <%= form.hidden_field :type, :value => 'Announcement'%>
 
     <div class="field">
       <%= form.label :course_id %>
@@ -27,8 +27,6 @@
       <%= form.label :teacher_id %>
       <%= collection_select(:announcement, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
     </div>
-
-    <%= form.hidden_field :type, :value => 'Announcement'%>
 
     <div class="field">
       <%= form.label :title %>

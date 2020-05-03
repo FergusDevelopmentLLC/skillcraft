@@ -16,6 +16,8 @@
 
     <%= form_with url: "/students/#{@student.id}", model: @student, local: true, method: "patch" do |form| %>
 
+    <%= form.hidden_field :type, :value => 'Student'%>
+
     <%= form.hidden_field :id, :value => @student.id%>
 
     <div class="field">

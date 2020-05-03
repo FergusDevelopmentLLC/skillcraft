@@ -2,11 +2,11 @@
   <main class="main">
     <h1>Editing Teacher</h1>
 
-    <%= form_with url: "/teacher/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
+    <%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
     
     <% if @teacher && @teacher.errors.any? %>
     
-    <div id="error_explanation">
+      <div id="error_explanation">
         <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
           <ul>

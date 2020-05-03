@@ -2,7 +2,7 @@
   <main class="main">
     <h1>Sign up</h1>
     
-    <%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
+    <%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "post" do |form| %>
 
     <% if @teacher && @teacher.errors.any? %>
       <div id="error_explanation">

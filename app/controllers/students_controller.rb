@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    student = Student.new(student_params)
+    @student = Student.new(student_params)
     respond_to do |format|
       if @student.save
         format.html { redirect_to students_url, notice: 'Student was successfully created.' }

@@ -1,6 +1,8 @@
 <div class="full">
   <main class="main">
-    <%= form_with url: "/login", model: @person, local: true, method: "post" do |form| %>
+    <h1>Login</h1>
+
+    <%= form_with url: "/login", model: @person, local: true, method: "get" do |form| %>
   
       <% if @person && @person.errors.any? %>
         <div id="error_explanation">
@@ -24,7 +26,7 @@
         <%= form.text_field :password %>
       </div>
 
-      <br/><br/>
+      <br/>
       -OR-
       <br/><br/>
       

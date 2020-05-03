@@ -1,22 +1,21 @@
 <div class="full">
   <main class="main">
+  
     <h1>Editing Teacher</h1>
+    
+    <% if @teacher && @teacher.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+        <ul>
+          <% @teacher.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <%= form_with url: "/teachers/#{@teacher.id}", model: @teacher, local: true, method: "patch" do |form| %>
     
-    <% if @teacher && @teacher.errors.any? %>
-    
-      <div id="error_explanation">
-        <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
-
-          <ul>
-            <% @teacher.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <%= form.hidden_field :id, :value => @teacher.id%>
       
       <div class="field">

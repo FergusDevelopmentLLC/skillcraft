@@ -179,7 +179,7 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   ===================================================================================================
 
   create student      Pass (password_digest?)
-  update student
+  update student      Pass
   destroy student     Pass
   empty attr student
 

@@ -1,7 +1,20 @@
 <div class="full">
   <main class="main">
     <h1>New Assignment</h1>
+
+    <% if @assignment && @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <ul>
+        <% @assignment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
     <%= render 'form', assignment: @assignment %>
+
     <div class="actions">
       <%= link_to 'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br/>
     </div>

@@ -2,20 +2,20 @@
   <main class="main">
     <h1>Editing Student</h1>
 
+    <% if @student && @student.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+        <ul>
+          <% @student.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= form_with url: "/students/#{@student.id}", model: @student, local: true, method: "patch" do |form| %>
     
-      <% if @student && @student.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-          <ul>
-            <% @student.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <%= form.hidden_field :id, :value => @student.id%>
       
       <div class="field">

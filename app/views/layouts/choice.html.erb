@@ -1,5 +1,8 @@
 <div class="full">
     <main class="main">
+
+        <p id="notice"><%= notice %></p>
+
         <p>I am a...</p>
         <br />
         <%= form_with url: "/choose_course", model: @person, local: true, method: "get" do |f| %>

@@ -79,7 +79,7 @@ class StudentsController < ApplicationController
   # GET /login/1.json
   def login
     #one
-    binding.pry
+    #binding.pry
     # @user = User.find_by(:username => params[:user][:username])
     # if(@user && @user.authenticate(params[:user][:password]))
     #     session[:user_id] = @user.id
@@ -94,15 +94,27 @@ class StudentsController < ApplicationController
   # GET /login/1.json
   def post_login
     #two
-    binding.pry
-    # @user = User.find_by(:username => params[:user][:username])
-    # if(@user && @user.authenticate(params[:user][:password]))
-    #     session[:user_id] = @user.id
-    #     redirect "/"
+    @person = Person.find_by(:user_name => params[:user_name])
+    #binding.pry
+
+    # if @student.update(student_params)
+    #   format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+    #   format.json { render :show, status: :ok, location: @student }
     # else
-    #     flash[:error] = "User name or password incorrect"
-    #     redirect "/login"
+    #   format.html { render :edit }
+    #   format.json { render json: @student.errors, status: :unprocessable_entity }
     # end
+
+    if(@person && @person.authenticate(params[:password]))
+        # session[:user_id] = @user.id
+        # redirect "/"
+    else
+        respond_to do |format|
+          format.html { redirect_to login_path, notice: 'User name or password incorrect'}
+          format.json { head :no_content }
+          # format.json { render :index, status: :ok, location: @student }//TODO correct this
+        end
+    end
   end
 
   def signup

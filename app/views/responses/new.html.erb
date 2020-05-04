@@ -1,7 +1,10 @@
 <div class="full">
   <main class="main">
 
+    <p id="notice"><%= notice %></p>
+
     <h1>New Response</h1>
+
     <% if @response && @response.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>

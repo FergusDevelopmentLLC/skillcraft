@@ -2,7 +2,7 @@
   <main class="main">
     <h1>Login</h1>
 
-    <%= form_with url: "/login", model: @person, local: true, method: "get" do |form| %>
+    <%= form_with url: "/post_login", model: @person, local: true, method: "get" do |form| %>
 
     <% if @person && @person.errors.any? %>
     <div id="error_explanation">

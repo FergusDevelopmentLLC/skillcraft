@@ -65,14 +65,52 @@ class StudentsController < ApplicationController
   end
 
   def login
-    
+    #one
+    # binding.pry
+    # if logged_in?
+    #     flash[:message] = "Please log out in order to login with a different account"
+    #     redirect "/"
+    # else
+    #     erb :'users/login'
+    # end
   end
-  
+
+  # GET /login
+  # GET /login/1.json
+  def login
+    #one
+    binding.pry
+    # @user = User.find_by(:username => params[:user][:username])
+    # if(@user && @user.authenticate(params[:user][:password]))
+    #     session[:user_id] = @user.id
+    #     redirect "/"
+    # else
+    #     flash[:error] = "User name or password incorrect"
+    #     redirect "/login"
+    # end
+  end
+
+  # GET /login
+  # GET /login/1.json
+  def post_login
+    #two
+    binding.pry
+    # @user = User.find_by(:username => params[:user][:username])
+    # if(@user && @user.authenticate(params[:user][:password]))
+    #     session[:user_id] = @user.id
+    #     redirect "/"
+    # else
+    #     flash[:error] = "User name or password incorrect"
+    #     redirect "/login"
+    # end
+  end
+
   def signup
-    respond_to do |format|
-      format.html { redirect_to new_student_url }
-      format.json { head :no_content }
-    end
+    binding.pry
+    # respond_to do |format|
+    #   format.html { redirect_to new_student_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

@@ -64,22 +64,13 @@ class StudentsController < ApplicationController
     end
   end
 
-  def login
-    #one
-    # binding.pry
-    # if logged_in?
-    #     flash[:message] = "Please log out in order to login with a different account"
-    #     redirect "/"
-    # else
-    #     erb :'users/login'
-    # end
-  end
-
   # GET /login
-  # GET /login/1.json
   def login
+    
     #one
+    
     #binding.pry
+    
     # @user = User.find_by(:username => params[:user][:username])
     # if(@user && @user.authenticate(params[:user][:password]))
     #     session[:user_id] = @user.id
@@ -89,40 +80,43 @@ class StudentsController < ApplicationController
     #     redirect "/login"
     # end
   end
-
-  # GET /login
-  # GET /login/1.json
+  
+  # GET /post_login
+  # GET /post_login/1.json
   def post_login
-    #two
+    
     @person = Person.find_by(:user_name => params[:user_name])
-    #binding.pry
-
-    # if @student.update(student_params)
-    #   format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-    #   format.json { render :show, status: :ok, location: @student }
-    # else
-    #   format.html { render :edit }
-    #   format.json { render json: @student.errors, status: :unprocessable_entity }
-    # end
-
+    
     if(@person && @person.authenticate(params[:password]))
-        # session[:user_id] = @user.id
-        # redirect "/"
+        respond_to do |format|
+          session[:user_id] = @person.id
+          format.html { redirect_to courses_path, notice: 'Welcome to SkillCraft.'}
+          format.json { head :no_content }#//TODO correct this
+          # format.json { render :index, status: :ok, location: @student }
+        end
     else
         respond_to do |format|
           format.html { redirect_to login_path, notice: 'User name or password incorrect'}
-          format.json { head :no_content }
-          # format.json { render :index, status: :ok, location: @student }//TODO correct this
+          format.json { head :no_content }#//TODO correct this
+          # format.json { render :index, status: :ok, location: @student }
         end
     end
   end
 
   def signup
-    binding.pry
+    # binding.pry
     # respond_to do |format|
     #   format.html { redirect_to new_student_url }
     #   format.json { head :no_content }
     # end
+  end
+
+  def logout
+    respond_to do |format|
+      session[:user_id] = nil #using session.clear interfered with flash messages being displayed
+      format.html { redirect_to root_path, notice: 'Logout successful'}
+      format.json { head :no_content }#//TODO correct this
+    end
   end
 
   private

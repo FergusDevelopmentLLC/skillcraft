@@ -11,20 +11,17 @@ Rails.application.routes.draw do
   resources :assignments
   resources :responses
   
-  #root 'layouts#index' # shortcut for the above
-  root 'layouts#choice'
+  root 'courses#index'
 
-  # get '/choose_course', to: '/people#new'
-  # resources :people, controller: 'people#index'
-  get '/choose_course', :method => "get", :to => 'courses#choose_course'
+  # get '/choose_course', :method => "get", :to => 'courses#choose_course'
 
-  get '/login', :method => "get", :to => 'students#login'
+  get '/login', :to => 'students#login'
 
-  get '/login', :method => "post", :to => 'students#login'
+  get '/logout', :to => 'students#logout'
 
   get '/post_login', :method => "get", :to => 'students#post_login'
 
-  get '/signup', :method => "get", :to => 'people#signup'
+  get '/signup', :method => "get", :to => 'students#new'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -202,3 +202,11 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
 
 
     https://medium.com/@costa.alexoglou/enable-formatting-with-erb-files-in-vscode-d4b4ff537017
+
+
+
+
+
+https://www.justinweiss.com/articles/how-rails-sessions-work/
+
+https://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work

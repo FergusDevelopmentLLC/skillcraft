@@ -5,21 +5,21 @@
 
     <h1>Sign up</h1>
 
-    <% if @student && @student.errors.any? %>
+    <% if @person && @person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
-        <% @student.errors.full_messages.each do |message| %>
+        <% @person.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
     </div>
     <% end %>
 
-    <%= form_with url: "/students", model: @student, local: true, method: "post" do |form| %>
+    <%= form_with url: "/people", model: @person, local: true, method: "post" do |form| %>
 
-    <%= form.hidden_field :type, :value => 'Student'%>
+    <%= form.hidden_field :type, :value => 'person'%>
 
     <div class="field">
       <%= form.label :user_name %>
@@ -47,33 +47,23 @@
     </div>
 
     <div class="field">
-      <%= form.label :type %>
-      <%= 
-        
-        people = []
-        teacher = Teacher.new
-        teacher.type = "Teacher"
-        teacher.save
-        people.push(teacher)
-        student = Student.new
-        student.type = "Student"
-        student.save
-        people.push(student)
-        
-        #binding.pry
-        
-        collection_select(:student, :type, people, :id, :type, prompt: true)
-      %>
+      <label for="email">Join Course (enter code)</label>
+      <%= form.text_field :course_code %>
+    </div>
+
+    <div class="field">
+      <label for="person_type">I am a ...</label>
+      <%= collection_select(:person, :type, @people, :type, :type, include_blank: '-Please select-')%>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= submit_tag "Sign up" %>
     </div>
 
     <% end %>
 
     <div class="actions">
-      <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>
 </div>

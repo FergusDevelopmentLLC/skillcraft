@@ -150,7 +150,7 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
 
  <div class="field">
     <%= form.label :student_id %>
-    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, prompt: true) %>
+    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
   </div>
 
   <%= form.hidden_field :student_id, :value => @student.id %>
@@ -211,4 +211,4 @@ https://www.justinweiss.com/articles/how-rails-sessions-work/
 
 https://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work
 
-<!-- <%= collection_select(:type, :type_id, Type.all, :id, :type, prompt: true) %> -->
+<!-- <%= collection_select(:type, :type_id, Type.all, :id, :type, include_blank: '-Please select-')%> -->

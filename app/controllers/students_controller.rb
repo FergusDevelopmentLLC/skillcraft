@@ -15,8 +15,19 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @student = Student.new
-    #binding.pry
+    
+    @people = []
+    teacher = Teacher.new
+    teacher.type = "Teacher"
+    teacher.save
+    @people.push(teacher)
+    student = Student.new
+    student.type = "Student"
+    student.save
+    @people.push(student)
+
+    @person = Person.new
+  
   end
 
   # GET /students/1/edit
@@ -26,7 +37,9 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+    binding.pry
     @student = Student.new(student_params)
+    binding.pry
     respond_to do |format|
       if @student.save
         format.html { redirect_to students_url, notice: 'Student was successfully created.' }

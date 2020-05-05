@@ -23,12 +23,12 @@
 
     <div class="field">
       <%= form.label :course_id %>
-      <%= collection_select(:announcement, :course_id, Course.all, :id, :name, prompt: true) %>
+      <%= collection_select(:announcement, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>
     </div>
 
     <div class="field">
       <%= form.label :teacher_id %>
-      <%= collection_select(:announcement, :person_id, Teacher.all, :id, :user_name, prompt: true) %>
+      <%= collection_select(:announcement, :person_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
     </div>
 
     <div class="field">

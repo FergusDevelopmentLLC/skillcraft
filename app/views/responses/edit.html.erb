@@ -23,7 +23,7 @@
 
     <div class="field">
       <%= form.label :interaction_id %>
-      <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, prompt: true) %>
+      <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, include_blank: '-Please select-')%>
     </div>
 
     <div class="field">

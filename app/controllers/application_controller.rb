@@ -9,13 +9,22 @@ class ApplicationController < ActionController::Base
 
   #helpers do //TODO: why does this work?
   
-    def logged_in
+    def logged_in?
         !!current_user
     end
-    helper_method :logged_in
+    helper_method :logged_in?
+
+    def is_student?
+      if @current_user.type == "Student"
+        true
+      else
+        false
+      end
+    end
+    helper_method :is_student?
 
     def current_user
-        @current_user ||= Person.find_by(:id => session[:user_id])
+      @current_user ||= Person.find_by(:id => session[:user_id])
     end
     helper_method :current_user
 

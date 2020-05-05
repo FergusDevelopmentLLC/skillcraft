@@ -210,3 +210,5 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
 https://www.justinweiss.com/articles/how-rails-sessions-work/
 
 https://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work
+
+<!-- <%= collection_select(:type, :type_id, Type.all, :id, :type, prompt: true) %> -->

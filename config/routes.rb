@@ -15,13 +15,13 @@ Rails.application.routes.draw do
 
   # get '/choose_course', :method => "get", :to => 'courses#choose_course'
 
-  get '/login', :to => 'students#login'
+  get '/login', :to => 'people#login'
 
-  get '/logout', :to => 'students#logout'
+  get '/logout', :to => 'people#logout'
 
-  get '/post_login', :method => "get", :to => 'students#post_login'
+  get '/post_login', :method => "get", :to => 'people#post_login'
 
-  get '/signup', :method => "get", :to => 'students#new'
+  get '/signup', :method => "get", :to => 'people#new'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

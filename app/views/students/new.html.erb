@@ -48,7 +48,22 @@
 
     <div class="field">
       <%= form.label :type %>
-      <%= form.text_field :type %>
+      <%= 
+        
+        people = []
+        teacher = Teacher.new
+        teacher.type = "Teacher"
+        teacher.save
+        people.push(teacher)
+        student = Student.new
+        student.type = "Student"
+        student.save
+        people.push(student)
+        
+        #binding.pry
+        
+        collection_select(:student, :type, people, :id, :type, prompt: true)
+      %>
     </div>
 
     <div class="actions">

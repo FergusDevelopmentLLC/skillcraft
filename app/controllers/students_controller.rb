@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    #binding.pry
   end
 
   # GET /students/1/edit

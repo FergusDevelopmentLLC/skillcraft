@@ -26,7 +26,7 @@
                         <li><a href="/announcements">Announcements</a></li>
                         <li><a href="/assignments">Assignments</a></li>
                         <li><a href="/responses">Responses</a></li>
-                        <% if logged_in %>
+                        <% if logged_in? %>
                         <li><a href="/logout">Logout</a></li>
                         <% else %>
                         <li><a href="/login">Login</a></li>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="header-welcome">
-                <% if logged_in %>
+                <% if logged_in? %>
                     <% if is_student? %>
                         Welcome, <a href='students/<%=current_user.id%>'><%=current_user.user_name%></a>
                     <% else %>

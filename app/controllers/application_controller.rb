@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   #   set :session_secret, 'secure_password'
   # end
 
-  #helpers do
+  #helpers do //TODO: why does this work?
   
     def logged_in
         !!current_user

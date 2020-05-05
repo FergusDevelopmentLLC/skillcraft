@@ -388,10 +388,6 @@ input[type='checkbox'] {
     margin-top: 5px;
 }
 
-input[type='text'] {
-    min-width: 250px;
-}
-
 textarea {
     width: 300px;
     height: 100px;
@@ -582,7 +578,6 @@ label {
 
 input[type="text"], input[type="number"], select {
     margin-top: .3rem;
-    max-width: 33%;
 }
 
 .date-select {
@@ -595,6 +590,9 @@ input[type="text"], input[type="number"], select {
     flex-direction: row;
 }
 
+select {
+    min-width: 250px;
+}
 
 @media screen and (max-width: 768px) {
     .nav-title {

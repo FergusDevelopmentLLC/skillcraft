@@ -63,19 +63,32 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-      respond_to do |format|
-          if @person.save
-              if(@person.type == "Student")
-                format.html { redirect_to student_path(@person), notice: "#{@person.type} was successfully created" }
-              else
-                format.html { redirect_to teacher_path(@person), notice: "#{@person.type} was successfully created" }
-              end
-              #format.json { render :show, status: :created, location: @student } //TODO: fix
-          else
-              format.html { render :new }
-              #format.json { render json: @student.errors, status: :unprocessable_entity } //TODO: fix
-          end
+    
+    respond_to do |format|
+    
+      if @person.save
+          
+        match = Course.find_by(:code => params[:person][:course_code])
+
+        if match
+          cp = CoursePerson.new
+          cp.course = match
+          cp.person = @person
+          cp.save
+        end
+
+        if(@person.type == "Student")
+          format.html { redirect_to student_path(@person), notice: "#{@person.type} was successfully created" }
+        else
+          format.html { redirect_to teacher_path(@person), notice: "#{@person.type} was successfully created" }
+        end
+        #format.json { render :show, status: :created, location: @student } //TODO: fix
+      
+      else
+        format.html { render :new }
+        #format.json { render json: @student.errors, status: :unprocessable_entity } //TODO: fix
       end
+    end
   end
 
   def logout

@@ -37,9 +37,9 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    binding.pry
+    
     @student = Student.new(student_params)
-    binding.pry
+    
     respond_to do |format|
       if @student.save
         format.html { redirect_to students_url, notice: 'Student was successfully created.' }

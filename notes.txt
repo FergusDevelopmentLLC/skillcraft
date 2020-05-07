@@ -212,3 +212,8 @@ https://www.justinweiss.com/articles/how-rails-sessions-work/
 https://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-work
 
 <!-- <%= collection_select(:type, :type_id, Type.all, :id, :type, include_blank: '-Please select-')%> -->
+
+
+https://apidock.com/ruby/Enumerable/find_all
+
+https://stackoverflow.com/questions/1329967/tell-ruby-program-to-wait-some-amount-of-time

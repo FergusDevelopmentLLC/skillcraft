@@ -20,6 +20,7 @@ class ResponsesController < ApplicationController
 
   # GET /responses/1/edit
   def edit
+    
   end
 
   # POST /responses

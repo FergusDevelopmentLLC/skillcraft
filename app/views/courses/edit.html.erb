@@ -23,13 +23,35 @@
 
     <%= form.hidden_field :id, :value => @course.id%>
     <div class="field">
-      <%= form.label :name %>
+      <strong><%= form.label :name %>:</strong>
       <%= form.text_field :name %>
     </div>
 
     <div class="field">
-      <%= form.label :code %>
+      <strong><%= form.label :code %></strong>
       <%= form.text_field :code %>
+    </div>
+    
+    <div class="field">
+      <strong>Teachers:</strong>
+      <%if(@course.teachers.count > 0)%>
+        <% @course.teachers.each do |teacher| %>
+          <%=link_to teacher.user_name, teacher_path(teacher)%>
+        <% end %>
+      <%else%>
+        No teachers
+      <%end%>
+    </div>
+
+    <div class="field">
+      <strong>Students:</strong>
+      <%if(@course.students.count > 0)%>
+        <% @course.students.each do |student| %>
+          <%=link_to student.user_name, student_path(student)%>
+        <% end %>
+      <%else%>
+        No students
+      <%end%>
     </div>
 
     <div class="actions">

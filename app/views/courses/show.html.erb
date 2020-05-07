@@ -6,40 +6,38 @@
     <h1>Show Course: <%= @course.name %></h1>
 
     <p>
-      <strong>Name:</strong>
+      <strong>Name:</strong>/home/geodevadmin/programming/ruby/skillcraft/app/views/courses/show.html.erb
       <%= @course.name %>
     </p>
 
     <p>
-      <strong>Code:</strong>
+      <strong>Code:</strong><br/>
       <%= @course.code %>
     </p>
-    <br/>
-
-    <%if(@course.people.find_all{|person| person.type == "Teacher"}.count > 0)%>
+    
     <p>
       <strong>Teachers:</strong>
       <br/>
-      <% @course.people.find_all{|person| person.type == "Teacher"}.each do |teacher| %>
-        <%=link_to teacher.user_name, teacher_path(teacher)%><br/>
-      <% end %>
+      <%if(@course.teachers.count > 0)%>
+        <% @course.teachers.each do |teacher| %>
+          <%=link_to teacher.user_name, teacher_path(teacher)%><br/>
+        <% end %>
+      <%else%>
+        No teachers
+      <%end%>
     </p>
-    <br/>
-    <%else%>
-    <p><strong>No teachers</strong><br/></p>
-    <%end%>
 
-    <%if(@course.people.find_all{|person| person.type == "Teacher"}.count > 0)%>
     <p>
       <strong>Students:</strong>
       <br/>
-      <% @course.people.find_all{|person| person.type == "Student"}.each do |student| %>
-        <%=link_to student.user_name, student_path(student)%><br/>
-      <% end %>
+      <%if(@course.students.count > 0)%>
+        <% @course.students.each do |student| %>
+          <%=link_to student.user_name, student_path(student)%><br/>
+        <% end %>
+      <%else%>
+        No students
+      <%end%>
     </p>
-    <%else%>
-    <p><strong>No students</strong><br/></p>
-    <%end%>
 
     <div class="actions">
       <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />

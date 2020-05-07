@@ -6,7 +6,7 @@ class Course < ApplicationRecord
     has_many :people, :through => :course_people
 
     def students
-        returnVal = self.people.find_all { |person| person.type == "Student" } 
+        self.people.find_all { |person| person.type == "Student" } 
     end
 
     def teachers

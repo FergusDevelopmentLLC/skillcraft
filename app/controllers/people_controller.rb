@@ -23,7 +23,7 @@ class PeopleController < ApplicationController
     
     #one
     
-    binding.pry
+    #binding.pry
     
     # @user = User.find_by(:username => params[:user][:username])
     # if(@user && @user.authenticate(params[:user][:password]))
@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
   # GET /post_login/1.json
   def post_login
     
-    binding.pry
+    # binding.pry
 
     @person = Person.find_by(:user_name => params[:user_name])
     

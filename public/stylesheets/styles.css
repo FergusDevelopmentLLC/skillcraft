@@ -25,6 +25,10 @@ img {
     display: block;
 }
 
+p {
+    margin-bottom: 1rem;
+}
+
 /* Layouts */
 body {
     margin: 0 auto;

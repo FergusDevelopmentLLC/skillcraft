@@ -37,11 +37,12 @@
             </div>
             <div class="header-welcome">
                 <% if logged_in? %>
-                    <% if is_student? %>
-                        Welcome, <a href='students/<%=current_user.id%>'><%=current_user.user_name%></a>
-                    <% else %>
-                        Welcome, <a href='teachers/<%=current_user.id%>'><%=current_user.user_name%></a>
-                    <% end %>
+                    Welcome, 
+                    <%if is_student?%>
+                        <%=link_to current_user.user_name, student_path(current_user)%>
+                    <%else%>
+                        <%=link_to current_user.user_name, teacher_path(current_user)%>
+                    <%end%>
                 <% else %>
                     &nbsp;
                 <% end %>

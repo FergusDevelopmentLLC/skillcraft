@@ -27,6 +27,16 @@
     </div>
 
     <div class="field">
+      <%= form.label :Student %>
+      <%= collection_select(:response, :person_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
+    </div>
+
+    <div class="field">
+      <%= form.label :Type %>
+      <%= form.text_field :type, disabled: true %>
+    </div>
+    
+    <div class="field">
       <%= form.label :content %>
       <%= form.text_field :content %>
     </div>

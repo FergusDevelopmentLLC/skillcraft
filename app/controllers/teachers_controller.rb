@@ -39,6 +39,16 @@ class TeachersController < ApplicationController
     # PATCH/PUT /teachers/1
     # PATCH/PUT /teachers/1.json
     def update
+        
+        match = Course.find_by(:code => params[:teacher][:course_code])
+
+        if match
+          cp = CoursePerson.new
+          cp.course = match
+          cp.person = @teacher
+          cp.save
+        end
+
         respond_to do |format|
             if @teacher.update(teacher_params)
                 format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
@@ -68,7 +78,7 @@ class TeachersController < ApplicationController
 
         # Only allow a list of trusted parameters through.
         def teacher_params
-            params.require(:teacher).permit(:user_name, :type, :password_digest, :first_name, :last_name, :email)
+            params.require(:teacher).permit(:id, :user_name, :type, :password_digest, :first_name, :last_name, :email)
         end
 
 end

@@ -6,50 +6,45 @@
     <h1>Show Teacher: <%= @teacher.user_name %></h1>
 
     <p>
-      <strong>User name:</strong>
+      <strong>User name:</strong><br/>
       <%= @teacher.user_name %>
     </p>
 
     <p>
-      <strong>Type:</strong>
+      <strong>Type:</strong><br/>
       <%= @teacher.type %>
     </p>
 
     <p>
-      <strong>Password digest:</strong>
+      <strong>Password digest:</strong><br/>
       <%= @teacher.password_digest %>
     </p>
 
     <p>
-      <strong>First name:</strong>
+      <strong>First name:</strong><br/>
       <%= @teacher.first_name %>
     </p>
 
     <p>
-      <strong>Last name:</strong>
+      <strong>Last name:</strong><br/>
       <%= @teacher.last_name %>
     </p>
 
     <p>
-      <strong>Email:</strong>
+      <strong>Email:</strong><br/>
       <%= @teacher.email %>
     </p>
 
-    <br/>
-
     <p>
-      <strong>Courses:</strong>
+      <strong>Courses:</strong><br/>
+      <%if(@teacher.courses.count > 0)%>
+        <% @teacher.courses.each do |course| %>
+          <%=link_to course.name, course_path(course)%><br/>
+        <% end %>
+      <%else%>
+      Not teaching any courses
+      <%end%>
     </p>
-
-    <%if(@teacher.courses.count > 0)%>
-    <p>
-      <% @teacher.courses.each do |course| %>
-        <%=link_to course.name, course_path(course)%><br/>
-      <% end %>
-    </p>
-    <%else%>
-    <p>No courses taught</p>
-    <%end%>
 
     <div class="actions">
       <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />

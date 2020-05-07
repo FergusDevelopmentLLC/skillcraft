@@ -71,10 +71,7 @@ class PeopleController < ApplicationController
         match = Course.find_by(:code => params[:person][:course_code])
 
         if match
-          cp = CoursePerson.new
-          cp.course = match
-          cp.person = @person
-          cp.save
+          @person.courses << match
         end
 
         if(@person.type == "Student")

@@ -23,37 +23,48 @@
     <%= form.hidden_field :id, :value => @teacher.id%>
 
     <div class="field">
-      <%= form.label :user_name %>
+      <strong><%= form.label :user_name %>:</strong>
       <%= form.text_field :user_name %>
     </div>
 
     <div class="field">
-      <%= form.label :password_digest %>
+      <strong><%= form.label :password_digest %>:</strong>
       <%= form.text_field :password_digest %>
     </div>
 
     <div class="field">
-      <%= form.label :first_name %>
+      <strong><%= form.label :first_name %>:</strong>
       <%= form.text_field :first_name %>
     </div>
 
     <div class="field">
-      <%= form.label :last_name %>
+      <strong><%= form.label :last_name %>:</strong>
       <%= form.text_field :last_name %>
     </div>
 
     <div class="field">
-      <%= form.label :email %>
+      <strong><%= form.label :email %>:</strong>
       <%= form.text_field :email %>
     </div>
 
     <div class="field">
-      <%= form.label :type %>
+      <strong><%= form.label :type %>:</strong>
       <%= form.text_field :type, disabled: true %>
     </div>
 
     <div class="field">
-      <label for="course_code">Teach Course (enter code)</label>
+      <strong><%= form.label :Courses %>:</strong>
+      <%if(@teacher.courses.count > 0)%>
+        <% @teacher.courses.each do |course| %>
+          <%=link_to course.name, course_path(course)%><br/>
+        <% end %>
+      <%else%>
+        Not teaching any courses
+      <%end%>
+    </div>
+
+    <div class="field">
+      <strong>Teach Course (enter course code):</strong>
       <%= form.text_field :course_code %>
     </div>
 

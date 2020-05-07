@@ -57,6 +57,12 @@ class StudentsController < ApplicationController
     
     @student = Student.find(student_params[:id])
     
+    match = Course.find_by(:code => params[:student][:course_code])
+
+    if match
+      @student.courses << match
+    end
+
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }

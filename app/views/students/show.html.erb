@@ -35,6 +35,17 @@
       <%= @student.email %>
     </p>
 
+    <p>
+      <strong>Courses:</strong><br/>
+      <%if(@student.courses.count > 0)%>
+        <% @student.courses.each do |course| %>
+          <%=link_to course.name, course_path(course)%><br/>
+        <% end %>
+      <%else%>
+      Not enrolled in any courses
+      <%end%>
+    </p>
+
     <div class="actions">
       <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>

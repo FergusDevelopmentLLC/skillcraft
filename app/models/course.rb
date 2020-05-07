@@ -12,4 +12,15 @@ class Course < ApplicationRecord
     def teachers
         self.people.find_all { |person| person.type == "Teacher" } 
     end
+
+    # def self.assign_to_course(student, course)
+    #     match = Course.find_by(:code => course.code)
+    #     if match
+    #         cp = CoursePerson.new
+    #         cp.course = course
+    #         cp.person = student
+    #         cp.save
+    #     end
+    # end
+
 end

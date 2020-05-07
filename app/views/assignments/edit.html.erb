@@ -20,6 +20,7 @@
 
 		<%= form.hidden_field :type, :value => 'Assignment'%>
 
+		<%= form.hidden_field :id, :value => @assignment.id%>
 		<div class="field">
 			<%= form.label :course_id %>
 			<%= collection_select(:assignment, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>

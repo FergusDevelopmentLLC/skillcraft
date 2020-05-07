@@ -19,6 +19,7 @@
 
     <%= form_with url: "/responses/#{@response.id}", model: @response, local: true, method: "patch" do |form| %>
 
+    <%= form.hidden_field :id, :value => @response.id%>
     <div class="field">
       <%= form.label :interaction_id %>
       <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, include_blank: '-Please select-')%>

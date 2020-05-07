@@ -21,6 +21,7 @@
 
     <%= form.hidden_field :type, :value => 'Course'%>
 
+    <%= form.hidden_field :id, :value => @course.id%>
     <div class="field">
       <%= form.label :name %>
       <%= form.text_field :name %>
@@ -39,7 +40,7 @@
 
 
     <div class="actions">
-      <%= link_to 'Courses', course_path(@course) %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= link_to 'Courses', courses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
 
   </main>

@@ -51,29 +51,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
-  def update
-    
-    @student = Student.find(student_params[:id])
-    
-    match = Course.find_by(:code => params[:student][:course_code])
-
-    if match
-      @student.courses << match
-    end
-
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
-      else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
@@ -89,7 +66,7 @@ class StudentsController < ApplicationController
     
     #one
     
-    #binding.pry
+    # #binding.pry
     
     # @user = User.find_by(:username => params[:user][:username])
     # if(@user && @user.authenticate(params[:user][:password]))
@@ -124,7 +101,7 @@ class StudentsController < ApplicationController
   end
 
   def signup
-    # binding.pry
+    #  #binding.pry
     # respond_to do |format|
     #   format.html { redirect_to new_student_url }
     #   format.json { head :no_content }

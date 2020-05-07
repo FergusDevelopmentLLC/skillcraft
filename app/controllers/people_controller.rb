@@ -23,7 +23,7 @@ class PeopleController < ApplicationController
     
     #one
     
-    #binding.pry
+    # #binding.pry
     
     # @user = User.find_by(:username => params[:user][:username])
     # if(@user && @user.authenticate(params[:user][:password]))
@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
   # GET /post_login/1.json
   def post_login
     
-    # binding.pry
+    #  #binding.pry
 
     @person = Person.find_by(:user_name => params[:user_name])
     
@@ -62,17 +62,26 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
+
+     #binding.pry
+
     @person = Person.new(person_params)
     
+     #binding.pry
+
+    match = Course.find_by(:code => params[:person][:course_code])
+
+    if match
+      @person.courses << match
+    end
+
+     #binding.pry
+
     respond_to do |format|
     
       if @person.save
-          
-        match = Course.find_by(:code => params[:person][:course_code])
 
-        if match
-          @person.courses << match
-        end
+         #binding.pry    
 
         if(@person.type == "Student")
           format.html { redirect_to student_path(@person), notice: "#{@person.type} was successfully created" }
@@ -84,6 +93,38 @@ class PeopleController < ApplicationController
       else
         format.html { render :new }
         #format.json { render json: @student.errors, status: :unprocessable_entity } //TODO: fix
+      end
+    end
+  end
+
+  # PATCH/PUT /people/1
+  # PATCH/PUT /people/1.json
+  def update
+
+     #binding.pry
+    
+    @student = Student.find(student_params[:id])
+    
+     #binding.pry
+
+    match = Course.find_by(:code => params[:student][:course_code])
+
+     #binding.pry
+
+    if match
+      @student.courses << match
+    end
+
+     #binding.pry
+
+    respond_to do |format|
+      if @student.update(student_params)
+         #binding.pry
+        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.json { render :show, status: :ok, location: @student }
+      else
+        format.html { render :edit }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
   end

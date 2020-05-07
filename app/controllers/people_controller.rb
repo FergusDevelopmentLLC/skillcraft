@@ -46,7 +46,7 @@ class PeopleController < ApplicationController
     if(@person && @person.authenticate(params[:password]))
         respond_to do |format|
           session[:user_id] = @person.id
-          format.html { redirect_to courses_path, notice: 'Welcome to SkillCraft'}
+          format.html { redirect_to courses_path, notice: 'Welcome to SkillCraft, a place to craft your skills'}
           format.json { head :no_content }#//TODO correct this
           # format.json { render :index, status: :ok, location: @student }
         end
@@ -94,7 +94,7 @@ class PeopleController < ApplicationController
   def logout
     respond_to do |format|
       session[:user_id] = nil #using session.clear interfered with flash messages being displayed
-      format.html { redirect_to root_path, notice: 'Logout successful'}
+      format.html { redirect_to root_path, notice: 'Come back soon!'}
       format.json { head :no_content }#//TODO correct this
     end
   end

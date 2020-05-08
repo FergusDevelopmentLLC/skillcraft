@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/signup', :method => "get", :to => 'people#new'
 
-  get '/course_people/:student_id/:course_id/destroy', :method => "get", :to => 'course_people#destroy'
+  get '/course_people/:course_id/:student_id/destroy', :to => 'course_people#destroy', as: 'course_person'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

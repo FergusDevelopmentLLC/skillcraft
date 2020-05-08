@@ -34,7 +34,7 @@ gem 'seed_dump'
 gem 'jquery-rails'
 #gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
-gem 'rack-flash3'
+#gem 'rack-flash3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +49,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
+  gem 'solargraph'
+  gem 'rubocop'
 end
 
 group :test do

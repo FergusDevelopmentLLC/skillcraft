@@ -217,3 +217,7 @@ https://stackoverflow.com/questions/9492362/rails-how-does-the-respond-to-block-
 https://apidock.com/ruby/Enumerable/find_all
 
 https://stackoverflow.com/questions/1329967/tell-ruby-program-to-wait-some-amount-of-time
+
+https://medium.com/@ivanraybuglosa/beginners-guide-for-a-ruby-on-rails-ready-visual-studio-code-da9fe77a1356
+
+https://dev.to/vvo/the-three-extensions-you-need-for-rails-in-vs-code-5h7j

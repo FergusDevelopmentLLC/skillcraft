@@ -66,7 +66,7 @@ class CoursesController < ApplicationController
   def choose_course
     @courses = Course.all
     respond_to do |format|
-      format.html { render :template => "courses/index" }
+      format.html { render template: 'courses/index' }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-    before_action :set_student, only: [:show, :edit, :destroy]
+    before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
   # GET /students.json
@@ -49,6 +49,33 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # PATCH/PUT /students/1
+  # PATCH/PUT /students/1.json
+  def update
+    
+    @student.errors.clear
+
+    if params[:student][:course_code]
+      matched_course = Course.find_by(code: params[:student][:course_code])
+      if matched_course
+        @student.courses << matched_course unless @student.courses.map(&:code).include?(matched_course.code)
+      else
+        @student.errors.add(:course, 'code incorrect')
+      end
+    end
+
+    respond_to do |format|
+      if @student.errors.count.zero? && @student.update(student_params)
+        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.json { render :show, status: :ok, location: @student }
+      else
+        format.html { render :edit }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
+    end
+    
   end
 
   # DELETE /students/1
@@ -115,6 +142,7 @@ class StudentsController < ApplicationController
       format.json { head :no_content }#//TODO correct this
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

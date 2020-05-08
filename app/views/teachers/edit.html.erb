@@ -56,7 +56,7 @@
       <strong><%= form.label :Courses %>:</strong>
       <%if(@teacher.courses.count > 0)%>
         <% @teacher.courses.each do |course| %>
-          <%=link_to course.name, course_path(course)%>
+          <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_person_path(course,@teacher) %></div>
         <% end %>
       <%else%>
         Not teaching any courses

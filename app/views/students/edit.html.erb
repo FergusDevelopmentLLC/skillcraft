@@ -57,7 +57,7 @@
       <strong><%= form.label :Courses %>:</strong>
       <%if(@student.courses.count > 0)%>
         <% @student.courses.each do |course| %>
-          <%=link_to course.name, course_path(course)%>
+          <%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_person_path(course,@student) %></div>
         <% end %>
       <%else%>
         Not enrolled in any courses

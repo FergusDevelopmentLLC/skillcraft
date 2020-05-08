@@ -47,7 +47,7 @@
       <strong>Students:</strong>
       <%if(@course.students.count > 0)%>
         <% @course.students.each do |student| %>
-          <%=link_to student.user_name, student_path(student)%>
+          <div><%=link_to student.user_name, student_path(student)%> < <%=link_to "Withdraw", "/course_people/#{student.id}/#{@course.id}/destroy" %></div>
         <% end %>
       <%else%>
         No students

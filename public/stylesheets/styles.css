@@ -159,6 +159,7 @@ body {
     padding: .75em 1em .75em 1em;
     background: white;
     border: 1px solid red;
+    min-width: 400px;
 }
 
 .full .main {
@@ -551,11 +552,6 @@ table th {
     margin-bottom: .5rem;
     display: flex;
     flex-direction: column;
-    
-}
-
-.field div {
-    margin-top: .5rem;
 }
 
 .actions {
@@ -569,10 +565,6 @@ table th {
 .field {
     display: flex;
     justify-content: flex-start;
-}
-
-.field div {
-    margin-left: 1rem;
 }
 
 label {

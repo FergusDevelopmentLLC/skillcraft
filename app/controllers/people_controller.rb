@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  #before_action :set_person, only: [:show, :edit, :destroy]	
+  before_action :set_person, only: [:randomize_avatar]	
   
   # GET /students/new
   def new
@@ -137,6 +137,27 @@ class PeopleController < ApplicationController
     end
   end
   
+  def randomize_avatar 
+
+    @person.avatar = Avatar.unused_avatar
+    
+    respond_to do |format|
+      if @person.save
+    
+        if @person.type == "Student"
+          format.html { redirect_to student_path(@person), notice: 'Student was successfully updated' }
+        else
+          format.html { redirect_to teacher_path(@person), notice: 'Teacher was successfully updated' }
+        end
+        # format.json { render :show, status: :ok, location: @student } //TODO fix
+      else
+        format.html { render :edit }
+        # format.json { render json: @student.errors, status: :unprocessable_entity } //TODO fix
+      end
+    end
+
+  end
+
   private
   
   # Use callbacks to share common setup or constraints between actions.

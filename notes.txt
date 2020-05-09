@@ -229,3 +229,7 @@ https://guides.rubyonrails.org/active_record_validations.html#custom-methods
 https://medium.com/@ivanraybuglosa/beginners-guide-for-a-ruby-on-rails-ready-visual-studio-code-da9fe77a1356
 
 https://dev.to/vvo/the-three-extensions-you-need-for-rails-in-vs-code-5h7j
+
+https://stackoverflow.com/questions/15988960/testing-for-empty-or-nil-value-string
+
+https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/

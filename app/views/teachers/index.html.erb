@@ -7,6 +7,7 @@
     <table>
       <thead>
         <tr>
+          <th>Avatar</th>
           <th>User name</th>
           <th>Type</th>
           <th>Password digest</th>
@@ -21,6 +22,7 @@
       <tbody>
         <% @teachers.each do |teacher| %>
         <tr>
+          <td><div style="width: 35px;"><%= cl_image_tag(teacher.avatar.url)  %></div></td>
           <td><%= teacher.user_name %></td>
           <td><%= teacher.type %></td>
           <td><%= teacher.password_digest.truncate(10) %></td>

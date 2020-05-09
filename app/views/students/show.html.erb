@@ -6,6 +6,13 @@
     <h1>Show Student: <%= @student.user_name %></h1>
 
     <p>
+      <strong>Avatar:</strong><br/>
+      <div class="avatar-container">
+        <%= cl_image_tag(@student.avatar.url)  %>
+      </div>
+    </p>
+
+    <p>
       <strong>User name:</strong><br/>
       <%= @student.user_name %>
     </p>

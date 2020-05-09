@@ -21,6 +21,13 @@
     <%= form.hidden_field :type, :value => 'Teacher'%>
 
     <%= form.hidden_field :id, :value => @teacher.id%>
+    <div class="field">
+      <strong><%= form.label :avatar %>:</strong>
+      <div class='avatar-container'>
+        <%= cl_image_tag(@teacher.avatar.url)  %>
+      </div>
+      <a href="/people/<%=@teacher.id%>/randomize_avatar">randomize</a>
+    </div>
 
     <div class="field">
       <strong><%= form.label :user_name %>:</strong>

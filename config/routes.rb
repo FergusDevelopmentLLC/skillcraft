@@ -25,5 +25,7 @@ Rails.application.routes.draw do
 
   get '/course_people/:course_id/:student_id/destroy', :to => 'course_people#destroy', as: 'course_person'
 
+  get '/people/:id/randomize_avatar', :to => 'people#randomize_avatar'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

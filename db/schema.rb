@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
+  create_table "avatars", force: :cascade do |t|
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "course_people", force: :cascade do |t|
     t.integer "person_id"
     t.integer "course_id"
@@ -48,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "people", force: :cascade do |t|
     t.string "user_name"
+    t.integer "avatar_id"
     t.string "type"
     t.string "password_digest"
     t.string "first_name"
@@ -55,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["avatar_id"], name: "index_people_on_avatar_id"
   end
 
   create_table "responses", force: :cascade do |t|

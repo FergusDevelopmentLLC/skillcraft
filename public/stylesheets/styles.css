@@ -590,6 +590,22 @@ select {
     min-width: 250px;
 }
 
+#error_explanation, #notice {
+    color: red;
+}
+
+#error_explanation h2{
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: .95rem;
+}
+
+#error_explanation ul{
+    margin: 0 0 .5rem 0;
+}
+
+
 @media screen and (max-width: 768px) {
     .nav-title {
         font-size: 1.5rem;

@@ -7,8 +7,12 @@ class CoursePeopleController < ApplicationController
     #binding.pry
     @coursePerson.delete
     respond_to do |format|
-      format.html { redirect_to course_url(@coursePerson.course), notice: @coursePerson.person.user_name + " successfully removed from #{@coursePerson.course.name}"}
-      format.json { head :no_content }
+      if @coursePerson.person.type == "Student"
+        format.html { redirect_to student_url(@coursePerson.person), notice: @coursePerson.person.user_name + " successfully removed from #{@coursePerson.course.name}"}
+      else
+        format.html { redirect_to teacher_url(@coursePerson.person), notice: @coursePerson.person.user_name + " successfully removed from #{@coursePerson.course.name}"}
+      end
+      # format.json { head :no_content } TODO: correct
     end
   end
 

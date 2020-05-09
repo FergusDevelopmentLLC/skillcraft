@@ -29,7 +29,7 @@ class ResponsesController < ApplicationController
     @response = Response.new(response_params)
     respond_to do |format|
       if @response.save
-        format.html { redirect_to @response, notice: 'Response was successfully created.' }
+        format.html { redirect_to @response, notice: 'Response was successfully created' }
         format.json { render :show, status: :created, location: @response }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @response.update(response_params)
-        format.html { redirect_to @response, notice: 'Response was successfully updated.' }
+        format.html { redirect_to @response, notice: 'Response was successfully updated' }
         format.json { render :show, status: :ok, location: @response }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to responses_url, notice: 'Response was successfully destroyed.' }
+      format.html { redirect_to responses_url, notice: 'Response was successfully destroyed' }
       format.json { head :no_content }
     end
   end

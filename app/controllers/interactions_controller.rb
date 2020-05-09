@@ -28,7 +28,7 @@ class InteractionsController < ApplicationController
 
     respond_to do |format|
       if @interaction.save
-        format.html { redirect_to @interaction, notice: 'Interaction was successfully created.' }
+        format.html { redirect_to @interaction, notice: 'Interaction was successfully created' }
         format.json { render :show, status: :created, location: @interaction }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class InteractionsController < ApplicationController
   def update
     respond_to do |format|
       if @interaction.update(interaction_params)
-        format.html { redirect_to @interaction, notice: 'Interaction was successfully updated.' }
+        format.html { redirect_to @interaction, notice: 'Interaction was successfully updated' }
         format.json { render :show, status: :ok, location: @interaction }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class InteractionsController < ApplicationController
   def destroy
     @interaction.destroy
     respond_to do |format|
-      format.html { redirect_to interactions_url, notice: 'Interaction was successfully destroyed.' }
+      format.html { redirect_to interactions_url, notice: 'Interaction was successfully destroyed' }
       format.json { head :no_content }
     end
   end

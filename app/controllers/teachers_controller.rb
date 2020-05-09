@@ -40,7 +40,7 @@ class TeachersController < ApplicationController
     
     @teacher.errors.clear()
 
-    if params[:teacher][:course_code]
+    if params[:teacher][:course_code].blank? == false
       matched_course = Course.find_by(code: params[:teacher][:course_code])
       if matched_course
         @teacher.courses << matched_course unless @teacher.courses.map(&:code).include?(matched_course.code)

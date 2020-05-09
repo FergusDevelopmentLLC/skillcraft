@@ -221,3 +221,11 @@ https://stackoverflow.com/questions/1329967/tell-ruby-program-to-wait-some-amoun
 https://medium.com/@ivanraybuglosa/beginners-guide-for-a-ruby-on-rails-ready-visual-studio-code-da9fe77a1356
 
 https://dev.to/vvo/the-three-extensions-you-need-for-rails-in-vs-code-5h7j
+
+https://guides.rubyonrails.org/routing.html
+
+https://guides.rubyonrails.org/active_record_validations.html#custom-methods
+
+https://medium.com/@ivanraybuglosa/beginners-guide-for-a-ruby-on-rails-ready-visual-studio-code-da9fe77a1356
+
+https://dev.to/vvo/the-three-extensions-you-need-for-rails-in-vs-code-5h7j

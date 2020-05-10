@@ -10,6 +10,7 @@
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
+        <!-- https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails -->
         <% @person.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>

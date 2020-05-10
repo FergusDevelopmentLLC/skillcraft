@@ -235,3 +235,11 @@ https://stackoverflow.com/questions/15988960/testing-for-empty-or-nil-value-stri
 https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/
 
 https://www.scootersoftware.com/
+
+https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails
+
+https://edgeguides.rubyonrails.org/active_record_validations.html#validates-each
+
+https://stackoverflow.com/questions/39831316/rails-validate-in-model-that-value-is-inside-array2
+
+https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails

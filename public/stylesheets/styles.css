@@ -591,7 +591,11 @@ select {
     min-width: 250px;
 }
 
-#error_explanation, #notice {
+#error_explanation {
+    color: red;
+}
+
+#notice {
     color: red;
     text-align: center;
 }
@@ -601,6 +605,7 @@ select {
     margin: 0;
     padding: 0;
     font-size: .95rem;
+    text-align: left;
 }
 
 #error_explanation ul{

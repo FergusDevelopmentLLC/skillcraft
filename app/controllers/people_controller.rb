@@ -4,19 +4,8 @@ class PeopleController < ApplicationController
   
   # GET /students/new
   def new
-    
-    @people = []
-    teacher = Teacher.new
-    teacher.type = "Teacher"
-    teacher.save
-    @people.push(teacher)
-    student = Student.new
-    student.type = "Student"
-    student.save
-    @people.push(student)
-
+    @people = Person.teacher_student
     @person = Person.new
-  
   end
 
   def show; end
@@ -59,7 +48,7 @@ class PeopleController < ApplicationController
     if match
       @person.courses << match
     end
-    
+
     respond_to do |format|
       if @person.save
         if(@person.type == "Student")
@@ -68,6 +57,7 @@ class PeopleController < ApplicationController
           format.html { redirect_to teacher_path(@person), notice: "#{@person.type} was successfully created" }
         end
       else
+        @people = Person.teacher_student
         format.html { render :new }
       end
     end

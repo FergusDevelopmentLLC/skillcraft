@@ -294,6 +294,7 @@ Lint/UnusedBlockArgument:
 # Offense count: 6
 # Configuration parameters: IgnoredMethods.
 Metrics/AbcSize:
+  Enabled: false
   Max: 50
 
 # Offense count: 1
@@ -305,6 +306,7 @@ Metrics/BlockLength:
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
 Metrics/CyclomaticComplexity:
+  Enabled: false
   Max: 8
 
 # Offense count: 7
@@ -315,7 +317,8 @@ Metrics/MethodLength:
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
 Metrics/PerceivedComplexity:
-  Max: 8
+  Enabled: false
+  #Max: 8
 
 # Offense count: 1
 # Configuration parameters: NamePrefix, ForbiddenPrefixes, AllowedMethods, MethodDefinitionMacros.

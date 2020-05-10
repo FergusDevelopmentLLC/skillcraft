@@ -4,7 +4,6 @@ class CoursePeopleController < ApplicationController
   # DELETE /course_people/1
   # DELETE /course_people/1.json
   def destroy
-    #binding.pry
     @coursePerson.delete
     respond_to do |format|
       if @coursePerson.person.type == "Student"
@@ -12,7 +11,6 @@ class CoursePeopleController < ApplicationController
       else
         format.html { redirect_to teacher_url(@coursePerson.person), notice: @coursePerson.person.user_name + " successfully removed from #{@coursePerson.course.name}"}
       end
-      # format.json { head :no_content } TODO: correct
     end
   end
 

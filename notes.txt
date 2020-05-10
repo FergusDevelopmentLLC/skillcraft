@@ -233,3 +233,5 @@ https://dev.to/vvo/the-three-extensions-you-need-for-rails-in-vs-code-5h7j
 https://stackoverflow.com/questions/15988960/testing-for-empty-or-nil-value-string
 
 https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/
+
+https://www.scootersoftware.com/

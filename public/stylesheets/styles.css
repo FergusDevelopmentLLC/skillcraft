@@ -12,7 +12,8 @@ h2,
 h3,
 h4 {
     margin-bottom: .3em;
-    color: #0000cd;
+    color: #72a1d4;
+    text-align: center;
 }
 
 ul {
@@ -592,6 +593,7 @@ select {
 
 #error_explanation, #notice {
     color: red;
+    text-align: center;
 }
 
 #error_explanation h2{
@@ -609,6 +611,14 @@ select {
     width: 100px;
 }
 
+.avatar-wrapper {
+    margin: auto;
+    text-align: center;
+}
+
+.randomize-link {
+    margin-top: .5rem;
+}
 
 @media screen and (max-width: 768px) {
     .nav-title {

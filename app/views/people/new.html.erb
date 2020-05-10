@@ -19,8 +19,6 @@
 
     <%= form_with url: "/people", model: @person, local: true, method: "post" do |form| %>
 
-    <%= form.hidden_field :type, :value => 'person'%>
-
     <div class="field">
       <%= form.label :user_name %>
       <%= form.text_field :user_name %>

@@ -1,6 +1,6 @@
 # rubocop:disable ClassLength
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :randomize_avatar]	
+  before_action :set_person, only: [:show, :edit, :update, :destroy, :randomize_avatar]	
   
   # GET /students/new
   def new
@@ -19,9 +19,7 @@ class PeopleController < ApplicationController
   
   end
 
-  def show
-    
-  end
+  def show; end
   
   # GET /login
   def login; end
@@ -34,8 +32,6 @@ class PeopleController < ApplicationController
               end
   end
   
-  # GET /post_login
-  # GET /post_login/1.json
   def post_login
     
     @person = Person.find_by(:user_name => params[:user_name])
@@ -52,18 +48,18 @@ class PeopleController < ApplicationController
     end
   end
     
-  # POST /people
-  # POST /people.json
   def create
-
-     @person = Person.new(person_params)
     
-     match = Course.find_by(:code => params[:person][:course_code])
+    @person = Person.new(person_params)
+
+    @person.avatar = Avatar.unused_avatar
+    
+    match = Course.find_by(:code => params[:person][:course_code])
 
     if match
       @person.courses << match
     end
-
+    
     respond_to do |format|
       if @person.save
         if(@person.type == "Student")
@@ -78,8 +74,6 @@ class PeopleController < ApplicationController
 
   end
 
-  # PATCH/PUT /people/1
-  # PATCH/PUT /people/1.json
   def update
     
     @person.errors.clear
@@ -135,10 +129,19 @@ class PeopleController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
+  def edit; end
 
+  def destroy
+    respond_to do |format|
+      @person.destroy
+      if @person.type == "Student"
+        format.html { redirect_to students_url, notice: "#{@person.user_name} was successfully destroyed" }
+      else
+        format.html { redirect_to teachers_url, notice: "#{@person.user_name} was successfully destroyed" }
+      end
+    end
+  end
+  
   private
   
     # Use callbacks to share common setup or constraints between actions.
@@ -148,12 +151,15 @@ class PeopleController < ApplicationController
         
     # Only allow a list of trusted parameters through.
     def person_params
-      if @person.type == "Student"
-        params.require(:student).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+      if @person
+        if @person.type == "Student"
+          params.require(:student).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+        else
+          params.require(:teacher).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+        end
       else
-        params.require(:teacher).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+        params.require(:person).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
       end
-      
     end
 
 end

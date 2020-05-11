@@ -134,7 +134,6 @@ class PeopleController < ApplicationController
   
   private
   
-    # Use callbacks to share common setup or constraints between actions.
     def set_person
       @person = Person.find(params[:id])
     end
@@ -143,12 +142,12 @@ class PeopleController < ApplicationController
     def person_params
       if @person
         if @person.type == "Student"
-          params.require(:student).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+          params.require(:student).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
         else
-          params.require(:teacher).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+          params.require(:teacher).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
         end
       else
-        params.require(:person).permit(:user_name, :id, :password_digest, :first_name, :last_name, :email, :type)
+        params.require(:person).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
       end
     end
 

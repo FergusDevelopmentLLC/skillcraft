@@ -36,8 +36,8 @@ Layout/BlockAlignment:
 Layout/CommentIndentation:
   Exclude:
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/people_controller.rb'
-    - 'app/models/course_person.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/course_user.rb'
     - 'app/models/student.rb'
     - 'lib/tasks/export.rake'
 
@@ -55,7 +55,7 @@ Layout/EmptyLinesAroundAccessModifier:
   Exclude:
     - 'app/controllers/announcements_controller.rb'
     - 'app/controllers/assignments_controller.rb'
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
     - 'app/controllers/courses_controller.rb'
     - 'app/controllers/interactions_controller.rb'
     - 'app/controllers/responses_controller.rb'
@@ -77,7 +77,7 @@ Layout/EmptyLinesAroundBlockBody:
 Layout/EmptyLinesAroundClassBody:
   Exclude:
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/models/teacher.rb'
 
 # Offense count: 3
@@ -85,7 +85,7 @@ Layout/EmptyLinesAroundClassBody:
 Layout/EmptyLinesAroundMethodBody:
   Exclude:
     - 'app/controllers/assignments_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -116,10 +116,10 @@ Layout/IndentationConsistency:
   Exclude:
     - 'app/controllers/announcements_controller.rb'
     - 'app/controllers/assignments_controller.rb'
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
     - 'app/controllers/courses_controller.rb'
     - 'app/controllers/interactions_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/responses_controller.rb'
     - 'app/controllers/students_controller.rb'
     - 'app/controllers/teachers_controller.rb'
@@ -133,15 +133,15 @@ Layout/IndentationWidth:
     - 'app/controllers/announcements_controller.rb'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/assignments_controller.rb'
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
     - 'app/controllers/courses_controller.rb'
     - 'app/controllers/interactions_controller.rb'
     - 'app/controllers/layouts_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/responses_controller.rb'
     - 'app/controllers/students_controller.rb'
     - 'app/controllers/teachers_controller.rb'
-    - 'app/models/course_person.rb'
+    - 'app/models/course_user.rb'
     - 'app/models/student.rb'
     - 'lib/tasks/export.rake'
 
@@ -152,10 +152,10 @@ Layout/LeadingCommentSpace:
   Exclude:
     - 'Gemfile'
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/course_people_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
-    - 'app/models/person.rb'
+    - 'app/models/user.rb'
     - 'app/models/student.rb'
     - 'config/environments/development.rb'
     - 'config/routes.rb'
@@ -181,7 +181,7 @@ Layout/SpaceAfterComma:
 # Cop supports --auto-correct.
 Layout/SpaceAroundKeyword:
   Exclude:
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
 
 # Offense count: 206
@@ -206,7 +206,7 @@ Layout/SpaceBeforeBlockBraces:
 # Cop supports --auto-correct.
 Layout/SpaceBeforeComment:
   Exclude:
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
 
 # Offense count: 2
@@ -225,9 +225,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
 # SupportedStylesForEmptyBraces: space, no_space
 Layout/SpaceInsideBlockBraces:
   Exclude:
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
     - 'app/controllers/courses_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
     - 'lib/tasks/export.rake'
 
@@ -239,7 +239,7 @@ Layout/TrailingEmptyLines:
   Exclude:
     - 'Rakefile'
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/teachers_controller.rb'
     - 'app/models/announcement.rb'
     - 'app/models/assignment.rb'
@@ -256,7 +256,7 @@ Layout/TrailingWhitespace:
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/assignments_controller.rb'
     - 'app/controllers/layouts_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/responses_controller.rb'
     - 'app/controllers/students_controller.rb'
     - 'app/controllers/teachers_controller.rb'
@@ -336,7 +336,7 @@ Naming/PredicateName:
 # SupportedStyles: snake_case, camelCase
 Naming/VariableName:
   Exclude:
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -361,7 +361,7 @@ Style/CommentAnnotation:
 # SupportedStyles: assign_to_condition, assign_inside_condition
 Style/ConditionalAssignment:
   Exclude:
-    - 'app/controllers/course_people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
 
 # Offense count: 25
 Style/Documentation:
@@ -407,8 +407,8 @@ Style/FrozenStringLiteralComment:
 Style/HashSyntax:
   Exclude:
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/course_people_controller.rb'
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/course_users_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
     - 'config/routes.rb'
     - 'lib/tasks/export.rake'
@@ -417,7 +417,7 @@ Style/HashSyntax:
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'bin/bundle'
     - 'lib/tasks/auto_generate_diagram.rake'
 
@@ -475,7 +475,7 @@ Style/RedundantConditional:
 # AllowedMethods: present?, blank?, presence, try, try!
 Style/SafeNavigation:
   Exclude:
-    - 'app/controllers/people_controller.rb'
+    - 'app/controllers/users_controller.rb'
     - 'app/controllers/students_controller.rb'
 
 # Offense count: 1

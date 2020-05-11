@@ -22,7 +22,7 @@ class InteractionsTest < ApplicationSystemTestCase
     fill_in "Points", with: @interaction.points
     fill_in "Posted date", with: @interaction.posted_date
     fill_in "Start date", with: @interaction.start_date
-    fill_in "Person", with: @interaction.person_id
+    fill_in "User", with: @interaction.user_id
     fill_in "Title", with: @interaction.title
     fill_in "Type", with: @interaction.type
     click_on "Create Interaction"

@@ -1,5 +1,5 @@
 class Interaction < ApplicationRecord
   belongs_to :course
-  belongs_to :person
+  belongs_to :user
   has_many :responses, dependent: :destroy
 end

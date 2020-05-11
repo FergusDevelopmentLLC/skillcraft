@@ -1,45 +1,45 @@
 require "application_system_test_case"
 
-class CoursePeopleTest < ApplicationSystemTestCase
+class CourseUsersTest < ApplicationSystemTestCase
   setup do
-    @course_person = course_people(:one)
+    @course_user = course_users(:one)
   end
 
   test "visiting the index" do
-    visit course_people_url
-    assert_selector "h1", text: "Course People"
+    visit course_users_url
+    assert_selector "h1", text: "Course Users"
   end
 
-  test "creating a Course person" do
-    visit course_people_url
-    click_on "New Course Person"
+  test "creating a Course user" do
+    visit course_users_url
+    click_on "New Course User"
 
-    fill_in "Course", with: @course_person.course_id
-    fill_in "Person", with: @course_person.person_id
-    click_on "Create Course person"
+    fill_in "Course", with: @course_user.course_id
+    fill_in "User", with: @course_user.user_id
+    click_on "Create Course user"
 
-    assert_text "Course person was successfully created"
+    assert_text "Course user was successfully created"
     click_on "Back"
   end
 
-  test "updating a Course person" do
-    visit course_people_url
+  test "updating a Course user" do
+    visit course_users_url
     click_on "Edit", match: :first
 
-    fill_in "Course", with: @course_person.course_id
-    fill_in "Person", with: @course_person.person_id
-    click_on "Update Course person"
+    fill_in "Course", with: @course_user.course_id
+    fill_in "User", with: @course_user.user_id
+    click_on "Update Course user"
 
-    assert_text "Course person was successfully updated"
+    assert_text "Course user was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Course person" do
-    visit course_people_url
+  test "destroying a Course user" do
+    visit course_users_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Course person was successfully destroyed"
+    assert_text "Course user was successfully destroyed"
   end
 end

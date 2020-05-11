@@ -9,7 +9,7 @@ class LayoutsController < ApplicationController
     # GET /choice
     # GET /choice
     def choice
-        @person = Person.new
+        @user = User.new
     end
 
     

@@ -27,7 +27,7 @@ f<div class="full">
         <% @announcements.each do |announcement| %>
         <tr>
           <td><%= announcement.course.name %></td>
-          <td><%= announcement.person.user_name %></td>
+          <td><%= announcement.user.user_name %></td>
           <td><%= announcement.type %></td>
           <td><%= announcement.title %></td>
           <td><%= announcement.start_date %></td>

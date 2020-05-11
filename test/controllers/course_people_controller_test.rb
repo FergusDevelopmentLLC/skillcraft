@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class CoursePeopleControllerTest < ActionDispatch::IntegrationTest
+class CourseUsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @course_person = course_people(:one)
+    @course_user = course_users(:one)
   end
 
   test "should get index" do
-    get course_people_url
+    get course_users_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_course_person_url
+    get new_course_user_url
     assert_response :success
   end
 
-  test "should create course_person" do
-    assert_difference('CoursePerson.count') do
-      post course_people_url, params: { course_person: { course_id: @course_person.course_id, person_id: @course_person.person_id } }
+  test "should create course_user" do
+    assert_difference('CourseUser.count') do
+      post course_users_url, params: { course_user: { course_id: @course_user.course_id, user_id: @course_user.user_id } }
     end
 
-    assert_redirected_to course_person_url(CoursePerson.last)
+    assert_redirected_to course_user_url(CourseUser.last)
   end
 
-  test "should show course_person" do
-    get course_person_url(@course_person)
+  test "should show course_user" do
+    get course_user_url(@course_user)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_course_person_url(@course_person)
+    get edit_course_user_url(@course_user)
     assert_response :success
   end
 
-  test "should update course_person" do
-    patch course_person_url(@course_person), params: { course_person: { course_id: @course_person.course_id, person_id: @course_person.person_id } }
-    assert_redirected_to course_person_url(@course_person)
+  test "should update course_user" do
+    patch course_user_url(@course_user), params: { course_user: { course_id: @course_user.course_id, user_id: @course_user.user_id } }
+    assert_redirected_to course_user_url(@course_user)
   end
 
-  test "should destroy course_person" do
-    assert_difference('CoursePerson.count', -1) do
-      delete course_person_url(@course_person)
+  test "should destroy course_user" do
+    assert_difference('CourseUser.count', -1) do
+      delete course_user_url(@course_user)
     end
 
-    assert_redirected_to course_people_url
+    assert_redirected_to course_users_url
   end
 end

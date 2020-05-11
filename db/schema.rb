@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "course_people", force: :cascade do |t|
-    t.integer "person_id"
+  create_table "course_users", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_course_people_on_course_id"
-    t.index ["person_id"], name: "index_course_people_on_person_id"
+    t.index ["course_id"], name: "index_course_users_on_course_id"
+    t.index ["user_id"], name: "index_course_users_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
 
   create_table "interactions", force: :cascade do |t|
     t.integer "course_id", null: false
-    t.integer "person_id", null: false
+    t.integer "user_id", null: false
     t.string "type"
     t.string "title"
     t.date "start_date"
@@ -49,10 +49,25 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_interactions_on_course_id"
-    t.index ["person_id"], name: "index_interactions_on_person_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "responses", force: :cascade do |t|
+    t.integer "interaction_id", null: false
+    t.integer "user_id", null: false
+    t.string "type"
+    t.string "content"
+    t.integer "score"
+    t.string "letter_grade"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interaction_id"], name: "index_responses_on_interaction_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
     t.string "user_name"
     t.integer "avatar_id"
     t.string "type"
@@ -62,24 +77,11 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["avatar_id"], name: "index_people_on_avatar_id"
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.integer "interaction_id", null: false
-    t.integer "person_id", null: false
-    t.string "type"
-    t.string "content"
-    t.integer "score"
-    t.string "letter_grade"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["interaction_id"], name: "index_responses_on_interaction_id"
-    t.index ["person_id"], name: "index_responses_on_person_id"
+    t.index ["avatar_id"], name: "index_users_on_avatar_id"
   end
 
   add_foreign_key "interactions", "courses"
-  add_foreign_key "interactions", "people"
+  add_foreign_key "interactions", "users"
   add_foreign_key "responses", "interactions"
-  add_foreign_key "responses", "people"
+  add_foreign_key "responses", "users"
 end

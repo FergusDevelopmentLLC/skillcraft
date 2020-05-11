@@ -1,2 +1,62 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<div class="full">
+    <main class="main">
+  
+      <p id="notice"><%= notice %></p>
+  
+      <% if @user.type == "Student" %>
+        <h1>Show Student</h1>
+      <% else %>
+        <h1>Show Teacher</h1>
+      <% end %>
+  
+      <div class="field">
+        <div class='avatar-wrapper'>
+          <div class='avatar-container'>
+            <%= cl_image_tag(@user.avatar.url)  %>
+          </div>
+        </div>
+      </div>
+  
+      <p>
+        <strong>User name:</strong><br/>
+        <%= @user.user_name %>
+      </p>
+  
+      <p>
+        <strong>First name:</strong><br/>
+        <%= @user.first_name %>
+      </p>
+  
+      <p>
+        <strong>Last name:</strong><br/>
+        <%= @user.last_name %>
+      </p>
+  
+      <p>
+        <strong>Email:</strong><br/>
+        <%= @user.email %>
+      </p>
+  
+      <p>
+        <strong>Courses:</strong><br/>
+        <%if(@user.courses.count > 0)%>
+          <% @user.courses.each do |course| %>
+            <%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %><br/>
+          <% end %>
+        <%else%>
+        No courses
+        <%end%>
+      </p>
+  
+      <div class="actions">
+        
+        <% if @user.type == "Student" %>
+          <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+        <% else %>
+          <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+        <% end %>
+        
+      </div>
+  
+    </main>
+  </div>

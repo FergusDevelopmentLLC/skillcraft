@@ -10,7 +10,6 @@
         <tr>
           <th>Course</th>
           <th>Teacher</th>
-          <th>Type</th>
           <th>Title</th>
           <th>Start date</th>
           <th>End date</th>
@@ -27,8 +26,7 @@
         <% @assignments.each do |assignment| %>
         <tr>
           <td><%= assignment.course.name %></td>
-          <td><%= assignment.person.user_name %></td>
-          <td><%= assignment.type %></td>
+          <td><%= assignment.user.user_name %></td>
           <td><%= assignment.title %></td>
           <td><%= assignment.start_date %></td>
           <td><%= assignment.end_date %></td>

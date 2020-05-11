@@ -1,7 +1,7 @@
 class Avatar < ApplicationRecord
-  has_one :person
+  has_one :user
 
   def self.unused_avatar
-    Avatar.all.without(Person.all.map(&:avatar)).sample
+    Avatar.all.without(User.all.map(&:avatar)).sample
   end
 end

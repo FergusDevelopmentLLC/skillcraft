@@ -3,39 +3,39 @@
 
     <p id="notice"><%= notice %></p>
 
-    <% if @person.type == "Student" %>
+    <% if @user.type == "Student" %>
     <h1>Editing Student</h1>
     <%else%>
     <h1>Editing Teacher</h1>
     <%end%>
 
-    <% if @person && @person.errors.any? %>
+    <% if @user && @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
       <ul>
-        <% @person.errors.full_messages.each do |message| %>
+        <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
     </div>
     <% end %>
 
-    <%= form_with model: @person, local: true, method: "patch" do |form| %>
+    <%= form_with model: @user, local: true, method: "patch" do |form| %>
     
-    <% if @person.type == "Student" %>
+    <% if @user.type == "Student" %>
     <%= form.hidden_field :type, :value => 'Student'%>
     <%else%>
     <%= form.hidden_field :type, :value => 'Teacher'%>
     <%end%>
 
-    <%= form.hidden_field :id, :value => @person.id%>
+    <%= form.hidden_field :id, :value => @user.id%>
     
     <div class="field">
       <div class='avatar-wrapper'>
         <div class='avatar-container'>
-          <%= cl_image_tag(@person.avatar.url)  %>
+          <%= cl_image_tag(@user.avatar.url)  %>
         </div>
-        <a href="/people/<%=@person.id%>/randomize_avatar">randomize</a>
+        <a href="/users/<%=@user.id%>/randomize_avatar">randomize</a>
       </div>
     </div>
 
@@ -61,9 +61,9 @@
 
     <div class="field">
       <strong><%= form.label :Courses %>:</strong>
-      <%if(@person.courses.count > 0)%>
-        <% @person.courses.each do |course| %>
-          <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_person_path(course, @person) %></div>
+      <%if(@user.courses.count > 0)%>
+        <% @user.courses.each do |course| %>
+          <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %></div>
         <% end %>
       <%else%>
         No courses
@@ -71,7 +71,7 @@
     </div>
 
     <div class="field">
-      <% if @person.type == "Student" %>
+      <% if @user.type == "Student" %>
         <strong>Enroll in Course (enter course code):</strong>
       <%else%>
         <strong>Teach Course (enter course code):</strong>
@@ -86,7 +86,7 @@
     <% end %>
 
     <div class="actions">
-      <% if @person.type == "Student" %>
+      <% if @user.type == "Student" %>
         <%= link_to 'Students', students_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
       <%else%>
         <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />

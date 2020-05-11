@@ -3,7 +3,7 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
     create_table :interactions do |t|
       
       t.belongs_to :course, null: false, foreign_key: true
-      t.belongs_to :person, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
       t.string :type
       t.string :title
       t.date :start_date

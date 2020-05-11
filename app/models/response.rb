@@ -1,4 +1,4 @@
 class Response < ApplicationRecord
   belongs_to :interaction
-  belongs_to :person
+  belongs_to :user
 end

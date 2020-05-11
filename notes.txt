@@ -2,15 +2,15 @@ https://github.com/voormedia/rails-erd
 
 https://github.com/voormedia/rails-erd
 
-rails g scaffold Person user_name:string type:string password_digest:string first_name:string last_name:string email:string
+rails g scaffold User user_name:string type:string password_digest:string first_name:string last_name:string email:string
 rails g scaffold Interaction course:belongs_to teacher:belongs_to type:string title:string start_date:date end_date:date posted_date:date due_date:date graded:boolean points:integer instructions:string
 rails g scaffold Response interaction:belongs_to student:belongs_to type:string content:string score:integer letter_grade:string 
 
 rake generate_erd
 
-rails destroy scaffold Person
+rails destroy scaffold User
 rails destroy scaffold Course
-rails destroy scaffold CoursePerson
+rails destroy scaffold CourseUser
 rails destroy Interaction
 rails destroy Response
 
@@ -26,10 +26,10 @@ CREATE TABLE responses
   score INT NOT NULL,
   letter_grade VARCHAR NOT NULL,
   instructor_comment VARCHAR NOT NULL,
-  created_by_person_id INT NOT NULL,
+  created_by_user_id INT NOT NULL,
   interaction_id INT NOT NULL,
   PRIMARY KEY (response_id),
-  FOREIGN KEY (created_by_person_id) REFERENCES people(person_id),
+  FOREIGN KEY (created_by_user_id) REFERENCES users(user_id),
   FOREIGN KEY (interaction_id) REFERENCES interactions(interaction_id)
 );
 
@@ -41,10 +41,10 @@ CREATE TABLE graded_results
   score_possible INT NOT NULL,
   letter_attained CHAR NOT NULL,
   response_id INT NOT NULL,
-  person_id INT NOT NULL,
+  user_id INT NOT NULL,
   PRIMARY KEY (graded_result_id),
   FOREIGN KEY (response_id) REFERENCES responses(response_id),
-  FOREIGN KEY (person_id) REFERENCES people(person_id)
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 
@@ -55,7 +55,7 @@ What is an E coach?
 Certain teacher that has e-learning experience
 
 
-<%= link_to 'Edit Teacher', edit_person_path(@teacher) %>
+<%= link_to 'Edit Teacher', edit_user_path(@teacher) %>
 <%= link_to 'Edit Student', edit_student_path(@student) %>
 <%= link_to 'Edit Announcement', edit_announcement_path(@announcement) %>
 <%= link_to 'Edit Question', edit_question_path(@question) %>
@@ -127,18 +127,18 @@ https://stackoverflow.com/questions/3774925/delete-link-sends-get-instead-of-del
 https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-number-in-ruby
 
 
-<td><%= link_to 'Show', person %></td>
-<td><%= link_to 'Edit', edit_people_path(person) %></td>
-<td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to 'Show', user %></td>
+<td><%= link_to 'Edit', edit_users_path(user) %></td>
+<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 
-<td><%= link_to 'Show', person %></td>
+<td><%= link_to 'Show', user %></td>
 <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
 <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-<td><%= link_to 'Show', person %></td>
-<td><%= link_to 'Edit', edit_person_path(person) %></td>
-<td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to 'Show', user %></td>
+<td><%= link_to 'Edit', edit_user_path(user) %></td>
+<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 
 <%= form_with(url: "/choose_course", method: "get") do %>
@@ -150,7 +150,7 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
 
  <div class="field">
     <%= form.label :student_id %>
-    <%= collection_select(:response, :person_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
+    <%= collection_select(:response, :user_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
   </div>
 
   <%= form.hidden_field :student_id, :value => @student.id %>
@@ -167,7 +167,7 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
 
   https://www.peachpit.com/articles/article.aspx?p=1278994&seqNum=5
 
-  <%= collection_select(:person, :type, Person.all.uniq {|s| s.type == "Student" || s.type == "Teacher"}, :type, :type) %>
+  <%= collection_select(:user, :type, User.all.uniq {|s| s.type == "Student" || s.type == "Teacher"}, :type, :type) %>
 
   ===================================================================================================
   ===================================================================================================

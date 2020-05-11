@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class PeopleControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @person = people(:one)
+    @user = users(:one)
   end
 
   test "should get index" do
-    get people_url
+    get users_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_person_url
+    get new_user_url
     assert_response :success
   end
 
-  test "should create person" do
-    assert_difference('Person.count') do
-      post people_url, params: { person: { email: @person.email, first_name: @person.first_name, last_name: @person.last_name, password_digest: @person.password_digest, type: @person.type, user_name: @person.user_name } }
+  test "should create user" do
+    assert_difference('User.count') do
+      post users_url, params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest, type: @user.type, user_name: @user.user_name } }
     end
 
-    assert_redirected_to person_url(Person.last)
+    assert_redirected_to user_url(User.last)
   end
 
-  test "should show person" do
-    get person_url(@person)
+  test "should show user" do
+    get user_url(@user)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_person_url(@person)
+    get edit_user_url(@user)
     assert_response :success
   end
 
-  test "should update person" do
-    patch person_url(@person), params: { person: { email: @person.email, first_name: @person.first_name, last_name: @person.last_name, password_digest: @person.password_digest, type: @person.type, user_name: @person.user_name } }
-    assert_redirected_to person_url(@person)
+  test "should update user" do
+    patch user_url(@user), params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest, type: @user.type, user_name: @user.user_name } }
+    assert_redirected_to user_url(@user)
   end
 
-  test "should destroy person" do
-    assert_difference('Person.count', -1) do
-      delete person_url(@person)
+  test "should destroy user" do
+    assert_difference('User.count', -1) do
+      delete user_url(@user)
     end
 
-    assert_redirected_to people_url
+    assert_redirected_to users_url
   end
 end

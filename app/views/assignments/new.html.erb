@@ -27,7 +27,7 @@
 
 		<div class="field">
 			<%= form.label :teacher_id %>
-			<%= collection_select(:assignment, :person_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
+			<%= collection_select(:assignment, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
 		</div>
 
 		<div class="field">

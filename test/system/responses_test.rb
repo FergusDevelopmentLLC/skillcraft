@@ -18,7 +18,7 @@ class ResponsesTest < ApplicationSystemTestCase
     fill_in "Interaction", with: @response.interaction_id
     fill_in "Letter grade", with: @response.letter_grade
     fill_in "Score", with: @response.score
-    fill_in "Student", with: @response.person_id
+    fill_in "Student", with: @response.user_id
     fill_in "Type", with: @response.type
     click_on "Create Response"
 
@@ -34,7 +34,7 @@ class ResponsesTest < ApplicationSystemTestCase
     fill_in "Interaction", with: @response.interaction_id
     fill_in "Letter grade", with: @response.letter_grade
     fill_in "Score", with: @response.score
-    fill_in "Student", with: @response.person_id
+    fill_in "Student", with: @response.user_id
     fill_in "Type", with: @response.type
     click_on "Update Response"
 

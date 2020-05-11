@@ -17,7 +17,7 @@ class ResponsesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create response" do
     assert_difference('Response.count') do
-      post responses_url, params: { response: { content: @response.content, interaction_id: @response.interaction_id, letter_grade: @response.letter_grade, score: @response.score, person_id: @response.person_id, type: @response.type } }
+      post responses_url, params: { response: { content: @response.content, interaction_id: @response.interaction_id, letter_grade: @response.letter_grade, score: @response.score, user_id: @response.user_id, type: @response.type } }
     end
 
     assert_redirected_to response_url(Response.last)
@@ -34,7 +34,7 @@ class ResponsesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update response" do
-    patch response_url(@response), params: { response: { content: @response.content, interaction_id: @response.interaction_id, letter_grade: @response.letter_grade, score: @response.score, person_id: @response.person_id, type: @response.type } }
+    patch response_url(@response), params: { response: { content: @response.content, interaction_id: @response.interaction_id, letter_grade: @response.letter_grade, score: @response.score, user_id: @response.user_id, type: @response.type } }
     assert_redirected_to response_url(@response)
   end
 

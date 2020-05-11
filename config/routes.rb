@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
   resources :courses
-  resources :people
-  resources :teachers, controller: 'people'
-  resources :students, controller: 'people'
+  resources :users
+  resources :teachers, controller: 'users'
+  resources :students, controller: 'users'
   
   resources :announcements
   resources :assignments
@@ -11,16 +11,16 @@ Rails.application.routes.draw do
   
   root 'courses#index'
 
-  get '/login', :to => 'people#login'
+  get '/login', :to => 'users#login'
 
-  get '/logout', :to => 'people#logout'
+  get '/logout', :to => 'users#logout'
 
-  get '/post_login', :to => 'people#post_login'
+  get '/post_login', :to => 'users#post_login'
 
-  get '/signup', :to => 'people#new'
+  get '/signup', :to => 'users#new'
 
-  get '/people/:id/randomize_avatar', :to => 'people#randomize_avatar'
+  get '/users/:id/randomize_avatar', :to => 'users#randomize_avatar'
 
-  get '/course_people/:course_id/:student_id/destroy', :to => 'course_people#destroy', as: 'course_person'
+  get '/course_users/:course_id/:student_id/destroy', :to => 'course_users#destroy', as: 'course_user'
   
 end

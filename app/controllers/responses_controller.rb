@@ -70,6 +70,6 @@ class ResponsesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def response_params
-      params.require(:response).permit(:interaction_id, :person_id, :type, :content, :score, :letter_grade)
+      params.require(:response).permit(:interaction_id, :user_id, :type, :content, :score, :letter_grade)
     end
 end

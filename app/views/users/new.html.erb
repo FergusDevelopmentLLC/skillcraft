@@ -5,20 +5,20 @@
 
     <h1>Sign up</h1>
 
-    <% if @person && @person.errors.any? %>
+    <% if @user && @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
         <!-- https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails -->
-        <% @person.errors.full_messages.each do |message| %>
+        <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
     </div>
     <% end %>
 
-    <%= form_with url: "/people", model: @person, local: true, method: "post" do |form| %>
+    <%= form_with url: "/users", model: @user, local: true, method: "post" do |form| %>
 
     <div class="field">
       <%= form.label :user_name %>
@@ -51,8 +51,8 @@
     </div>
 
     <div class="field">
-      <label for="person_type">I am a ...</label>
-      <%= collection_select(:person, :type, @people, :type, :type, include_blank: '-Please select-')%>
+      <label for="user_type">I am a ...</label>
+      <%= collection_select(:user, :type, @users, :type, :type, include_blank: '-Please select-')%>
     </div>
 
     <div class="actions">

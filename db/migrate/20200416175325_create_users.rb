@@ -1,10 +1,8 @@
-class CreatePeople < ActiveRecord::Migration[6.0]
+class CreateUsers < ActiveRecord::Migration[6.0]
   def change
-    create_table :people do |t|
-      
-      #t.string :provider
-      #t.string :uid
-
+    create_table :users do |t|
+      t.string :provider
+      t.string :uid
       t.string :user_name
       t.references :avatar
       t.string :type

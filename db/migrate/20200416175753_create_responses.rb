@@ -3,7 +3,7 @@ class CreateResponses < ActiveRecord::Migration[6.0]
     create_table :responses do |t|
 
       t.belongs_to :interaction, null: false, foreign_key: true
-      t.belongs_to :person, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
       
       t.string :type
       t.string :content

@@ -1,8 +1,6 @@
 class CourseUsersController < ApplicationController
   before_action :set_course_user, only: [:destroy]
 
-  # DELETE /course_users/1
-  # DELETE /course_users/1.json
   def destroy
     @courseUser.delete
     respond_to do |format|
@@ -15,9 +13,7 @@ class CourseUsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_course_user
-      #binding.pry
       if params[:student_id]
         @courseUser = CourseUser.find_by(:course_id => params[:course_id], :user_id => params[:student_id])
       else

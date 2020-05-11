@@ -82,11 +82,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.errors.count.zero? && @user.update(user_params)
-        if @user.type == "Student"
-          format.html { redirect_to @user, notice: 'Student was successfully updated' }
-        else
-          format.html { redirect_to @user, notice: 'Teacher was successfully updated' }
-        end
+        format.html { redirect_to @user, notice: "#{@user.user_name} was successfully updated" }
       else
         format.html { render :edit }
       end
@@ -106,11 +102,7 @@ class UsersController < ApplicationController
     @user.avatar = Avatar.unused_avatar
     respond_to do |format|
       if @user.save
-        if @user.type == "Student"
-          format.html { redirect_to student_path(@user), notice: 'Student was successfully updated' }
-        else
-          format.html { redirect_to teacher_path(@user), notice: 'Teacher was successfully updated' }
-        end
+        format.html { redirect_to student_path(@user), notice: "#{@user.user_name} was successfully updated" }
       else
         format.html { render :edit }
       end

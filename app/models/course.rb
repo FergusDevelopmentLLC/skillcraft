@@ -12,9 +12,5 @@ class Course < ApplicationRecord
   def teachers
     users.find_all { |user| user.type == 'Teacher' }
   end
-
-  # def course_code
-  #   binding.pry
-  #   errors.add(:teacher, 'is not active')
-  # end
+  
 end

@@ -243,3 +243,23 @@ https://edgeguides.rubyonrails.org/active_record_validations.html#validates-each
 https://stackoverflow.com/questions/39831316/rails-validate-in-model-that-value-is-inside-array2
 
 https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails
+
+https://github.com/RailsApps/rails-omniauth
+
+https://github.com/rails/rails/issues/27450
+
+https://github.com/rails/rails/issues/27450
+
+https://stackoverflow.com/questions/17350837/ruby-on-rails-add-gem-sqlite3-to-your-gemfile
+
+https://github.com/omniauth/omniauth
+
+https://github.com/RailsApps/rails-omniauth
+
+https://github.com/u1tnk/arabica/tree/e36d05cd292f029752849e7ca9a6641838f07c7f
+
+https://github.com/mattgstevens/angelhack2013-drip
+
+https://stackoverflow.com/questions/33962298/twitter-oauthunauthorized-400-bad-request-doing-railsapps-oauth-tutorial
+
+https://github.com/bkeepers/dotenv

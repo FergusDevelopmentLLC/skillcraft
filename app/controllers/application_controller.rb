@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::Base
-
-  # configure do
-  #   set :public_folder, 'public'
-  #   set :views, 'app/views'
-  #   enable :sessions
-  #   set :session_secret, 'secure_password'
-  # end
-
-  #helpers do //TODO: why does this work?
   
-    def logged_in?
-        !!current_user
-    end
-    helper_method :logged_in?
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception #???
 
+  helper_method :logged_in?
+  helper_method :current_user
+  helper_method :is_student?
+
+  private
+    def logged_in?
+      !!current_user
+    end
+      
     def is_student?
       if @current_user.type == "Student"
         true
@@ -21,13 +20,28 @@ class ApplicationController < ActionController::Base
         false
       end
     end
-    helper_method :is_student?
-
+    
     def current_user
       @current_user ||= Person.find_by(:id => session[:user_id])
     end
-    helper_method :current_user
 
-  #end
+    # def authenticate_user!
+    #   if !current_user
+    #     redirect_to root_url, :alert => 'You need to sign in for access to this page.'
+    #   end
+    # end
+end
+
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+
+  helper_method :current_user
+  helper_method :user_signed_in?
+  helper_method :correct_user?
+
+  private
+    
 
 end

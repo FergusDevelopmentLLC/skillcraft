@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   
   root 'courses#index'
 
-  get '/login', :to => 'users#login'
+  get '/signin', :to => 'users#signin'
 
-  get '/logout', :to => 'users#logout'
+  get '/signout', :to => 'users#signout'
 
-  get '/post_login', :to => 'users#post_login'
+  get '/post_signin', :to => 'users#post_signin'
 
   get '/signup', :to => 'users#new'
 

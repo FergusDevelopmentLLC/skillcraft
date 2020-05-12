@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def login; end
+  def signin; end
 
   def index
     @users = if request.path == "/students"
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
              end
   end
   
-  def post_login
+  def post_signin
     
     @user = User.find_by(:user_name => params[:user_name])
     
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         end
     else
         respond_to do |format|
-          format.html { redirect_to login_path, notice: 'User name or password incorrect'}
+          format.html { redirect_to signin_path, notice: 'User name or password incorrect'}
         end
     end
   end
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def logout
+  def signout
     
     respond_to do |format|
       session[:user_id] = nil #using session.clear interfered with flash messages being displayed

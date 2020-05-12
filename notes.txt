@@ -158,7 +158,7 @@ https://stackoverflow.com/questions/34565/how-do-i-generate-a-random-10-digit-nu
   <% if flash.has?(:message) %>
       <div class="flash-message"><%=flash[:message]%></div>
   <% end %>
-  <h2>Log in</h2>
+  <h2>Sign in</h2>
   <% if flash.has?(:error) %>
       <div class="flash-error"><%=flash[:error]%></div>
   <% end %>
@@ -279,3 +279,8 @@ https://code.tutsplus.com/tutorials/twitter-sign-in-for-rails-application--cms-2
 https://www.youtube.com/watch?v=VeUX3pWn28w
 
 https://developer.twitter.com/en/docs/basics/authentication/guides/log-in-with-twitter
+
+https://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to
+
+
+https://stackoverflow.com/questions/9890985/passing-parameters-through-omniauth

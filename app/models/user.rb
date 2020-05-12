@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: false, uniqueness: true
   validates :type, inclusion: { in: ["Student", "Teacher"], message: "must be Teacher or Student" }
 
   def self.teacher_student
@@ -25,14 +25,30 @@ class User < ApplicationRecord
     @users
   end
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      if auth['info']
-         user.name = auth['info']['name'] || ""
-      end
-    end
-  end
+  def self.create_with_omniauth_twitter(auth_params)
+    
+    user = User.new
 
+    if auth_params['info']
+      user.user_name = auth_params['info']['nickname'] || ""
+      user.first_name = (auth_params['info']['name'] || "").split(" ").first
+      user.last_name = (auth_params['info']['name'] || "").split(" ").second
+      user.email = auth_params['info']['email'] || ""
+    end
+    
+    user.provider = auth_params['provider']
+    user.uid = auth_params['uid']
+
+    # HERE
+    user.type = 'Student'
+    user.avatar = Avatar.unused_avatar
+
+    hash = user.attributes
+    hash.delete("password_digest")
+    hash["password"] = "password"
+
+    u = User.new(hash)
+    u.save
+    u
+  end
 end

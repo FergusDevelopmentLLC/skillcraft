@@ -90,7 +90,7 @@ m_User [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding
 |
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="avatar_id">avatar_id <font face="Arial Italic" color="grey60">integer FK</font></td></tr>
-  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string U</font></td></tr>
   <tr><td align="left" width="130" port="first_name">first_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="last_name">last_name <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
   <tr><td align="left" width="130" port="password_digest">password_digest <font face="Arial Italic" color="grey60">string</font></td></tr>

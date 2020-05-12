@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   end
   
   def post_login
+    
     @user = User.find_by(:user_name => params[:user_name])
+    
     if(@user && @user.authenticate(params[:password]))
         respond_to do |format|
           session[:user_id] = @user.id

@@ -7,11 +7,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def choose
+    @users = User.teacher_student
+  end
+
   def show
     @user = User.find(params[:id])
   end
 
-  def signin; end
+  def signin
+    @users = User.teacher_student
+  end
 
   def index
     @users = if request.path == "/students"

@@ -25,7 +25,7 @@ class User < ApplicationRecord
     @users
   end
 
-  def self.create_with_omniauth_twitter(auth_params)
+  def self.create_with_omniauth_twitter(auth_params, is_student)
     
     user = User.new
 
@@ -40,7 +40,12 @@ class User < ApplicationRecord
     user.uid = auth_params['uid']
 
     # HERE
-    user.type = 'Student'
+    if is_student
+      user.type = 'Student'
+    else
+      user.type = 'Teacher'
+    end
+    
     user.avatar = Avatar.unused_avatar
 
     hash = user.attributes

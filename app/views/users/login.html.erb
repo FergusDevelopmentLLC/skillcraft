@@ -32,10 +32,12 @@
       <%= submit_tag "Login" %>
     </div>
 
+    <div class="signin-twitter-or">-OR-</div>
+
+    <div class="signin-twitter-wrapper">
+      <%= link_to image_tag("https://res.cloudinary.com/fergusdev/image/upload/v1589306122/skillcraft/sign-in-with-twitter-gray-png-img-fullhd-medium.png.img.fullhd.medium_z3ei0p.png", border: 0), signin_twitter_path %>
+    </div>
     <% end %>
 
-    <div class="actions">
-      <%= link_to 'Teachers', teachers_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
-    </div>
   </main>
 </div>

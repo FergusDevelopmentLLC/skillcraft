@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   get '/users/:id/randomize_avatar', :to => 'users#randomize_avatar'
 
   get '/course_users/:course_id/:student_id/destroy', :to => 'course_users#destroy', as: 'course_user'
-  
+
   # auths
   get '/auth/twitter/callback' => 'sessions_twitter#create'
   get '/signout_twitter' => 'sessions_twitter#destroy'
-  get '/signin_twitter' => 'sessions_twitter#new'
+  get '/signin_twitter' => 'sessions_twitter#new', as: 'signin_twitter'
   
 end

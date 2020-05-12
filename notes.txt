@@ -269,3 +269,13 @@ https://stackoverflow.com/questions/5030553/ruby-convert-object-to-hash
 https://stackoverflow.com/questions/9571768/how-to-add-new-item-to-hash
 
 https://stackoverflow.com/questions/6227600/how-to-remove-a-key-from-hash-and-get-the-remaining-hash-in-ruby-rails
+
+https://cloudinary.com/console/c-fed19b7fd44d2e5de8179c7d242081/media_library/folders/%2Fskillcraft/asset/f31ac9af9bec880630ab67047e8c5fe0/manage
+
+https://www.youtube.com/watch?v=vFiblY5KUZE
+
+https://code.tutsplus.com/tutorials/twitter-sign-in-for-rails-application--cms-28097
+
+https://www.youtube.com/watch?v=VeUX3pWn28w
+
+https://developer.twitter.com/en/docs/basics/authentication/guides/log-in-with-twitter

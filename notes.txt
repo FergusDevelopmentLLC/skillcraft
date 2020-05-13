@@ -307,3 +307,5 @@ https://dribbble.com/shots/8679093-Wizard
 https://star-wars-ipsum.herokuapp.com/
 
 https://vlad-saling.github.io/star-trek-ipsum/
+
+https://stackoverflow.com/questions/10280162/how-can-i-make-a-check-box-tag-to-post-a-false-or-0-parameter-when-unchecked

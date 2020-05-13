@@ -12,7 +12,6 @@
   </main>
   <aside class="right">
     <h3>Featured Courses</h3>
-    
       <% if !@courses.empty? %>
       <ul>
         <% @courses.each do |course| %>
@@ -22,11 +21,6 @@
       <%else%>
       <p>No courses to display</p>
       <%end%>
-      
-      <!-- <li><strong><a href='#'>English 101</a></strong> - Learn the basics</li>
-      <li><strong><a href='#'>Math 101</a></strong> - Focus on the fundamentals</li>
-      <li><strong><a href='#'>Science 101</a></strong> - Why ask why?</li>
-      <li><strong><a href='#'>Art 101</a></strong> - Grab a paintbrush</li> -->
     </ul>
   </aside>
 </div>

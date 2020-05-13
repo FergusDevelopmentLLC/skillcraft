@@ -299,3 +299,5 @@ https://stackoverflow.com/questions/6657727/devise-omniauth-how-to-pass-extra-pa
 https://medium.com/@tinchorb/form-with-building-html-forms-in-rails-5-1-f30bd60ef52d
 
 https://guides.rubyonrails.org/form_helpers.html
+
+https://stackoverflow.com/questions/7493809/getting-rails-3-1s-has-secure-password-to-work-well-with-omniauth

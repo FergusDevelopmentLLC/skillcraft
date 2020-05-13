@@ -29,8 +29,16 @@ class UsersController < ApplicationController
   
   def post_signin
     @user = User.find_by(:user_name => params[:user_name])
-    
-    if(@user && !@user.password_digest.blank? && @user.authenticate(params[:password]))
+
+    # TODO: do this better somehow
+    p = nil
+    begin
+      p = @user.authenticate(params[:password])
+    rescue
+      p = nil
+    end
+
+    if(@user && p)
         respond_to do |format|
           session[:user_id] = @user.id
           format.html { redirect_to courses_path, notice: 'Welcome to SkillCraft, a place to craft your skills'}

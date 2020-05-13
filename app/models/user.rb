@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :responses, dependent: :destroy
   has_many :interactions, dependent: :destroy
 

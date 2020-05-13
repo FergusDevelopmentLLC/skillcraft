@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
     
   def create
-    
+
     @user = User.new(user_params)
 
     @user.avatar = Avatar.unused_avatar
@@ -63,7 +63,9 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
+      
       if @user.save
+        
         if(@user.type == "Student")
           format.html { redirect_to student_path(@user), notice: "#{@user.type} was successfully created" }
         else

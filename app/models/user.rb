@@ -46,6 +46,7 @@ class User < ApplicationRecord
                 end
     
     user.avatar = Avatar.unused_avatar
+    user.password_digest = SecureRandom.urlsafe_base64
     user.save
     user
   end

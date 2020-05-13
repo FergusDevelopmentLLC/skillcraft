@@ -1,14 +1,17 @@
 class SessionsTwitterController < ApplicationController
-  def new
-    redirect_to "/auth/twitter?type=student"
-    # redirect_to "/auth/twitter"
-  end
-
+  
   def create
     auth_params = request.env["omniauth.auth"]
     auth = User.where(provider: auth_params['provider'], uid: auth_params['uid']).first
-    request.env["omniauth.params"]
-    user = auth || User.create_with_omniauth_twitter(auth_params, request.env["omniauth.params"]["type"].downcase == "student")
+    
+    is_student = request.env["omniauth.params"]["type"].downcase == "student"
+    
+    if auth
+      is_student = auth["type"].downcase == "student"
+    end
+    
+    user = auth || User.create_with_omniauth_twitter(auth_params, is_student)
+    
     session[:user_id] = user.id
     session[:provider] = 'twitter'
     

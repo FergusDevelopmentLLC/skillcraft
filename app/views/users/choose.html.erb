@@ -1,26 +1,9 @@
 <div class="full">
     <main class="main">
-
         <p id="notice"><%= notice %></p>
-
         <h2>Sign in with twitter</h2>
-        
-        <%= form_with url: signin_twitter_path, method: "get" do |form|%>
         <div class="field">
-            <label for="user_type">I am a ...</label>
-            <%= collection_radio_buttons(:user, :type, User.teacher_student, :type, :type, include_blank: '-Please select-')%>
+            <div style="text-align: center;">As a <a href='/auth/twitter?type=Teacher'>Teacher</a> or as a <a href='/auth/twitter?type=student'>Student</a></div>
         </div>
-        <!-- <div class="signin-twitter-wrapper">
-            <%= link_to image_tag("https://res.cloudinary.com/fergusdev/image/upload/v1589306122/skillcraft/sign-in-with-twitter-gray-png-img-fullhd-medium.png.img.fullhd.medium_z3ei0p.png", border: 0), signin_twitter_url %>
-        </div> -->
-        <%= form.submit %>
-
-        <%=link_to "click me", signin_twitter_path%>
-        <% end %>
-
-        
-
-        
-
     </main>
 </div>

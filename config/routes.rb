@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   # auths
   get '/auth/twitter/callback' => 'sessions_twitter#create'
   get '/signout_twitter' => 'sessions_twitter#destroy'
-  get '/signin_twitter' => 'sessions_twitter#new', as: 'signin_twitter'
   get '/signin_twitter_choose' => 'users#choose', as: 'signin_twitter_choose'
   
 end

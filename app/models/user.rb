@@ -39,21 +39,14 @@ class User < ApplicationRecord
     user.provider = auth_params['provider']
     user.uid = auth_params['uid']
 
-    # HERE
-    if is_student
-      user.type = 'Student'
-    else
-      user.type = 'Teacher'
-    end
+    user.type = if is_student
+                  'Student'
+                else
+                  'Teacher'
+                end
     
     user.avatar = Avatar.unused_avatar
-
-    hash = user.attributes
-    hash.delete("password_digest")
-    hash["password"] = "password"
-
-    u = User.new(hash)
-    u.save
-    u
+    user.save
+    user
   end
 end

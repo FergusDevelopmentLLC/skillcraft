@@ -81,5 +81,5 @@ Announcement.create("course_id"=>1, "user_id"=>1, "title"=>"First Announcement",
 Announcement.create("course_id"=>2, "user_id"=>1, "title"=>"Second Announcement", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
 Assignment.create("course_id"=>3, "user_id"=>1, "title"=>"First Assignment", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
 Assignment.create("course_id"=>4, "user_id"=>1, "title"=>"Second Assignment", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
-Response.create("interaction_id"=>1, "user_id"=>4, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")
-Response.create("interaction_id"=>1, "user_id"=>5, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")
+Response.create("interaction_id"=>1, "title"=>"Response to First Announcement", "user_id"=>4, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")
+Response.create("interaction_id"=>2, "title"=>"Response to Second Announcement", "user_id"=>5, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")

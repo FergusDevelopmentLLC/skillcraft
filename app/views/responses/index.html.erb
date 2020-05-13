@@ -8,7 +8,9 @@
     <table>
       <thead>
         <tr>
+          <th>Course</th>
           <th>Interaction</th>
+          <th>Response</th>
           <th>Student</th>
           <th>Type</th>
           <th>Content</th>
@@ -21,7 +23,9 @@
       <tbody>
         <% @responses.each_with_index do |response, index| %>
         <tr>
-          <td><%= response.interaction.title  %></td>
+          <td><%= response.interaction.course.name %></td>
+          <td><%= response.interaction.title %></td>
+          <td><%= response.title %></td>
           <td><%= response.user.user_name %></td>
           <td><%= response.interaction.type %></td>
           <td><%= response.content %></td>

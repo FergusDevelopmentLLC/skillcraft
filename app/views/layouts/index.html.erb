@@ -1,36 +1,26 @@
 <div class="full">
     <main class="main">
         <div class="types-wrapper">
-            <h1>Courses</h1>
-            <% if !@courses.empty? %>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Teachers</th>
-                        <th>Students</th>
-                        <th colspan="3"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @courses.each do |course| %>
-                    <tr>
-                        <td><%= course.name %></td>
-                        <td><%= course.code %></td>
-                        <td><%= course.teachers.count %></td>
-                        <td><%= course.students.count %></td>
-                        <td><%= link_to 'Show', course_path(course) %></td>
-                        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-                        <td><%= link_to 'Destroy', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %>
-                        </td>
-                    </tr>
+            <h1>Activity Feed</h1>
+            <% if !current_user.interactions.empty? %>
+                <% current_user.courses.each do |course| %>
+                    <%= course.name %><br/>
+                    <% if !course.interactions.empty? %>
+                        <% course.interactions.each do |interaction| %>
+                            &nbsp;&nbsp;<%= interaction.title %><br/>
+                            <% 
+                                #interaction.title
+                                binding.pry
+                                if interaction.responses.empty? %>
+                                <% interaction.responses.each do |response| %>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<%= response.title %><br/>
+                                <% end %>
+                            <% end %>
+                        <% end %>
                     <% end %>
-                </tbody>
-            </table>
+                <% end %>
             <%else%>
-            <p>No courses to display</p>
+            <p>-chirp-</p>
             <%end%>
         </div>
     </main>

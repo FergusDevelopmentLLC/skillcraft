@@ -76,6 +76,7 @@ m_Response [label = <{<table border="0" align="center" cellspacing="0.5" cellpad
   <tr><td align="left" width="130" port="interaction_id">interaction_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
   <tr><td align="left" width="130" port="letter_grade">letter_grade <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="score">score <font face="Arial Italic" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="user_id">user_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
 </table>
 }>];

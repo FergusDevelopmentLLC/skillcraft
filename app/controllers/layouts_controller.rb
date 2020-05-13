@@ -1,15 +1,9 @@
 class LayoutsController < ApplicationController
-    
-    def index
-        if logged_in?
-            @courses = Course.all
-        else
-            redirect_to welcome_path
-        end
-    end
+  def index
+    redirect_to welcome_path unless logged_in?
+  end
 
-    def welcome
-        @courses = Course.where(featured: true)
-    end
-
+  def welcome
+    @courses = Course.where(featured: true)
+  end
 end

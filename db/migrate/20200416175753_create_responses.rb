@@ -5,6 +5,7 @@ class CreateResponses < ActiveRecord::Migration[6.0]
       t.belongs_to :interaction, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
       
+      t.string :title
       t.string :type
       t.string :content
       t.integer :score

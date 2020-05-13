@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
   create_table "responses", force: :cascade do |t|
     t.integer "interaction_id", null: false
     t.integer "user_id", null: false
+    t.string "title"
     t.string "type"
     t.string "content"
     t.integer "score"

@@ -309,3 +309,18 @@ https://star-wars-ipsum.herokuapp.com/
 https://vlad-saling.github.io/star-trek-ipsum/
 
 https://stackoverflow.com/questions/10280162/how-can-i-make-a-check-box-tag-to-post-a-false-or-0-parameter-when-unchecked
+
+
+<td><%= link_to 'Show', assignment_path(assignment) %></td>
+<td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+<td><%= link_to 'Destroy', assignment_path(assignment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<td><%= interaction.user.user_name %></td>
+<td><%= interaction.title %></td>
+<td><%= interaction.start_date %></td>
+<td><%= interaction.end_date %></td>
+<td><%= interaction.posted_date %></td>
+<td><%= interaction.due_date %></td>
+<td><%= interaction.graded %></td>
+<td><%= interaction.points %></td>
+<td><%= interaction.instructions %></td>

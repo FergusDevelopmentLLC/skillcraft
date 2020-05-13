@@ -9,7 +9,7 @@ class LayoutsController < ApplicationController
     end
 
     def welcome
-        @courses = Course.all
+        @courses = Course.where(featured: true)
     end
 
 end

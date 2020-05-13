@@ -4,6 +4,7 @@
     <div style="width: 250px; margin:auto">
       <img src='https://res.cloudinary.com/fergusdev/image/upload/v1589394296/skillcraft/wizard_loagyn.png' />
     </div>
+    <p>Greetings!</p>
     <p>Lucas ipsum dolor sit amet ackbar obi-wan darth jango obi-wan coruscant gamorrean dagobah darth qui-gonn. Biggs anakin sidious tatooine grievous. Ponda c-3p0 jade yoda hutt sith. Solo mothma leia jade yavin darth moff. Anakin jango mara mara hutt wicket obi-wan. Fett hutt droid dantooine. Ben gamorrean antilles organa moff jade skywalker. Hutt vader dantooine hoth dooku wedge jango. Coruscant sidious qui-gon antilles. Wampa padmé vader binks. Fett zabrak jabba wicket c-3p0 lars. Moff wampa wedge hutt vader darth binks mon jinn.</p>
     <p>Ponda sith yavin chewbacca. Padmé moff maul darth solo jinn qui-gonn. Coruscant owen mandalore coruscant han. Antilles jade organa dantooine anakin owen. Greedo darth amidala r2-d2 binks. Cade dantooine mon tusken raider organa kessel k-3po darth antilles. Skywalker mace fisto palpatine wicket. Hutt lando antilles skywalker antilles palpatine c-3po. Grievous skywalker aayla calrissian anakin sidious calrissian obi-wan. Kessel yavin ackbar yoda biggs antilles anakin darth. Darth fett binks mustafar dagobah binks jango.</p>
     <p>Greedo darth mara kessel wampa c-3p0 k-3po jar. Mothma hutt calamari grievous padmé windu dantooine jabba. Palpatine gonk hutt kamino calrissian windu. Han boba qui-gon c-3po kenobi darth dantooine amidala. Antilles hutt calrissian windu gonk bothan jabba mustafar. Alderaan baba droid antilles dagobah jango mon antilles anakin. Obi-wan owen skywalker jinn jango hutt. Ahsoka jade jawa mon boba ewok owen. Bothan luke hutt lando skywalker. Darth skywalker darth baba kessel r2-d2 kenobi hutt. Skywalker obi-wan hutt lando endor ahsoka obi-wan.</p>
@@ -15,7 +16,7 @@
       <% if !@courses.empty? %>
       <ul>
         <% @courses.each do |course| %>
-        <li><%= link_to (course.name), course_path(course) %> - Course description</li>
+        <li><%= link_to (course.name), course_path(course) %> - <%=course.short_desc%></li>
         <% end %>
       </ul>
       <%else%>

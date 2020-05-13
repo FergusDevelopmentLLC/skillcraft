@@ -305,3 +305,5 @@ https://stackoverflow.com/questions/7493809/getting-rails-3-1s-has-secure-passwo
 https://dribbble.com/shots/8679093-Wizard
 
 https://star-wars-ipsum.herokuapp.com/
+
+https://vlad-saling.github.io/star-trek-ipsum/

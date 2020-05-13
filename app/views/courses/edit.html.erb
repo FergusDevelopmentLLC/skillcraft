@@ -22,16 +22,28 @@
     <%= form.hidden_field :type, :value => 'Course'%>
 
     <%= form.hidden_field :id, :value => @course.id%>
+
     <div class="field">
       <strong><%= form.label :name %>:</strong>
       <%= form.text_field :name %>
     </div>
-
+    
     <div class="field">
-      <strong><%= form.label :code %>:</strong>
-      <%= form.text_field :code %>
+      <strong><%= form.label :featured %>:</strong>
+      <!-- #TODO, why is this not form.check_box_tag -->
+      <%= check_box 'course', 'featured', {}, 'true', 'false' %>
     </div>
     
+    <div class="field">
+      <strong><%= form.label :short_description %>:</strong>
+      <%= form.text_field :short_desc %>
+    </div>
+
+    <div class="field">
+      <strong><%= form.label :long_description %>:</strong>
+      <%= text_area(:course, :long_desc, cols: 20, rows: 40) %>
+    </div>
+
     <div class="field">
       <strong>Teachers:</strong>
       <%if(@course.teachers.count > 0)%>

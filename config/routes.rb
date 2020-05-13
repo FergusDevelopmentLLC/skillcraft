@@ -9,23 +9,25 @@ Rails.application.routes.draw do
   resources :assignments
   resources :responses
   
-  root 'courses#index'
+  root 'layouts#index'
 
-  get '/signin', :to => 'users#signin'
+  get '/welcome', to: 'layouts#welcome'
 
-  get '/signout', :to => 'users#signout'
+  get '/signin', to: 'users#signin'
 
-  get '/post_signin', :to => 'users#post_signin'
+  get '/signout', to: 'users#signout'
 
-  get '/signup', :to => 'users#new'
+  get '/post_signin', to: 'users#post_signin'
 
-  get '/users/:id/randomize_avatar', :to => 'users#randomize_avatar'
+  get '/signup', to:'users#new'
 
-  get '/course_users/:course_id/:student_id/destroy', :to => 'course_users#destroy', as: 'course_user'
+  get '/users/:id/randomize_avatar', to: 'users#randomize_avatar'
+
+  get '/course_users/:course_id/:student_id/destroy', to: 'course_users#destroy', as: 'course_user'
 
   # auths
-  get '/auth/twitter/callback' => 'sessions_twitter#create'
-  get '/signout_twitter' => 'sessions_twitter#destroy'
-  get '/signin_twitter_choose' => 'users#choose', as: 'signin_twitter_choose'
+  get '/auth/twitter/callback', to: 'sessions_twitter#create'
+  get '/signout_twitter', to: 'sessions_twitter#destroy'
+  get '/signin_twitter_choose', to: 'users#choose', as: 'signin_twitter_choose'
   
 end

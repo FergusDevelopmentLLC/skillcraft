@@ -1,22 +1,41 @@
 <div class="home">
     <main class="main">
-
-        <p id="notice"><%= notice %></p>
-
-        <div class="latest-wrapper">
-            Latest wrapper
-        </div>
         <div class="types-wrapper">
-            <h4><a href='/types'>Game Types</a></h4>
-            <div class="types">
-                xxx
-                xxx
-                xxx
-            </div>
+            <h1>Courses</h1>
+            <% if !@courses.empty? %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Teachers</th>
+                        <th>Students</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @courses.each do |course| %>
+                    <tr>
+                        <td><%= course.name %></td>
+                        <td><%= course.code %></td>
+                        <td><%= course.teachers.count %></td>
+                        <td><%= course.students.count %></td>
+                        <td><%= link_to 'Show', course_path(course) %></td>
+                        <td><%= link_to 'Edit', edit_course_path(course) %></td>
+                        <td><%= link_to 'Destroy', course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <%else%>
+            <p>No courses to display</p>
+            <%end%>
         </div>
     </main>
     <aside class="right">
-        <h3>Featured Games</h3>
+        <h3>Featured Courses</h3>
         featured<br />
         featured<br />
         featured<br />

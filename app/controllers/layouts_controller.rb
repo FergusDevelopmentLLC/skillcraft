@@ -1,9 +1,15 @@
 class LayoutsController < ApplicationController
     
-    def index; end
+    def index
+        if logged_in?
+            @courses = Course.all
+        else
+            redirect_to welcome_path
+        end
+    end
 
-    def choice
-        @user = User.new
+    def welcome
+        @courses = Course.all
     end
 
 end

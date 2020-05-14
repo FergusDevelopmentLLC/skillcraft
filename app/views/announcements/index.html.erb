@@ -1,11 +1,10 @@
 f<div class="full">
   <main class="main">
-
-    <p id="notice"><%= notice %></p>
-
     <h1>Announcements</h1>
-
+    <p id="notice"><%= notice %></p>
+    <% if !@announcements.empty? %>
     <table>
+      
       <thead>
         <tr>
           <th>Course</th>
@@ -44,6 +43,9 @@ f<div class="full">
         <% end %>
       </tbody>
     </table>
+    <% else %>
+    <p style="text-align: center;">-chirp, chirp-</p>
+    <% end %>
     <div class="actions">
       <%= link_to 'New Announcement', new_announcement_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>

@@ -21,16 +21,10 @@
 
     <%= form.hidden_field :id, :value => @announcement.id%>
 
-    <div class="field">
-      <%= form.label :course_id %>
-      <%= collection_select(:announcement, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>
-    </div>
+    <%= form.hidden_field :course_id, :value => @announcement.course.id %>
 
-    <div class="field">
-      <%= form.label :teacher_id %>
-      <%= collection_select(:announcement, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
-    </div>
-
+    <%= form.hidden_field :user_id, :value => @announcement.user.id %>
+    
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>

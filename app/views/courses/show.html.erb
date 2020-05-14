@@ -3,7 +3,7 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>Show Course</h1>
+    <h1>Course: <%= @course.name %></h1>
 
     <p>
       <strong>Name:</strong><br/>
@@ -51,6 +51,30 @@
         <% end %>
       <%else%>
         No students
+      <%end%>
+    </p>
+
+    <p>
+      <strong>Announcements:</strong>
+      <br/>
+      <%if !@course.announcements.empty? %>
+        <% @course.announcements.each do |announcement| %>
+          Posted date: <%=announcement.posted_date %> - <%=link_to announcement.title, announcement_path(announcement)%><br/>
+        <% end %>
+      <%else%>
+        No announcements
+      <%end%>
+    </p>
+
+    <p>
+      <strong>Assignments:</strong>
+      <br/>
+      <%if !@course.assignments.empty? %>
+        <% @course.assignments.each do |assignment| %>
+          Due date: <%=assignment.due_date %> - <%=link_to assignment.title, assignment_path(assignment)%><br/>
+        <% end %>
+      <%else%>
+        No assignments
       <%end%>
     </p>
 

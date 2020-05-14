@@ -378,3 +378,21 @@ https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-
   <%= form.label :teacher_id %>
   <%= collection_select(:announcement, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
 </div> -->
+
+https://docs.rubocop.org/en/stable/configuration/
+
+https://www.rubyguides.com/2019/03/ruby-exit/
+
+https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-there-already
+
+https://stackoverflow.com/questions/27431532/why-am-i-getting-uninitialized-constant-for-a-rake-task-rails-4-1-8
+
+<div class="field">
+  <%= form.label :course_id %>
+  <%= collection_select(:announcement, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>
+</div>
+
+<div class="field">
+  <%= form.label :teacher_id %>
+  <%= collection_select(:announcement, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
+</div>

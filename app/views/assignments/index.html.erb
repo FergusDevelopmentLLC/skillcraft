@@ -4,7 +4,7 @@
     <p id="notice"><%= notice %></p>
 
     <h1>Assignments</h1>
-
+    <% if !@assignments.empty? %>	
     <table>
       <thead>
         <tr>
@@ -44,6 +44,9 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+    <p style="text-align: center;">-chirp, chirp-</p>
+    <% end %>
     <div class="actions">
       <%= link_to 'New Assignment', new_assignment_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>

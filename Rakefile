@@ -27,10 +27,25 @@ task :make_seeds do
   
   seedfile = File.open('db/seeds_new.rb', 'a')
   
-  # c = Course.all
-  # c.each do |course|
-  #   seedfile.write "Course.create(#{course.attributes})\n"
-  # end
+  av = Avatar.all
+  av.each do |avatar|
+    seedfile.write "Avatar.create(#{avatar.attributes})\n"
+  end
+
+  u = User.all
+  u.each do |user|
+    seedfile.write "User.create(#{user.attributes})\n"
+  end
+
+  c = Course.all
+  c.each do |course|
+    seedfile.write "Course.create(#{course.attributes})\n"
+  end
+
+  cu = CourseUser.all
+  cu.each do |course_user|
+    seedfile.write "CourseUser.create(#{course_user.attributes})\n"
+  end
 
   a = Announcement.all
   a.each do |announcement|
@@ -42,9 +57,37 @@ task :make_seeds do
     seedfile.write "Assignment.create(#{assignment.attributes})\n"
   end
 
+  r = Response.all
+  r.each do |response|
+    seedfile.write "Response.create(#{response.attributes})\n"
+  end
+
   seedfile.close
 
   #https://stackoverflow.com/questions/27431532/why-am-i-getting-uninitialized-constant-for-a-rake-task-rails-4-1-8
 
   #bundle exec rake environment make_seeds
+
+
+  
+
+
+  
+
+  
+
+
+
+
+
+ 
+
+  
+
+
+
+
+
+
+
 end

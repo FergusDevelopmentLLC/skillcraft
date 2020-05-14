@@ -21,16 +21,11 @@
 		<%= form.hidden_field :type, :value => 'Assignment'%>
 
 		<%= form.hidden_field :id, :value => @assignment.id%>
-		<div class="field">
-			<%= form.label :course_id %>
-			<%= collection_select(:assignment, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>
-		</div>
 
-		<div class="field">
-			<%= form.label :teacher_id %>
-			<%= collection_select(:assignment, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
-		</div>
+		<%= form.hidden_field :course_id, :value => @assignment.course.id %>
 
+		<%= form.hidden_field :user_id, :value => @assignment.user.id %>
+		
 		<div class="field">
 			<%= form.label :title %>
 			<%= form.text_field :title %>

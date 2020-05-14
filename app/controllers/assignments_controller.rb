@@ -10,6 +10,8 @@ class AssignmentsController < ApplicationController
   
     def new
       @assignment = Assignment.new
+      @assignment.course_id = params[:course_id] if params[:course_id]
+      @assignment.user = current_user if logged_in?
     end
   
     def edit

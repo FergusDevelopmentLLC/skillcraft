@@ -19,7 +19,7 @@ class LayoutsController < ApplicationController
           end
         end
       end
-  
+      @interactions = @interactions.sort_by { |interaction| interaction.due_date }
     else
       redirect_to welcome_path
     end

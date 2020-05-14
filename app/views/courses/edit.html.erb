@@ -66,6 +66,28 @@
       <%end%>
     </div>
 
+    <div class="field">
+      <strong>Announcements:</strong>
+      <%if !@course.announcements.empty? %>
+        <% @course.announcements.each do |announcement| %>
+          <div>Posted date: <%=announcement.posted_date %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
+        <% end %>
+      <%else%>
+        No announcements
+      <%end%>
+    </div>
+
+    <div class="field">
+      <strong>Assignments:</strong>
+      <%if !@course.assignments.empty? %>
+        <% @course.assignments.each do |assignment| %>
+          <div>Due date: <%=assignment.due_date %> - <%=link_to assignment.title, assignment_path(assignment)%></div>
+        <% end %>
+      <%else%>
+        No assignments
+      <%end%>
+    </div>
+
     <div class="actions">
       <%= form.submit %>
     </div>

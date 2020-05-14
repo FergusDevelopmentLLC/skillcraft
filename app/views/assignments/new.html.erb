@@ -1,77 +1,67 @@
 <div class="full">
-	<main class="main">
+  <main class="main">
 
-		<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-		<h1>New Assignment for <%=@assignment.course.name%></h1>
+    <h1>New Assignment for <%=@assignment.course.name%></h1>
 
-		<% if @assignment && @assignment.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
-			<ul>
-				<% @assignment.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-		<% end %>
+    <% if @assignment && @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <ul>
+        <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
-		<%= form_with url: "/assignments", model: @assignment, local: true, method: "post" do |form| %>
+    <%= form_with url: "/assignments", model: @assignment, local: true, method: "post" do |form| %>
 
-		<%= form.hidden_field :type, :value => 'Assignment'%>
+    <%= form.hidden_field :type, :value => 'Assignment'%>
 
-		<%= form.hidden_field :course_id, :value => @assignment.course_id %>
-	
-		<%= form.hidden_field :user_id, :value => @assignment.user_id %>
+    <%= form.hidden_field :course_id, :value => @assignment.course_id %>
 
-		<div class="field">
-			<%= form.label :title %>
-			<%= form.text_field :title %>
-		</div>
+    <%= form.hidden_field :user_id, :value => @assignment.user_id %>
 
-		<div class="field date-select">
-			<%= form.label :start_date %>
-			<%= form.date_select :start_date %>
-		</div>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
 
-		<div class="field date-select">
-			<%= form.label :end_date %>
-			<%= form.date_select :end_date %>
-		</div>
+    <div class="field date-select">
+      <%= form.label :posted_date %>
+      <%= form.date_select :posted_date %>
+    </div>
 
-		<div class="field date-select">
-			<%= form.label :posted_date %>
-			<%= form.date_select :posted_date %>
-		</div>
+    <div class="field date-select">
+      <%= form.label :due_date %>
+      <%= form.date_select :due_date %>
+    </div>
 
-		<div class="field date-select">
-			<%= form.label :due_date %>
-			<%= form.date_select :due_date %>
-		</div>
+    <div class="field graded">
+      <%= form.label :graded %>
+      <%= form.check_box :graded %>
+    </div>
 
-		<div class="field graded">
-			<%= form.label :graded %>
-			<%= form.check_box :graded %>
-		</div>
+    <div class="field">
+      <%= form.label :points %>
+      <%= form.number_field :points %>
+    </div>
 
-		<div class="field">
-			<%= form.label :points %>
-			<%= form.number_field :points %>
-		</div>
+    <div class="field">
+      <%= form.label :instructions %>
+      <%= form.text_field :instructions %>
+    </div>
 
-		<div class="field">
-			<%= form.label :instructions %>
-			<%= form.text_field :instructions %>
-		</div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
 
-		<div class="actions">
-			<%= form.submit %>
-		</div>
+    <% end %>
 
-		<% end %>
-
-		<div class="actions">
-			<%= link_to 'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
-		</div>
-	</main>
+    <div class="actions">
+      <%= link_to 'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+    </div>
+  </main>
 </div>

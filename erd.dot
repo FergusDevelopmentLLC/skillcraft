@@ -57,12 +57,10 @@ m_Interaction [label = <{<table border="0" align="center" cellspacing="0.5" cell
 <table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
   <tr><td align="left" width="130" port="course_id">course_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
   <tr><td align="left" width="130" port="due_date">due_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="end_date">end_date <font face="Arial Italic" color="grey60">date</font></td></tr>
   <tr><td align="left" width="130" port="graded">graded <font face="Arial Italic" color="grey60">boolean</font></td></tr>
   <tr><td align="left" width="130" port="instructions">instructions <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="points">points <font face="Arial Italic" color="grey60">integer</font></td></tr>
   <tr><td align="left" width="130" port="posted_date">posted_date <font face="Arial Italic" color="grey60">date</font></td></tr>
-  <tr><td align="left" width="130" port="start_date">start_date <font face="Arial Italic" color="grey60">date</font></td></tr>
   <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">string</font></td></tr>
   <tr><td align="left" width="130" port="user_id">user_id <font face="Arial Italic" color="grey60">integer ∗ FK</font></td></tr>
 </table>

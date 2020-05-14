@@ -68,7 +68,6 @@
 
     <p>
       <strong>Assignments:</strong>
-      <br/>
       <%if !@course.assignments.empty? %>
         <% @course.assignments.each do |assignment| %>
           Due date: <%=assignment.due_date %> - <%=link_to assignment.title, assignment_path(assignment)%><br/>

@@ -26,16 +26,6 @@
     </p>
 
     <p>
-      <strong>Start date:</strong><br/>
-      <%= @assignment.start_date %>
-    </p>
-
-    <p>
-      <strong>End date:</strong><br/>
-      <%= @assignment.end_date %>
-    </p>
-
-    <p>
       <strong>Posted date:</strong><br/>
       <%= @assignment.posted_date %>
     </p>
@@ -61,7 +51,9 @@
     </p>
 
     <div class="actions">
-      <%= link_to  'Assignments', assignments_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= link_to 'Edit', edit_assignment_path(@assignment) %> | 
+      <%= link_to 'Respond', new_response_path %> |
+      <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>
 </div>

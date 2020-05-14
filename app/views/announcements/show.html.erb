@@ -26,16 +26,6 @@
     </p>
 
     <p>
-      <strong>Start date:</strong><br/>
-      <%= @announcement.start_date %>
-    </p>
-
-    <p>
-      <strong>End date:</strong><br/>
-      <%= @announcement.end_date %>
-    </p>
-
-    <p>
       <strong>Posted date:</strong><br/>
       <%= @announcement.posted_date %>
     </p>
@@ -59,8 +49,11 @@
       <strong>Instructions:</strong><br/>
       <%= @announcement.instructions %>
     </p>
+    
     <div class="actions">
-      <%= link_to  'Announcements', announcements_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= link_to 'Edit', edit_announcement_path(@announcement) %> | 
+      <%= link_to 'Respond', new_response_path %> |
+      <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>
 </div>

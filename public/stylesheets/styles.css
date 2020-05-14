@@ -591,9 +591,9 @@ input[type="text"], input[type="number"], select {
     flex-direction: row;
 }
 
-select {
+/* select {
     min-width: 250px;
-}
+} */
 
 #error_explanation {
     color: red;

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   get '/course_users/:course_id/:student_id/destroy', to: 'course_users#destroy', as: 'course_user'
 
+  get '/announcements/:course_id/new', to: 'announcements#new', as: 'announcement_course_new'
+
+  get '/assignments/:course_id/new', to: 'assignments#new', as: 'assignments_course_new'
+
   # auths
   get '/auth/twitter/callback', to: 'sessions_twitter#create'
   get '/signout_twitter', to: 'sessions_twitter#destroy'

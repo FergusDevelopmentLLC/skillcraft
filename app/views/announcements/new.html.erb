@@ -3,7 +3,7 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>New Announcement</h1>
+    <h1>New Announcement for <%=@announcement.course.name%></h1>
 
     <% if @announcement && @announcement.errors.any? %>
     <div id="error_explanation">
@@ -21,15 +21,9 @@
 
     <%= form.hidden_field :type, :value => 'Announcement'%>
 
-    <div class="field">
-      <%= form.label :course_id %>
-      <%= collection_select(:announcement, :course_id, Course.all, :id, :name, include_blank: '-Please select-')%>
-    </div>
+    <%= form.hidden_field :course_id, :value => @announcement.course_id %>
 
-    <div class="field">
-      <%= form.label :teacher_id %>
-      <%= collection_select(:announcement, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
-    </div>
+    <%= form.hidden_field :user_id, :value => @announcement.user_id %>
 
     <div class="field">
       <%= form.label :title %>

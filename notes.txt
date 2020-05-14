@@ -373,3 +373,8 @@ https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-
 #https://stackoverflow.com/questions/4393246/create-seed-file-from-data-already-in-the-database
 
 #https://stackoverflow.com/questions/27431532/why-am-i-getting-uninitialized-constant-for-a-rake-task-rails-4-1-8
+
+<!-- <div class="field">
+  <%= form.label :teacher_id %>
+  <%= collection_select(:announcement, :user_id, Teacher.all, :id, :user_name, include_blank: '-Please select-')%>
+</div> -->

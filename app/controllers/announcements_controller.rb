@@ -15,6 +15,8 @@ class AnnouncementsController < ApplicationController
     # GET /announcements/new
     def new
       @announcement = Announcement.new
+      @announcement.course_id = params[:course_id] if params[:course_id]
+      @announcement.user = current_user if logged_in?
     end
   
     # GET /announcements/1/edit

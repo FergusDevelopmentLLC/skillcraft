@@ -324,3 +324,11 @@ https://stackoverflow.com/questions/10280162/how-can-i-make-a-check-box-tag-to-p
 <td><%= interaction.graded %></td>
 <td><%= interaction.points %></td>
 <td><%= interaction.instructions %></td>
+
+https://stackoverflow.com/questions/4393246/create-seed-file-from-data-already-in-the-database
+seedfile = File.open('db/seeds.rb', 'a')
+c = Course.all
+c.each do |cat|
+  seedfile.write "Course.create(#{cat.attributes})\n"
+end
+seedfile.close

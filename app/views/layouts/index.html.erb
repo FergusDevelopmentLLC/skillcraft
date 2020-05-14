@@ -4,18 +4,15 @@
             <h1>Activity Feed</h1>
             <% if !current_user.interactions.empty? %>
                 <% current_user.courses.each do |course| %>
-                    <%= course.name %><br/>
+                    <%= link_to course.name, courses_path %><br/>
                     <% if !course.interactions.empty? %>
                         <% course.interactions.each do |interaction| %>
-                            &nbsp;&nbsp;<%= interaction.title %><br/>
-                            <% 
-                                #interaction.title
-                                binding.pry
-                                if interaction.responses.empty? %>
+                            &nbsp;&nbsp;<%= link_to interaction.title, interaction %> - <%= link_to pluralize(interaction.responses.count, "response"), responses_path %><br/>
+                            <!-- <% if !interaction.responses.empty? %>
                                 <% interaction.responses.each do |response| %>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<%= response.title %><br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to response.title, response %><br/>
                                 <% end %>
-                            <% end %>
+                            <% end %> -->
                         <% end %>
                     <% end %>
                 <% end %>

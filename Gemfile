@@ -34,6 +34,7 @@ group :development do
   gem 'better_errors' #???
   #gem 'rails_layout' #???
   gem 'spring-commands-rspec' #???
+  gem 'seed_dump'
 end
 
 group :test do

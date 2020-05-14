@@ -326,10 +326,16 @@ https://stackoverflow.com/questions/10280162/how-can-i-make-a-check-box-tag-to-p
 <td><%= interaction.instructions %></td>
 
 https://stackoverflow.com/questions/4393246/create-seed-file-from-data-already-in-the-database
-seedfile = File.open('db/seeds.rb', 'a')
+
+seedfile = File.open('db/seeds_new.rb', 'a')
 c = Course.all
-c.each do |cat|
-  seedfile.write "Course.create(#{cat.attributes})\n"
+c.each do |course|
+  seedfile.write "Course.create(#{course.attributes})\n"
+end
+
+i = Interaction.all
+i.each do |interaction|
+  seedfile.write "Interaction.create(#{interaction.attributes})\n"
 end
 seedfile.close
 
@@ -363,3 +369,7 @@ seedfile.close
 
 
 https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-there-already
+
+#https://stackoverflow.com/questions/4393246/create-seed-file-from-data-already-in-the-database
+
+#https://stackoverflow.com/questions/27431532/why-am-i-getting-uninitialized-constant-for-a-rake-task-rails-4-1-8

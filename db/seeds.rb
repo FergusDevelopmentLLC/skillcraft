@@ -80,10 +80,12 @@ CourseUser.create("user_id"=>6,"course_id"=>2)
 CourseUser.create("user_id"=>4,"course_id"=>3)
 CourseUser.create("user_id"=>5,"course_id"=>3)
 
-Announcement.create("course_id"=>1, "user_id"=>1, "title"=>"First Announcement", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
-Announcement.create("course_id"=>2, "user_id"=>1, "title"=>"Second Announcement", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
-Assignment.create("course_id"=>3, "user_id"=>1, "title"=>"First Assignment", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
-Assignment.create("course_id"=>4, "user_id"=>1, "title"=>"Second Assignment", "start_date"=>"Mon, 27 Apr 2020", "end_date"=>"Mon, 27 Apr 2020", "posted_date"=>"Mon, 27 Apr 2020", "due_date"=>"Mon, 27 Apr 2020", "graded"=>"true", "points"=>"100", "instructions"=>"Do it")
+Announcement.create({"id" => 1, "course_id" => 1, "user_id" => 1, "type" => "Announcement", "title" => "First English 101 Announcement", "start_date" => "Mon, 27 Apr 2020", "end_date" => "Mon, 27 Apr 2020", "posted_date" => "Mon, 27 Apr 2020", "due_date" => "Mon, 27 Apr 2020", "graded" => true, "points" => 100, "instructions" => "Do it", "created_at" => "Thu, 14 May 2020 16:40:44 UTC +00.00", "updated_at" => "Thu, 14 May 2020 16:53:24 UTC +00.00" })
+Announcement.create({"id" => 2, "course_id" => 2, "user_id" => 1, "type" => "Announcement", "title" => "First Math 101 Announcement", "start_date" => "Mon, 27 Apr 2020", "end_date" => "Mon, 27 Apr 2020", "posted_date" => "Mon, 27 Apr 2020", "due_date" => "Mon, 27 Apr 2020", "graded" => true, "points" => 100, "instructions" => "Do it", "created_at" => "Thu, 14 May 2020 16:40:44 UTC +00.00", "updated_at" => "Thu, 14 May 2020 16:53:44 UTC +00.00" })
+
+Assignment.create({"id" => 3, "course_id" => 3, "user_id" => 1, "type" => "Assignment", "title" => "First Science 101 Assignment", "start_date" => "Mon, 27 Apr 2020", "end_date" => "Mon, 27 Apr 2020", "posted_date" => "Mon, 27 Apr 2020", "due_date" => "Mon, 27 Apr 2020", "graded" => true, "points" => 100, "instructions" => "Do it", "created_at" => "Thu, 14 May 2020 16:40:44 UTC +00.00", "updated_at" => "Thu, 14 May 2020 16:54:04 UTC +00.00" })
+Assignment.create({"id" => 4, "course_id" => 4, "user_id" => 1, "type" => "Assignment", "title" => "First Art 101 Assignment", "start_date" => "Mon, 27 Apr 2020", "end_date" => "Mon, 27 Apr 2020", "posted_date" => "Mon, 27 Apr 2020", "due_date" => "Mon, 27 Apr 2020", "graded" => true, "points" => 100, "instructions" => "Do it", "created_at" => "Thu, 14 May 2020 16:40:44 UTC +00.00", "updated_at" => "Thu, 14 May 2020 16:54:20 UTC +00.00" })
+
 Response.create("interaction_id"=>1, "title"=>"Response to First Announcement", "user_id"=>4, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")
 Response.create("interaction_id"=>2, "title"=>"Response to Second Announcement", "user_id"=>5, "content"=>"bla, bla, bla", "score"=>92, "letter_grade"=>"A")
 

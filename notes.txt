@@ -360,3 +360,6 @@ seedfile.close
             <%else%>
             <p style="text-align: center;">-chirp, chirp-</p>
             <%end%>
+
+
+https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-there-already

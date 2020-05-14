@@ -5,6 +5,7 @@
       <table>
         <thead>
           <tr>
+            <th>Id</th>
             <th>Course</th>
             <th>Teacher</th>
             <th>Title</th>
@@ -23,6 +24,7 @@
         <tbody>
           <% @interactions.each do |interaction| %>
           <tr>
+            <td><%= interaction.id %></td>
             <td><%= interaction.course.name %></td>
             <td><%= interaction.user.user_name %></td>
             <td><%= interaction.title %></td>

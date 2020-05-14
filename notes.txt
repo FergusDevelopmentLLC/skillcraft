@@ -332,3 +332,31 @@ c.each do |cat|
   seedfile.write "Course.create(#{cat.attributes})\n"
 end
 seedfile.close
+
+
+# &nbsp;&nbsp;<%= link_to interaction.title, interaction %> - <%= link_to pluralize(interaction.responses.count, "response"), responses_path %><br/>
+          # if !interaction.responses.empty?
+            # interaction.responses.each do |response| %>
+              #&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to response.title, response %><br/>
+            # end
+          # end
+
+
+  <h1>Activity Feed</h1>
+            <% if !current_user.interactions.empty? %>
+                <% current_user.courses.each do |course| %>
+                    <%= link_to course.name, courses_path %><br/>
+                    <% if !course.interactions.empty? %>
+                        <% course.interactions.each do |interaction| %>
+                            &nbsp;&nbsp;<%= link_to interaction.title, interaction %> - <%= link_to pluralize(interaction.responses.count, "response"), responses_path %><br/>
+                            <!-- <% if !interaction.responses.empty? %>
+                                <% interaction.responses.each do |response| %>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to response.title, response %><br/>
+                                <% end %>
+                            <% end %> -->
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <%else%>
+            <p style="text-align: center;">-chirp, chirp-</p>
+            <%end%>

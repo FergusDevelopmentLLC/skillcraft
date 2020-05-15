@@ -64,30 +64,21 @@ task :make_seeds do
 
   seedfile.close
 
+  text = File.read('db/seeds_new.rb')
+  
+  new_contents = text.gsub(/\"created_at\"=>/, '"created_at"=>"')
+  new_contents = new_contents.gsub(/\"updated_at\"=>/, '"updated_at"=>"')
+  new_contents = new_contents.gsub(/\"due_date\"=>/, '"due_date"=>"')
+  new_contents = new_contents.gsub(/\"posted_date\"=>/, '"posted_date"=>"')
+  new_contents = new_contents.gsub(/\+00:00,/, '+00:00",')
+  new_contents = new_contents.gsub(/2000,/, '2000",')
+  new_contents = new_contents.gsub(/2020,/, '2020",')
+  new_contents = new_contents.gsub(/\+00:00\}\)/, '+00:00" })')
+  
+  File.open('db/seeds_new.rb', "w") { |file| file.puts new_contents }
+
   #https://stackoverflow.com/questions/27431532/why-am-i-getting-uninitialized-constant-for-a-rake-task-rails-4-1-8
 
   #bundle exec rake environment make_seeds
-
-
-  
-
-
-  
-
-  
-
-
-
-
-
- 
-
-  
-
-
-
-
-
-
 
 end

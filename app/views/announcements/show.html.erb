@@ -51,19 +51,19 @@
     </p>
 
     <p>
-      <strong>Responses:</strong><br/>
+      <strong>Questions:</strong><br/>
       <%if !@announcement.responses.empty? %>
         <% @announcement.responses.each do |response| %>
-          <%=response.type %>: <%=response.title %><br/>
+          <%=response.title %><br/>
         <% end %>
       <%else%>
-        No responses
+        No questions
       <%end%>
     </p>
     
     <div class="actions">
       <%= link_to 'Edit', edit_announcement_path(@announcement) %> | 
-      <%= link_to 'Respond', responses_interaction_new_path(@announcement) %> |
+      <%= link_to 'Ask Question', responses_interaction_new_path(@announcement) %> |
       <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>

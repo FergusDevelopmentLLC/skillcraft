@@ -52,9 +52,9 @@
 
     <p>
       <strong>Questions:</strong><br/>
-      <%if !@announcement.responses.empty? %>
-        <% @announcement.responses.each do |response| %>
-          <%=response.title %><br/>
+      <%if !@announcement.questions.empty? %>
+        <% @announcement.questions.each do |question| %>
+          <%= link_to question.content, response_path(question) %><br/>
         <% end %>
       <%else%>
         No questions
@@ -63,7 +63,7 @@
     
     <div class="actions">
       <%= link_to 'Edit', edit_announcement_path(@announcement) %> | 
-      <%= link_to 'Ask Question', responses_interaction_new_path(@announcement) %> |
+      <%= link_to 'Ask Question', questions_announcement_new_path(@announcement) %> |
       <%= render :file => "./shared/_actions.html.erb" %><br />
     </div>
   </main>

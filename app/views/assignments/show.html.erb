@@ -53,7 +53,7 @@
     <div class="actions">
       <%= link_to 'Edit', edit_assignment_path(@assignment) %> | 
       <%= link_to 'Respond', new_response_path %> |
-      <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= render :partial => "actions" %><br />
     </div>
   </main>
 </div>

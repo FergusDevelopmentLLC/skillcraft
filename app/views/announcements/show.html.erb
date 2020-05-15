@@ -64,7 +64,7 @@
     <div class="actions">
       <%= link_to 'Edit', edit_announcement_path(@announcement) %> | 
       <%= link_to 'Ask Question', questions_announcement_new_path(@announcement) %> |
-      <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= render :partial => "actions" %><br />
     </div>
   </main>
 </div>

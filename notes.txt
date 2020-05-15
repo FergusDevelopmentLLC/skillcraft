@@ -431,3 +431,5 @@ http://socrateos.blogspot.com/2014/10/ruby-sample-codes-to-replace-string-in.htm
   <%= form.label :Student %>
   <%= collection_select(:response, :user_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
 </div> -->
+
+https://thoughtbot.com/blog/directory-for-shared-partials-in-rails

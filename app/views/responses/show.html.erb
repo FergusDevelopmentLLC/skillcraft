@@ -3,10 +3,10 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>Show Response</h1>
-
+    <h1>A <%=@response.type%></h1>
+    <%= render :partial => './shared/parent_info', locals: { response: @response } %>
     <p>
-      <strong>Interaction:</strong><br/>
+      <strong><%=@response.interaction.type%>:</strong><br/>
       <%= @response.interaction.title %>
     </p>
 
@@ -16,27 +16,24 @@
     </p>
 
     <p>
-      <strong>Type:</strong><br/>
-      <%= @response.interaction.type %>
-    </p>
-
-    <p>
       <strong>Content:</strong><br/>
       <%= @response.content %>
     </p>
 
+    <% if !@response.type == "Question" %>
     <p>
       <strong>Score:</strong><br/>
       <%= @response.score %>
     </p>
-
     <p>
       <strong>Letter grade:</strong><br/>
       <%= @response.letter_grade %>
     </p>
-
+    <% end %>
+    
     <div class="actions">
-      <%= link_to 'Responses', responses_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= 
+      link_to 'Edit', edit_response_path(@response) %> | <%= render :partial => "actions" %><br />
     </div>
 
   </main>

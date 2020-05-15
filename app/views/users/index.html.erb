@@ -4,7 +4,7 @@
     <% if @users.count.zero? %>
     <div>Nothing to display</div>
     <div class="actions">
-      <%= render :file => "./shared/_actions.html.erb" %><br />
+      <%= render :partial => "actions" %><br />
     </div>
     <%else%>
     <h1><%= @users.first.type == "Student" ? "Students" : "Teachers" %></h1>
@@ -42,7 +42,7 @@
         <%= link_to 'New Student', new_student_path %>
       <% else %>
         <%= link_to 'New Teacher', new_teacher_path %>
-      <% end %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+      <% end %> | <%= render :partial => "actions" %><br />
     </div>
     <%end%>
   </main>

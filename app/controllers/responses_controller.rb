@@ -12,13 +12,12 @@ class ResponsesController < ApplicationController
     if params[:announcement_id]
       @response = Question.new
       @response.interaction_id = params[:announcement_id] if params[:announcement_id]
-      @response.user = current_user if logged_in?
     else
       @response = Response.new
       @response.interaction_id = params[:interaction_id] if params[:interaction_id]
-      @response.user = current_user if logged_in?
     end
-
+    @response.user = current_user if logged_in?
+  
   end
 
   def edit; end
@@ -27,11 +26,7 @@ class ResponsesController < ApplicationController
     @response = Response.new(response_params)
     respond_to do |format|
       if @response.save
-        if @response.type == "Question"
-          format.html { redirect_to questions_path(@response), notice: 'Your question was successfully created' }
-        else
-          format.html { redirect_to responses_url(@response), notice: 'Your response was successfully created' }
-        end
+        format.html { redirect_to response_path(@response), notice: "Your #{@response.type.downcase} was successfully created" }
       else
         format.html { render :new }
       end
@@ -41,7 +36,7 @@ class ResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @response.update(response_params)
-        format.html { redirect_to @response, notice: 'Response was successfully updated' }
+        format.html { redirect_to @response, notice: "Your #{@response.type.downcase} was successfully updated" }
       else
         format.html { render :edit }
       end

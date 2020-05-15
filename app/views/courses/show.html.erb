@@ -81,7 +81,7 @@
       <%= link_to 'Courses', courses_path %> | 
       <%= link_to 'Add Announcement', announcement_course_new_path(@course) %> | 
       <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
-      <%= render :file => "./shared/_actions.html.erb" %>
+      <%= render :partial => "actions" %>
     </div>
 
   </main>

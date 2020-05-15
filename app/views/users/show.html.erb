@@ -51,9 +51,9 @@
       <div class="actions">
         
         <% if @user.type == "Student" %>
-          <%= link_to 'Students', students_path %> | <%=link_to "Edit", edit_student_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+          <%= link_to 'Students', students_path %> | <%=link_to "Edit", edit_student_path %> | <%= render :partial => "actions" %><br />
         <% else %>
-          <%= link_to 'Teachers', teachers_path %> | <%=link_to "Edit", edit_teacher_path %> | <%= render :file => "./shared/_actions.html.erb" %><br />
+          <%= link_to 'Teachers', teachers_path %> | <%=link_to "Edit", edit_teacher_path %> | <%= render :partial => "actions" %><br />
         <% end %>
         
       </div>

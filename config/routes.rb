@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :assignments
   resources :responses
   resources :questions, controller: 'responses'
+  resources :completed_assignments, controller: 'responses'
 
   root 'layouts#index'
 
@@ -33,6 +34,8 @@ Rails.application.routes.draw do
   get '/responses/:interaction_id/new', to: 'responses#new', as: 'responses_interaction_new'
 
   get '/questions/:announcement_id/new', to: 'responses#new', as: 'questions_announcement_new'
+
+  get '/completed_assignments/:assignment_id/new', to: 'responses#new', as: 'completed_assignments_assignment_new'
 
   # auths
   get '/auth/twitter/callback', to: 'sessions_twitter#create'

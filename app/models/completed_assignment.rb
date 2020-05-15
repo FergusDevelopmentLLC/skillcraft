@@ -1,0 +1,2 @@
+class CompletedAssignment < Response
+end

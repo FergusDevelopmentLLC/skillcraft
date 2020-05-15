@@ -1,8 +1,8 @@
 <div class="full">
   <main class="main">
 
-    <h1>Editing <%=@response.type%></h1>
-    
+    <%= render :partial => 'response_header', locals: { response: @response } %>
+
     <%= render :partial => 'parent_info', locals: { response: @response } %>
 
     <p id="notice"><%= notice %></p>
@@ -36,10 +36,18 @@
     </div>
     <% end %>
 
+    
+    <% if @response.type == "Question" %>
+    <div class="field">
+      <%= form.label :what_is_your_question? %>
+      <%= form.text_field :content %>
+    </div>
+    <% else %>
     <div class="field">
       <%= form.label :content %>
       <%= form.text_field :content %>
     </div>
+    <% end %>
 
     <% if !@response.type == "Question" %>
     <div class="field">
@@ -52,8 +60,13 @@
       <%= form.text_field :letter_grade %>
     </div>
     <% end %>
+
     <div class="actions">
-      <%= form.submit %>
+      <% if @response.type == "CompletedAssignment" %>
+      <%= submit_tag "Complete assignment" %>
+      <% else %>
+        <%= form.submit %>
+      <% end %>
     </div>
 
     <% end %>

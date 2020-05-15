@@ -9,11 +9,11 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Code</th>
           <th>Short description</th>
-          <th>Featured</th>
           <th>Announcements</th>
+          <th>Questions</th>
           <th>Assignments</th>
+          <th>Completed assignments</th>
           <th>Teachers</th>
           <th>Students</th>
           <th colspan="3"></th>
@@ -23,12 +23,16 @@
       <tbody>
         <% @courses.each do |course| %>
         <tr>
+          <% if course.featured %>
+          <td><strong><%= course.name %></strong></td>
+          <% else %>
           <td><%= course.name %></td>
-          <td><%= course.code %></td>
+          <% end %>
           <td><%= course.short_desc %></td>
-          <td><%= course.featured %></td>
           <td><%= course.announcements.count %></td>
+          <td><%= course.questions.count %></td>
           <td><%= course.assignments.count %></td>
+          <td><%= course.completed_assignments.count %></td>
           <td><%= course.teachers.count %></td>
           <td><%= course.students.count %></td>
           <td><%= link_to 'Show', course_path(course) %></td>

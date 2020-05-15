@@ -3,8 +3,8 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>A New <%=@response.type%></h1>
-    
+    <%= render :partial => 'response_header', locals: { response: @response } %>
+
     <%= render :partial => 'parent_info', locals: { response: @response } %>
 
     <% if @response && @response.errors.any? %>
@@ -35,8 +35,12 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :what_is_your_question? %>
-      <%= form.text_field :content %>
+      <% if @response.type == "Question" %>
+        <%= form.label :what_is_your_question? %>
+      <% else %>
+        <%= form.label :content %>
+      <% end %>
+      <%= text_area(:completed_assignment, :content, cols: 20, rows: 40) %>
     </div>
 
     <% if @response.type != "Question" %>
@@ -52,12 +56,13 @@
     <% end %>
 
     <div class="actions">
-      <%= form.submit %>
-    </div>
-
+    <% if @response.type == "CompletedAssignment" %>
+      <%= submit_tag "Complete assignment" %>
+      <% else %>
+        <%= form.submit %>
+      <% end %>
     <% end %>
-
-
+    </div>
 
     <div class="actions">
       <%= link_to 'Responses', responses_path %> | <%= render :partial => "actions" %><br />

@@ -12,6 +12,9 @@ class ResponsesController < ApplicationController
     if params[:announcement_id]
       @response = Question.new
       @response.interaction_id = params[:announcement_id] if params[:announcement_id]
+    elsif params[:assignment_id]
+        @response = CompletedAssignment.new
+        @response.interaction_id = params[:assignment_id] if params[:assignment_id]
     else
       @response = Response.new
       @response.interaction_id = params[:interaction_id] if params[:interaction_id]
@@ -59,6 +62,8 @@ class ResponsesController < ApplicationController
     def response_params
       if params[:question]
         params.require(:question).permit(:interaction_id, :user_id, :type, :content)
+      elsif params[:completed_assignment]
+        params.require(:completed_assignment).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
       else
         params.require(:response).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
       end

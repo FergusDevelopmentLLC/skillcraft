@@ -52,7 +52,7 @@
 
     <div class="actions">
       <%= link_to 'Edit', edit_assignment_path(@assignment) %> | 
-      <%= link_to 'Respond', new_response_path %> |
+      <%= link_to 'Complete Assignment', completed_assignments_assignment_new_path(@assignment) %> |
       <%= render :partial => "actions" %><br />
     </div>
   </main>

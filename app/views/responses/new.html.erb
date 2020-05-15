@@ -4,8 +4,9 @@
     <p id="notice"><%= notice %></p>
 
     <h1>A New <%=@response.type%></h1>
-    <div style="text-align: center;margin: 1rem">addressed to the <%=@response.interaction.type%>:</div>
-    <div style="text-align: center;margin: 1rem">"<%= link_to @response.interaction.title, announcement_path(@response.interaction) %>"</div>
+    
+    <%= render :partial => 'parent_info', locals: { response: @response } %>
+
     <% if @response && @response.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>

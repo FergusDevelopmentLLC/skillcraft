@@ -4,7 +4,9 @@
     <p id="notice"><%= notice %></p>
 
     <h1>A <%=@response.type%></h1>
-    <%= render :partial => './shared/parent_info', locals: { response: @response } %>
+    
+    <%= render :partial => "parent_info", locals: { response: @response } %>
+
     <p>
       <strong><%=@response.interaction.type%>:</strong><br/>
       <%= @response.interaction.title %>

@@ -407,16 +407,27 @@ due_date
 +00:00})
 2020,
 
-
-
 #text = File.read('db/seeds_new.rb')
-  #new_contents = text.gsub(/"created_at"=>/, 'created_at"=>"')
-  #File.open('db/seeds_new.rb', "w") { |file| file.puts new_contents }
+#new_contents = text.gsub(/"created_at"=>/, 'created_at"=>"')
+#File.open('db/seeds_new.rb', "w") { |file| file.puts new_contents }
 
-  # "updated_at"=>
-  # posted_date
-  # due_date
-  # +00:00,
-  # 2000,
-  # +00:00})
-  # 2020,
+# "updated_at"=>
+# posted_date
+# due_date
+# +00:00,
+# 2000,
+# +00:00})
+# 2020,
+
+http://socrateos.blogspot.com/2014/10/ruby-sample-codes-to-replace-string-in.html
+
+
+<!-- <div class="field">
+  <%= form.label :interaction_id %>
+  <%= collection_select(:response, :interaction_id, Interaction.all, :id, :title, include_blank: '-Please select-')%>
+</div> -->
+
+<!-- <div class="field">
+  <%= form.label :Student %>
+  <%= collection_select(:response, :user_id, Student.all, :id, :user_name, include_blank: '-Please select-')%>
+</div> -->

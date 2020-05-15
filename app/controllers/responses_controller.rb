@@ -9,6 +9,9 @@ class ResponsesController < ApplicationController
 
   def new
     @response = Response.new
+    @response.interaction_id = params[:interaction_id] if params[:interaction_id]
+    @response.user = current_user if logged_in?
+    @response.type = "Question"
   end
 
   def edit; end
@@ -17,7 +20,7 @@ class ResponsesController < ApplicationController
     @response = Response.new(response_params)
     respond_to do |format|
       if @response.save
-        format.html { redirect_to @response, notice: 'Response was successfully created' }
+        format.html { redirect_to responses_url(@response), notice: 'Response was successfully created' }
       else
         format.html { render :new }
       end

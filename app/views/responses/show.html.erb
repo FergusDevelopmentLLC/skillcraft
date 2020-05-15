@@ -18,7 +18,11 @@
     </p>
 
     <p>
+      <% if @response.type == "Question" %>
+      <strong>Question:</strong><br/>
+      <% else %>
       <strong>Content:</strong><br/>
+      <% end %>
       <%= @response.content %>
     </p>
 

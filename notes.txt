@@ -433,3 +433,5 @@ http://socrateos.blogspot.com/2014/10/ruby-sample-codes-to-replace-string-in.htm
 </div> -->
 
 https://thoughtbot.com/blog/directory-for-shared-partials-in-rails
+
+https://www.shortcutfoo.com/app/dojos/ruby-date-format-strftime/cheatsheet

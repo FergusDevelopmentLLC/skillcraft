@@ -7,14 +7,16 @@ class ResponsesController < ApplicationController
 
   def show; end
 
+  def edit; end
+
   def new
-    
+
     if params[:announcement_id]
       @response = Question.new
       @response.interaction_id = params[:announcement_id] if params[:announcement_id]
     elsif params[:assignment_id]
-        @response = CompletedAssignment.new
-        @response.interaction_id = params[:assignment_id] if params[:assignment_id]
+      @response = CompletedAssignment.new
+      @response.interaction_id = params[:assignment_id] if params[:assignment_id]
     else
       @response = Response.new
       @response.interaction_id = params[:interaction_id] if params[:interaction_id]
@@ -23,13 +25,11 @@ class ResponsesController < ApplicationController
   
   end
 
-  def edit; end
-
   def create
     @response = Response.new(response_params)
     respond_to do |format|
       if @response.save
-        format.html { redirect_to response_path(@response), notice: "Your #{@response.type.downcase} was successfully created" }
+        format.html { redirect_to response_path(@response), notice: "Creation successful" }
       else
         format.html { render :new }
       end
@@ -39,7 +39,7 @@ class ResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @response.update(response_params)
-        format.html { redirect_to @response, notice: "Your #{@response.type.downcase} was successfully updated" }
+        format.html { redirect_to @response, notice: "Update successful" }
       else
         format.html { render :edit }
       end
@@ -49,7 +49,7 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to responses_url, notice: 'Response was successfully destroyed' }
+      format.html { redirect_to responses_url, notice: 'Deletion successful' }
     end
   end
 

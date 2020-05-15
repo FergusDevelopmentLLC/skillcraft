@@ -62,11 +62,7 @@
     <% end %>
 
     <div class="actions">
-      <% if @response.type == "CompletedAssignment" %>
-      <%= submit_tag "Complete assignment" %>
-      <% else %>
-        <%= form.submit %>
-      <% end %>
+      <%= submit_tag "Save" %>
     </div>
 
     <% end %>

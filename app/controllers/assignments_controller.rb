@@ -22,7 +22,7 @@ class AssignmentsController < ApplicationController
       @assignment = Assignment.new(assignment_params)
       respond_to do |format|
         if @assignment.save
-          format.html { redirect_to @assignment, notice: 'Assignment was successfully created' }
+          format.html { redirect_to @assignment, notice: 'Creation successful' }
         else
           format.html { render :new }
         end
@@ -32,7 +32,7 @@ class AssignmentsController < ApplicationController
     def update
       respond_to do |format|
         if @assignment.update(assignment_params)
-          format.html { redirect_to @assignment, notice: 'Assignment was successfully updated' }
+          format.html { redirect_to @assignment, notice: 'Update successful' }
         else
           format.html { render :edit }
         end
@@ -42,7 +42,7 @@ class AssignmentsController < ApplicationController
     def destroy
       @assignment.destroy
       respond_to do |format|
-        format.html { redirect_to assignments_url, notice: 'Assignment was successfully destroyed' }
+        format.html { redirect_to assignments_url, notice: 'Deletion' }
       end
     end
   

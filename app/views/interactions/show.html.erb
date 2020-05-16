@@ -1,0 +1,92 @@
+<div class="full">
+  <main class="main">
+
+    <p id="notice"><%= notice %></p>
+
+    <%= render :partial => 'interaction_parent_info', locals: { interaction: @interaction } %>
+
+    <p>
+      <strong>Course:</strong><br/>
+      <%= @interaction.course.name %>
+    </p>
+
+    <p>
+      <strong>Teacher:</strong><br/>
+      <%= @interaction.user.user_name %>
+    </p>
+
+    <p>
+      <strong>Type:</strong><br/>
+      <%= @interaction.type %>
+    </p>
+
+    <p>
+      <strong>Title:</strong><br/>
+      <%= @interaction.title %>
+    </p>
+
+    <p>
+      <strong>Posted date:</strong><br/>
+      <%= @interaction.posted_date %>
+    </p>
+
+    <p>
+      <strong>Due date:</strong><br/>
+      <%= @interaction.due_date %>
+    </p>
+
+    <% if @interaction.type != "Announcement" %>
+    <p>
+      <strong>Graded:</strong><br/>
+      <%= @interaction.graded %>
+    </p>
+
+    <p>
+      <strong>Points:</strong><br/>
+      <%= @interaction.points %>
+    </p>
+
+    <p>
+      <strong>Instructions:</strong><br/>
+      <%= @interaction.instructions %>
+    </p>
+    <% end %>
+
+    <% if @interaction.type == "Announcement" %>
+    <p>
+      <strong>Questions:</strong><br/>
+      <%if !@interaction.questions.empty? %>
+        <% @interaction.questions.each do |question| %>
+          <%= link_to question.content, response_path(question) %><br/>
+        <% end %>
+      <%else%>
+        No questions
+      <%end%>
+    </p>
+    <% end %>
+
+    <% if @interaction.type == "Assignment" %>
+    <p>
+      <strong>Completed:</strong><br/>
+      <%if !@interaction.completed_assignments.empty? %>
+        <% @interaction.completed_assignments.each do |completed_assignment| %>
+          <%= link_to completed_assignment.title, response_path(completed_assignment) %><br/>
+        <% end %>
+      <%else%>
+        No completed assignments
+      <%end%>
+    </p>
+    <% end %>
+    
+    <div class="actions">
+      <%= link_to 'Edit', edit_interaction_path(@interaction) %> | 
+      <% if @interaction.type == "Announcement" %>
+        <%= link_to 'Ask Question', questions_announcement_new_path(@interaction) %> |
+      <% end %>
+      <% if @interaction.type == "Assignment" %>
+        <%= link_to 'Complete assignment', completed_assignments_assignment_new_path(@interaction) %> |
+      <% end %>
+      <%= render :partial => "actions" %><br />
+    </div>
+  </main>
+</div>

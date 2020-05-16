@@ -1,31 +1,31 @@
 <div class="full">
   <main class="main">
-
     <p id="notice"><%= notice %></p>
+    
+    <%= render :partial => 'interaction_parent_info', locals: { interaction: @interaction } %>
 
-    <h1>Editing Assignment</h1>
-
-    <% if @assignment && @assignment.errors.any? %>
+    <% if @interaction && @interaction.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <h2><%= pluralize(@interaction.errors.count, "error") %> prohibited this interaction from being saved:</h2>
+
       <ul>
-        <% @assignment.errors.full_messages.each do |message| %>
+        <% @interaction.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
     </div>
     <% end %>
 
-    <%= form_with url: "/assignments/#{@assignment.id}", model: @assignment, local: true, method: "patch" do |form| %>
+    <%= form_with url: "/interactions/#{@interaction.id}", model: @interaction, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :type, :value => 'Assignment'%>
+    <%= form.hidden_field :type, :value => 'interaction'%>
 
-    <%= form.hidden_field :id, :value => @assignment.id%>
+    <%= form.hidden_field :id, :value => @interaction.id%>
 
-    <%= form.hidden_field :course_id, :value => @assignment.course.id %>
+    <%= form.hidden_field :course_id, :value => @interaction.course.id %>
 
-    <%= form.hidden_field :user_id, :value => @assignment.user.id %>
-
+    <%= form.hidden_field :user_id, :value => @interaction.user.id %>
+    
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>
@@ -62,10 +62,7 @@
 
     <% end %>
 
-
-    <div class="actions">
-      <%= link_to 'Assignments', assignments_path %> | <%= render :partial => "actions" %><br />
+    <div class="actions"><%= link_to 'Interactions', interactions_path %> | <%= render :partial => "actions" %><br />
     </div>
-
   </main>
 </div>

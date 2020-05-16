@@ -393,6 +393,10 @@ input, textarea {
     padding: 3px;
 }
 
+textarea {
+    margin-top: .3rem;
+}
+
 input[type='checkbox'] {
     margin-top: 5px;
 }

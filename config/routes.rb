@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :teachers, controller: 'users'
   resources :students, controller: 'users'
 
-  resources :announcements
-  resources :assignments
-  resources :responses
+  resources :interactions #TODO remove
+  resources :announcements, controller: 'interactions'
+  resources :assignments, controller: 'interactions'
+  resources :responses #TODO remove
   resources :questions, controller: 'responses'
   resources :completed_assignments, controller: 'responses'
 
@@ -27,14 +28,12 @@ Rails.application.routes.draw do
 
   get '/course_users/:course_id/:student_id/destroy', to: 'course_users#destroy', as: 'course_user'
 
-  get '/announcements/:course_id/new', to: 'announcements#new', as: 'announcement_course_new'
+  get '/announcements/:course_id/new', to: 'interactions#new', as: 'announcements_course_new'
+  get '/assignments/:course_id/new', to: 'interactions#new', as: 'assignments_course_new'
 
-  get '/assignments/:course_id/new', to: 'assignments#new', as: 'assignments_course_new'
-
+  
   get '/responses/:interaction_id/new', to: 'responses#new', as: 'responses_interaction_new'
-
   get '/questions/:announcement_id/new', to: 'responses#new', as: 'questions_announcement_new'
-
   get '/completed_assignments/:assignment_id/new', to: 'responses#new', as: 'completed_assignments_assignment_new'
 
   # auths

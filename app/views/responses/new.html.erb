@@ -5,7 +5,7 @@
 
     <%= render :partial => 'response_header', locals: { response: @response } %>
 
-    <%= render :partial => 'parent_info', locals: { response: @response } %>
+    <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
     <% if @response && @response.errors.any? %>
     <div id="error_explanation">

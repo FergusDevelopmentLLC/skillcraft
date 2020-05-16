@@ -3,6 +3,16 @@ class ResponsesController < ApplicationController
 
   def index
     @responses = Response.all
+    @index_title = "Responses"
+    @responses = if request.path.include?("questions")
+                  @index_title = "Questions"
+                  Question.all
+                 elsif request.path.include?("completed_assignments")
+                  @index_title = "Completed Assignments"
+                  CompletedAssignment.all
+                 else
+                  Response.all #TODO: necessary?
+                 end
   end
 
   def show; end

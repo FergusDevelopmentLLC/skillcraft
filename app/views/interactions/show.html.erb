@@ -67,7 +67,7 @@
 
     <% if @interaction.type == "Assignment" %>
     <p>
-      <strong>Completed:</strong><br/>
+      <strong>Responses:</strong><br/>
       <%if !@interaction.completed_assignments.empty? %>
         <% @interaction.completed_assignments.each do |completed_assignment| %>
           <%= link_to completed_assignment.title, response_path(completed_assignment) %><br/>

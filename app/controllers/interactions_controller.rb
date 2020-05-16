@@ -3,16 +3,13 @@ class InteractionsController < ApplicationController
 
   def index
     @index_title = "Interactions"
-    @title_singular = "Interaction"
     @new_path = new_interaction_path
     @interactions = if request.path.include?("announcements")
                       @index_title = "Announcements"
-                      @title_singular = "Announcement"
                       @new_path = new_announcement_path
                       Announcement.all
                     elsif request.path.include?("assignments")
                       @index_title = "Assignments"
-                      @title_singular = "Assignment"
                       @new_path = new_assignment_path
                       Assignment.all
                     else

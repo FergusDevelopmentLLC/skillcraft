@@ -3,7 +3,7 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>Responses</h1>
+    <h1><%= @index_title ? @index_title : "Responses" =%></h1>
 
     <table>
       <thead>
@@ -43,7 +43,7 @@
     </table>
 
     <div class="actions">
-      <%= link_to 'New Response', new_response_path %> | <%= render :partial => "actions" %><br />
+      <%= render :partial => "actions" %><br />
     </div>
 
   </main>

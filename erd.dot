@@ -29,6 +29,10 @@ m_Avatar [label = <{<table border="0" align="center" cellspacing="0.5" cellpaddi
   <tr><td align="left" width="130" port="url">url <font face="Arial Italic" color="grey60">string</font></td></tr>
 </table>
 }>];
+m_CompletedAssignment [color = "grey60", fontcolor = "grey60", label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">CompletedAssignment</font></td></tr>
+</table>
+}>];
 m_Course [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
   <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Course</font></td></tr>
 </table>
@@ -107,14 +111,15 @@ m_User [label = <{<table border="0" align="center" cellspacing="0.5" cellpadding
 }>];
   m_Interaction -> m_Announcement [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Interaction -> m_Assignment [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
+  m_Response -> m_CompletedAssignment [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_Response -> m_Question [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_User -> m_Student [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
   m_User -> m_Teacher [color = "grey60", arrowtail = "onormal", arrowhead = "none", arrowsize = "1.2"];
-  m_User -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "5"];
+  m_User -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "6"];
   m_User -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "6"];
   m_User -> m_CourseUser [arrowhead = "normal", arrowtail = "none", weight = "4"];
   m_Avatar -> m_User [arrowhead = "none", arrowtail = "none", weight = "4"];
   m_Course -> m_Interaction [arrowhead = "normal", arrowtail = "none", weight = "4"];
-  m_Interaction -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "5"];
+  m_Interaction -> m_Response [arrowhead = "normal", arrowtail = "none", weight = "6"];
   m_Course -> m_CourseUser [arrowhead = "normal", arrowtail = "none", weight = "2"];
 }

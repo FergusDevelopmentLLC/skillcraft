@@ -59,7 +59,7 @@
       <br/>
       <%if !@course.announcements.empty? %>
         <% @course.announcements.each do |announcement| %>
-          Posted date: <%=announcement.posted_date %> - <%=link_to announcement.title, announcement_path(announcement)%><br/>
+          Posted date: <%=announcement.created_at %> - <%=link_to announcement.title, announcement_path(announcement)%><br/>
         <% end %>
       <%else%>
         No announcements

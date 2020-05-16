@@ -6,7 +6,6 @@ class CreateInteractions < ActiveRecord::Migration[6.0]
       t.belongs_to :user, null: false, foreign_key: true
       t.string :type
       t.string :title
-      t.date :posted_date
       t.date :due_date
       t.boolean :graded
       t.integer :points

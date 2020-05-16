@@ -69,9 +69,9 @@ class InteractionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def interaction_params
       if params[:assignment]
-        params.require(:assignment).permit(:course_id, :user_id, :type, :title, :posted_date, :due_date, :graded, :points, :instructions)
+        params.require(:assignment).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
       elsif params[:announcement]
-        params.require(:announcement).permit(:course_id, :user_id, :type, :title, :posted_date, :due_date, :graded, :points, :instructions)
+        params.require(:announcement).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
       end
     end
 end

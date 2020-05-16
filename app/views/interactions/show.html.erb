@@ -11,31 +11,16 @@
     </p>
 
     <p>
-      <strong>Teacher:</strong><br/>
-      <%= @interaction.user.user_name %>
-    </p>
-
-    <p>
-      <strong>Type:</strong><br/>
-      <%= @interaction.type %>
-    </p>
-
-    <p>
       <strong>Title:</strong><br/>
       <%= @interaction.title %>
     </p>
 
-    <p>
-      <strong>Posted date:</strong><br/>
-      <%= @interaction.posted_date %>
-    </p>
-
+    <% if @interaction.type != "Announcement" %>
     <p>
       <strong>Due date:</strong><br/>
       <%= @interaction.due_date %>
     </p>
 
-    <% if @interaction.type != "Announcement" %>
     <p>
       <strong>Graded:</strong><br/>
       <%= @interaction.graded %>

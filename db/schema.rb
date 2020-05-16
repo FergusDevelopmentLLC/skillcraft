@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
     t.integer "user_id", null: false
     t.string "type"
     t.string "title"
-    t.date "posted_date"
     t.date "due_date"
     t.boolean "graded"
     t.integer "points"

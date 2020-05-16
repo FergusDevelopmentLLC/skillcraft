@@ -70,7 +70,7 @@
       <strong>Announcements:</strong>
       <%if !@course.announcements.empty? %>
         <% @course.announcements.each do |announcement| %>
-          <div>Posted date: <%=announcement.posted_date %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
+          <div>Posted date: <%=announcement.created_at %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
         <% end %>
       <%else%>
         No announcements

@@ -3,29 +3,18 @@
 
     <p id="notice"><%= notice %></p>
 
-    <%= render :partial => 'response_header', locals: { response: @response } %>
+    <h1><%=@response.type%></h1>
 
     <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
-    <p>
-      <strong><%=@response.interaction.type%>:</strong><br/>
-      <%= @response.interaction.title %>
-    </p>
-
-    <p>
-      <strong>Student:</strong><br/>
-      <%= @response.user.user_name %>
-    </p>
-
-    <p>
-      <% if @response.type == "Question" %>
-      <strong>Question:</strong><br/>
-      <% else %>
-      <strong>Content:</strong><br/>
-      <% end %>
-      <%= @response.content %>
-    </p>
-
+    <% if @response.type == "Question" %>
+    <div><strong>Question:</strong></div>
+    <% else %>
+    <div>Content:</strong></div>
+    <% end %>
+    
+    <div><%= @response.content %> - <%= link_to @response.user.user_name, student_path(@response.user) %> (<%= @response.created_at.strftime("%m/%d/%Y") %>)</div>
+    
     <% if !@response.type == "Question" %>
     <p>
       <strong>Score:</strong><br/>

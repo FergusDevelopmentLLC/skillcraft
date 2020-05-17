@@ -1,2 +1,7 @@
-<div style="text-align: center;margin: 1rem">addressed to the <%=@response.interaction.type%>:</div>
-<div style="text-align: center;margin: 1rem">"<%= link_to @response.interaction.title, announcement_path(@response.interaction) %>"</div>
+<div class="parent_info">
+  <div>for the <strong><%= @response.interaction.type.downcase %></strong>:</div>
+  <div>"<%= link_to @response.interaction.title, announcement_path(@response.interaction) %>"</div>
+  <div>as part of the <strong>course</strong>:</div>
+  <div><%= link_to @response.interaction.course.name, course_path(@response.interaction.course) %></div>
+</div>
+

@@ -1,3 +1,3 @@
-<h1><%= @interaction.type %></h1>
-<h3 style="text-align: center;margin: 1rem">for the course:</h3>
-<h2><%= link_to @interaction.course.name, course_path(@interaction.course) %></h2>
+<div class="parent_info">
+  <div>for the course: <%= link_to @interaction.course.name, course_path(@interaction.course) %></div>
+</div>

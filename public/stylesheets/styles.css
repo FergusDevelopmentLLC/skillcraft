@@ -648,6 +648,23 @@ input[type="text"], input[type="number"], select {
     margin: auto;
 }
 
+
+.parent_info {
+  text-align: center;
+  padding-bottom: .75rem;
+  margin-bottom: .75rem;
+  border-bottom: 1px solid gray;
+}
+
+.parent_info div {
+  margin-bottom: .25rem;
+}
+
+/* ---------------------------------------------- */
+/* ---------------------------------------------- */
+/* ---------------------------------------------- */
+/* ---------------------------------------------- */
+
 @media screen and (max-width: 768px) {
     .nav-title {
         font-size: 1.5rem;

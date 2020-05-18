@@ -3,8 +3,6 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1><%=@response.type%></h1>
-
     <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
     <% if @response && @response.errors.any? %>

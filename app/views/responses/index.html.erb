@@ -9,13 +9,21 @@
       <thead>
         <tr>
           <th>Course</th>
-          <th>Interaction</th>
-          <th>Response</th>
-          <th>Student</th>
+          <th><%= @responses.first.interaction.type %></th>
+          <% if @responses.first.type != "Question" %>
+          <th>Title</th>
+          <% end %>
+          <th>User</th>
           <th>Type</th>
+          <% if @responses.first.type != "Question" %>
           <th>Content</th>
+          <% else %>
+          <th>Question</th>
+          <% end %>
+          <% if @responses.first.type != "Question" %>
           <th>Score</th>
           <th>Letter grade</th>
+          <% end %>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -23,14 +31,20 @@
       <tbody>
         <% @responses.each_with_index do |response, index| %>
         <tr>
-          <td><%= response.interaction.course.name %></td>
-          <td><%= response.interaction.title %></td>
-          <td><%= response.title %></td>
-          <td><%= response.user.user_name %></td>
-          <td><%= response.type %></td>
-          <td><%= response.content %></td>
-          <td><%= response.score %></td>
-          <td><%= response.letter_grade %></td>
+          <td><%= link_to response.interaction.course.name, course_path(response.interaction.course) %></td>
+          <td><%= link_to response.interaction.title, interaction_path(response.interaction) %></td>
+          
+          <% if @responses.first.type != "Question" %>
+          <td><%= link_to response.title, response_path(response) %></td>  
+          <% end %>
+          
+          <td><%= link_to response.user.user_name, user_path(response.user) %></td>
+          <td><%= link_to response.content, response_path(response) %></td>
+
+          <% if @responses.first.type != "Question" %>
+          <td><%= link_to response.score, response_path(response) %></td>
+          <td><%= link_to response.letter_grade, response_path(response) %></td>
+          <% end %>
 
           <td><%= link_to 'Show', response_path(response) %></td>
           <td><%= link_to 'Edit', edit_response_path(response) %></td>

@@ -11,6 +11,11 @@
     </p>
 
     <p>
+      <strong><%= @interaction.user.type %>:</strong><br/>
+      <%= @interaction.user.user_name %>
+    </p>
+
+    <p>
       <strong>Title:</strong><br/>
       <%= @interaction.title %>
     </p>
@@ -42,7 +47,7 @@
       <strong>Questions:</strong><br/>
       <%if !@interaction.questions.empty? %>
         <% @interaction.questions.each do |question| %>
-          <%= link_to question.content, response_path(question) %><br/>
+          <%= link_to question.content, response_path(question) %> - <%= link_to question.user.user_name, user_path(question.user) %> (<%= question.created_at.strftime("%m/%d/%Y") %>)<br/>
         <% end %>
       <%else%>
         No questions

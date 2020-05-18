@@ -2,8 +2,6 @@
   <main class="main">
     <p id="notice"><%= notice %></p>
     
-    <h1><%=@response.type%></h1>
-    
     <%= render :partial => 'interaction_parent_info', locals: { interaction: @interaction } %>
 
     <% if @interaction && @interaction.errors.any? %>
@@ -20,7 +18,7 @@
 
     <%= form_with url: "/interactions/#{@interaction.id}", model: @interaction, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :type, :value => 'interaction'%>
+    <%= form.hidden_field :type, :value => @interaction.type%>
 
     <%= form.hidden_field :id, :value => @interaction.id%>
 

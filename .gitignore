@@ -41,3 +41,5 @@ yarn-debug.log*
 *.env
 
 secrets.yml
+
+/db/old_seeds/*

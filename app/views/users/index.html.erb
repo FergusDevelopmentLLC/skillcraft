@@ -1,13 +1,8 @@
 <div class="full">
-  <main class="main">
+    <main class="main">
     <p id="notice"><%= notice %></p>
-    <% if @users.count.zero? %>
-    <div>Nothing to display</div>
-    <div class="actions">
-      <%= render :partial => "actions" %><br />
-    </div>
-    <%else%>
-    <h1><%= @users.first.type == "Student" ? "Students" : "Teachers" %></h1>
+    <% if !@users.empty? %>
+    <h1><%= @users.first.type.pluralize(@users.count) %></h1>
     <table>
       <thead>
         <tr>
@@ -25,12 +20,11 @@
         <% @users.each do |user| %>
         <tr>
           <td><div style="width: 35px;"><%= cl_image_tag(user.avatar.url)  %></div></td>
-          <td><%= user.user_name %></td>
+          <td><%= link_to user.user_name, user %></td>
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td><%= user.courses.count %></td>
-          <td><%= link_to 'Show', user_path(user) %></td>
           <td><%= link_to 'Edit', edit_user_path(user) %></td>
           <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -44,6 +38,8 @@
         <%= link_to 'New Teacher', new_teacher_path %>
       <% end %> | <%= render :partial => "actions" %><br />
     </div>
-    <%end%>
+    <% else %>
+    <%= render :partial => "chirp" %>
+    <% end %>
   </main>
 </div>

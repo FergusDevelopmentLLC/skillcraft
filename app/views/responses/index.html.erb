@@ -5,6 +5,7 @@
 
     <h1><%= @index_title ? @index_title : "Responses" =%></h1>
 
+    <% if !@responses.empty? %>
     <table>
       <thead>
         <tr>
@@ -55,6 +56,9 @@
         <% end %>
       </tbody>
     </table>
+    <% else %>
+    <%= render :partial => "chirp" %>
+    <% end %>
 
     <div class="actions">
       <%= render :partial => "actions" %><br />

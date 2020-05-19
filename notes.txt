@@ -503,3 +503,11 @@ https://www.shortcutfoo.com/app/dojos/ruby-date-format-strftime/cheatsheet
 
 
     <div style="text-align: center;margin: 1rem">"<%= link_to @interaction.title, announcement_path(@interaction) %>"</div>
+
+    
+x = link_to(course.name, edit_course_path(course))}
+course.featured ? x : x 
+
+<%
+            #y = course.name
+            #course.featured ? x : y %>

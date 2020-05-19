@@ -2,6 +2,7 @@
   <main class="main">
     <div class="types-wrapper">
       <h1>Activity Feed</h1>
+      <% if !@interations.empty? %>
       <table>
         <thead>
           <tr>
@@ -32,9 +33,13 @@
             <td><%= interaction.points %></td>
             <td><%= interaction.responses.count %></td>
           </tr>
+          
           <% end %>
         </tbody>
       </table>
+      <% else %>
+      <%= render :partial => "chirp" %>
+      <% end %>
     </div>
   </main>
 </div>

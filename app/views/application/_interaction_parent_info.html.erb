@@ -1,5 +1,7 @@
 <div class="parent_info">
   <h1><%= @interaction.type %></h1>
   <div>for the <strong>course</strong>: <%= link_to @interaction.course.name, course_path(@interaction.course) %></div>
+  <% if @interaction.user %>
   <div>by the <strong><%= @interaction.user.type.downcase %></strong>: <%= link_to @interaction.user.user_name, @interaction.user %> on <%= link_to @interaction.created_at.strftime("%m/%d/%Y"), interaction_path(@interaction) %></div>
+  <% end %>
 </div>

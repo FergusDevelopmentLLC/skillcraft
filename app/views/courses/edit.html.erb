@@ -28,7 +28,7 @@
       <%= form.text_field :name %>
     </div>
     
-    <div class="field">
+    <div class="field featured-course">
       <strong><%= form.label :featured %></strong>
       <!-- #TODO, why is this not form.check_box_tag -->
       <%= check_box 'course', 'featured', {}, 'true', 'false' %>
@@ -45,47 +45,56 @@
     </div>
 
     <div class="field">
-      <strong>Teachers</strong>
-      <%if(@course.teachers.count > 0)%>
-        <% @course.teachers.each do |teacher| %>
-          <div><%=link_to teacher.user_name, teacher_path(teacher)%> < <%=link_to "Withdraw", course_user_path(@course,teacher) %></div>
+      <strong><label for="teachers">Teachers</label></strong>
+      <div id="teachers">
+        <%if !@course.teachers.empty? %>
+          <% @course.teachers.each do |teacher| %>
+            <div><%=link_to teacher.user_name, teacher_path(teacher)%> < <%=link_to "Withdraw", course_user_path(@course,teacher) %></div>
+          <% end %>
+        <% else %>
+          No teachers
         <% end %>
-      <%else%>
-        No teachers
-      <%end%>
+      </div>
+      
     </div>
 
     <div class="field">
-      <strong>Students</strong>
-      <%if(@course.students.count > 0)%>
-        <% @course.students.each do |student| %>
-          <div><%=link_to student.user_name, student_path(student)%> < <%=link_to "Withdraw", course_user_path(@course,student) %></div>
-        <% end %>
-      <%else%>
-        No students
-      <%end%>
+      <strong><label for="students">Students</label></strong>
+      <div id='students'>
+        <%if !@course.students.empty? %>
+          <% @course.students.each do |student| %>
+            <div><%=link_to student.user_name, student_path(student)%> < <%=link_to "Withdraw", course_user_path(@course,student) %></div>
+          <% end %>
+        <%else%>
+          No students
+        <%end%>
+      </div>
     </div>
 
     <div class="field">
-      <strong>Announcements</strong>
-      <%if !@course.announcements.empty? %>
-        <% @course.announcements.each do |announcement| %>
-          <div>Created date: <%=announcement.created_at %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
-        <% end %>
-      <%else%>
-        No announcements
-      <%end%>
+      <strong><label for="announcements">Announcements</label></strong>
+      <div id='announcements'>
+        <%if !@course.announcements.empty? %>
+          <% @course.announcements.each do |announcement| %>
+            <div>Posted date: <%=announcement.created_at.strftime("%m/%d/%Y") %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
+          <% end %>
+        <%else%>
+          No announcements
+        <%end%>
+      </div>
     </div>
 
     <div class="field">
-      <strong>Assignments</strong>
-      <%if !@course.assignments.empty? %>
-        <% @course.assignments.each do |assignment| %>
-          <div>Due date: <%=assignment.due_date %> - <%=link_to assignment.title, assignment_path(assignment)%></div>
-        <% end %>
-      <%else%>
-        No assignments
-      <%end%>
+      <strong><label for="assignments">Assignments</label></strong>
+      <div id='assignmentes'>
+        <% if !@course.assignments.empty? %>
+          <% @course.assignments.each do |assignment| %>
+            <div>Due date: <%=assignment.due_date.strftime("%m/%d/%Y") %> - <%=link_to assignment.title, assignment_path(assignment)%></div>
+          <% end %>
+        <%else%>
+          No assignments
+        <%end%>
+      </div>
     </div>
 
     <div class="actions">
@@ -97,8 +106,7 @@
     <div class="actions">
       <%= link_to 'Courses', courses_path %> | 
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
-      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
-      <%= render :partial => "actions" %>
+      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %>
     </div>
 
   </main>

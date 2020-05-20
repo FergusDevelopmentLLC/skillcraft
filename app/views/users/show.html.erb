@@ -3,12 +3,8 @@
   
       <p id="notice"><%= notice %></p>
   
-      <% if @user.type == "Student" %>
-        <h1>Show Student</h1>
-      <% else %>
-        <h1>Show Teacher</h1>
-      <% end %>
-  
+      <h1>Show <%= @user.type %></h1>
+      
       <div class="field">
         <div class='avatar-wrapper'>
           <div class='avatar-container'>
@@ -38,11 +34,11 @@
       </div>
 
       <div class="field">
-        <label for="courses">Courses</label>
+        <label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label>
         <% if !@user.courses.empty? %>
         <div id="courses">
           <% @user.courses.each do |course| %>
-            <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %></div>
+            <div><%=link_to course.name, course_path(course)%> < <%=link_to 'Withdraw', course_user_path(course, @user) %></div>
           <% end %>
         </div>
         <% else %>
@@ -51,13 +47,7 @@
       </div>
   
       <div class="actions">
-        
-        <% if @user.type == "Student" %>
-          <%= link_to 'Students', students_path %> | <%=link_to "Edit", edit_student_path %> | <%= render :partial => "actions" %><br />
-        <% else %>
-          <%= link_to 'Teachers', teachers_path %> | <%=link_to "Edit", edit_teacher_path %> | <%= render :partial => "actions" %><br />
-        <% end %>
-        
+        <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%=link_to 'Edit', edit_user_path %>
       </div>
   
     </main>

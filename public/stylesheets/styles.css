@@ -682,6 +682,11 @@ div.points input {
 /* https://css-tricks.com/forums/topic/solved-css-trick-auto-magically-add-colon-to-your-labels/ */
 label:after { content: ":"; }
 
+/* why? */
+#course-code input {
+    width: 100%; 
+}
+
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */

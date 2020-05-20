@@ -32,61 +32,58 @@
     
     <div class="field">
       <label for="teachers">Teachers</label>
+      <div id="teachers">
       <%if !@course.teachers.empty? %>
-        <div id="teachers">
         <% @course.teachers.each do |teacher| %>
           <div><%=link_to teacher.user_name, teacher_path(teacher)%> < <%=link_to "Withdraw", course_user_path(@course, teacher) %></div>
         <% end %>
-        </div>
       <%else%>
-        <%= render :partial => "chirp" %>
+        <%= render :partial => "none" %>
       <%end%>
+      </div>
     </div>
 
     <div class="field">
       <label for="students">Students</label>
-      <%if !@course.students.empty? %>
-        <div id="students">
+      <div id="students">
+        <%if !@course.students.empty? %>
         <% @course.students.each do |student| %>
           <div><%=link_to student.user_name, student%> < <%=link_to "Withdraw", course_user_path(@course, student) %></div>
         <% end %>
-        </div>
-      <%else%>
-        <%= render :partial => "chirp" %>
-      <%end%>
+        <%else%>
+          <%= render :partial => "none" %>
+        <%end%>
+      </div>
     </div>
 
     <div class="field">
       <label for="announcements">Announcements</label>
+      <div id="announcements">
       <%if !@course.announcements.empty? %>
-        <div id="announcements">
         <% @course.announcements.each do |announcement| %>
-          <div>Posted date: <%= announcement.due_date %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
+          <div>Posted date: <%= announcement.due_date.strftime("%m/%d/%Y") %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
         <% end %>
-        </div>
       <%else%>
-        <%= render :partial => "chirp" %>
+        <%= render :partial => "none" %>
       <%end%>
+    </div>
     </div>
 
     <div class="field">
       <label for="assignments">Assignments</label>
-      <%if !@course.assignments.empty? %>
-        <div id="assignments">
+      <div id="assignments">
+      <% if !@course.assignments.empty? %>
         <% @course.assignments.each do |assignment| %>
           <div>Due date: <%= assignment.due_date.strftime("%m/%d/%Y") %> - <%=link_to assignment.title, assignment_path(assignment)%></div>
         <% end %>
-        </div>
-      <%else%>
-        <%= render :partial => "chirp" %>
-      <%end%>
+      <% else %>
+        <%= render :partial => "none" %>
+      <% end %>
+      </div>
     </div>
 
     <div class="actions">
-      <%= link_to 'Courses', courses_path %> | 
-      <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
-      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
-      <%= render :partial => "actions" %>
+      <%= link_to 'Courses', courses_path %> | <%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | <%= link_to 'Add Assignment', assignments_course_new_path(@course) %>
     </div>
 
   </main>

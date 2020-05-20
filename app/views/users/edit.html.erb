@@ -3,12 +3,8 @@
 
     <p id="notice"><%= notice %></p>
 
-    <% if @user.type == "Student" %>
-    <h1>Editing Student</h1>
-    <%else%>
-    <h1>Editing Teacher</h1>
-    <%end%>
-
+    <h1>Editing <%= @user.type %></h1>
+    
     <% if @user && @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -21,13 +17,7 @@
     <% end %>
 
     <%= form_with model: @user, local: true, method: "patch" do |form| %>
-    
-    <% if @user.type == "Student" %>
-    <%= form.hidden_field :type, :value => 'Student'%>
-    <%else%>
-    <%= form.hidden_field :type, :value => 'Teacher'%>
-    <%end%>
-
+    <%= form.hidden_field :type, value: @user.type %>
     <%= form.hidden_field :id, :value => @user.id%>
     
     <div class="field">
@@ -60,23 +50,23 @@
     </div>
 
     <div class="field">
-      <strong><%= form.label :Courses %></strong>
-      <%if(@user.courses.count > 0)%>
-        <% @user.courses.each do |course| %>
-          <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %></div>
-        <% end %>
-      <%else%>
-        No courses
-      <%end%>
+      <strong><label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label></strong>
+      <div id="courses">
+        <% if !@user.courses.empty? %>
+          <% @user.courses.each do |course| %>
+            <div><%=link_to course.name, course_path(course)%> < <%=link_to 'Withdraw', course_user_path(course, @user) %></div>
+          <% end %>
+        <%else%>
+          <div>No courses</div>
+        <%end%>
+      </div>
     </div>
 
     <div class="field">
-      <% if @user.type == "Student" %>
-        <strong>Enroll in Course (enter course code)</strong>
-      <%else%>
-        <strong>Teach Course (enter course code)</strong>
-      <%end%>
-      <%= form.text_field :course_code %>
+      <strong><label for='course_code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label></strong>
+      <div id='course-code'>
+        <%= form.text_field :course_code %>
+      </div>
     </div>
 
     <div class="actions">
@@ -86,11 +76,7 @@
     <% end %>
 
     <div class="actions">
-      <% if @user.type == "Student" %>
-        <%= link_to 'Students', students_path %> | <%= render :partial => "actions" %><br />
-      <%else%>
-        <%= link_to 'Teachers', teachers_path %> | <%= render :partial => "actions" %><br />
-      <%end%>
+      <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%=link_to 'Edit', edit_user_path %>
     </div>
 
   </main>

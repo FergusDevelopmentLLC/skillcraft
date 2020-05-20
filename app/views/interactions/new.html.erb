@@ -30,7 +30,7 @@
       <%= form.text_field :title %>
     </div>
 
-    <% if !@interaction.type == 'Announcement' %>
+    <% if @interaction.type != 'Announcement' %>
 
     <div class="field date-select">
       <%= form.label :due_date %>
@@ -49,7 +49,7 @@
 
     <div class="field">
       <%= form.label :instructions %>
-      <%= form.text_field :instructions %>
+      <%= text_area(:interaction, :instructions, cols: 20, rows: 40) %>
     </div>
 
     <% end %>

@@ -5,15 +5,17 @@
 
     <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
-    <% if @response.type == "Question" %>
-    <div><strong>Question:</strong></div>
-    <% else %>
-    <div>Content:</strong></div>
-    <% end %>
+    <p>
+    <strong><% if @response.type == "Question" %>Question:<% else %>Content:<% end %></strong><br/>
+    <%= @response.content %>
+    </p>
     
-    <div><%= @response.content %> - <%= link_to @response.user.user_name, student_path(@response.user) %> (<%= @response.created_at.strftime("%m/%d/%Y") %>)</div>
-    
-    <% if !@response.type == "Question" %>
+    <% if @response.type != "Question" %>
+    <p>
+      <strong>Turned in:</strong><br/>
+      <%= @response.created_at.strftime("%m/%d/%Y") %>
+    </p>
+
     <p>
       <strong>Score:</strong><br/>
       <%= @response.score %>

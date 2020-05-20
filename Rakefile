@@ -47,14 +47,9 @@ task :make_seeds do
     seedfile.write "CourseUser.create(#{course_user.attributes})\n"
   end
 
-  a = Announcement.all
-  a.each do |announcement|
-    seedfile.write "Announcement.create(#{announcement.attributes})\n"
-  end
-
-  as = Assignment.all
-  as.each do |assignment|
-    seedfile.write "Assignment.create(#{assignment.attributes})\n"
+  i = Interaction.all
+  i.each do |interaction|
+    seedfile.write "Interaction.create(#{interaction.attributes})\n"
   end
 
   r = Response.all

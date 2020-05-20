@@ -2,31 +2,28 @@ class InteractionsController < ApplicationController
   before_action :set_interaction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @index_title = "Interactions"
-    @interactions = if request.path.include?("announcements")
-                      @index_title = "Announcements"
-                      Announcement.all
-                    elsif request.path.include?("assignments")
-                      @index_title = "Assignments"
-                      Assignment.all
-                    else
-                      Interaction.all #TODO: necessary?
-                    end
+    @index_title = title_by_path
+    @interactions = interactions_by_path
   end
 
   def show
+    #TODO: better to formulate this here instead of the view?
+    #@children_label = @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless @interaction.responses.empty?
   end
 
   def new
-    if request.path.include?("announcements")
-      @interaction = Announcement.new
-      @interaction.course_id = params[:course_id] if params[:course_id]
-    elsif request.path.include?("assignments")
-      @interaction = Assignment.new
-      @interaction.course_id = params[:course_id] if params[:course_id]
-    end
 
+    @interaction = if title_by_path == "Announcements"
+                     Announcement.new
+                   elsif title_by_path == "Assignments"
+                     Assignment.new
+                   else
+                     Interaction.new
+                   end
+
+    @interaction.course_id = params[:course_id] if params[:course_id]
     @interaction.user = current_user if logged_in?
+
   end
 
   def edit; end
@@ -57,7 +54,13 @@ class InteractionsController < ApplicationController
   def destroy
     @interaction.destroy
     respond_to do |format|
+      if @interaction.type == "Assignment"
+      format.html { redirect_to assignments_url, notice: 'Deletion successful' }
+      elsif @interaction.type == "Announcement"
+      format.html { redirect_to announcements_url, notice: 'Deletion successful' }
+      else
       format.html { redirect_to interactions_url, notice: 'Deletion successful' }
+      end
     end
   end
 
@@ -74,4 +77,25 @@ class InteractionsController < ApplicationController
         params.require(:announcement).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
       end
     end
+
+    def title_by_path
+      if request.path.include?("announcements")
+        "Announcements"
+      elsif request.path.include?("assignments")
+        "Assignments"
+      else
+       "Interactions"
+      end
+    end
+  
+    def interactions_by_path
+      if title_by_path == "Announcements"
+        Announcement.all
+      elsif title_by_path == "Assignments"
+        Assignment.all
+      else
+        Interaction.all
+      end
+    end
+    
 end

@@ -132,9 +132,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user.destroy
       if @user.type == "Student"
-        format.html { redirect_to students_url, notice: "#{@user.user_name} was successfully destroyed" }
+        format.html { redirect_to students_url, notice: "Deletion successful" }
       else
-        format.html { redirect_to teachers_url, notice: "#{@user.user_name} was successfully destroyed" }
+        format.html { redirect_to teachers_url, notice: "Deletion successful" }
       end
     end
   end

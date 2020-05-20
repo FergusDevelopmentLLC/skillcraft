@@ -42,29 +42,13 @@
     </p>
     <% end %>
 
-    <% if @interaction.type == "Announcement" %>
+    <%if !@interaction.responses.empty? %>
     <p>
-      <strong>Questions:</strong><br/>
-      <%if !@interaction.questions.empty? %>
-        <% @interaction.questions.each do |question| %>
-          <%= link_to question.content, response_path(question) %> - <%= link_to question.user.user_name, user_path(question.user) %> (<%= question.created_at.strftime("%m/%d/%Y") %>)<br/>
-        <% end %>
-      <%else%>
-        No questions
-      <%end%>
-    </p>
-    <% end %>
-
-    <% if @interaction.type == "Assignment" %>
-    <p>
-      <strong>Responses:</strong><br/>
-      <%if !@interaction.completed_assignments.empty? %>
-        <% @interaction.completed_assignments.each do |completed_assignment| %>
-          <%= link_to completed_assignment.title, response_path(completed_assignment) %><br/>
-        <% end %>
-      <%else%>
-        No completed assignments
-      <%end%>
+      <strong><%= @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') %>:</strong><br/>
+      <% @interaction.responses.each do |response| %>
+        <%= response.content + " - " if response.type == "Question" %>
+        <%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %><br/>
+      <% end %>
     </p>
     <% end %>
     

@@ -511,3 +511,10 @@ course.featured ? x : x
 <%
             #y = course.name
             #course.featured ? x : y %>
+            '
+
+https://stackoverflow.com/questions/13016295/add-css-class-to-rails-link-to-helper
+
+https://stackoverflow.com/questions/27242603/pluralize-without-count-number-in-rails-4
+
+https://stackoverflow.com/questions/3997516/how-to-split-a-camelcase-string-in-its-substrings-in-ruby

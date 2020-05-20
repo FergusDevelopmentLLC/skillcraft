@@ -59,7 +59,13 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
+      if @response.type == "Question"
+      format.html { redirect_to questions_url, notice: 'Deletion successful' }
+      elsif @response.type == "CompletedAssignment"
+      format.html { redirect_to completed_assignments_url, notice: 'Deletion successful' }
+      else
       format.html { redirect_to responses_url, notice: 'Deletion successful' }
+      end
     end
   end
 

@@ -11,21 +11,13 @@
         <tr>
           <th>Course</th>
           <th><%= @responses.first.interaction.type %></th>
-          <% if @responses.first.type != "Question" %>
-          <th>Title</th>
-          <% end %>
           <th>User</th>
-          <th>Type</th>
-          <% if @responses.first.type != "Question" %>
           <th>Content</th>
-          <% else %>
-          <th>Question</th>
-          <% end %>
           <% if @responses.first.type != "Question" %>
           <th>Score</th>
           <th>Letter grade</th>
           <% end %>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -34,24 +26,15 @@
         <tr>
           <td><%= link_to response.interaction.course.name, course_path(response.interaction.course) %></td>
           <td><%= link_to response.interaction.title, interaction_path(response.interaction) %></td>
-          
-          <% if @responses.first.type != "Question" %>
-          <td><%= link_to response.title, response_path(response) %></td>  
-          <% end %>
-          
           <td><%= link_to response.user.user_name, user_path(response.user) %></td>
-          <td><%= link_to response.content, response_path(response) %></td>
-
+          <td><%= link_to response.content, response_path(response) %></td>  
           <% if @responses.first.type != "Question" %>
-          <td><%= link_to response.score, response_path(response) %></td>
-          <td><%= link_to response.letter_grade, response_path(response) %></td>
+          <td><% if response.score %><%= response.score %><% end %></td>
+          <td><% if response.letter_grade %><%= response.letter_grade %><% end %></td>
           <% end %>
-
-          <td><%= link_to 'Show', response_path(response) %></td>
           <td><%= link_to 'Edit', edit_response_path(response) %></td>
           <td><%= link_to 'Destroy', response_path(response), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
-
         </tr>
         <% end %>
       </tbody>

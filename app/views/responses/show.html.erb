@@ -12,16 +12,16 @@
     
     <% if @response.type != "Question" %>
     <p>
-      <strong>Turned in:</strong><br/>
+      <strong>Turned in</strong><br/>
       <%= @response.created_at.strftime("%m/%d/%Y") %>
     </p>
 
     <p>
-      <strong>Score:</strong><br/>
+      <strong>Score</strong><br/>
       <%= @response.score %>
     </p>
     <p>
-      <strong>Letter grade:</strong><br/>
+      <strong>Letter grade</strong><br/>
       <%= @response.letter_grade %>
     </p>
     <% end %>

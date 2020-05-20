@@ -40,27 +40,27 @@
     </div>
 
     <div class="field">
-      <strong><%= form.label :user_name %>:</strong>
+      <strong><%= form.label :user_name %></strong>
       <%= form.text_field :user_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :first_name %>:</strong>
+      <strong><%= form.label :first_name %></strong>
       <%= form.text_field :first_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :last_name %>:</strong>
+      <strong><%= form.label :last_name %></strong>
       <%= form.text_field :last_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :email %>:</strong>
+      <strong><%= form.label :email %></strong>
       <%= form.text_field :email %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :Courses %>:</strong>
+      <strong><%= form.label :Courses %></strong>
       <%if(@user.courses.count > 0)%>
         <% @user.courses.each do |course| %>
           <div><%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %></div>
@@ -72,9 +72,9 @@
 
     <div class="field">
       <% if @user.type == "Student" %>
-        <strong>Enroll in Course (enter course code):</strong>
+        <strong>Enroll in Course (enter course code)</strong>
       <%else%>
-        <strong>Teach Course (enter course code):</strong>
+        <strong>Teach Course (enter course code)</strong>
       <%end%>
       <%= form.text_field :course_code %>
     </div>

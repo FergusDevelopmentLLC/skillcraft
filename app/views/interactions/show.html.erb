@@ -5,49 +5,38 @@
 
     <%= render :partial => 'interaction_parent_info', locals: { interaction: @interaction } %>
 
-    <p>
-      <strong>Course:</strong><br/>
-      <%= @interaction.course.name %>
-    </p>
-
-    <p>
-      <strong><%= @interaction.user.type %>:</strong><br/>
-      <%= @interaction.user.user_name %>
-    </p>
-
-    <p>
-      <strong>Title:</strong><br/>
-      <%= @interaction.title %>
-    </p>
+    <div class="field">
+      <label for="title">Title</label>
+      <div id="title"><%= @interaction.title %></div>
+    </div>
 
     <% if @interaction.type != "Announcement" %>
-    <p>
-      <strong>Due date:</strong><br/>
-      <%= @interaction.due_date %>
-    </p>
+    <div class="field">
+      <label for="due_date">Due Date</label>
+      <div id="due_date"><%= @interaction.due_date %></div>
+    </div>
 
-    <p>
-      <strong>Graded:</strong><br/>
-      <%= @interaction.graded %>
-    </p>
+    <div class="field">
+      <label for="graded">Graded</label>
+      <div id="graded"><%= @interaction.graded %></div>
+    </div>
 
-    <p>
-      <strong>Points:</strong><br/>
-      <%= @interaction.points %>
-    </p>
+    <div class="field">
+      <label for="points">Points</label>
+      <div id="points"><%= @interaction.points %></div>
+    </div>
 
-    <p>
-      <strong>Instructions:</strong><br/>
-      <%= @interaction.instructions %>
-    </p>
+    <div class="field">
+      <label for="instructions">Instructions</label>
+      <div id="instructions"><%= @interaction.instructions %></div>
+    </div>
     <% end %>
 
     <%if !@interaction.responses.empty? %>
     <p>
-      <strong><%= @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') %>:</strong><br/>
+      <strong><%= @interaction.responses_type %></strong><br/>
       <% @interaction.responses.each do |response| %>
-        <%= response.content + " - " if response.type == "Question" %>
-        <%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %><br/>
+        <%= response.content + " - " if response.type == "Question" %><%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %><br/>
       <% end %>
     </p>
     <% end %>

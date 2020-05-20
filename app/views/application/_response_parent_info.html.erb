@@ -6,6 +6,6 @@
   <div><strong><%= response.interaction.type %></strong> Instructions:</div>
   <div><em><%= response.interaction.instructions %></em></div>
   <% end %>
-  <div>by <strong><%= @response.user.type %>:</strong> <%= link_to @response.user.user_name, student_path(@response.user) %></div>
+  <div>by <strong><%= @response.user.type %></strong> <%= link_to @response.user.user_name, student_path(@response.user) %></div>
 </div>
 

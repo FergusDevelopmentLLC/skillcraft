@@ -665,6 +665,18 @@ input[type="text"], input[type="number"], select {
     font-weight: bold;
 }
 
+div.field label {
+    margin-top: .2rem;
+    font-weight: bold;
+}
+
+div.graded label {
+    margin-top: .2rem;
+}
+
+/* https://css-tricks.com/forums/topic/solved-css-trick-auto-magically-add-colon-to-your-labels/ */
+label:after { content: ":"; }​
+
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */

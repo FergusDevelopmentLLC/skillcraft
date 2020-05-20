@@ -18,20 +18,20 @@
 
     <%= form_with url: "/interactions/#{@interaction.id}", model: @interaction, local: true, method: "patch" do |form| %>
 
-    <%= form.hidden_field :type, :value => @interaction.type%>
+    <%= form.hidden_field :type, value: @interaction.type %>
 
-    <%= form.hidden_field :id, :value => @interaction.id%>
+    <%= form.hidden_field :id, value: @interaction.id %>
 
-    <%= form.hidden_field :course_id, :value => @interaction.course.id %>
+    <%= form.hidden_field :course_id, value: @interaction.course.id %>
 
-    <%= form.hidden_field :user_id, :value => @interaction.user.id %>
+    <%= form.hidden_field :user_id, value: @interaction.user.id %>
     
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
 
-    <% if !@interaction.type == 'Announcement' %>
+    <% if @interaction.type != 'Announcement' %>
 
     <div class="field date-select">
       <%= form.label :due_date %>
@@ -52,7 +52,15 @@
       <%= form.label :instructions %>
       <%= form.text_field :instructions %>
     </div>
+    <% end %>
 
+    <%if !@interaction.responses.empty? %>
+    <div class="field">
+      <%= form.label @interaction.responses_type %>
+      <% @interaction.responses.each do |response| %>
+        <div><%= response.content + " - " if response.type == "Question" %><%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %></div>  
+      <% end %>
+    </div>
     <% end %>
 
     <div class="actions">

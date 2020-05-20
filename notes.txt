@@ -518,3 +518,5 @@ https://stackoverflow.com/questions/13016295/add-css-class-to-rails-link-to-help
 https://stackoverflow.com/questions/27242603/pluralize-without-count-number-in-rails-4
 
 https://stackoverflow.com/questions/3997516/how-to-split-a-camelcase-string-in-its-substrings-in-ruby
+
+https://css-tricks.com/forums/topic/solved-css-trick-auto-magically-add-colon-to-your-labels/

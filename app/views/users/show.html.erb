@@ -18,27 +18,27 @@
       </div>
   
       <p>
-        <strong>User name:</strong><br/>
+        <strong>User name</strong><br/>
         <%= @user.user_name %>
       </p>
   
       <p>
-        <strong>First name:</strong><br/>
+        <strong>First name</strong><br/>
         <%= @user.first_name %>
       </p>
   
       <p>
-        <strong>Last name:</strong><br/>
+        <strong>Last name</strong><br/>
         <%= @user.last_name %>
       </p>
   
       <p>
-        <strong>Email:</strong><br/>
+        <strong>Email</strong><br/>
         <%= @user.email %>
       </p>
   
       <p>
-        <strong>Courses:</strong><br/>
+        <strong>Courses</strong><br/>
         <%if(@user.courses.count > 0)%>
           <% @user.courses.each do |course| %>
             <%=link_to course.name, course_path(course)%> < <%=link_to "Withdraw", course_user_path(course, @user) %><br/>

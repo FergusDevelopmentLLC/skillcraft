@@ -43,14 +43,14 @@
       <%= form.check_box :graded %>
     </div>
 
-    <div class="field">
+    <div class="field points">
       <%= form.label :points %>
       <%= form.number_field :points %>
     </div>
 
     <div class="field">
       <%= form.label :instructions %>
-      <%= form.text_field :instructions %>
+      <%= text_area(:interaction, :instructions, cols: 20, rows: 40) %>
     </div>
     <% end %>
 

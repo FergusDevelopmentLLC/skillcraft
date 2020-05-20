@@ -595,6 +595,11 @@ input[type="text"], input[type="number"], select {
     flex-direction: row;
 }
 
+.points {
+    display: flex;
+    flex-direction: row;
+}
+
 /* select {
     min-width: 250px;
 } */
@@ -666,16 +671,16 @@ input[type="text"], input[type="number"], select {
 }
 
 div.field label {
-    margin-top: .2rem;
+    margin-top: .25rem;
     font-weight: bold;
 }
 
-div.graded label {
-    margin-top: .2rem;
+div.points input {
+    max-width: 3rem;
 }
 
 /* https://css-tricks.com/forums/topic/solved-css-trick-auto-magically-add-colon-to-your-labels/ */
-label:after { content: ":"; }​
+label:after { content: ":"; }
 
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */
@@ -804,3 +809,4 @@ label:after { content: ":"; }​
         margin: 0 0 0 8px;
     }
 }
+

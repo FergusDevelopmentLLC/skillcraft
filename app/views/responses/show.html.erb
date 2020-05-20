@@ -5,25 +5,28 @@
 
     <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
-    <p>
-    <strong><% if @response.type == "Question" %>Question:<% else %>Content:<% end %></strong><br/>
-    <%= @response.content %>
-    </p>
-    
-    <% if @response.type != "Question" %>
-    <p>
-      <strong>Turned in</strong><br/>
-      <%= @response.created_at.strftime("%m/%d/%Y") %>
-    </p>
+    <div class="field">
+      <label for="instructions"><%= @response.type == "Question" ? "Question" : "Content" %></label>
+      <div id="instructions"><%= @response.content %></div>
+    </div>
 
-    <p>
-      <strong>Score</strong><br/>
-      <%= @response.score %>
-    </p>
-    <p>
-      <strong>Letter grade</strong><br/>
-      <%= @response.letter_grade %>
-    </p>
+    <% if @response.type != "Question" %>
+
+    <div class="field">
+      <label for="completed_date">Completed date</label>
+      <div id="completed_date"><%= @response.created_at.strftime("%m/%d/%Y") %></div>
+    </div>
+
+    <div class="field">
+      <label for="score">Score</label>
+      <div id="score"><%= @response.score %></div>
+    </div>
+
+    <div class="field">
+      <label for="letter_grade">Letter grade</label>
+      <div id="letter_grade"><%= @response.letter_grade %></div>
+    </div>
+
     <% end %>
     
     <div class="actions">

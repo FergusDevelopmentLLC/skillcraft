@@ -9,6 +9,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Code</th>
           <th>Description</th>
           <th>Announcements</th>
           <th>Questions</th>
@@ -23,13 +24,8 @@
       <tbody>
         <% @courses.each do |course| %>
         <tr>
-          <td>
-            <% if course.featured %>
-            <%= link_to course.name, course, class: "featured-course" %>
-            <% else %>
-            <%= link_to course.name, course %>
-            <% end %>
-          </td>
+          <td><%= link_to course.name, course, class: course.featured ? "featured-course" : "" %></td>
+          <td><%= course.code %></td>
           <td><%= course.short_desc %></td>
           <td><%= course.announcements.count %></td>
           <td><%= course.questions.count %></td>

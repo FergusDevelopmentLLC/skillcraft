@@ -7,4 +7,8 @@ class Interaction < ApplicationRecord
     responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless responses.empty?
   end
 
+  def activity_date
+    type == "Assignment" ? Time.parse(due_date.to_s).getutc : Time.parse(created_at.to_s).getutc
+  end
+
 end

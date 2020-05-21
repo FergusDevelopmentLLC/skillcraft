@@ -6,12 +6,12 @@ class LayoutsController < ApplicationController
     
       @interactions = []
 
-      # teachers create interactions
+      # teachers create interactions (announcements and assignments)
       current_user.interactions.each do |interaction|
         @interactions.push interaction  
       end
       
-      # students have interactions through their courses
+      # students have interactions (questions and completed_assignments) through their courses
       current_user.courses.each do |course|
         if !course.interactions.empty?
           course.interactions.each do |interaction|
@@ -19,7 +19,9 @@ class LayoutsController < ApplicationController
           end
         end
       end
-      @interactions = @interactions.sort_by { |interaction| interaction.due_date }
+
+      @interactions = @interactions.sort_by(&:activity_date)
+
     else
       redirect_to welcome_path
     end

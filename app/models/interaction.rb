@@ -11,4 +11,12 @@ class Interaction < ApplicationRecord
     type == "Assignment" ? Time.parse(due_date.to_s).getutc : Time.parse(created_at.to_s).getutc
   end
 
+  def turned_in?(student)
+    if type == "Announcement"
+      true
+    else
+      !!CompletedAssignment.all.find_by(interaction: self, user: student)
+    end
+  end
+  
 end

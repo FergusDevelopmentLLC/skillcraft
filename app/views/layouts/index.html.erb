@@ -12,7 +12,15 @@
             <td><%= link_to interaction.type == "Assignment" ? interaction.type + " due" : interaction.type, interaction %></td>
             <td><%= link_to interaction.course.name, course_path(interaction.course) %></td>
             <td><%= link_to interaction.title, interaction %></td>
-            <td><%= interaction.type == "Assignment" ? interaction.turned_in?(current_user) ? "Turned in" : "Not turned in" : "" %></td>
+            <td>
+            <% if interaction.type == "Assignment" %>
+              <% if interaction.turned_in?(current_user) %>
+                <%= link_to 'Turned in', CompletedAssignment.all.find_by(user: current_user, interaction: interaction) %>
+              <% else %>
+                Not turned in
+              <% end %>
+            <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>

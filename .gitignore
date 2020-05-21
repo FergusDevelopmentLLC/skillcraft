@@ -43,3 +43,5 @@ yarn-debug.log*
 secrets.yml
 
 /db/old_seeds/*
+
+history_for_print.txt

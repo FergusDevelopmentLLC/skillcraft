@@ -4,4 +4,8 @@ class Assignment < Interaction
     responses.find_all { |response| response.type == 'CompletedAssignment' }
   end
 
+  def turned_in?(student)
+    !!CompletedAssignment.all.find_by(interaction: self, user: student)
+  end
+
 end

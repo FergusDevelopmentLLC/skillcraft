@@ -248,29 +248,6 @@ body {
     margin-bottom: .3rem;
 }
 
-.types-wrapper a {
-    text-decoration: none;
-    color: blue;
-}
-
-.types-wrapper a:link {
-    color: #0000cd;
-}
-  
-.types-wrapper a:visited {
-    color: #0000cd;
-}
-  
-.types-wrapper a:hover {
-    color: #0000cd;
-    text-decoration: underline;
-}
-
-.types-wrapper a:active {
-    color: #0000cd;
-    text-decoration: underline;
-}
-
 .type {
     width: 125px;
     height: 125px;

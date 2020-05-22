@@ -17,7 +17,6 @@
           <% else %>
           <th>Questions</th>
           <% end %>
-          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -32,8 +31,6 @@
           <td><%= interaction.points %></td>
           <% end %>
           <td><%= interaction.responses.count %></td>
-          <td><%= link_to 'Edit', edit_interaction_path(interaction) %></td>
-          <td><%= link_to 'Destroy', interaction_path(interaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
       </tbody>
@@ -41,8 +38,5 @@
     <% else %>
     <%= render :partial => "none" %>
     <% end %>
-    <div class="actions">
-      <%= render :partial => "actions" %><br />
-    </div>
   </main>
 </div>

@@ -11,8 +11,7 @@
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
-          <th>Courses</th>
-          <th colspan="3"></th>
+          <th><%= @users.first.type == "Student" ? "Courses enrolled" : "Courses taught" %></th>
         </tr>
       </thead>
       <tbody>
@@ -24,8 +23,6 @@
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td><%= user.courses.count %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
       </tbody>
@@ -33,8 +30,5 @@
     <% else %>
     <%= render :partial => "none" %>
     <% end %>
-    <div class="actions">
-      <%= link_to "New #{@users.first.type}", @users.first.type == 'Student' ? new_student_path : new_teacher_path %>
-    </div>
   </main>
 </div>

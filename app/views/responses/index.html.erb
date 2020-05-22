@@ -17,7 +17,6 @@
           <th>Score</th>
           <th>Letter grade</th>
           <% end %>
-          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -32,8 +31,6 @@
           <td><% if response.score %><%= response.score %><% end %></td>
           <td><% if response.letter_grade %><%= response.letter_grade %><% end %></td>
           <% end %>
-          <td><%= link_to 'Edit', edit_response_path(response) %></td>
-          <td><%= link_to 'Destroy', response_path(response), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
         <% end %>
@@ -42,10 +39,5 @@
     <% else %>
     <%= render :partial => "none" %>
     <% end %>
-
-    <div class="actions">
-      <%= render :partial => "actions" %><br />
-    </div>
-
   </main>
 </div>

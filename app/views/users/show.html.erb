@@ -47,7 +47,8 @@
       </div>
   
       <div class="actions">
-        <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%=link_to 'Edit', edit_user_path %>
+        <%=link_to 'Edit', edit_user_path %> | 
+        <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
   
     </main>

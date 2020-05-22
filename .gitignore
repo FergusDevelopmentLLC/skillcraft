@@ -47,3 +47,5 @@ secrets.yml
 history_for_print.txt
 
 notes.txt
+
+/private/*

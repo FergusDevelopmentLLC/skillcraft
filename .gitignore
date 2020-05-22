@@ -45,3 +45,5 @@ secrets.yml
 /db/old_seeds/*
 
 history_for_print.txt
+
+notes.txt

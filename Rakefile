@@ -42,9 +42,9 @@ task :make_seeds do
     seedfile.write "Course.create(#{course.attributes})\n"
   end
 
-  cu = CourseUser.all
-  cu.each do |course_user|
-    seedfile.write "CourseUser.create(#{course_user.attributes})\n"
+  cu = CoursesUser.all
+  cu.each do |courses_user|
+    seedfile.write "CoursesUser.create(#{courses_user.attributes})\n"
   end
 
   i = Interaction.all

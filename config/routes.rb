@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/randomize_avatar', to: 'users#randomize_avatar'
 
-  get '/course_users/:course_id/:student_id/destroy', to: 'course_users#destroy', as: 'course_user'
+  get '/courses_users/:course_id/:student_id/destroy', to: 'courses_users#destroy', as: 'courses_user'
 
   get '/announcements/:course_id/new', to: 'interactions#new', as: 'announcements_course_new'
   get '/assignments/:course_id/new', to: 'interactions#new', as: 'assignments_course_new'

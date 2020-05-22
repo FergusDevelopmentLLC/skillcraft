@@ -75,7 +75,7 @@
       <div id="teachers">
         <% if !@course.teachers.empty? %>
           <% @course.teachers.each do |teacher| %>
-            <div><%= link_to teacher.user_name, teacher_path(teacher)%> < <%= link_to "Withdraw", course_user_path(@course,teacher) %></div>
+            <div><%= link_to teacher.user_name, teacher_path(teacher)%> < <%= link_to "Withdraw", courses_user_path(@course,teacher) %></div>
           <% end %>
         <% else %>
           No teachers
@@ -88,7 +88,7 @@
       <div id='students'>
         <% if !@course.students.empty? %>
           <% @course.students.each do |student| %>
-            <div><%= link_to student.user_name, student_path(student)%> < <%= link_to "Withdraw", course_user_path(@course,student) %></div>
+            <div><%= link_to student.user_name, student_path(student)%> < <%= link_to "Withdraw", courses_user_path(@course,student) %></div>
           <% end %>
         <% else %>
           No students

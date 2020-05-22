@@ -3,8 +3,8 @@ class User < ApplicationRecord
   has_many :responses, dependent: :destroy
   has_many :interactions, dependent: :destroy
 
-  # has_many :course_users, dependent: :destroy
-  # has_many :courses, through: :course_users, dependent: :destroy
+  # has_many :courses_users, dependent: :destroy
+  # has_many :courses, through: :courses_users, dependent: :destroy
   has_and_belongs_to_many :courses
 
   # has_many :comments, dependent: :destroy

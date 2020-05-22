@@ -2,16 +2,10 @@ class Course < ApplicationRecord
   
   has_many :interactions, dependent: :destroy
   
-  # has_many :course_users
-  # has_many :users, through: :course_users, as: :users
-
-  # has_many :course_users
-  # has_many :users, through: :course_users, as: :teachers
+  has_many :comments
+  has_many :users, through: :comments, as: :commenting_users
 
   has_and_belongs_to_many :users
-
-  # has_many :comments
-  # has_many :users, through: :comments, as: :commenting_users
 
   # accepts_nested_attributes_for :comment
 

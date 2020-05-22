@@ -489,7 +489,6 @@ form div.form-tags label {
     flex: 0 0 20%;
     padding: 1em;
     border: 1px solid lightgray;
-    border: 1px solid red;
     background:#fff;
     margin: 0.5em;
     /* TODO: i think this is wrong way to set width */

@@ -38,7 +38,7 @@
         <% if !@user.courses.empty? %>
         <div id="courses">
           <% @user.courses.each do |course| %>
-            <div><%= link_to course.name, course %> < <%=link_to 'Withdraw', course_user_path(course, @user) %></div>
+            <div><%= link_to course.name, course %> < <%=link_to 'Withdraw', courses_user_path(course, @user) %></div>
           <% end %>
         </div>
         <% else %>

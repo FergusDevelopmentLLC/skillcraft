@@ -8,12 +8,6 @@ rails g scaffold Response interaction:belongs_to student:belongs_to type:string 
 
 rake generate_erd
 
-rails destroy scaffold User
-rails destroy scaffold Course
-rails destroy scaffold CourseUser
-rails destroy Interaction
-rails destroy Response
-
 http://scottradcliff.com/using-pkill-to-kill-all-ruby-processes.html
 
 CREATE TABLE responses

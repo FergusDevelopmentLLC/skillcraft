@@ -5,9 +5,16 @@
 
     <%= render :partial => 'response_parent_info', locals: { response: @response } %>
 
+    <% if @response.type != "Question" %>
     <div class="field">
-      <label for="instructions"><%= @response.type == "Question" ? "Question" : "Content" %></label>
-      <div id="instructions"><%= @response.content %></div>
+      <label for="title">Title</label>
+      <div id="title"><%= @response.title %></div>
+    </div>
+    <% end %>
+
+    <div class="field">
+      <label for="content"><%= @response.type == "Question" ? "Question" : "Content" %></label>
+      <div id="content"><%= @response.content %></div>
     </div>
 
     <% if @response.type != "Question" %>

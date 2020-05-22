@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_175753) do
   create_table "course_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "course_id"
+    t.string "user_feedback"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_course_users_on_course_id"

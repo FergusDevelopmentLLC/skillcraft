@@ -82,6 +82,15 @@
       </div>
     </div>
 
+    <div class="field">
+      <label for="user_feedback">Feedback</label>
+      <%= 
+      #binding.pry
+      #@course.users.eager_load( :course_users ).first.course_users.first.user_feedback
+      text_area(:course_user, :user_feedback, cols: 20, rows: 40) %>
+      </div>
+    </div>
+
     <div class="actions">
       <%= link_to 'Courses', courses_path %> | <%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | <%= link_to 'Add Assignment', assignments_course_new_path(@course) %>
     </div>

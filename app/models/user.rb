@@ -3,8 +3,13 @@ class User < ApplicationRecord
   has_many :responses, dependent: :destroy
   has_many :interactions, dependent: :destroy
 
-  has_many :course_users, dependent: :destroy
-  has_many :courses, through: :course_users, dependent: :destroy
+  # has_many :course_users, dependent: :destroy
+  # has_many :courses, through: :course_users, dependent: :destroy
+  has_and_belongs_to_many :courses
+
+  # has_many :comments, dependent: :destroy
+  # has_many :courses, through: :comments, dependent: :destroy, as: :commented_on_courses
+
   belongs_to :avatar
 
   validates :user_name, presence: true, uniqueness: true

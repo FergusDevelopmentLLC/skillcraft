@@ -1,7 +1,22 @@
 class Course < ApplicationRecord
+  
   has_many :interactions, dependent: :destroy
-  has_many :course_users
-  has_many :users, through: :course_users
+  
+  # has_many :course_users
+  # has_many :users, through: :course_users, as: :users
+
+  # has_many :course_users
+  # has_many :users, through: :course_users, as: :teachers
+
+  has_and_belongs_to_many :users
+
+  # has_many :comments
+  # has_many :users, through: :comments, as: :commenting_users
+
+  # accepts_nested_attributes_for :comment
+
+  #scope :search_by_name, -> (search_name){where("name = ?", search_name)}
+  #scope :most_reviewed_city, -> { City.joins(:reviews).group("cities.id").order('COUNT(reviews.id) DESC').limit(1)}
 
   # validate :course_code
   def students

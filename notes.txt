@@ -522,4 +522,8 @@ https://stackoverflow.com/questions/4046289/convert-datetime-string-to-utc-in-ra
 
 https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails
 
+https://alankrajina.github.io/pizzaonrailsapp_-_rails_project
+
+https://github.com/AlanKrajina/PizzaOnRailsApp
+
 bundle exec rake environment make_seeds

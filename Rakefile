@@ -57,6 +57,12 @@ task :make_seeds do
     seedfile.write "Response.create(#{response.attributes})\n"
   end
 
+  c = Comment.all
+  c.each do |comment|
+    seedfile.write "Comment.create(#{comment.attributes})\n"
+  end
+
+
   seedfile.close
 
   text = File.read('db/seeds_new.rb')

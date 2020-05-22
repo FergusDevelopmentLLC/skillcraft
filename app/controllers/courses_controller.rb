@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    users = @course.users.eager_load( :course_users )
+    #users = @course.users.eager_load( :course_users )
     # binding.pry
   end
 

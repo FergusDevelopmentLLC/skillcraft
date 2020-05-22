@@ -1,44 +1,47 @@
 <div class="full">
   <main class="main">
-
     <p id="notice"><%= notice %></p>
 
     <h1>Courses</h1>
-    <% if !@courses.empty? %>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Code</th>
-          <th>Description</th>
-          <th>Announcements</th>
-          <th>Questions</th>
-          <th>Assignments</th>
-          <th>Completed&nbsp;Assts</th>
-          <th>Teachers</th>
-          <th>Students</th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <% @courses.each do |course| %>
-        <tr>
-          <td><%= link_to course.name, course, class: course.featured ? "featured-course" : "" %></td>
-          <td><%= course.code %></td>
-          <td><%= course.short_desc %></td>
-          <td><%= course.announcements.count %></td>
-          <td><%= course.questions.count %></td>
-          <td><%= course.assignments.count %></td>
-          <td><%= course.completed_assignments.count %></td>
-          <td><%= course.teachers.count %></td>
-          <td><%= course.students.count %></td>
-        </tr>
+    <div class='course-listing-wrapper'>
+      <% if !@courses.empty? %>
+      <% @courses.each do |course| %>
+      <div class="course-listing-item<%= course.featured ? " course-listing-item-featured" : "" %>">
+        
+        <% if !course.teachers.empty? %>
+        <div class="field">
+          <div class='avatar-wrapper'>
+            <div class='avatar-container-sm'>
+              <%= link_to cl_image_tag(course.teachers.first.avatar.url), course %>
+            </div>
+          </div>
+        </div>
         <% end %>
-      </tbody>
-    </table>
-    <% else %>
-    <%= render :partial => "none" %>
-    <% end %>
+        
+        <div class="field">
+          <div id="name" class="course-listing-name"><%= link_to course.name, course %></div>
+        </div>
+
+        <div class="field">
+          <div class="course-listing-desc"><em><%= course.short_desc %></em></div>
+        </div>
+
+        <div class="course-listing-item-details">
+        <ul>
+          <li><label>Announcements</label> <%= course.announcements.count %></li>
+          <li><label>Assignments</label> <%= course.assignments.count %></li>
+          <li><label>Students enrolled</label> <%= course.students.count %></li>
+          <li class="course-listing-code">Code: <%= course.code %></li>
+        </ul>
+      </div>
+
+      </div>
+      <% end %>
+      <% else %>
+      <%= render :partial => "none" %>
+      <% end %>
+    </div>
     <div class="actions">
       <%= link_to 'New Course', new_course_path %>
     </div>

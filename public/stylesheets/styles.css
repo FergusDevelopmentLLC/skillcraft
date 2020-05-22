@@ -158,7 +158,7 @@ body {
 .main { 
     grid-area: main;
     padding: 3em;
-    background: #eef1f6;
+    background: #fff;
     min-width: 400px;
 }
 
@@ -479,36 +479,44 @@ form div.form-tags label {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
 }
 
-.game-listing-new-game {
-    text-align: right;
-    float: right;
-}
-
-.game-listing-wrapper {
+.course-listing-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.game-listing-item {
+.course-listing-item {
     flex: 0 0 20%;
-    padding: .5em;
+    padding: 1em;
     border: 1px solid lightgray;
     background:#fff;
     margin: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
 }
 
-.game-listing-item-img {
+.course-listing-item-img {
     margin-bottom: .5em;
 }
 
-.game-listing-item-details li {
+.course-listing-item-details li {
     font-size: .8rem;
 }
 
-.game-listing-featured {
+.course-listing-desc {
+    font-size: .8rem;
+}
+
+.course-listing-item-featured {
     background: #ffff7a;
+}
+
+.course-listing-name, .course-listing-code {
+    text-align: center;
+}
+
+.course-listing-code {
+    margin-top: .5rem;
+    border: 1px solid rgb(165, 165, 165);
 }
 
 #game_edit_current_image {
@@ -601,6 +609,10 @@ input[type="text"], input[type="number"], select {
 
 #error_explanation ul{
     margin: 0 0 .5rem 0;
+}
+
+.avatar-container-sm {
+    width: 50px;
 }
 
 .avatar-container {
@@ -756,10 +768,10 @@ label:after { content: ":"; }
         order: 1;
     }
 
-    .game-listing-item {
+    .course-listing-item {
         min-width: 75%;
     }
-
+    
     .header {
         border: 0;
     }

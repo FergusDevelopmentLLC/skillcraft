@@ -17,7 +17,7 @@
       <tbody>
         <% @users.each do |user| %>
         <tr>
-          <td><div style="width: 35px;"><%= cl_image_tag(user.avatar.url)  %></div></td>
+          <td><div class='avatar-container-sm'><%= link_to cl_image_tag(user.avatar.url), user %></div></td>
           <td><%= link_to user.user_name, user %></td>
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>

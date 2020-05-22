@@ -32,7 +32,7 @@
     </div>
     <% end %>
 
-    <%if !@interaction.responses.empty? %>
+    <% if !@interaction.responses.empty? %>
     <div class="field">
       <label for="<%= @interaction.responses_type %>"><%= @interaction.responses_type %></label>
       <div id="<%= @interaction.responses_type %>">

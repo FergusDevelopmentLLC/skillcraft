@@ -31,41 +31,15 @@
     </div>
     
     <div class="field">
-      <label for="teachers">Teachers</label>
-      <div id="teachers">
-      <%if !@course.teachers.empty? %>
-        <% @course.teachers.each do |teacher| %>
-          <div><%=link_to teacher.user_name, teacher_path(teacher)%> < <%=link_to "Withdraw", course_user_path(@course, teacher) %></div>
-        <% end %>
-      <%else%>
-        <%= render :partial => "none" %>
-      <%end%>
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="students">Students</label>
-      <div id="students">
-        <%if !@course.students.empty? %>
-        <% @course.students.each do |student| %>
-          <div><%=link_to student.user_name, student%> < <%=link_to "Withdraw", course_user_path(@course, student) %></div>
-        <% end %>
-        <%else%>
-          <%= render :partial => "none" %>
-        <%end%>
-      </div>
-    </div>
-
-    <div class="field">
       <label for="announcements">Announcements</label>
       <div id="announcements">
-      <%if !@course.announcements.empty? %>
+      <% if !@course.announcements.empty? %>
         <% @course.announcements.each do |announcement| %>
-          <div>Posted date: <%= announcement.due_date.strftime("%m/%d/%Y") %> - <%=link_to announcement.title, announcement_path(announcement)%></div>
+          <div>Posted date: <%= announcement.due_date.strftime("%m/%d/%Y") %> - <%= link_to announcement.title, announcement_path(announcement)%></div>
         <% end %>
-      <%else%>
+      <% else %>
         <%= render :partial => "none" %>
-      <%end%>
+      <% end %>
     </div>
     </div>
 
@@ -74,7 +48,7 @@
       <div id="assignments">
       <% if !@course.assignments.empty? %>
         <% @course.assignments.each do |assignment| %>
-          <div>Due date: <%= assignment.due_date.strftime("%m/%d/%Y") %> - <%=link_to assignment.title, assignment_path(assignment)%></div>
+          <div>Due date: <%= assignment.due_date.strftime("%m/%d/%Y") %> - <%= link_to assignment.title, assignment_path(assignment)%></div>
         <% end %>
       <% else %>
         <%= render :partial => "none" %>
@@ -83,16 +57,40 @@
     </div>
 
     <div class="field">
-      <label for="user_feedback">Feedback</label>
-      <div id="user_feedback">
-      <%= text_area(:course, :long_desc, cols: 20, rows: 40) %>
+      <label for="teachers">Teachers</label>
+      <div id="teachers">
+      <% if !@course.teachers.empty? %>
+        <% @course.teachers.each do |teacher| %>
+          <div><%= link_to teacher.user_name, teacher_path(teacher)%> < <%= link_to "Withdraw", course_user_path(@course, teacher) %></div>
+        <% end %>
+      <% else %>
+        <%= render :partial => "none" %>
+      <% end %>
       </div>
+    </div>
+
+    <div class="field">
+      <label for="students">Students</label>
+      <div id="students">
+        <% if !@course.students.empty? %>
+        <% @course.students.each do |student| %>
+          <div><%= link_to student.user_name, student%> < <%= link_to "Withdraw", course_user_path(@course, student) %></div>
+        <% end %>
+        <% else %>
+          <%= render :partial => "none" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="user_feedback">Feedback</label>
+      <div id="user_feedback"><%= text_area(:course, :long_desc, cols: 20, rows: 40) %></div>
     </div>
 
     <div class="actions">
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
       <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
-      <%= link_to 'Edit', @course %> | 
+      <%= link_to 'Edit', edit_course_path(@course) %> | 
       <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 

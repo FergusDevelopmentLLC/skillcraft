@@ -38,12 +38,7 @@
             </div>
             <div class="header-welcome">
                 <% if logged_in? %>
-                    Welcome, 
-                    <%if is_student?%>
-                        <%=link_to current_user.user_name, student_path(current_user)%>
-                    <%else%>
-                        <%=link_to current_user.user_name, teacher_path(current_user)%>
-                    <%end%>
+                    Welcome, <%= link_to current_user.user_name, current_user.type == 'Student' ? student_path(current_user) : teacher_path(current_user) %>
                 <% else %>
                     &nbsp;
                 <% end %>

@@ -54,11 +54,11 @@
       <div id="courses">
         <% if !@user.courses.empty? %>
           <% @user.courses.each do |course| %>
-            <div><%=link_to course.name, course_path(course)%> < <%=link_to 'Withdraw', course_user_path(course, @user) %></div>
+            <div><%= link_to course.name, course_path(course)%> < <%= link_to 'Withdraw', course_user_path(course, @user) %></div>
           <% end %>
-        <%else%>
+        <% else %>
           <div>No courses</div>
-        <%end%>
+        <% end %>
       </div>
     </div>
 
@@ -76,7 +76,7 @@
     <% end %>
 
     <div class="actions">
-      <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%=link_to 'Edit', edit_user_path %>
+      <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%= link_to 'Edit', edit_user_path %>
     </div>
 
   </main>

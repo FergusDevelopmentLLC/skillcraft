@@ -54,7 +54,7 @@
     </div>
     <% end %>
 
-    <%if !@interaction.responses.empty? %>
+    <% if !@interaction.responses.empty? %>
     <div class="field">
       <%= form.label @interaction.responses_type %>
       <% @interaction.responses.each do |response| %>

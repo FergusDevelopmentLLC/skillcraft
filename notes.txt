@@ -75,12 +75,12 @@ Certain teacher that has e-learning experience
                         <%type.games.limit(3).each { |game|%>
                         <li><a href='/games/<%=game.id%>'><%=game.name%></a></li>
                         <%}%>
-                        <%if type.games.count > 3%>
+                        <% if type.games.count > 3%>
                         <li><a href='/types/<%=type.id%>'>[More]</a></li>
-                        <%end%>
-                        <%if type.games.empty?%>
+                        <% end %>
+                        <% if type.games.empty?%>
                         <li>None</li>
-                        <%end%>
+                        <% end %>
                     </ul>
                 </div>
                 <%}%>
@@ -363,9 +363,9 @@ seedfile.close
                         <% end %>
                     <% end %>
                 <% end %>
-            <%else%>
+            <% else %>
             <p style="text-align: center;">-chirp, chirp-</p>
-            <%end%>
+            <% end %>
 
 
 https://stackoverflow.com/questions/14004325/add-element-to-an-array-if-its-not-there-already

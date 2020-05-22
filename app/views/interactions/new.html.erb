@@ -7,7 +7,8 @@
 
     <% if @interaction && @interaction.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@interaction.errors.count, "error") %> prohibited this <%=@interaction.type.downcase%> from being saved:</h2>
+      <h2><%= pluralize(@interaction.errors.count, "error") %> prohibited this <%=@interaction.type.downcase%> from
+        being saved:</h2>
 
       <ul>
         <% @interaction.errors.full_messages.each do |message| %>
@@ -59,10 +60,5 @@
     </div>
 
     <% end %>
-
-    <div class="actions">
-      <%= link_to 'Announcements', interactions_path %> | <%= render :partial => "actions" %><br />
-    </div>
-
   </main>
 </div>

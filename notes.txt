@@ -497,10 +497,7 @@ https://www.shortcutfoo.com/app/dojos/ruby-date-format-strftime/cheatsheet
 
     <% end %>
 
-    <div class="actions">
-      <%= link_to 'Announcements', interactions_path %> | <%= render :partial => "actions" %><br />
-    </div>
-
+    
 
     <div style="text-align: center;margin: 1rem">"<%= link_to @interaction.title, announcement_path(@interaction) %>"</div>
 
@@ -522,5 +519,7 @@ https://stackoverflow.com/questions/3997516/how-to-split-a-camelcase-string-in-i
 https://css-tricks.com/forums/topic/solved-css-trick-auto-magically-add-colon-to-your-labels/
 
 https://stackoverflow.com/questions/4046289/convert-datetime-string-to-utc-in-rails
+
+https://stackoverflow.com/questions/808547/fully-custom-validation-error-message-with-rails
 
 bundle exec rake environment make_seeds

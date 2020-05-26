@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :questions, controller: 'responses'
   resources :completed_assignments, controller: 'responses'
 
+  resources :comments, only: [:create, :update, :destroy]
+
   root 'layouts#index'
 
   get '/welcome', to: 'layouts#welcome'

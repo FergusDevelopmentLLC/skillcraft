@@ -6,9 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
-    #users = @course.users.eager_load( :courses_users )
-    # binding.pry
+    @comment = Comment.find_by(user: current_user, course: @course)
   end
 
   def new
@@ -17,7 +15,8 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course.code ||= @course.code = 4.times.map{rand(4)}.join
+    @course.comments.build
+    @course.comments.last.user = current_user
   end
 
   def create
@@ -33,8 +32,9 @@ class CoursesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Deletion successful' }
+      @course.update(course_params)
+      if @course.save
+        format.html { redirect_to @course, notice: 'Updated successful' }
       else
         format.html { render :edit }
       end
@@ -62,6 +62,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name, :code, :featured, :short_desc, :long_desc)
+      params.require(:course).permit(:name, :code, :featured, :short_desc, :long_desc, comments_attributes: [:user_id, :course_id, :content])
     end
 end

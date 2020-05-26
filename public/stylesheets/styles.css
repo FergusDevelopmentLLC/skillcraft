@@ -378,6 +378,10 @@ input[type='checkbox'] {
     margin-top: 5px;
 }
 
+input[type='text'] {
+    width: 100%;
+}
+
 textarea {
     width: 300px;
     height: 100px;
@@ -677,6 +681,19 @@ label:after { content: ":"; }
 /* why? */
 #course-code input {
     width: 100%; 
+}
+
+.save-comment-wrapper {
+    max-width: 15rem;
+    padding-right: .5rem;
+}
+
+.update-comment-wrapper {
+    display: flex;
+}
+
+.course-add-new-comment {
+    margin: 1.5rem 0 0 0;
 }
 
 /* ---------------------------------------------- */

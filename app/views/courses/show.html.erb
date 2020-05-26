@@ -82,10 +82,47 @@
       </div>
     </div>
 
-    <div class="field">
-      <label for="user_feedback">Feedback</label>
-      <div id="user_feedback"><%= text_area(:course, :long_desc, cols: 20, rows: 40) %></div>
-    </div>
+    
+
+    <% if @comment %>
+    
+      <div class="field">
+        <label for="comment">Comment</label>
+
+        <%= form_with id: "comment_update", url: "/comments/#{@comment.id}", model: @comment, local: true, method: "patch" do |form| %>
+          <%= form.hidden_field :course_id, value: @course.id %>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <div id="comment"><%= text_area(:comment, :content, cols: 20, rows: 40) %></div>
+        <% end %>
+
+        <div class="update-comment-wrapper">
+          <div class="save-comment-wrapper">
+            <%= submit_tag 'Update comment', form: "comment_update" %>
+          </div>
+          <div class="save-comment-wrapper">
+              <%= link_to 'Delete comment', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
+
+        <div 
+      </div>
+      
+    
+    <% else %>
+
+      <%= form_with url: "/comments", model: @comment, local: true, method: "post" do |form| %>
+      <%= form.hidden_field "[comment]course_id", value: @course.id %>
+      <%= form.hidden_field "[comment]user_id", value: current_user.id %>
+      <div class="field">
+        <label for="comment">Comment</label>
+        <div id="comment"><%= text_area(:comment, :content, cols: 20, rows: 40) %></div>
+        <div class="save-comment-wrapper">
+          <%= submit_tag "Save comment" %>
+        </div>
+      </div>
+      <% end %>
+
+    <% end %>
 
     <div class="actions">
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 

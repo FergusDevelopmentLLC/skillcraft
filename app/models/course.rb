@@ -4,14 +4,23 @@ class Course < ApplicationRecord
   
   has_many :comments
   has_many :users, through: :comments, as: :commenting_users
+  accepts_nested_attributes_for :comments
 
-  has_and_belongs_to_many :users
-
-  # accepts_nested_attributes_for :comment
+  #has_and_belongs_to_many :users
+  
+  has_many :courses_users
+  has_many :users, through: :courses_users, as: :users_x
 
   #scope :search_by_name, -> (search_name){where("name = ?", search_name)}
   #scope :most_reviewed_city, -> { City.joins(:reviews).group("cities.id").order('COUNT(reviews.id) DESC').limit(1)}
 
+  def comments_attributes=(comment_attributes)
+    comment_attributes.values.each do |comment_attribute| 
+      comment = Comment.find_or_create_by(comment_attribute)
+      comments << comment
+    end	  
+  end
+  
   # validate :course_code
   def students
     users.find_all { |user| user.type == 'Student' }

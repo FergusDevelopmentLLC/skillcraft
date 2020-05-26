@@ -696,6 +696,20 @@ label:after { content: ":"; }
     margin: 1.5rem 0 0 0;
 }
 
+.course-comments {
+    display: flex;
+}
+
+.course-comment-content-wrapper {
+    min-width: 20rem;
+}
+
+.course-comment-delete {
+    padding: .5rem 0 0 .3rem;
+}
+
+
+
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */
 /* ---------------------------------------------- */

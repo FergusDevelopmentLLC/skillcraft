@@ -95,19 +95,24 @@
         <% end %>
       </div>
     </div>
-
     <div class="field">
       <strong><label for="students">Comments</label></strong>
       <%= form.fields_for :comments do |fc| %>
-        <div>  
-   
-        <%= fc.hidden_field :id %>
-        <%= fc.hidden_field :user_id %>
-        <%= fc.hidden_field :course_id %>
-        <% if fc.object.id.blank? %>
-        <div class="course-add-new-comment">Add new comment:</div>
-        <% end %>
-        <%= fc.text_field :content %>
+        <div class="course-comments">  
+          <div class="course-comment-content-wrapper">
+          <% if fc.object.id.blank? %>
+          <div class="course-add-new-comment">Add new comment:</div>
+          <% end %>
+          <%= fc.hidden_field :id %>
+          <%= fc.hidden_field :user_id %>
+          <%= fc.hidden_field :course_id %>
+          <%= fc.text_field :content %>
+          </div>
+          <div class="course-comment-delete">
+            <% if !fc.object.id.blank? %>
+            < <%= link_to "Delete", comments_delete_path(fc.object) %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

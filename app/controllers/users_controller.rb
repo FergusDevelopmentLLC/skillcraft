@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
     @user.avatar = Avatar.unused_avatar
     
-    match = Course.find_by(:code => params[:user][:course_code])
+    match = Course.find_by(:code => params[:user][:code])
 
     if match
       @user.courses << match
@@ -85,15 +85,15 @@ class UsersController < ApplicationController
 
     matched_course = nil
 
-    if @user.type == "Student" && params[:student][:course_code].blank? == false
-      matched_course = Course.find_by(code: params[:student][:course_code])
-    elsif params[:teacher] && params[:teacher][:course_code].blank? == false
-      matched_course = Course.find_by(code: params[:teacher][:course_code])
+    if @user.type == "Student" && params[:student][:code].blank? == false
+      matched_course = Course.find_by(code: params[:student][:code])
+    elsif params[:teacher] && params[:teacher][:code].blank? == false
+      matched_course = Course.find_by(code: params[:teacher][:code])
     end
     
     if matched_course
       @user.courses << matched_course unless @user.courses.map(&:code).include?(matched_course.code)
-    elsif (params[:student] && params[:student][:course_code].blank? == false) || (params[:teacher] && params[:teacher][:course_code].blank? == false)
+    elsif (params[:student] && params[:student][:code].blank? == false) || (params[:teacher] && params[:teacher][:code].blank? == false)
       @user.errors.add(:course, 'code incorrect')
     end
 

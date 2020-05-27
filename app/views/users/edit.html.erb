@@ -63,9 +63,9 @@
     </div>
 
     <div class="field">
-      <strong><label for='course_code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label></strong>
-      <div id='course-code'>
-        <%= form.text_field :course_code %>
+      <strong><label for='code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label></strong>
+      <div id='code'>
+        <%= form.text_field :code %>
       </div>
     </div>
 

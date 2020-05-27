@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to @comment.course, notice: 'Deletion successful' }
+      format.html { redirect_to edit_course_path(@comment.course), notice: 'Deletion successful' }
     end
   end
 

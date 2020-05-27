@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
 
   def edit
     @course.comments.build
+    #TODO, why?
     @course.comments.last.user = current_user
   end
 

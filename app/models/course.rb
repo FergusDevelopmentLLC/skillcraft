@@ -7,7 +7,9 @@ class Course < ApplicationRecord
   has_and_belongs_to_many :users
 
   has_many :interactions
-  has_many :questions, through: :interactions
+  has_many :responses, through: :interactions
+  
+  validate :code
   
   def comments_attributes=(comment_attributes)
     comment_attributes.values.each do |comment_attribute| 
@@ -15,9 +17,7 @@ class Course < ApplicationRecord
       comments << comment
     end	  
   end
-  
-  validate :course_code
-  
+
   def students
     users.find_all { |user| user.type == 'Student' }
   end
@@ -49,19 +49,19 @@ class Course < ApplicationRecord
   #   ret_questions
   # end
 
-  def completed_assignments
-    ret = []
-    assignments = interactions.find_all { |interaction| interaction.type == 'Assignment' }
-    unless assignments.empty?
-      assignments.each do |assignment|
-        next if assignment.responses.empty?
+  # def completed_assignments
+  #   ret = []
+  #   assignments = interactions.find_all { |interaction| interaction.type == 'Assignment' }
+  #   unless assignments.empty?
+  #     assignments.each do |assignment|
+  #       next if assignment.responses.empty?
         
-        assignment.responses.each do |response|
-          ret << response if response.type == "CompletedAssignment"
-        end
-      end
-    end
-    ret
-  end
+  #       assignment.responses.each do |response|
+  #         ret << response if response.type == "CompletedAssignment"
+  #       end
+  #     end
+  #   end
+  #   ret
+  # end
 
 end

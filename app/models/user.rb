@@ -1,14 +1,14 @@
 class User < ApplicationRecord
   has_secure_password
+  
   has_many :responses, dependent: :destroy
+  
   has_many :interactions, dependent: :destroy
-
-  # has_many :courses_users, dependent: :destroy
-  # has_many :courses, through: :courses_users, dependent: :destroy
+  
   has_and_belongs_to_many :courses
-
-  # has_many :comments, dependent: :destroy
-  # has_many :courses, through: :comments, dependent: :destroy, as: :commented_on_courses
+  
+  has_many :comments, dependent: :destroy
+  has_many :courses_commented_on, through: :comments, source: :course
 
   belongs_to :avatar
 

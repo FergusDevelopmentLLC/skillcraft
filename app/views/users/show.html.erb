@@ -38,16 +38,31 @@
         <% if !@user.courses.empty? %>
         <div id="courses">
           <% @user.courses.each do |course| %>
-            <div><%= link_to course.name, course %> < <%=link_to 'Withdraw', courses_user_path(course, @user) %></div>
+            <div><%= link_to course.name, course %> < <%=link_to @user.type == "Student" ? 'Withdraw' : 'Stop teaching', courses_user_path(course, @user) %></div>
           <% end %>
         </div>
         <% else %>
-        <div>No courses to display</div>
+        <%= render :partial => "none" %>
         <% end %>
       </div>
-  
+      
+      <% if @user.type == "Student" %>
+      <div class="field">
+        <label for="courses_commented_on">Courses commented on</label>
+        <% if !@user.courses_commented_on.empty? %>
+        <div id="courses_commented_on">
+          <% @user.courses_commented_on.each do |course| %>
+            <div><%= link_to course.name, course %></div>
+          <% end %>
+        </div>
+        <% else %>
+        <%= render :partial => "none" %>
+        <% end %>
+      </div>
+      <% end %>
+
       <div class="actions">
-        <%=link_to 'Edit', edit_user_path %> | 
+        <%= link_to 'Edit', edit_user_path %> | 
         <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
   

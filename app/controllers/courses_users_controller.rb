@@ -4,10 +4,11 @@ class CoursesUsersController < ApplicationController
   def destroy
     @courseUser.delete
     respond_to do |format|
+      notice = "#{@courseUser.user.user_name} was successfully removed from #{@courseUser.course.name}"
       if @courseUser.user.type == "Student"
-        format.html { redirect_to student_url(@courseUser.user), notice: @courseUser.user.user_name + " successfully removed from #{@courseUser.course.name}"}
+        format.html { redirect_to student_url(@courseUser.user), notice: notice}
       else
-        format.html { redirect_to teacher_url(@courseUser.user), notice: @courseUser.user.user_name + " successfully removed from #{@courseUser.course.name}"}
+        format.html { redirect_to teacher_url(@courseUser.user), notice: notice}
       end
     end
   end

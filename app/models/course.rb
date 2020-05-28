@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   
-  has_many :comments
-  has_many :users, through: :comments
+  has_many :comments, dependent: :destroy
+  has_many :commenting_users, through: :comments, dependent: :destroy
   accepts_nested_attributes_for :comments
 
   has_and_belongs_to_many :users

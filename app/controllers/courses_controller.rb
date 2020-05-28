@@ -14,11 +14,7 @@ class CoursesController < ApplicationController
     @course.code ||= @course.code = 4.times.map{rand(4)}.join
   end
 
-  def edit
-    @course.comments.build
-    #TODO, why?
-    @course.comments.last.user = current_user
-  end
+  def edit; end
 
   def create
     @course = Course.new(course_params)
@@ -63,6 +59,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name, :code, :featured, :short_desc, :long_desc, comments_attributes: [:user_id, :course_id, :content])
+      params.require(:course).permit(:name, :code, :featured, :short_desc, :long_desc, comments_attributes: [:id, :user_id, :course_id, :content])
     end
 end

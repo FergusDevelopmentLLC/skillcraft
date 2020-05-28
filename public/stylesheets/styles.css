@@ -693,19 +693,25 @@ label:after { content: ":"; }
 }
 
 .course-add-new-comment {
-    margin: 1.5rem 0 0 0;
+    margin: .5rem 0 0 0;
 }
 
 .course-comments {
     display: flex;
+    margin-top: .3rem;
 }
 
 .course-comment-content-wrapper {
     min-width: 20rem;
+    margin-bottom: 1rem;
 }
 
 .course-comment-delete {
-    padding: .5rem 0 0 .3rem;
+    padding: 1.4rem 0 0 .3rem;
+}
+
+.course-user {
+    font-size: .8rem;
 }
 
 

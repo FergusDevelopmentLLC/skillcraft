@@ -82,12 +82,24 @@
       </div>
     </div>
 
-    
+    <div class="field">
+      <label for="comments">Student comments</label>
+      <div id="comments">
+        <% if !@course.comments.empty? %>
+        <% @course.comments.each do |comment| %>
+          <div><%= link_to comment.content, comment %> - <%= link_to comment.user.user_name, comment.user %> on <%= link_to comment.created_at.strftime("%m/%d/%Y"), edit_course_path(comment.course) %></div>
+        <% end %>
+        <% else %>
+          <%= render :partial => "none" %>
+        <% end %>
+      </div>
+    </div>
 
+    <!-- TODO: this is very bad -->
     <% if @comment %>
     
       <div class="field">
-        <label for="comment">Comment</label>
+        <label for="comment">My comment</label>
 
         <%= form_with id: "comment_update", url: "/comments/#{@comment.id}", model: @comment, local: true, method: "patch" do |form| %>
           <%= form.hidden_field :course_id, value: @course.id %>
@@ -100,7 +112,7 @@
             <%= submit_tag 'Update comment', form: "comment_update" %>
           </div>
           <div class="save-comment-wrapper">
-              <%= link_to 'Delete comment', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= button_to 'Delete comment', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
         </div>
 
@@ -114,7 +126,7 @@
       <%= form.hidden_field "[comment]course_id", value: @course.id %>
       <%= form.hidden_field "[comment]user_id", value: current_user.id %>
       <div class="field">
-        <label for="comment">Comment</label>
+        <label for="comment">My comment</label>
         <div id="comment"><%= text_area(:comment, :content, cols: 20, rows: 40) %></div>
         <div class="save-comment-wrapper">
           <%= submit_tag "Save comment" %>

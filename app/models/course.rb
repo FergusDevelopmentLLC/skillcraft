@@ -13,7 +13,12 @@ class Course < ApplicationRecord
   
   def comments_attributes=(comment_attributes)
     comment_attributes.values.each do |comment_attribute| 
-      comment = Comment.find_or_create_by(comment_attribute)
+      comment = Comment.find_or_create_by(id: comment_attribute[:id])
+      # TODO: better way?
+      # the example is:
+      # comment = Comment.find_or_create_by(course_attribute)
+      # but this will not match if the content is updated
+      comment.content = comment_attribute[:content]
       comments << comment
     end	  
   end

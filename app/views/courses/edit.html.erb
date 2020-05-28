@@ -96,26 +96,33 @@
       </div>
     </div>
     <div class="field">
-      <strong><label for="students">Comments</label></strong>
-      <%= form.fields_for :comments do |fc| %>
-        <div class="course-comments">  
-          <div class="course-comment-content-wrapper">
-          <% if fc.object.id.blank? %>
-          <div class="course-add-new-comment">Add new comment:</div>
-          <% end %>
-          <%= fc.hidden_field :id %>
-          <%= fc.hidden_field :user_id %>
-          <%= fc.hidden_field :course_id %>
-          <%= fc.text_field :content %>
-          </div>
-          <div class="course-comment-delete">
-            <% if !fc.object.id.blank? %>
-            <!-- https://apidock.com/rails/ActiveRecord/Persistence/becomes -->
-            <% comment = fc.object.becomes(Comment) %>
-            < <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <strong><label for="students">Student comments</label></strong>
+      <% if !@course.comments.empty? %>
+        <%= form.fields_for :comments do |fc| %>
+          <!-- https://apidock.com/rails/ActiveRecord/Persistence/becomes -->
+          <!-- TODO better way? -->
+          <% comment = fc.object.becomes(Comment) %>
+          <div class="course-comments">  
+            <div class="course-comment-content-wrapper">
+            <% if comment.id.blank? %>
+            <div class="course-add-new-comment">Add new comment:</div>
+            <% else %>
+            <div class="course-user">On <%= link_to comment.created_at.strftime("%m/%d/%Y"), edit_course_path(comment.course) %> <%= link_to comment.user.user_name, comment.user %> commented:</div>
             <% end %>
+            <%= fc.hidden_field :id %>
+            <%= fc.hidden_field :user_id %>
+            <%= fc.hidden_field :course_id %>
+            <%= fc.text_field :content %>
+            </div>
+            <div class="course-comment-delete">
+              <% if !comment.id.blank? %>
+              < <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% else %>
+      <%= render :partial => "none" %>
       <% end %>
     </div>
 

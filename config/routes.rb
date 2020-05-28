@@ -38,8 +38,6 @@ Rails.application.routes.draw do
   get '/questions/:announcement_id/new', to: 'responses#new', as: 'questions_announcement_new'
   get '/completed_assignments/:assignment_id/new', to: 'responses#new', as: 'completed_assignments_assignment_new'
 
-  get '/courses/:course_id/assignments', to: 'interactions#assignments_for'
-
   # auths
   get '/auth/twitter/callback', to: 'sessions_twitter#create'
   get '/signout_twitter', to: 'sessions_twitter#destroy'

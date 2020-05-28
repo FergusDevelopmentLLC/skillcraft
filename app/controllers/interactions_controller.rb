@@ -6,17 +6,6 @@ class InteractionsController < ApplicationController
     @interactions = interactions_by_path
   end
 
-  def assignments_for
-    
-    course = Course.find(params['course_id'])
-    @interactions = Assignment.for_course(course)
-    @index_title = "Assignments for #{course.name}"
-    
-    respond_to do |format|
-      format.html { render :index }
-    end
-  end
-
   def show
     #TODO: better to formulate this here instead of the view?
     #@children_label = @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless @interaction.responses.empty?
@@ -103,8 +92,7 @@ class InteractionsController < ApplicationController
       if title_by_path == "Announcements"
         Announcement.all
       elsif title_by_path == "Assignments"
-        c = Course.second
-        Assignment.for_course(c)
+        Assignment.all
       else
         Interaction.all
       end

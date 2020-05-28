@@ -1,10 +1,15 @@
 class Interaction < ApplicationRecord
+  
   belongs_to :course
   belongs_to :user
-  has_many :responses, dependent: :destroy
+
+  has_many :responses
+  has_many :questions, through: :responses, source: :interaction
+  has_many :completed_assignments, through: :responses, source: :interaction
   
   def responses_type
-    responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless responses.empty?
+    # responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless responses.empty?
+    type == "Announcement" ? "Questions" : "Completed Assignments"
   end
 
   def activity_date

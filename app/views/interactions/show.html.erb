@@ -32,16 +32,19 @@
     </div>
     <% end %>
 
-    <% if !@interaction.responses.empty? %>
     <div class="field">
       <label for="<%= @interaction.responses_type %>"><%= @interaction.responses_type %></label>
+      <% if !@interaction.responses.empty? %>
       <div id="<%= @interaction.responses_type %>">
         <% @interaction.responses.each do |response| %>
           <div><%= response.content + " - " if response.type == "Question" %><%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %></div>
         <% end %>
       </div>
+      <% else %>
+      <%= render :partial => "none" %>
+      <% end %>
     </div>
-    <% end %>
+    
     
     <div class="actions">
       <%= link_to 'Edit', edit_interaction_path(@interaction) %> | 

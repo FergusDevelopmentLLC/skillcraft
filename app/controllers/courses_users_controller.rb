@@ -12,16 +12,8 @@ class CoursesUsersController < ApplicationController
   private
   
   def set_courses_user
-    if params[:student_id]
-      @courseUser = CoursesUser.find_by(:course_id => params[:course_id], :user_id => params[:student_id])
-    else
-      @courseUser = CoursesUser.find_by(:course_id => params[:course_id], :user_id => params[:teacher_id])
-    end
+    user_id = params[:student_id] ? params[:student_id] : params[:teacher_id]
+    CoursesUser.find_by(course_id: params[:course_id], user_id: user_id)
   end
 
-  # Only allow a list of trusted parameters through.
-  def course_params
-    params.require(:course).permit(:name, :code)
-  end
-  
 end

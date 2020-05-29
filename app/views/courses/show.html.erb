@@ -48,21 +48,6 @@
       <div id="long_desc"><%= @course.long_desc %></div>
     </div>
     
-    <% if logged_in? %>
-    <div class="field">
-      <label for="comments">Student comments</label>
-      <div id="comments">
-        <% if !@course.comments.empty? %>
-        <% @course.comments.each do |comment| %>
-          <div><%= link_to comment.content, edit_course_path(comment.course) %> - <%= link_to comment.user.user_name, comment.user %> on <%= link_to comment.created_at.strftime("%m/%d/%Y"), edit_course_path(comment.course) %></div>
-        <% end %>
-        <% else %>
-          <%= render :partial => "none" %>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-
     <% if logged_in? && (@course.students.include?(current_user) || @course.teachers.include?(current_user)) %>
 
     <div class="field">
@@ -105,6 +90,20 @@
     </div>
     <% end %>
 
+    <% if logged_in? %>
+    <div class="field">
+      <label for="comments">Student comments</label>
+      <div id="comments">
+        <% if !@course.comments.empty? %>
+        <% @course.comments.each do |comment| %>
+          <div><%= link_to comment.content, edit_course_path(comment.course) %> - <%= link_to comment.user.user_name, comment.user %> on <%= link_to comment.created_at.strftime("%m/%d/%Y"), edit_course_path(comment.course) %></div>
+        <% end %>
+        <% else %>
+          <%= render :partial => "none" %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
     
     <% if logged_in? && @course.students.include?(current_user) %>
       <div class="field">

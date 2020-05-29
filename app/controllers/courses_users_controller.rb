@@ -3,7 +3,8 @@ class CoursesUsersController < ApplicationController
 
   def destroy
     respond_to do |format|
-      if @courseUser.delete
+      student_comment = Comment.find_by(user: @courseUser.user, course: @courseUser.course)
+      if @courseUser.delete && student_comment && student_comment.delete
         format.html { redirect_to @courseUser.course, notice: "#{@courseUser.user.user_name} was successfully removed from #{@courseUser.course.name}" }
       else
         format.html { redirect_to @courseUser.course, notice: "#{@courseUser.user.user_name} removal unsuccessful." }

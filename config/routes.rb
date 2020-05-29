@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get '/courses/free', to: 'courses#free', as: 'courses_free'
+  get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
+  get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
+
   resources :courses
   resources :users
   resources :teachers, controller: 'users'
@@ -32,11 +36,12 @@ Rails.application.routes.draw do
 
   get '/announcements/:course_id/new', to: 'interactions#new', as: 'announcements_course_new'
   get '/assignments/:course_id/new', to: 'interactions#new', as: 'assignments_course_new'
-
   
   get '/responses/:interaction_id/new', to: 'responses#new', as: 'responses_interaction_new'
   get '/questions/:announcement_id/new', to: 'responses#new', as: 'questions_announcement_new'
   get '/completed_assignments/:assignment_id/new', to: 'responses#new', as: 'completed_assignments_assignment_new'
+
+  
 
   # auths
   get '/auth/twitter/callback', to: 'sessions_twitter#create'

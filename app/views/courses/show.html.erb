@@ -11,6 +11,11 @@
     </div>
 
     <div class="field">
+        <label for="name">Name</label>
+        <div id="name"><%= number_to_currency(@course.tuition_cost) %></div>
+      </div>
+
+    <div class="field">
       <label for="code">Code</label>
       <div id="code"><%= @course.code %></div>
     </div>

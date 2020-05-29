@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :code
       t.boolean :featured
+      t.integer :tuition_cost
       t.string :short_desc
       t.string :long_desc
       t.timestamps

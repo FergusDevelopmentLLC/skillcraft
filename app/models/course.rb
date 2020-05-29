@@ -13,10 +13,16 @@ class Course < ApplicationRecord
   has_many :completed_assignments, -> { where type: "CompletedAssignment" }, through: :assignments, source: :responses
   
   has_many :comments, dependent: :destroy
-  has_many :commenting_users, through: :comments, dependent: :destroy
+  has_many :commenting_users, through: :comments, source: :user
   accepts_nested_attributes_for :comments
 
-  validate :code
+  scope :featured, -> { where(featured: true) }
+  scope :free, -> { where(tuition_cost: 0) }
+  
+  validates :name, presence: true
+  validates :tuition_cost, presence: true, numericality: { only_integer: true }
+  validates :short_desc, presence: true
+  validates :code, presence: true, uniqueness: true, numericality: { only_integer: true }, length: {minimum: 4, maximum: 4 }
   
   def comments_attributes=(comment_attributes)
     comment_attributes.values.each do |comment_attribute| 

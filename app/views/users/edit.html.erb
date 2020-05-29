@@ -30,27 +30,27 @@
     </div>
 
     <div class="field">
-      <strong><%= form.label :user_name %></strong>
+      <%= form.label :user_name %>
       <%= form.text_field :user_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :first_name %></strong>
+      <%= form.label :first_name %>
       <%= form.text_field :first_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :last_name %></strong>
+      <%= form.label :last_name %>
       <%= form.text_field :last_name %>
     </div>
 
     <div class="field">
-      <strong><%= form.label :email %></strong>
+      <%= form.label :email %>
       <%= form.text_field :email %>
     </div>
 
     <div class="field">
-      <strong><label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label></strong>
+      <label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label>
       <div id="courses">
         <% if !@user.courses.empty? %>
           <% @user.courses.each do |course| %>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="field">
-      <strong><label for='code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label></strong>
+      <label for='code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label>
       <div id='code'>
         <%= form.text_field :code %>
       </div>

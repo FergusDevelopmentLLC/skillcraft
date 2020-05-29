@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
     t.string "name"
     t.string "code"
     t.boolean "featured"
+    t.integer "tuition_cost"
     t.string "short_desc"
     t.string "long_desc"
     t.datetime "created_at", precision: 6, null: false

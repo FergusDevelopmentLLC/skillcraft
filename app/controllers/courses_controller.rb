@@ -3,6 +3,28 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
+    # @courses = Course.all.featured.free
+  end
+
+  def free
+    @courses = Course.free
+    respond_to do |format|
+      format.html { render :index }
+    end
+  end
+
+  def featured
+    @courses = Course.featured
+    respond_to do |format|
+      format.html { render :index }
+    end
+  end
+
+  def featured_free
+    @courses = Course.featured.free
+    respond_to do |format|
+      format.html { render :index }
+    end
   end
 
   def show
@@ -59,6 +81,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:name, :code, :featured, :short_desc, :long_desc, comments_attributes: [:id, :user_id, :course_id, :content])
+      params.require(:course).permit(:name, :tuition_cost, :code, :featured, :short_desc, :long_desc, comments_attributes: [:id, :user_id, :course_id, :content])
     end
 end

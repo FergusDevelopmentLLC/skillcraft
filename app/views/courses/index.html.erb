@@ -29,6 +29,7 @@
 
         <div class="course-listing-item-details">
         <ul>
+          <li><label>Tuition</label> <%= number_to_currency(course.tuition_cost) %></li>
           <li><label>Announcements</label> <%= course.announcements.count %></li>
           <li><label>Questions</label> <%= course.questions.count %></li>
           <li><label>Assignments</label> <%= course.assignments.count %></li>
@@ -46,7 +47,7 @@
       <% end %>
     </div>
     <div class="actions">
-      <%= link_to 'New Course', new_course_path %>
+      <%= link_to 'All courses', courses_path %> | <%= link_to 'Featured courses', courses_featured_path %> | <%= link_to 'Free courses', courses_free_path %> | <%= link_to 'Featured/free courses', courses_featured_free_path %> | <%= link_to 'New course', new_course_path %>
     </div>
 
   </main>

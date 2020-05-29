@@ -592,6 +592,11 @@ input[type="text"], input[type="number"], select {
     flex-direction: row;
 }
 
+.featured {
+    display: flex;
+    flex-direction: row;
+}
+
 /* select {
     min-width: 250px;
 } */
@@ -662,10 +667,6 @@ input[type="text"], input[type="number"], select {
 }
 
 
-.featured-course {
-    font-weight: bold;
-}
-
 div.field label {
     margin-top: .25rem;
     font-weight: bold;
@@ -714,6 +715,9 @@ label:after { content: ":"; }
     font-size: .8rem;
 }
 
+.course-tuition-cost {
+    max-width: 6rem;
+}
 
 
 /* ---------------------------------------------- */

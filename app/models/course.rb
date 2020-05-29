@@ -1,6 +1,10 @@
 class Course < ApplicationRecord
   
   has_many :courses_users
+  # https://stackoverflow.com/questions/13749558/use-through-option-on-a-belongs-to-activerecord-association
+  # https://gorails.com/forum/a-has_one-through-association-issue
+  # https://stackoverflow.com/questions/4115554/rails-has-many-through-is-it-possible-to-have-a-conditions-in-the-through-tab
+  # TODO: how can i make this has_one?
   has_many :teachers, -> { where type: "Teacher" }, through: :courses_users, source: :user
   has_many :students, -> { where type: "Student" }, through: :courses_users, source: :user
   

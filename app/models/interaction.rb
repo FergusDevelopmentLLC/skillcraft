@@ -8,7 +8,6 @@ class Interaction < ApplicationRecord
   has_many :completed_assignments, through: :responses, source: :interaction
   
   def responses_type
-    # responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless responses.empty?
     type == "Announcement" ? "Questions" : "Completed Assignments"
   end
 

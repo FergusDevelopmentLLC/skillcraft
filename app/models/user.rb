@@ -1,16 +1,15 @@
 class User < ApplicationRecord
   has_secure_password
   
-  has_many :responses, dependent: :destroy
-  
-  has_many :interactions, dependent: :destroy
-  
+  belongs_to :avatar
+
   has_and_belongs_to_many :courses
+
+  has_many :responses, dependent: :destroy
+  has_many :interactions, dependent: :destroy
   
   has_many :comments, dependent: :destroy
   has_many :courses_commented_on, through: :comments, source: :course
-
-  belongs_to :avatar
 
   validates :user_name, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -41,19 +40,15 @@ class User < ApplicationRecord
       user.last_name = (auth_params['info']['name'] || "").split(" ").second
       user.email = auth_params['info']['email'] || ""
     end
-    
+
     user.provider = auth_params['provider']
     user.uid = auth_params['uid']
-
-    user.type = if is_student
-                  'Student'
-                else
-                  'Teacher'
-                end
-    
+    user.type = is_student ? 'Student' : 'Teacher'
     user.avatar = Avatar.unused_avatar
     user.password_digest = SecureRandom.urlsafe_base64
+    
     user.save
+    
     user
   end
 end

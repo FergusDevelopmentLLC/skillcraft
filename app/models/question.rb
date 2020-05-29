@@ -1,3 +1,3 @@
 class Question < Response
-  belongs_to :interaction
+  belongs_to :announcement
 end

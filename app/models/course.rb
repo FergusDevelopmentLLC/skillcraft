@@ -21,8 +21,10 @@ class Course < ApplicationRecord
   
   validates :name, presence: true
   validates :tuition_cost, presence: true, numericality: { only_integer: true }
+  validates :code, presence: true, uniqueness: true, numericality: { only_integer: true }, length: { minimum: 4, maximum: 4 }
+  
   validates :short_desc, presence: true
-  validates :code, presence: true, uniqueness: true, numericality: { only_integer: true }, length: {minimum: 4, maximum: 4 }
+  validates :long_desc, presence: true
   
   def comments_attributes=(comment_attributes)
     comment_attributes.values.each do |comment_attribute| 

@@ -7,15 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
   helper_method :is_student?
+  helper_method :enrolled_in?
+  helper_method :teaching?
 
   private
 
   def logged_in?
     !!current_user
   end
-      
+
   def is_student?
-    if @current_user.type == "Student"
+    if @current_user && @current_user.type == "Student"
       true
     else
       false
@@ -26,10 +28,4 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(:id => session[:user_id])
   end
 
-  # def authenticate_user!
-  #   if !current_user
-  #     redirect_to root_url, :alert => 'You need to sign in for access to this page.'
-  #   end
-  # end
-  
 end

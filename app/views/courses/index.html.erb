@@ -47,7 +47,7 @@
       <% end %>
     </div>
     <div class="actions">
-      <%= link_to 'All courses', courses_path %> | <%= link_to 'Featured courses', courses_featured_path %> | <%= link_to 'Free courses', courses_free_path %> | <%= link_to 'Featured/free courses', courses_featured_free_path %> | <%= link_to 'New course', new_course_path %>
+      <%= link_to 'All courses', courses_path %> | <%= link_to 'Featured courses', courses_featured_path %> | <%= link_to 'Free courses', courses_free_path %> | <%= link_to 'Featured/free courses', courses_featured_free_path %><% if logged_in? && !is_student? %> | <%= link_to 'New course', new_course_path %><% end %>
     </div>
 
   </main>

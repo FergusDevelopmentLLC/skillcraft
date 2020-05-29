@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.course, notice: 'Comment was successfully created' }
+        format.html { redirect_to @comment.course, notice: 'Your course comment was successfully created' }
       else
-        format.html { redirect_to @comment.course, notice: 'Comment save unsuccessful' }
+        format.html { redirect_to course_path(@comment.course), notice: @comment.errors.full_messages.first }
       end
     end
   end
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         format.html { redirect_to @comment.course, notice: 'Update successful' }
       else
-        format.html { redirect_to @comment.course, notice: 'Deletion unsuccessful' }
+        format.html { redirect_to course_path(@comment.course), notice: @comment.errors.full_messages.first }
       end
     end
   end
@@ -25,9 +25,9 @@ class CommentsController < ApplicationController
   def destroy
     respond_to do |format|
       if @comment.destroy
-        format.html { redirect_to @comment.course, notice: 'Update successful' }
+        format.html { redirect_to @comment.course, notice: 'Deletion successful' }
       else
-        format.html { redirect_to @comment.course, notice: 'Deletion unsuccessful' }
+        format.html { redirect_to course_path(@comment.course), notice: @comment.errors.full_messages.first }
       end
     end
   end

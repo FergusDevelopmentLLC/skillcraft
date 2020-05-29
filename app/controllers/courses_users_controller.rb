@@ -5,11 +5,7 @@ class CoursesUsersController < ApplicationController
     @courseUser.delete
     respond_to do |format|
       notice = "#{@courseUser.user.user_name} was successfully removed from #{@courseUser.course.name}"
-      if @courseUser.user.type == "Student"
-        format.html { redirect_to student_url(@courseUser.user), notice: notice}
-      else
-        format.html { redirect_to teacher_url(@courseUser.user), notice: notice}
-      end
+      format.html { redirect_to @courseUser.course, notice: notice}
     end
   end
 

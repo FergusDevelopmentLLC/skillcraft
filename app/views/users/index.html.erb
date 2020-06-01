@@ -22,7 +22,8 @@
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
-          <td><%= user.courses.count %></td>
+          <td>
+            <%= link_to user.courses.count, courses_for_teacher_path(user) %></td>
         </tr>
         <% end %>
       </tbody>

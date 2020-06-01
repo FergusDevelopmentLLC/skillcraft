@@ -1,27 +1,30 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_courses, only: [:index, :choose_course]
 
-  def index
-    @courses = Course.all
-    # @courses = Course.all.featured.free
-  end
+  def index; end
 
   def free
     @courses = Course.free
-    respond_to do |format|
-      format.html { render :index }
-    end
+    render_index
   end
 
   def featured
     @courses = Course.featured
-    respond_to do |format|
-      format.html { render :index }
-    end
+    render_index
   end
 
   def featured_free
     @courses = Course.featured.free
+    render_index
+  end
+
+  def courses_for_teacher
+    @courses = Teacher.find(params[:teacher_id]).courses
+    render_index
+  end
+
+  def render_index
     respond_to do |format|
       format.html { render :index }
     end
@@ -71,7 +74,6 @@ class CoursesController < ApplicationController
   end
 
   def choose_course
-    @courses = Course.all
     respond_to do |format|
       format.html { render template: 'courses/index' }
     end
@@ -81,6 +83,10 @@ class CoursesController < ApplicationController
   
     def set_course
       @course = Course.find(params[:id])
+    end
+
+    def set_courses
+      @courses ||= Course.all
     end
 
     # Only allow a list of trusted parameters through.

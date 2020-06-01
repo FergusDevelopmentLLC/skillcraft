@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
   helper_method :is_student?
-  helper_method :enrolled_in?
-  helper_method :teaching?
+  helper_method :is_teacher_of?
+  helper_method :is_enrolled_in?
+
+  # helper_method :teaching?
 
   private
 
@@ -26,6 +28,14 @@ class ApplicationController < ActionController::Base
     
   def current_user
     @current_user ||= User.find_by(:id => session[:user_id])
+  end
+
+  def is_teacher_of?(course)
+    @current_user && !course.teachers.empty? && course.teachers.first == @current_user
+  end
+
+  def is_enrolled_in?(course)
+    @current_user && !course.students.empty? && course.students.include?(@current_user)
   end
 
 end

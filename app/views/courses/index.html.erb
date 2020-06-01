@@ -9,6 +9,10 @@
       <% @courses.each do |course| %>
       <div class="course-listing-item<%= course.featured ? " course-listing-item-featured" : "" %>">
         
+        <div class="field">
+          <div id="name" class="course-listing-name"><%= link_to course.name, course %></div>
+        </div>
+
         <% if !course.teachers.empty? %>
         <div class="field">
           <div class='avatar-wrapper'>
@@ -20,25 +24,26 @@
         <% end %>
         
         <div class="field">
-          <div id="name" class="course-listing-name"><%= link_to course.name, course %></div>
-        </div>
-
-        <div class="field">
           <div class="course-listing-desc"><em><%= course.short_desc %></em></div>
         </div>
 
         <div class="course-listing-item-details">
-        <ul>
-          <li><label>Tuition</label> <%= number_to_currency(course.tuition_cost) %></li>
-          <li><label>Announcements</label> <%= course.announcements.count %></li>
-          <li><label>Questions</label> <%= course.questions.count %></li>
-          <li><label>Assignments</label> <%= course.assignments.count %></li>
-          <li><label>Completed Assignments</label> <%= course.completed_assignments.count %></li>
-          <li><label>Teacher count</label> <%= course.teachers.count %></li>
-          <li><label>Students enrolled</label> <%= course.students.count %></li>
-          <li class="course-listing-code">Code: <%= course.code %></li>
-        </ul>
-      </div>
+          <ul>
+            <% if !course.teachers.empty? %>
+            <li><label>Instructor</label> <%= link_to course.teachers.first.user_name, course.teachers.first %></li>
+            <% else %>
+            <li><label>Instructor</label> None</li>
+            <% end %>
+            <li><label>Tuition</label> <%= number_to_currency(course.tuition_cost) %></li>
+            <li><label>Announcements</label> <%= course.announcements.count %></li>
+            <li><label>Questions</label> <%= course.questions.count %></li>
+            <li><label>Assignments</label> <%= course.assignments.count %></li>
+            <li><label>Completed Assignments</label> <%= course.completed_assignments.count %></li>
+            <li><label>Teacher count</label> <%= course.teachers.count %></li>
+            <li><label>Students enrolled</label> <%= course.students.count %></li>
+            <li class="course-listing-code">Code: <%= course.code %></li>
+          </ul>
+        </div>
 
       </div>
       <% end %>

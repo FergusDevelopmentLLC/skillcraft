@@ -48,7 +48,7 @@
       <div id="long_desc"><%= @course.long_desc %></div>
     </div>
     
-    <% if logged_in? && (@course.students.include?(current_user) || @course.teachers.include?(current_user)) %>
+    <% if logged_in? && is_enrolled_in?(@course) || is_teacher_of?(@course) %>
 
     <div class="field">
       <label for="announcements">Announcements</label>
@@ -81,7 +81,9 @@
       <div id="students">
         <% if !@course.students.empty? %>
         <% @course.students.each do |student| %>
-          <div><%= link_to student.user_name, student%> < <%= link_to "Withdraw", courses_user_path(@course, student) %></div>
+          
+          <div><%= link_to student.user_name, student%><% if current_user == student || is_teacher_of?(@course) %> < <%= link_to "Withdraw", courses_user_path(@course, student) %><% end %>
+          </div>
         <% end %>
         <% else %>
           <%= render :partial => "none" %>
@@ -129,13 +131,15 @@
         </div>
       </div>
     <% end %>
-
+    
+    <% if logged_in? and is_teacher_of?(@course) %>
     <div class="actions">
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
       <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
       <%= link_to 'Edit', edit_course_path(@course) %> | 
       <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+    <% end %>
 
   </main>
 </div>

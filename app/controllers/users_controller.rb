@@ -119,14 +119,22 @@ class UsersController < ApplicationController
     @user.avatar = Avatar.unused_avatar
     respond_to do |format|
       if @user.save
-        format.html { redirect_to student_path(@user), notice: "#{@user.user_name} was successfully updated" }
+        format.html { redirect_to user_path(@user), notice: "#{@user.user_name} was successfully updated" }
       else
         format.html { render :edit }
       end
     end
   end
 
-  def edit; end
+  def edit
+      respond_to do |format|
+        if logged_in? && is_teacher? || @user == current_user
+          format.html { render :edit }
+        else
+          format.html { redirect_to user_path(@user), notice: "Students cannot edit other users" }
+        end
+      end
+  end
 
   def destroy
     respond_to do |format|

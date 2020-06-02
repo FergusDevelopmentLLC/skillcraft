@@ -23,7 +23,16 @@
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td>
-            <%= link_to user.courses.count, courses_for_teacher_path(user) %></td>
+          <% if !user.courses.empty? %>
+            <% if user.type == "Student" %>
+              <%= link_to user.courses.count, courses_for_student_path(user) %>
+            <% else %>
+              <%= link_to user.courses.count, courses_for_teacher_path(user) %>
+            <% end %>
+          <% else %>
+            <%= user.courses.count %>
+          <% end %>
+        </td>
         </tr>
         <% end %>
       </tbody>

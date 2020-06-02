@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
 
   get '/teachers/:teacher_id/courses', to: 'courses#courses_for_teacher', as: 'courses_for_teacher'
-
+  get '/students/:student_id/courses', to: 'courses#courses_for_student', as: 'courses_for_student'
+  
   resources :courses
   resources :users
   resources :teachers, controller: 'users'

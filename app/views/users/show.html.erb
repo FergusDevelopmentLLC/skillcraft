@@ -28,17 +28,19 @@
         <div id="last_name"><%= @user.last_name %></div>
       </div>
 
+      <% if logged_in? %>
       <div class="field">
         <label for="email">Email</label>
-        <div id="email"><%= @user.email %></div>
+        <div id="email"><%= mail_to @user.email, @user.email %></div>
       </div>
+      <% end %>
 
       <div class="field">
         <label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label>
         <% if !@user.courses.empty? %>
         <div id="courses">
           <% @user.courses.each do |course| %>
-            <div><%= link_to course.name, course %> < <%=link_to @user.type == "Student" ? 'Withdraw' : 'Stop teaching', courses_user_path(course, @user) %></div>
+            <div><%= link_to course.name, course %><% if logged_in? && is_teacher_of?(course) || current_user == @user %> < <%=link_to @user.type == "Student" ? 'Withdraw' : 'Stop teaching', courses_user_path(course, @user) %><% end %></div>
           <% end %>
         </div>
         <% else %>
@@ -52,7 +54,11 @@
         <% if !@user.courses_commented_on.empty? %>
         <div id="courses_commented_on">
           <% @user.courses_commented_on.each do |course| %>
-            <div><%= link_to course.name, course %></div>
+            <% course.comments.each do |comment| %>
+            <% if comment.user == @user %>
+            <div><%= link_to course.name, course %> - <%= link_to comment.content, course_path(comment.course) %> on <%= link_to comment.created_at.strftime("%m/%d/%Y"), course_path(comment.course) %></div>
+            <% end %>
+            <% end %>
           <% end %>
         </div>
         <% else %>
@@ -61,10 +67,12 @@
       </div>
       <% end %>
 
+      <% if is_teacher? || @user == current_user %>
       <div class="actions">
         <%= link_to 'Edit', edit_user_path %> | 
         <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
+      <% end %>
   
     </main>
   </div>

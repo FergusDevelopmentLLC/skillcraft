@@ -70,13 +70,13 @@
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= submit_tag "Update" %>
     </div>
 
     <% end %>
 
     <div class="actions">
-      <%= link_to @user.type.pluralize, @user.type == 'Student' ? students_path: teachers_path %> | <%= link_to 'Edit', edit_user_path %>
+      <%= link_to 'Courses', courses_path %>
     </div>
 
   </main>

@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :current_user
   helper_method :is_student?
+  helper_method :is_teacher?
   helper_method :is_teacher_of?
   helper_method :is_enrolled_in?
-
-  # helper_method :teaching?
 
   private
 
@@ -20,6 +19,14 @@ class ApplicationController < ActionController::Base
 
   def is_student?
     if @current_user && @current_user.type == "Student"
+      true
+    else
+      false
+    end
+  end
+
+  def is_teacher?
+    if @current_user && @current_user.type == "Teacher"
       true
     else
       false

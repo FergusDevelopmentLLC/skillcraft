@@ -24,6 +24,11 @@ class CoursesController < ApplicationController
     render_index
   end
 
+  def courses_for_student
+    @courses = Student.find(params[:student_id]).courses
+    render_index
+  end
+
   def render_index
     respond_to do |format|
       format.html { render :index }

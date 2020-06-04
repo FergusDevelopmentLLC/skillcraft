@@ -27,6 +27,7 @@ class Course < ApplicationRecord
   validates :tuition_cost, presence: true, numericality: { only_integer: true }
   validates :code, presence: true, uniqueness: true, numericality: { only_integer: true }, length: { minimum: 4, maximum: 4 }
   
+  validates :image_url, presence: true
   validates :short_desc, presence: true
   validates :long_desc, presence: true
   

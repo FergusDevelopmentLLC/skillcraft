@@ -26,6 +26,11 @@
       <%= form.text_field :name %>
     </div>
 
+    <div class="field">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url %>
+    </div>
+
     <div class="field course-tuition-cost">
       <%= form.label :tuition_cost %>
       <%= form.text_field :tuition_cost %>
@@ -38,15 +43,15 @@
     </div>
       
     <div class="field">
-      <%= form.label :short_description %>
+      <%= form.label :short_desc, "Short description" %>
       <%= form.text_field :short_desc %>
     </div>
-  
+    
     <div class="field">
-      <%= form.label :long_description %>
+      <%= form.label :long_desc, "Long description" %>
       <%= text_area(:course, :long_desc, cols: 20, rows: 40) %>
     </div>
-
+    
     <div class="field">
       <%= form.label :code %>
       <%= form.text_field :code %>

@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "code"
+    t.string "image_url"
     t.boolean "featured"
     t.integer "tuition_cost"
     t.string "short_desc"

@@ -635,6 +635,16 @@ input[type="text"], input[type="number"], select {
     text-align: center;
 }
 
+
+.subject-wrapper {
+    margin: auto;
+    text-align: center;
+}
+
+.subject-wrapper-sm {
+    width: 75px;
+}
+
 .randomize-link {
     margin-top: .5rem;
 }

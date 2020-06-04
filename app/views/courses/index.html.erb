@@ -10,19 +10,17 @@
       <div class="course-listing-item<%= course.featured ? " course-listing-item-featured" : "" %>">
         
         <div class="field">
-          <div id="name" class="course-listing-name"><%= link_to course.name, course %></div>
-        </div>
-
-        <% if !course.teachers.empty? %>
-        <div class="field">
-          <div class='avatar-wrapper'>
-            <div class='avatar-container-sm'>
-              <%= link_to cl_image_tag(course.teachers.first.avatar.url), course %>
+          <div class='subject-wrapper'>
+            <div class='subject-wrapper-sm'>
+              <%= link_to cl_image_tag(course.image_url), course %>
             </div>
           </div>
         </div>
-        <% end %>
         
+        <div class="field">
+          <div id="name" class="course-listing-name"><%= link_to course.name, course %></div>
+        </div>
+
         <div class="field">
           <div class="course-listing-desc"><em><%= course.short_desc %></em></div>
         </div>

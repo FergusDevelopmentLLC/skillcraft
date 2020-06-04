@@ -630,19 +630,23 @@ input[type="text"], input[type="number"], select {
     width: 100px;
 }
 
-.avatar-wrapper {
-    margin: auto;
-    text-align: center;
+.avatar-container-x-sm {
+    width: 35px;
 }
 
-
-.subject-wrapper {
+.avatar-wrapper {
     margin: auto;
     text-align: center;
 }
 
 .subject-wrapper-sm {
     width: 75px;
+    margin: auto;
+}
+
+.subject-wrapper-med {
+    width: 150px;
+    margin: auto;
 }
 
 .randomize-link {
@@ -732,6 +736,15 @@ label:after { content: ":"; }
 
 .field_with_errors {
     color: red;
+}
+
+.course-user-listing  {
+    margin-top: .25rem;
+}
+
+.course-user-listing td {
+    border: none;
+    padding: 0 .5rem .5rem 0;
 }
 
 /* ---------------------------------------------- */

@@ -3,10 +3,14 @@
 
     <p id="notice"><%= notice %></p>
 
+    <div>
+      <div class="subject-wrapper-med"><%= link_to cl_image_tag(@course.image_url), @course %></div>
+    </div>
+
     <h1>Course: <%= @course.name %></h1>
 
     <div class="field">
-      <label for="name">Name</label>
+      <label for="name">Course name</label>
       <div id="name"><%= @course.name %></div>
     </div>
 
@@ -14,9 +18,14 @@
       <label for="teachers">Teachers</label>
       <div id="teachers">
       <% if !@course.teachers.empty? %>
+        <table class="course-user-listing">
         <% @course.teachers.each do |teacher| %>
-          <div><%= link_to teacher.user_name, teacher_path(teacher)%></div>
+          <tr>
+            <td><div class='avatar-container-x-sm'><%= link_to cl_image_tag(teacher.avatar.url), teacher %></div></td>
+            <td><%= link_to teacher.user_name, teacher_path(teacher)%></td>
+          </tr>
         <% end %>
+        </table>
       <% else %>
         <%= render :partial => "none" %>
       <% end %>
@@ -80,11 +89,14 @@
       <label for="students">Students</label>
       <div id="students">
         <% if !@course.students.empty? %>
-        <% @course.students.each do |student| %>
-          
-          <div><%= link_to student.user_name, student%><% if current_user == student || is_teacher_of?(@course) %> < <%= link_to "Withdraw", courses_user_path(@course, student) %><% end %>
-          </div>
-        <% end %>
+          <table class="course-user-listing">
+              <% @course.students.each do |student| %>
+              <tr>
+                <td><div class='avatar-container-x-sm'><%= link_to cl_image_tag(student.avatar.url), student %></div></td>
+                <td><%= link_to student.user_name, student %><% if current_user == student || is_teacher_of?(@course) %> < <%= link_to "Withdraw", courses_user_path(@course, student) %><% end %></td>
+              </tr>
+              <% end %>
+          </table>
         <% else %>
           <%= render :partial => "none" %>
         <% end %>

@@ -32,10 +32,11 @@
       </div>
     </div>
 
+    <% if logged_in? %>
     <div class="field">
-        <label for="name">Tuition cost</label>
-        <div id="name"><%= number_to_currency(@course.tuition_cost) %></div>
-      </div>
+      <label for="name">Tuition cost</label>
+      <div id="name"><%= number_to_currency(@course.tuition_cost) %></div>
+    </div>
 
     <div class="field">
       <label for="code">Code</label>
@@ -46,6 +47,7 @@
       <label for="featured">Featured</label>
       <div id="featured"><%= @course.featured %></div>
     </div>
+    <% end %>
 
     <div class="field">
       <label for="short_desc">Short description</label>

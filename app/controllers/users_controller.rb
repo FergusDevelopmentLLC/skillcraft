@@ -7,10 +7,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def choose
-    @users = User.teacher_student
-  end
-
   def show
     @user = User.find(params[:id])
   end
@@ -20,13 +16,25 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = if request.path == "/students"
-               Student.all
-             else
-               Teacher.all
-             end
+    @users ||= if request.path == "/students"
+                 Student.all
+               else
+                  Teacher.all
+               end
   end
-  
+    
+  def render_index
+    respond_to do |format|
+      format.html { render :index }
+    end
+  end
+
+  def students_for_course
+    @course = Course.find_by(:id => params[:course_id])
+    @users = @course.students
+    render_index
+  end
+
   def post_signin
     @user = User.find_by(:user_name => params[:user_name])
 

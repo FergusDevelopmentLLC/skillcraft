@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get '/teachers/:teacher_id/courses', to: 'courses#courses_for_teacher', as: 'courses_for_teacher'
   get '/students/:student_id/courses', to: 'courses#courses_for_student', as: 'courses_for_student'
+
+  get '/courses/:course_id/students', to: 'users#students_for_course', as: 'students_for_course'
+  get '/courses/:course_id/teachers', to: 'users#teachers_for_course', as: 'teachers_for_course'
   
   resources :courses
   resources :users

@@ -44,12 +44,18 @@
       <%= render :partial => "none" %>
       <% end %>
     </div>
-    
-    
+    <% if logged_in? %>
     <div class="actions">
-      <%= link_to 'Edit', edit_interaction_path(@interaction) %> | 
-      <%= link_to 'Destroy' , interaction_path(@interaction), method: :delete, data: { confirm: 'Are you sure?' } %> | 
-      <%= link_to @interaction.type == 'Announcement' ? "Ask Question" : "Complete Assignment", @interaction.type == 'Announcement' ? questions_announcement_new_path(@interaction) : completed_assignments_assignment_new_path(@interaction) %>
+
+      <% if is_teacher_of?(@interaction.course) %>
+        <%= link_to "Edit #{@interaction.type.downcase}", edit_interaction_path(@interaction) %> | <%= link_to "Delete #{@interaction.type.downcase}" , interaction_path(@interaction), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+      <% if is_enrolled_in?(@interaction.course) %>
+        <%= link_to @interaction.type == 'Announcement' ? "Ask question" : "Complete assignment", @interaction.type == 'Announcement' ? questions_announcement_new_path(@interaction) : completed_assignments_assignment_new_path(@interaction) %>
+      <% end %>
+
     </div>
+    <% end %>
   </main>
 </div>

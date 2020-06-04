@@ -86,25 +86,18 @@
       <% end %>
       </div>
     </div>
+    <% end %>
 
-    <div class="field">
-      <label for="students">Students</label>
+    <div class="field enrolled">
+      <label for="students">Students enrolled</label>
       <div id="students">
         <% if !@course.students.empty? %>
-          <table class="course-user-listing">
-              <% @course.students.each do |student| %>
-              <tr>
-                <td><div class='avatar-container-x-sm'><%= link_to cl_image_tag(student.avatar.url), student %></div></td>
-                <td><%= link_to student.user_name, student %><% if current_user == student || is_teacher_of?(@course) %> < <%= link_to "Withdraw", courses_user_path(@course, student) %><% end %></td>
-              </tr>
-              <% end %>
-          </table>
+          <div class="students-enrolled-count"><%= link_to @course.students.count, students_for_course_path(@course) %></div>
         <% else %>
           <%= render :partial => "none" %>
         <% end %>
       </div>
     </div>
-    <% end %>
 
     <% if logged_in? %>
     <div class="field">

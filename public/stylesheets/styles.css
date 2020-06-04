@@ -597,6 +597,15 @@ input[type="text"], input[type="number"], select {
     flex-direction: row;
 }
 
+.enrolled {
+    display: flex;
+    flex-direction: row;
+}
+
+.students-enrolled-count {
+    margin: .2rem;
+}
+
 /* select {
     min-width: 250px;
 } */
@@ -673,7 +682,6 @@ input[type="text"], input[type="number"], select {
   text-align: center;
   padding-bottom: .75rem;
   margin-bottom: .75rem;
-  border-bottom: 1px solid gray;
 }
 
 .parent_info div {

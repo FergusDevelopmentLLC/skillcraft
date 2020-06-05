@@ -262,7 +262,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    solargraph (0.39.7)
+    solargraph (0.39.8)
       backport (~> 1.1)
       benchmark
       bundler (>= 1.17.2)
@@ -271,7 +271,7 @@ GEM
       maruku (~> 0.7, >= 0.7.3)
       nokogiri (~> 1.9, >= 1.9.1)
       parser (~> 2.3)
-      reverse_markdown (~> 1.0, >= 1.0.5)
+      reverse_markdown (>= 1.0.5, < 3)
       rubocop (~> 0.52)
       thor (~> 1.0)
       tilt (~> 2.0)

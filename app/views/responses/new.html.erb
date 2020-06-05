@@ -19,9 +19,15 @@
 
     <%= form_with url: "/responses", model: @response, local: true, method: "post" do |form| %>
 
-    <%= form.hidden_field :type, :value => @response.type%>
+    <%= form.hidden_field :type, :value => @response.type %>
 
-    <%= form.hidden_field :interaction_id, :value => @response.interaction_id %>
+    <% if @response.type == "Question" %>
+    <%= form.hidden_field :announcement_id, :value => @response.interaction_id %>
+    <% end %>
+
+    <% if @response.type == "completedAssignment" %>
+    <%= form.hidden_field :assignment_id, :value => @response.interaction_id %>
+    <% end %>
 
     <%= form.hidden_field :user_id, :value => @response.user_id %>
     

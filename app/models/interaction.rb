@@ -2,11 +2,11 @@ class Interaction < ApplicationRecord
   
   belongs_to :course
   belongs_to :user
-
-  has_many :responses
-  has_many :questions, through: :responses, source: :interaction
-  has_many :completed_assignments, through: :responses, source: :interaction
   
+  has_many :responses
+  has_many :questions, -> { where type: "Question" }, source: :response
+  has_many :completed_assignments, -> { where type: "Question" }, source: :response
+
   def responses_type
     type == "Announcement" ? "Questions" : "Completed Assignments"
   end

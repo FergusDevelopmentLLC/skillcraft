@@ -77,11 +77,14 @@ class ResponsesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def response_params
       if params[:question]
-        params.require(:question).permit(:interaction_id, :user_id, :type, :content)
+        p = params.require(:question).permit(:interaction_id, :announcement_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
+        p['interaction_id'] = p['announcement_id']
+        p.delete('announcement_id')
+        p
       elsif params[:completed_assignment]
-        params.require(:completed_assignment).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
+        params.require(:completed_assignment).permit(:interaction_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
       else
-        params.require(:response).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
+        params.require(:response).permit(:interaction_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
       end
     end
 end

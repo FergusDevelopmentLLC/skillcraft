@@ -1,21 +1,19 @@
 class Course < ApplicationRecord
   
-  has_many :courses_users
   # https://stackoverflow.com/questions/13749558/use-through-option-on-a-belongs-to-activerecord-association
   # https://gorails.com/forum/a-has_one-through-association-issue
   # https://stackoverflow.com/questions/4115554/rails-has-many-through-is-it-possible-to-have-a-conditions-in-the-through-tab
   # TODO: how can i make this has_one?
+  has_many :courses_users
   has_many :teachers, -> { where type: "Teacher" }, through: :courses_users, source: :user
   has_many :students, -> { where type: "Student" }, through: :courses_users, source: :user
   
   has_many :interactions
-  has_many :responses, through: :interactions
-  has_many :announcements, -> { where type: "Announcement" }, source: :interactions
-  has_many :assignments, -> { where type: "Assignment" }, source: :interactions
-
-  has_many :questions, -> { where type: "Question" }, through: :announcements, source: :responses
-  has_many :completed_assignments, -> { where type: "CompletedAssignment" }, through: :assignments, source: :responses
-  
+  has_many :announcements, -> { where type: "Announcement" }, source: :interaction
+  has_many :assignments, -> { where type: "Assignment" }, source: :interaction
+  has_many :questions, through: :announcements, source: :course
+  has_many :completed_assignments, through: :assignments, source: :course
+ 
   has_many :comments, dependent: :destroy
   has_many :commenting_users, through: :comments, source: :user
   accepts_nested_attributes_for :comments

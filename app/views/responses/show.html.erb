@@ -18,7 +18,6 @@
     </div>
 
     <% if @response.type != "Question" %>
-
     <div class="field">
       <label for="completed_date">Completed date</label>
       <div id="completed_date"><%= @response.created_at.strftime("%m/%d/%Y") %></div>
@@ -33,13 +32,14 @@
       <label for="letter_grade">Letter grade</label>
       <div id="letter_grade"><%= @response.letter_grade %></div>
     </div>
-
     <% end %>
-    
+    <% if logged_in? && (is_owner_of?(@response) || is_teacher_of?(@response.interaction.course)) %>
+    <!-- and (is_teacher_of?(@response.interaction.course) ||  -->
     <div class="actions">
-      <%= link_to 'Edit', edit_response_path(@response) %> | 
-      <%= link_to 'Destroy', response_path(@response), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Edit #{@response.friendly_name}", edit_response_path(@response) %> | 
+      <%= link_to "Delete #{@response.friendly_name}", response_path(@response), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+    <% end %>
 
   </main>
 </div>

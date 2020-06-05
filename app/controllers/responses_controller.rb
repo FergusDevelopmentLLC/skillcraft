@@ -20,26 +20,25 @@ class ResponsesController < ApplicationController
   def edit; end
 
   def new
-
     if params[:announcement_id]
       @response = Question.new
-      @response.interaction_id = params[:announcement_id] if params[:announcement_id]
+      @response.interaction_id = params[:announcement_id]
     elsif params[:assignment_id]
       @response = CompletedAssignment.new
-      @response.interaction_id = params[:assignment_id] if params[:assignment_id]
+      @response.interaction_id = params[:assignment_id]
     else
       @response = Response.new
-      @response.interaction_id = params[:interaction_id] if params[:interaction_id]
+      @response.interaction_id = params[:interaction_id]
     end
+    
     @response.user = current_user if logged_in?
-  
   end
 
   def create
     @response = Response.new(response_params)
     respond_to do |format|
       if @response.save
-        format.html { redirect_to response_path(@response), notice: "Creation successful" }
+        format.html { redirect_to @response, notice: "Creation successful" }
       else
         format.html { render :new }
       end
@@ -77,14 +76,11 @@ class ResponsesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def response_params
       if params[:question]
-        p = params.require(:question).permit(:interaction_id, :announcement_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
-        p['interaction_id'] = p['announcement_id']
-        p.delete('announcement_id')
-        p
+        params.require(:question).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
       elsif params[:completed_assignment]
-        params.require(:completed_assignment).permit(:interaction_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
+        params.require(:completed_assignment).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
       else
-        params.require(:response).permit(:interaction_id, :assignment_id, :user_id, :type, :title, :content, :score, :letter_grade)
+        params.require(:response).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)
       end
     end
 end

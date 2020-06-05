@@ -21,14 +21,8 @@
 
     <%= form.hidden_field :type, :value => @response.type %>
 
-    <% if @response.type == "Question" %>
-    <%= form.hidden_field :announcement_id, :value => @response.interaction_id %>
-    <% end %>
-
-    <% if @response.type == "completedAssignment" %>
-    <%= form.hidden_field :assignment_id, :value => @response.interaction_id %>
-    <% end %>
-
+    <%= form.hidden_field :interaction_id, :value => @response.interaction_id %>
+    
     <%= form.hidden_field :user_id, :value => @response.user_id %>
     
     <% if @response.type != "Question" %>
@@ -51,11 +45,11 @@
     <% if @response.type != "Question" %>
     <div class="field">
       <%= form.label :score %>
-      <%= form.number_field :score %>
+      <%= form.number_field :score, disabled: logged_in? %>
     </div>
     <div class="field">
       <%= form.label :letter_grade %>
-      <%= form.text_field :letter_grade %>
+      <%= form.text_field :letter_grade, disabled: logged_in? %>
     </div>
     <% end %>
     

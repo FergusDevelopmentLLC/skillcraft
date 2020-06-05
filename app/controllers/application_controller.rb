@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   helper_method :is_teacher?
   helper_method :is_teacher_of?
   helper_method :is_enrolled_in?
+  helper_method :is_owner_of?
+  
 
   private
 
@@ -43,6 +45,10 @@ class ApplicationController < ActionController::Base
 
   def is_enrolled_in?(course)
     @current_user && !course.students.empty? && course.students.include?(@current_user)
+  end
+
+  def is_owner_of?(response)
+    @current_user && response.user == current_user
   end
 
 end

@@ -35,19 +35,23 @@
     <% end %>
 
     <div class="field">
-      <%= form.label @response.type == "Question" ? :question : :content %>
-      <%= form.text_field :content %>
+      <% if @response.type == "Question" %>
+        <%= form.label :what_is_your_question? %>
+        <textarea cols="20" rows="30" id="question" name="question[content]"><%= @response.content %></textarea>
+      <% else %>
+        <%= form.label :content %>
+        <textarea cols="20" rows="30" id="completed_assignment" name="completed_assignment[content]"><%= @response.content %></textarea>
+      <% end %>
     </div>
     
     <% if @response.type != "Question" %>
     <div class="field">
       <%= form.label :score %>
-      <%= form.number_field :score %>
+      <%= form.number_field :score, disabled: logged_in? %>
     </div>
-
     <div class="field">
       <%= form.label :letter_grade %>
-      <%= form.text_field :letter_grade %>
+      <%= form.text_field :letter_grade, disabled: logged_in? %>
     </div>
     <% end %>
 

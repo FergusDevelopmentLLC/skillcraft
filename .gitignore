@@ -39,6 +39,8 @@ yarn-debug.log*
 /db/erd/temp/*
 
 *.env
+*.pdf
+*.dot
 
 secrets.yml
 
@@ -49,6 +51,3 @@ history_for_print.txt
 notes.txt
 
 /private/*
-
-*.pdf
-*.dot

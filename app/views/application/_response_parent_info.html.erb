@@ -2,10 +2,11 @@
   <h1><%= @response.type == "CompletedAssignment" ? "Complete Assignment": @response.type %></h1>
   <div>for the <strong><%= @response.interaction.type.downcase %></strong>: <%= link_to @response.interaction.title, announcement_path(@response.interaction) %></div>
   <div>as part of the <strong>course</strong>: <%= link_to @response.interaction.course.name, course_path(@response.interaction.course) %></div>
+  <div>taught by <strong>teacher</strong>: <%= link_to @response.interaction.course.teachers.first.user_name, teacher_path(@response.interaction.course.teachers.first) %></div>
   <% if @response.type != "Question" %>
   <div><strong><%= response.interaction.type %></strong> Instructions:</div>
   <div><em><%= response.interaction.instructions %></em></div>
   <% end %>
-  <div>by <strong><%= @response.user.type.downcase %>:</strong> <%= link_to @response.user.user_name, student_path(@response.user) %></div>
+  <div>submitted by <strong><%= @response.user.type.downcase %>:</strong> <%= link_to @response.user.user_name, student_path(@response.user) %></div>
 </div>
 

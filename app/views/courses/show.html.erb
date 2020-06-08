@@ -79,7 +79,8 @@
       <div id="assignments">
       <% if !@course.assignments.empty? %>
         <% @course.assignments.each do |assignment| %>
-          <div>Due date: <%= assignment.due_date.strftime("%m/%d/%Y") %> - <%= link_to assignment.title, assignment_path(assignment)%> - <%= pluralize(assignment.completed_assignments.count, "assignment") %> completed</div>
+          <!-- TODO: why can't I refer to assignment.completed_assignments here? -->
+          <div>Due date: <%= assignment.due_date.strftime("%m/%d/%Y") %> - <%= link_to assignment.title, assignment_path(assignment)%> - <%= pluralize(assignment.responses.count, "assignment") %> completed</div>
         <% end %>
       <% else %>
         <%= render :partial => "none" %>
@@ -139,12 +140,12 @@
       </div>
     <% end %>
     
-    <% if logged_in? and is_teacher_of?(@course) %>
+    <% if logged_in? && is_teacher_of?(@course) %>
     <div class="actions">
+      <%= link_to 'Edit course', edit_course_path(@course) %> | 
+      <%= link_to 'Delete course', @course, method: :delete, data: { confirm: 'Are you sure?' } %> |
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
-      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> | 
-      <%= link_to 'Edit', edit_course_path(@course) %> | 
-      <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %>
     </div>
     <% end %>
 

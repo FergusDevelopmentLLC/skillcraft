@@ -1,3 +1,3 @@
 class CompletedAssignment < Response
-  belongs_to :interaction
+  # belongs_to :assignment
 end

@@ -23,7 +23,9 @@
 
     <div class="field">
       <%= form.label :password %>
-      <%= form.text_field :password %>
+      <!-- TODO: is this right to pass nil for object, trying to get this: 
+           input size="20" type="password" name="password" id="password"> -->
+      <%= password_field(nil, :password, size: 20) %>
     </div>
 
     <div class="actions">

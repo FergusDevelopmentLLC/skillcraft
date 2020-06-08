@@ -11,8 +11,10 @@ class Course < ApplicationRecord
   has_many :interactions
   has_many :announcements, -> { where type: "Announcement" }, source: :interaction
   has_many :assignments, -> { where type: "Assignment" }, source: :interaction
-  has_many :questions, through: :announcements, source: :course
-  has_many :completed_assignments, through: :assignments, source: :course
+  
+  #TODO: this isn't working correctly, replace methods below
+  #has_many :questions, through: :announcements, source: :course
+  #has_many :completed_assignments, through: :assignments, source: :course
  
   has_many :comments, dependent: :destroy
   has_many :commenting_users, through: :comments, source: :user
@@ -39,6 +41,36 @@ class Course < ApplicationRecord
       comment.content = comment_attribute[:content]
       comments << comment
     end	  
+  end
+
+  def questions
+    ret_questions = []
+    announcements = interactions.find_all { |interaction| interaction.type == 'Announcement' }
+    unless announcements.empty?
+      announcements.each do |announcement|
+        next if announcement.responses.empty?
+        
+        announcement.responses.each do |response|
+          ret_questions << response if response.type == "Question"
+        end
+      end
+    end
+    ret_questions
+  end
+
+  def completed_assignments
+    ret = []
+    assignments = interactions.find_all { |interaction| interaction.type == 'Assignment' }
+    unless assignments.empty?
+      assignments.each do |assignment|
+        next if assignment.responses.empty?
+        
+        assignment.responses.each do |response|
+          ret << response if response.type == "CompletedAssignment"
+        end
+      end
+    end
+    ret
   end
   
 end

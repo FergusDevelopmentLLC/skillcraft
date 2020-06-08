@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/geodevadmin/programming/ruby/skillcraft/app/views/courses/show.html.erb:84 #<Class:0x0000564e176ae288>#_app_views_courses_show_html_erb__4388742528634553023_70208291093660:
+
+    [1;34m79[0m:       <div id="assignments">
+    [1;34m80[0m:       <% if !@course.assignments.empty? %>
+    [1;34m81[0m:         <% @course.assignments.each do |assignment| %>
+    [1;34m82[0m:           <div>Due date: 
+    [1;34m83[0m:             <%= 
+ => [1;34m84[0m:             binding.pry
+    [1;34m85[0m:             assignment.due_date.strftime("%m/%d/%Y") %> - <%= link_to assignment.title, assignment_path(assignment)%> - <%= pluralize(assignment.responses.count, "assignment") %> completed</div>
+    [1;34m86[0m:         <% end %>
+    [1;34m87[0m:       <% else %>
+    [1;34m88[0m:         <%= render :partial => "none" %>
+    [1;34m89[0m:       <% end %>
+

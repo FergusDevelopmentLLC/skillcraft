@@ -50,7 +50,7 @@
 
     <div class="field">
       <%= form.label :long_desc, "Long description" %>
-      <%= text_area(:course, :long_desc, cols: 20, rows: 40) %>
+      <%= text_area(:course, :long_desc, value: @course.long_desc, cols: 20, rows: 40) %>
     </div>
 
     <div class="field">
@@ -61,7 +61,7 @@
             <div>Posted date: <%=announcement.created_at.strftime("%m/%d/%Y") %> - <%= link_to announcement.title, announcement_path(announcement)%> - <%= pluralize(announcement.questions.count, "question") %> asked</div>
           <% end %>
         <% else %>
-          No announcements
+        <%= render :partial => "none" %>
         <% end %>
       </div>
     </div>
@@ -74,7 +74,7 @@
             <div>Due date: <%=assignment.due_date.strftime("%m/%d/%Y") %> - <%= link_to assignment.title, assignment_path(assignment)%> - <%= pluralize(assignment.completed_assignments.count, "assignment") %> completed</div>
           <% end %>
         <% else %>
-          No assignments
+        <%= render :partial => "none" %>
         <% end %>
       </div>
     </div>
@@ -87,7 +87,7 @@
             <div><%= link_to teacher.user_name, teacher_path(teacher)%> < <%= link_to "Withdraw", courses_user_path(@course,teacher) %></div>
           <% end %>
         <% else %>
-          No teachers
+        <%= render :partial => "none" %>
         <% end %>
       </div>
     </div>
@@ -100,7 +100,7 @@
             <div><%= link_to student.user_name, student_path(student)%> < <%= link_to "Withdraw", courses_user_path(@course,student) %></div>
           <% end %>
         <% else %>
-          No students
+        <%= render :partial => "none" %>
         <% end %>
       </div>
     </div>
@@ -134,18 +134,18 @@
       <%= render :partial => "none" %>
       <% end %>
     </div>
-
     <div class="actions">
       <%= form.submit %>
     </div>
-
     <% end %>
 
+    <% if logged_in? && is_teacher_of?(@course) %>
     <div class="actions">
-      <%= link_to 'Courses', courses_path %> | 
       <%= link_to 'Add Announcement', announcements_course_new_path(@course) %> | 
-      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %>
+      <%= link_to 'Add Assignment', assignments_course_new_path(@course) %> |
+      <%= link_to 'Delete course', @course, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+    <% end %>
 
   </main>
 </div>

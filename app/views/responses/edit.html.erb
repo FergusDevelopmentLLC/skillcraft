@@ -37,10 +37,10 @@
     <div class="field">
       <% if @response.type == "Question" %>
         <%= form.label :what_is_your_question? %>
-        <textarea cols="20" rows="30" id="question" name="question[content]"><%= @response.content %></textarea>
+        <%= text_area(:question, :content, value: @response.content, cols: 20, rows: 40) %>
       <% else %>
         <%= form.label :content %>
-        <textarea cols="20" rows="30" id="completed_assignment" name="completed_assignment[content]"><%= @response.content %></textarea>
+        <%= text_area(:completed_assignment, :content, value: @response.content, cols: 20, rows: 40) %>
       <% end %>
     </div>
     

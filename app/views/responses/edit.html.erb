@@ -47,11 +47,11 @@
     <% if @response.type != "Question" %>
     <div class="field">
       <%= form.label :score %>
-      <%= form.number_field :score, disabled: logged_in? %>
+      <%= form.number_field :score, disabled: !is_teacher_of?(@response.interaction.course) %>
     </div>
     <div class="field">
       <%= form.label :letter_grade %>
-      <%= form.text_field :letter_grade, disabled: logged_in? %>
+      <%= form.text_field :letter_grade, disabled: !is_teacher_of?(@response.interaction.course) %>
     </div>
     <% end %>
 

@@ -33,12 +33,19 @@
       <div id="letter_grade"><%= @response.letter_grade %></div>
     </div>
     <% end %>
-    <% if logged_in? && (is_owner_of?(@response) || is_teacher_of?(@response.interaction.course)) %>
     <div class="actions">
+    <% if logged_in? && is_owner_of?(@response) %>
       <%= link_to "Edit #{@response.friendly_name}", edit_response_path(@response) %> | 
       <%= link_to "Delete #{@response.friendly_name}", response_path(@response), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
     <% end %>
+    <% if is_teacher_of?(@response.interaction.course) %>
+      <% if @response.graded %>
+      <%= link_to "Re-grade #{@response.friendly_name}", edit_response_path(@response) %>
+      <% else %>
+      <%= link_to "Grade #{@response.friendly_name}", edit_response_path(@response) %>
+      <% end %>
+    <% end %>
+    </div>
 
   </main>
 </div>

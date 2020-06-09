@@ -40,15 +40,15 @@ class ApplicationController < ActionController::Base
   end
 
   def is_teacher_of?(course)
-    @current_user && !course.teachers.empty? && course.teachers.include?(@current_user)
+    current_user && !course.teachers.empty? && course.teachers.include?(current_user)
   end
 
   def is_enrolled_in?(course)
-    @current_user && !course.students.empty? && course.students.include?(@current_user)
+    current_user && !course.students.empty? && course.students.include?(current_user)
   end
 
   def is_owner_of?(response)
-    @current_user && response.user == current_user
+    current_user && response.user == current_user
   end
 
 end

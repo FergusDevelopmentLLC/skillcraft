@@ -5,4 +5,9 @@ class Response < ApplicationRecord
   def friendly_name
     type == "CompletedAssignment" ? "completed assignment" : type.downcase
   end
+
+  def graded
+    type == "CompletedAssignment" && (score || letter_grade)
+  end
+
 end

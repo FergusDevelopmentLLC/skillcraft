@@ -91,7 +91,7 @@
       <% end %>
       <% end %>
       
-      <% if is_teacher? || @user == current_user %>
+      <% if @user == current_user %>
       <div class="actions">
         <%= link_to "Edit #{@user.type.downcase}", edit_user_path %> | 
         <%= link_to "Delete #{@user.type.downcase}", @user, method: :delete, data: { confirm: 'Are you sure?' } %>

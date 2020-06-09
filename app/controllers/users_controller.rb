@@ -143,11 +143,11 @@ class UsersController < ApplicationController
 
   def edit
     respond_to do |format|
-      if logged_in? && is_teacher? || @user == current_user
+      if logged_in? && @user == current_user
         @user = @user.becomes(User)
         format.html { render :edit }
       else
-        format.html { redirect_to user_path(@user), notice: "Students cannot edit other users" }
+        format.html { redirect_to user_path(@user), notice: "Users cannot edit others" }
       end
     end
   end

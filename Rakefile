@@ -62,7 +62,6 @@ task :make_seeds do
     seedfile.write "Comment.create(#{comment.attributes})\n"
   end
 
-
   seedfile.close
 
   text = File.read('db/seeds_new.rb')
@@ -70,6 +69,7 @@ task :make_seeds do
   new_contents = text.gsub(/\"created_at\"=>/, '"created_at"=>"')
   new_contents = new_contents.gsub(/\"updated_at\"=>/, '"updated_at"=>"')
   new_contents = new_contents.gsub(/\"due_date\"=>/, '"due_date"=>"')
+  new_contents = new_contents.gsub(/\"due_date\"=>\"nil/, '"due_date"=>nil')
   new_contents = new_contents.gsub(/\"posted_date\"=>/, '"posted_date"=>"')
   new_contents = new_contents.gsub(/\+00:00,/, '+00:00",')
   new_contents = new_contents.gsub(/2000,/, '2000",')

@@ -50,6 +50,30 @@
       
       <% if @user.type == "Student" %>
       <div class="field">
+        <label for="courses_completed_assignments">Completed assignments</label>
+        <% if !@user.completed_assignments.empty? %>
+        <div id="courses_completed_assignments">
+          <% @user.completed_assignments.each do |completed_assignment| %>
+            <div><%= link_to completed_assignment.interaction.course.name, completed_assignment.interaction.course %> - <%= link_to completed_assignment.interaction.title, completed_assignment.interaction %> on <%= link_to completed_assignment.updated_at.strftime("%m/%d/%Y"), completed_assignment %><%= completed_assignment.graded ? ' - graded' : ' - ungraded' %></div>
+          <% end %>
+        </div>
+        <% else %>
+        <%= render :partial => "none" %>
+        <% end %>
+      </div>
+      <div class="field">
+        <label for="courses_questions_asked">Questions</label>
+        <% if !@user.questions.empty? %>
+        <div id="courses_questions_asked">
+          <% @user.questions.each do |question| %>
+            <div><%= link_to question.interaction.course.name, question.interaction.course %> - <%= link_to question.content, question %> on <%= link_to question.updated_at.strftime("%m/%d/%Y"), question %></div>
+          <% end %>
+        </div>
+        <% else %>
+        <%= render :partial => "none" %>
+        <% end %>
+      </div>
+      <div class="field">
         <label for="courses_commented_on">Courses commented on</label>
         <% if !@user.courses_commented_on.empty? %>
         <div id="courses_commented_on">

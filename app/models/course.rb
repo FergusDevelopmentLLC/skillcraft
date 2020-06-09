@@ -4,11 +4,11 @@ class Course < ApplicationRecord
   # https://gorails.com/forum/a-has_one-through-association-issue
   # https://stackoverflow.com/questions/4115554/rails-has-many-through-is-it-possible-to-have-a-conditions-in-the-through-tab
   # TODO: how can i make this has_one?
-  has_many :courses_users
+  has_many :courses_users, dependent: :destroy
   has_many :teachers, -> { where type: "Teacher" }, through: :courses_users, source: :user
   has_many :students, -> { where type: "Student" }, through: :courses_users, source: :user
   
-  has_many :interactions
+  has_many :interactions, dependent: :destroy
   has_many :announcements, -> { where type: "Announcement" }, source: :interaction
   has_many :assignments, -> { where type: "Assignment" }, source: :interaction
   

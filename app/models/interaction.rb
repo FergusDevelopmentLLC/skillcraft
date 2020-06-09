@@ -2,8 +2,7 @@ class Interaction < ApplicationRecord
   
   belongs_to :course
   belongs_to :user
-  
-  has_many :responses
+  has_many :responses, dependent: :destroy
   has_many :questions, -> { where type: "Question" }, source: :response
   has_many :completed_assignments, -> { where type: "Question" }, source: :response
 

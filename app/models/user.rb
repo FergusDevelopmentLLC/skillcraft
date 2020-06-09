@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :courses
 
   has_many :responses, dependent: :destroy
+  has_many :completed_assignments, -> { where type: "CompletedAssignment" }, source: :response
+  has_many :questions, -> { where type: "Question" }, source: :response
+
   has_many :interactions, dependent: :destroy
   
   has_many :comments, dependent: :destroy

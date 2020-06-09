@@ -17,8 +17,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :email, presence: false, allow_nil: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates :type, inclusion: { in: ["Student", "Teacher"], message: "must be teacher or student" }
 
   def self.teacher_student
@@ -42,7 +41,7 @@ class User < ApplicationRecord
       user.user_name = auth_params['info']['nickname'] || ""
       user.first_name = (auth_params['info']['name'] || "").split(" ").first
       user.last_name = (auth_params['info']['name'] || "").split(" ").second
-      user.email = auth_params['info']['email'] || ""
+      user.email = auth_params['info']['email'] || nil
     end
 
     user.provider = auth_params['provider']
@@ -51,8 +50,8 @@ class User < ApplicationRecord
     user.avatar = Avatar.unused_avatar
     user.password_digest = SecureRandom.urlsafe_base64
     
+    # TODO: this doesn't seem very safe
     user.save
-    
     user
   end
 end

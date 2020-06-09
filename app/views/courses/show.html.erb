@@ -66,7 +66,7 @@
       <div id="announcements">
       <% if !@course.announcements.empty? %>
         <% @course.announcements.each do |announcement| %>
-          <div>Posted date: <%= announcement.due_date.strftime("%m/%d/%Y") %> - <%= link_to announcement.title, announcement_path(announcement) %> - <%= pluralize(announcement.questions.count, "question") %> asked</div>
+          <div>Posted date: <%= announcement.created_at.strftime("%m/%d/%Y") %> - <%= link_to announcement.title, announcement_path(announcement) %> - <%= pluralize(announcement.questions.count, "question") %> asked</div>
         <% end %>
       <% else %>
         <%= render :partial => "none" %>

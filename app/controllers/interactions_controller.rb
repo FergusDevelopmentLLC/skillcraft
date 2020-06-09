@@ -12,7 +12,6 @@ class InteractionsController < ApplicationController
   end
 
   def new
-
     @interaction = if title_by_path == "Announcements"
                      Announcement.new
                    elsif title_by_path == "Assignments"
@@ -20,8 +19,8 @@ class InteractionsController < ApplicationController
                    else
                      Interaction.new
                    end
-
     @interaction.course_id = params[:course_id] if params[:course_id]
+    
     @interaction.user = current_user if logged_in?
 
   end
@@ -54,13 +53,7 @@ class InteractionsController < ApplicationController
   def destroy
     respond_to do |format|
       if @interaction.destroy
-        if @interaction.type == "Assignment"
-          format.html { redirect_to assignments_url, notice: 'Deletion successful' }
-        elsif @interaction.type == "Announcement"
-          format.html { redirect_to announcements_url, notice: 'Deletion successful' }
-        else
-          format.html { redirect_to interactions_url, notice: 'Deletion successful' }
-        end
+        format.html { redirect_to @interaction.course, notice: 'Deletion successful' }
       else
         format.html { redirect_to @interaction.course, notice: 'Error on deletion' }
       end

@@ -1,10 +1,11 @@
 # rubocop:disable ClassLength
+# rubocop:disable MethodLength
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :randomize_avatar]	
   
   def new
-    @users = User.teacher_student
     @user = User.new
+    @select_users = User.teacher_student
   end
 
   def show
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def signin
-    @users = User.teacher_student
+    @select_users = User.teacher_student
   end
 
   def index
@@ -59,28 +60,35 @@ class UsersController < ApplicationController
   end
     
   def create
-
+    
     @user = User.new(user_params)
-
+    
     @user.avatar = Avatar.unused_avatar
     
-    match = Course.find_by(:code => params[:user][:code])
-
-    if match
-      @user.courses << match
+    match = nil
+    
+    unless params[:code].blank?
+      match = Course.find_by(:code => params[:code]) #TODO: is this unprotected?
+      if match
+        @user.courses << match unless @user.courses.include?(match)
+      else
+        @user.validate
+        @user.errors.add(:course, 'code incorrect')
+      end
     end
 
     respond_to do |format|
-      
-      if @user.save
-        
+      if @user.errors.count.zero? && @user.save
         if(@user.type == "Student")
           format.html { redirect_to student_path(@user), notice: "#{@user.type} was successfully created" }
         else
           format.html { redirect_to teacher_path(@user), notice: "#{@user.type} was successfully created" }
         end
       else
-        @users = User.teacher_student
+        #if they entered a course code, repopulate form
+        @user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
+        @course_code = match.code if match
+        @select_users = User.teacher_student
         format.html { render :new }
       end
     end
@@ -88,27 +96,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    
-    @user.errors.clear
-
-    matched_course = nil
-
-    if @user.type == "Student" && params[:student][:code].blank? == false
-      matched_course = Course.find_by(code: params[:student][:code])
-    elsif params[:teacher] && params[:teacher][:code].blank? == false
-      matched_course = Course.find_by(code: params[:teacher][:code])
+    @user.attributes = user_params
+    unless params[:code].blank?
+      match = Course.find_by(:code => params[:code]) #TODO: is this unprotected?
+      if match
+        @user.courses << match unless @user.courses.include?(match)
+      else
+        @user.validate
+        @user.errors.add(:course, 'code incorrect')
+      end
     end
-    
-    if matched_course
-      @user.courses << matched_course unless @user.courses.map(&:code).include?(matched_course.code)
-    elsif (params[:student] && params[:student][:code].blank? == false) || (params[:teacher] && params[:teacher][:code].blank? == false)
-      @user.errors.add(:course, 'code incorrect')
-    end
-
     respond_to do |format|
-      if @user.errors.count.zero? && @user.update(user_params)
+      if @user.errors.count.zero? && @user.save
         format.html { redirect_to @user, notice: "#{@user.user_name} was successfully updated" }
       else
+        @course_code = match.code if match
         format.html { render :edit }
       end
     end
@@ -135,13 +137,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-      respond_to do |format|
-        if logged_in? && is_teacher? || @user == current_user
-          format.html { render :edit }
-        else
-          format.html { redirect_to user_path(@user), notice: "Students cannot edit other users" }
-        end
+    respond_to do |format|
+      if logged_in? && is_teacher? || @user == current_user
+        @user = @user.becomes(User)
+        format.html { render :edit }
+      else
+        format.html { redirect_to user_path(@user), notice: "Students cannot edit other users" }
       end
+    end
   end
 
   def destroy
@@ -163,13 +166,11 @@ class UsersController < ApplicationController
         
     # Only allow a list of trusted parameters through.
     def user_params
-      if @user
-        if @user.type == "Student"
-          params.require(:student).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
-        else
-          params.require(:teacher).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
-        end
-      else
+      if params[:teacher]
+        params.require(:teacher).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
+      elsif params[:student]
+        params.require(:student).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)          
+      elsif params[:user]
         params.require(:user).permit(:user_name, :id, :password, :first_name, :last_name, :email, :type)
       end
     end

@@ -14,8 +14,9 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: false, uniqueness: true
-  validates :type, inclusion: { in: ["Student", "Teacher"], message: "must be Teacher or Student" }
+  validates :email, presence: true, uniqueness: true
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :type, inclusion: { in: ["Student", "Teacher"], message: "must be teacher or student" }
 
   def self.teacher_student
     @users = []

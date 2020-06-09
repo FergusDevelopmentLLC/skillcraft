@@ -25,7 +25,7 @@
 
     <div class="field">
       <%= form.label :password %>
-      <%= form.text_field :password %>
+      <%= password_field(:user, :password, size: 20) %>
     </div>
 
     <div class="field">
@@ -44,13 +44,17 @@
     </div>
 
     <div class="field">
-      <label for="email">Join Course (enter code)</label>
-      <%= form.text_field :code %>
+      <label for="email">Join course (enter code)</label>
+      <% if @course_code %>
+      <%= text_field(nil, :code, value: @course_code) %>
+      <% else %>
+      <%= text_field(nil, :code) %>
+      <% end %>
     </div>
 
     <div class="field">
       <label for="user_type">I am a</label>
-      <%= collection_select(:user, :type, @users, :type, :type, include_blank: '-Please select-')%>
+      <%= collection_select(:user, :type, @select_users, :type, :type, include_blank: '-Please select-')%>
     </div>
 
     <div class="actions">

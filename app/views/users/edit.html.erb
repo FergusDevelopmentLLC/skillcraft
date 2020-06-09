@@ -64,9 +64,11 @@
 
     <div class="field">
       <label for='code'><%= @user.type == 'Student' ? 'Enroll in' : 'Teach' %> course (enter course code)</label>
-      <div id='code'>
-        <%= form.text_field :code %>
-      </div>
+      <% if @course_code %>
+      <%= text_field(nil, :code, value: @course_code) %>
+      <% else %>
+      <%= text_field(nil, :code) %>
+      <% end %>
     </div>
 
     <div class="actions">

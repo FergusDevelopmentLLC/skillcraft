@@ -32,6 +32,7 @@
     </div>
     <% end %>
 
+    <% if logged_in? && is_teacher_of?(@interaction.course) %>
     <div class="field">
       <label for="<%= @interaction.responses_type %>"><%= @interaction.responses_type %></label>
       <% if !@interaction.responses.empty? %>
@@ -44,14 +45,16 @@
       <%= render :partial => "none" %>
       <% end %>
     </div>
+    <% end %>
+
     <% if logged_in? %>
     <div class="actions">
-
       <% if is_teacher_of?(@interaction.course) %>
         <%= link_to "Edit #{@interaction.type.downcase}", edit_interaction_path(@interaction) %> | <%= link_to "Delete #{@interaction.type.downcase}" , interaction_path(@interaction), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
 
-      <% if is_enrolled_in?(@interaction.course) %>
+      <!-- TODO: simplify this -->
+      <% if is_enrolled_in?(@interaction.course) && !CompletedAssignment.all.find_by(interaction: @interaction, user: current_user) %>
         <%= link_to @interaction.type == 'Announcement' ? "Ask question" : "Complete assignment", @interaction.type == 'Announcement' ? questions_announcement_new_path(@interaction) : completed_assignments_assignment_new_path(@interaction) %>
       <% end %>
 

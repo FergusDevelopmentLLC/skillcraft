@@ -52,14 +52,17 @@ class InteractionsController < ApplicationController
   end
 
   def destroy
-    @interaction.destroy
     respond_to do |format|
-      if @interaction.type == "Assignment"
-      format.html { redirect_to assignments_url, notice: 'Deletion successful' }
-      elsif @interaction.type == "Announcement"
-      format.html { redirect_to announcements_url, notice: 'Deletion successful' }
+      if @interaction.destroy
+        if @interaction.type == "Assignment"
+          format.html { redirect_to assignments_url, notice: 'Deletion successful' }
+        elsif @interaction.type == "Announcement"
+          format.html { redirect_to announcements_url, notice: 'Deletion successful' }
+        else
+          format.html { redirect_to interactions_url, notice: 'Deletion successful' }
+        end
       else
-      format.html { redirect_to interactions_url, notice: 'Deletion successful' }
+        format.html { redirect_to @interaction.course, notice: 'Error on deletion' }
       end
     end
   end
@@ -71,7 +74,13 @@ class InteractionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def interaction_params
-      params.require(:interaction).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
+      if params[:announcement]
+        params.require(:announcement).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
+      elsif params[:assignment]
+        params.require(:assignment).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
+      else
+        params.require(:interaction).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
+      end
     end
 
     def title_by_path

@@ -30,7 +30,6 @@ class ResponsesController < ApplicationController
       @response = Response.new
       @response.interaction_id = params[:interaction_id]
     end
-    
     @response.user = current_user if logged_in?
   end
 
@@ -56,14 +55,11 @@ class ResponsesController < ApplicationController
   end
 
   def destroy
-    @response.destroy
     respond_to do |format|
-      if @response.type == "Question"
-      format.html { redirect_to questions_url, notice: 'Deletion successful' }
-      elsif @response.type == "CompletedAssignment"
-      format.html { redirect_to completed_assignments_url, notice: 'Deletion successful' }
+      if @response.destroy
+        format.html { redirect_to @response.interaction.course, notice: 'Deletion successful' }
       else
-      format.html { redirect_to responses_url, notice: 'Deletion successful' }
+        format.html { redirect_to @response.interaction.course, notice: 'Error on deletion' }
       end
     end
   end

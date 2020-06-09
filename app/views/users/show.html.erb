@@ -33,8 +33,7 @@
         <label for="email">Email</label>
         <div id="email"><%= mail_to @user.email, @user.email %></div>
       </div>
-      <% end %>
-
+      
       <div class="field">
         <label for="courses"><%= @user.type == "Student" ? "Courses enrolled" : "Courses taught" %></label>
         <% if !@user.courses.empty? %>
@@ -90,7 +89,8 @@
         <% end %>
       </div>
       <% end %>
-
+      <% end %>
+      
       <% if is_teacher? || @user == current_user %>
       <div class="actions">
         <%= link_to "Edit #{@user.type.downcase}", edit_user_path %> | 

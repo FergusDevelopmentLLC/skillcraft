@@ -38,7 +38,14 @@
             <li><label>Assignments</label> <%= course.assignments.count %></li>
             <li><label>Completed Assignments</label> <%= course.completed_assignments.count %></li>
             <li><label>Teacher count</label> <%= course.teachers.count %></li>
-            <li><label>Students enrolled</label> <%= course.students.count %></li>
+            <li>
+              <label>Students enrolled</label>
+              <% if !course.students.empty? %>
+                <%= link_to course.students.count, students_for_course_path(course) %>
+              <% else %>
+                <%= course.students.count %>
+              <% end %>
+            </li>
             <li class="course-listing-code">Code: <%= course.code %></li>
           </ul>
         </div>

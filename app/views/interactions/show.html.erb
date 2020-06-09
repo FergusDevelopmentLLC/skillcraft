@@ -32,14 +32,21 @@
     </div>
     <% end %>
 
-    <% if logged_in? && is_teacher_of?(@interaction.course) %>
+    <% if logged_in? && (is_teacher_of?(@interaction.course) || is_enrolled_in?(@interaction.course)) %>
     <div class="field">
       <label for="<%= @interaction.responses_type %>"><%= @interaction.responses_type %></label>
       <% if !@interaction.responses.empty? %>
       <div id="<%= @interaction.responses_type %>">
         <% @interaction.responses.each do |response| %>
           <div>
-            <%= response.content + " - " if response.type == "Question" %><%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %><% if response.type == "CompletedAssignment" && (response.score || response.letter_grade) %> - graded<% else %> - ungraded<% end %>
+            <%= response.content + " - " if response.type == "Question" %><%= link_to response.user.user_name, user_path(response.user) %> on <%= link_to response.created_at.strftime("%m/%d/%Y"), response_path(response) %>
+            <% if response.type == "CompletedAssignment" %>
+              <% if response.score || response.letter_grade %>
+                - graded
+              <% else %>
+                - ungraded
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -51,6 +58,7 @@
 
     <% if logged_in? %>
     <div class="actions">
+      
       <% if is_teacher_of?(@interaction.course) %>
         <%= link_to "Edit #{@interaction.type.downcase}", edit_interaction_path(@interaction) %> | <%= link_to "Delete #{@interaction.type.downcase}" , interaction_path(@interaction), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
@@ -58,13 +66,12 @@
       <!-- TODO: simplify this -->
       <% if is_enrolled_in?(@interaction.course) %>
         <% if @interaction.type == 'Announcement' %>
-          <% link_to "Ask question", questions_announcement_new_path(@interaction) %>
+          <%= link_to "Ask question", questions_announcement_new_path(@interaction) %>
         <% elsif @interaction.type == 'Assignment' %>
           <% assignment_completed = CompletedAssignment.all.find_by(interaction: @interaction, user: current_user) %>
-          <% if assignment_completed %>
-          <%= link_to "Edit your completed assignment", edit_response_path(assignment_completed) %>
-          <% else %>
-          <%= link_to "Complete assignment", completed_assignments_assignment_new_path(@interaction) %>
+          <% if assignment_completed && !assignment_completed.graded %>
+            <%= link_to "Edit your completed assignment", edit_response_path(assignment_completed) %>
+            <%= link_to "Complete assignment", completed_assignments_assignment_new_path(@interaction) %>
           <% end %>
         <% end %>
       <% end %>

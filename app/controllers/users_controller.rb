@@ -17,11 +17,15 @@ class UsersController < ApplicationController
   end
 
   def index
+    
     @users ||= if request.path == "/students"
-                 Student.all
+                @courses_title = "Courses enrolled"
+                Student.all
                else
-                  Teacher.all
+                @courses_title = "Courses taught"  
+                Teacher.all
                end
+          
   end
     
   def render_index
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
   def students_for_course
     @course = Course.find_by(:id => params[:course_id])
     @users = @course.students
+    @courses_title = "Courses enrolled"
     render_index
   end
 

@@ -15,7 +15,13 @@ class ResponsesController < ApplicationController
                  end
   end
 
-  def show; end
+  def show
+    if @response.type == "CompletedAssignment" && @response.user != current_user
+      respond_to do |format|
+        format.html { redirect_to @response.interaction.course, notice: "Viewing other students work is not permited." } 
+      end
+    end
+  end
 
   def edit; end
 

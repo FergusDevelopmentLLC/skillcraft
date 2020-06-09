@@ -1,8 +1,7 @@
 <div class="full">
   <main class="main">
     <p id="notice"><%= notice %></p>
-    <% if !@users.empty? %>
-
+    
     <% if @course %>
     <div class="parent_info">
       <h1>Students</h1>
@@ -13,47 +12,70 @@
       <h1><%= @users.first.type.pluralize(@users.count) %></h1>
     </div>
     <% end %>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Avatar</th>
-          <th>User name</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <% if logged_in? %>
-          <th>Email</th>
-          <% end %>
-          <th><%= @users.first.type == "Student" ? "Courses enrolled" : "Courses taught" %></th>
-        </tr>
-      </thead>
-      <tbody>
+
+    <div class='course-listing-wrapper'>
+      <% if !@users.empty? %>
         <% @users.each do |user| %>
-        <tr>
-          <td><div class='avatar-container-sm'><%= link_to cl_image_tag(user.avatar.url), user %></div></td>
-          <td><%= link_to user.user_name, user %></td>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <% if logged_in? %>
-          <td><%= user.email %></td>
-          <% end %>
-          <td>
-          <% if !user.courses.empty? %>
-            <% if user.type == "Student" %>
-              <%= link_to user.courses.count, courses_for_student_path(user) %>
-            <% else %>
-              <%= link_to user.courses.count, courses_for_teacher_path(user) %>
-            <% end %>
-          <% else %>
-            <%= user.courses.count %>
-          <% end %>
-        </td>
-        </tr>
+        <div class="course-listing-item">
+
+          <div class="field">
+            <div class='subject-wrapper'>
+              <div class='subject-wrapper-sm'>
+                <%= link_to cl_image_tag(user.avatar.url), user %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div id="name" class="course-listing-name"><%= link_to user.user_name, user %></div>
+          </div>
+
+          <div class="field">
+            <div class="course-listing-desc"><em><%= user.first_name %> <%= user.last_name %></em></div>
+          </div>
+
+          <div class="course-listing-item-details">
+            <ul>
+
+              <!-- TODO: what is the best way? -->
+              <!-- <% if user.type == "Student" %>
+                <label>Courses enrolled</label>
+              <% else %>
+                <label>Courses taught</label>
+              <% end %>
+              <% if !user.courses.empty? %>
+                <% if user.type == "Student" %>
+                  <%= link_to user.courses.count, courses_for_student_path(user) %>
+                <% else %>
+                  <%= link_to user.courses.count, courses_for_teacher_path(user) %>
+                <% end %>
+              <% else %>
+                <%= user.courses.count %>
+              <% end %> -->
+              
+              <li>
+                <label><%= @courses_title %></label>
+                <% if !user.courses.empty? %>
+                <a href="/<%= user.type.downcase.pluralize(user.courses.count) %>/<%= user.id %>/courses"><%= user.courses.count %></a>
+                <% else %>
+                  <%= user.courses.count %>
+                <% end %>
+              </li>
+
+              <% if logged_in? && !user.email.blank? %>
+              <li>
+                <label>Email</label>
+                <%= mail_to user.email, user.email %>
+              <li>
+
+                <% end %>
+            </ul>
+          </div>
+        </div>
         <% end %>
-      </tbody>
-    </table>
-    <% else %>
-    <%= render :partial => "none" %>
-    <% end %>
+      <% else %>
+        <%= render :partial => "none" %>
+      <% end %>
+    </div>
   </main>
 </div>

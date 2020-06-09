@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'cloudinary'
 gem 'jbuilder', '~> 2.7'
+gem 'websocket-extensions', '>= 0.1.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

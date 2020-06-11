@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   helper_method :is_enrolled_in?
   helper_method :is_owner_of?
   
-
   private
 
   def logged_in?
@@ -20,19 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_student?
-    if @current_user && @current_user.type == "Student"
-      true
-    else
-      false
-    end
+    @current_user && @current_user.type == "Student"
   end
 
   def is_teacher?
-    if @current_user && @current_user.type == "Teacher"
-      true
-    else
-      false
-    end
+    @current_user && @current_user.type == "Teacher"
   end
     
   def current_user

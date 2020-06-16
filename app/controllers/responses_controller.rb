@@ -26,6 +26,7 @@ class ResponsesController < ApplicationController
   def edit; end
 
   def new
+    #TODO: Could we just deal with an interaction here?
     if params[:announcement_id]
       @response = Question.new
       @response.interaction_id = params[:announcement_id]
@@ -75,7 +76,7 @@ class ResponsesController < ApplicationController
       @response = Response.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # could we just deal with a response here?
     def response_params
       if params[:question]
         params.require(:question).permit(:interaction_id, :user_id, :type, :title, :content, :score, :letter_grade)

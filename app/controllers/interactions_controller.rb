@@ -7,8 +7,8 @@ class InteractionsController < ApplicationController
   end
 
   def show
-    #TODO: better to formulate this here instead of the view?
-    #@children_label = @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless @interaction.responses.empty?
+    # TODO: is it better to formulate this here instead of the view?
+    # @children_label = @interaction.responses.first.type.pluralize.split(/(?=[A-Z])/).join(' ') unless @interaction.responses.empty?
   end
 
   def new
@@ -20,9 +20,8 @@ class InteractionsController < ApplicationController
                      Interaction.new
                    end
     @interaction.course_id = params[:course_id] if params[:course_id]
-    
-    @interaction.user = current_user if logged_in?
 
+    @interaction.user = current_user if logged_in?
   end
 
   def edit; end
@@ -37,7 +36,6 @@ class InteractionsController < ApplicationController
         format.html { render :new }
       end
     end
-
   end
 
   def update
@@ -66,6 +64,7 @@ class InteractionsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # TODO: can you make this only deal with an interaction?
     def interaction_params
       if params[:announcement]
         params.require(:announcement).permit(:course_id, :user_id, :type, :title, :due_date, :graded, :points, :instructions)
@@ -76,6 +75,7 @@ class InteractionsController < ApplicationController
       end
     end
 
+    # TODO: clunky? in the correct spot?
     def title_by_path
       if request.path.include?("announcements")
         "Announcements"
@@ -85,7 +85,8 @@ class InteractionsController < ApplicationController
        "Interactions"
       end
     end
-  
+
+    # TODO: clunky? in the correct spot?
     def interactions_by_path
       if title_by_path == "Announcements"
         Announcement.all
@@ -95,5 +96,4 @@ class InteractionsController < ApplicationController
         Interaction.all
       end
     end
-    
 end

@@ -1,5 +1,4 @@
 # rubocop:disable ClassLength
-# rubocop:disable MethodLength
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :randomize_avatar]	
   
@@ -40,7 +39,7 @@ class UsersController < ApplicationController
     @courses_title = "Courses enrolled"
     render_index
   end
-
+  
   def post_signin
     @user = User.find_by(:user_name => params[:user_name])
 
@@ -63,15 +62,10 @@ class UsersController < ApplicationController
         end
     end
   end
-    
+  
   def create
-    
     @user = User.new(user_params)
-    
     @user.avatar = Avatar.unused_avatar
-    
-    match = nil
-    
     unless params[:code].blank?
       match = Course.find_by(:code => params[:code]) #TODO: is this unprotected?
       if match
@@ -81,25 +75,29 @@ class UsersController < ApplicationController
         @user.errors.add(:course, 'code incorrect')
       end
     end
-
-    respond_to do |format|
-      if @user.errors.count.zero? && @user.save
-        if(@user.type == "Student")
-          format.html { redirect_to student_path(@user), notice: "#{@user.type} was successfully created" }
-        else
-          format.html { redirect_to teacher_path(@user), notice: "#{@user.type} was successfully created" }
-        end
-      else
-        #if they entered a course code, repopulate form
-        @user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
-        @course_code = match.code if match
-        @select_users = User.teacher_student
-        format.html { render :new }
-      end
+    if @user.errors.count.zero? && @user.save
+      path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
+      redirect_to(redirect_to path, notice: "#{@user.type} was successfully created")
+    else #if they entered a course code, repopulate form
+      #@user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
+      @course_code = match.code if match
+      @select_users = User.teacher_student
+      render :index
     end
-
   end
 
+  # respond_to do |format|
+  #   if @user.errors.count.zero? && @user.save
+  #     path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
+  #     format.html { redirect_to path, notice: "#{@user.type} was successfully created" }
+  #   else #if they entered a course code, repopulate form
+  #     @user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
+  #     @course_code = match.code if match
+  #     @select_users = User.teacher_student
+  #     format.html { render :new }
+  #   end
+  # end
+  
   def update
     @user.attributes = user_params
     unless params[:code].blank?

@@ -25,6 +25,7 @@ class SessionsTwitterController < ApplicationController
     
   end
 
+  #TODO: how is this used? in correct spot?
   def destroy
     reset_session
     redirect_to root_url, notice: 'Signed out!'

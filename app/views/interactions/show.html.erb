@@ -72,6 +72,8 @@
           <% if assignment_completed && !assignment_completed.graded %>
             <%= link_to "Edit your completed assignment", edit_response_path(assignment_completed) %>
             <%= link_to "Complete assignment", completed_assignments_assignment_new_path(@interaction) %>
+          <% elsif assignment_completed && assignment_completed.graded %>
+            <%= link_to "Completed assignment", response_path(assignment_completed) %>
           <% else %>
             <%= link_to "Complete assignment", completed_assignments_assignment_new_path(@interaction) %>
           <% end %>

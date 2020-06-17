@@ -42,7 +42,7 @@ yarn-debug.log*
 *.pdf
 *.dot
 
-secrets.yml
+# secrets.yml
 
 /db/old_seeds/*
 

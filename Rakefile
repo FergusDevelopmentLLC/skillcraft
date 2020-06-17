@@ -9,7 +9,6 @@ task :gen do
   #system "killall -9 ruby"
   #system "killall -9 rails"
   
-  File.delete('./db/development.sqlite3') if File.exist?('./db/development.sqlite3')
   File.delete('./db/schema.rb') if File.exist?('./db/schema.rb')
   system "rails db:migrate"
   system "EAGER_LOAD=1 bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content"

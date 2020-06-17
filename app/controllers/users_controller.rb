@@ -77,7 +77,7 @@ class UsersController < ApplicationController
     end
     if @user.errors.count.zero? && @user.save
       path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
-      redirect_to(redirect_to path, notice: "#{@user.type} was successfully created")
+      redirect_to path, notice: "#{@user.type} was successfully created"
     else #if they entered a course code, repopulate form
       #@user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
       @course_code = match.code if match

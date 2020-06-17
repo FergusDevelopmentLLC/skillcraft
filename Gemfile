@@ -19,7 +19,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'websocket-extensions', '>= 0.1.5'
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
 end

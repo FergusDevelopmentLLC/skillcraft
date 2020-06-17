@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_05_22_175753) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "avatars", force: :cascade do |t|
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "course_id"
+    t.bigint "user_id"
+    t.bigint "course_id"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
   end
 
   create_table "courses_users", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "user_id"
+    t.bigint "course_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_courses_users_on_course_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
   end
 
   create_table "interactions", force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
     t.string "type"
     t.string "title"
     t.date "due_date"
@@ -65,8 +68,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.integer "interaction_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "interaction_id", null: false
+    t.bigint "user_id", null: false
     t.string "title"
     t.string "type"
     t.string "content"
@@ -82,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_175753) do
     t.string "provider"
     t.string "uid"
     t.string "user_name"
-    t.integer "avatar_id"
+    t.bigint "avatar_id"
     t.string "type"
     t.string "password_digest"
     t.string "first_name"

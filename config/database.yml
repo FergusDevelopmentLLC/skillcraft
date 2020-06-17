@@ -1,25 +1,25 @@
-default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
-  <<: *default
-  database: db/development.sqlite3
-
-test:
-  <<: *default
-  database: db/test.sqlite3
+# default: &default
+#   adapter: sqlite3
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
 
 # development:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: skillcraft
-#   pool: 2
-#   username: geodevdb
-#   password: admin123
-#   host: localhost
-#   port: 5432
+#   <<: *default
+#   database: db/development.sqlite3
+
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: skillcraft
+  pool: 2
+  username: geodevdb
+  password: admin123
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql

@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 0.11'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
@@ -20,6 +19,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'websocket-extensions', '>= 0.1.5'
 
 group :development, :test do
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
 end

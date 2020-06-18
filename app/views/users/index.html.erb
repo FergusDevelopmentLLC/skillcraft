@@ -56,7 +56,7 @@
               <li>
                 <label><%= @courses_title %></label>
                 <% if !user.courses.empty? %>
-                <a href="/<%= user.type.downcase.pluralize(user.courses.count) %>/<%= user.id %>/courses"><%= user.courses.count %></a>
+                <a href="/<%= user.type.downcase.pluralize %>/<%= user.id %>/courses"><%= user.courses.count %></a>
                 <% else %>
                   <%= user.courses.count %>
                 <% end %>

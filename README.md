@@ -4,7 +4,7 @@ SkillCraft is a demonstration Ruby/Rails online classroom manager. Google Classr
 
 ## Installation
 
-You must have a local Postgres development database server running. 
+You must have a local [Postgres](https://www.postgresql.org/) development database server running. 
 
 Create an empty database on your server called 'skillcraft'.
 

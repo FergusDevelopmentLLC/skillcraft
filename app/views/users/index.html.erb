@@ -38,7 +38,11 @@
             <ul>
 
               <!-- TODO: what is the best way? -->
-              <!-- <% if user.type == "Student" %>
+              
+              <!-- 1. This is the most simple. All these "ifs" though. ugh. -->
+              
+              <!-- 
+              <% if user.type == "Student" %>
                 <label>Courses enrolled</label>
               <% else %>
                 <label>Courses taught</label>
@@ -51,8 +55,14 @@
                 <% end %>
               <% else %>
                 <%= user.courses.count %>
-              <% end %> -->
+              <% end %>
+              -->
               
+              <!-- 2. Attempting to get to the least amount of lines.
+                      Not using helper to write the link, not good. 
+                      Relies on @courses_title being passed
+                      -->
+              <!-- 
               <li>
                 <label><%= @courses_title %></label>
                 <% if !user.courses.empty? %>
@@ -61,6 +71,14 @@
                   <%= user.courses.count %>
                 <% end %>
               </li>
+              -->
+
+              <!-- 3. Use a partial with locals -->
+              <!--  Looks nicer here in the view, but /views/application/_associated_courses.html.erb still iffy.
+                    This doesn't lessen the number of lines of code
+                    Is use of locals unnecessarily complex?
+                    -->
+              <%= render :partial => 'associated_courses', locals: { user: user } %>
 
               <% if logged_in? && !user.email.blank? %>
               <li>

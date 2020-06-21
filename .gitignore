@@ -42,8 +42,6 @@ yarn-debug.log*
 *.pdf
 *.dot
 
-# secrets.yml
-
 /db/old_seeds/*
 
 history_for_print.txt

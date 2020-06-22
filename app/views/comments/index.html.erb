@@ -1,0 +1,20 @@
+<div class="full">
+  <main class="main">
+    <p id="notice"><%= notice %></p>
+    
+    <% if !@comments.empty? %>
+    
+    <div class="parent_info">
+      <h1>Comments</h1>
+      <div>for <strong>course</strong>: <%= @comments.first.course.name %></div> 
+    </div>
+    
+    <% @comments.each_with_index do |comment, index| %>
+    <div><%= link_to comment.content, course_path(comment.course) %> - <%= link_to comment.user.user_name, comment.user %> on <%= comment.created_at.strftime("%m/%d/%Y") %></div>
+    <% end %>
+    
+    <% else %>
+    <%= render :partial => "none" %>
+    <% end %>
+  </main>
+</div>

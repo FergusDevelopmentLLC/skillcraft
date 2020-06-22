@@ -106,7 +106,7 @@
       <div id="comments">
         <% if !@course.comments.empty? %>
         <% @course.comments.each do |comment| %>
-          <div><%= link_to comment.content, edit_course_path(comment.course) %> - <%= link_to comment.user.user_name, comment.user %> on <%= link_to comment.created_at.strftime("%m/%d/%Y"), edit_course_path(comment.course) %></div>
+          <div><%= link_to comment.content, edit_course_path(comment.course) %> - <%= link_to comment.user.user_name, comment.user %> on <%= comment.created_at.strftime("%m/%d/%Y") %></div>
         <% end %>
         <% else %>
           <%= render :partial => "none" %>

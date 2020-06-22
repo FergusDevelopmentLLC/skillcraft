@@ -46,6 +46,16 @@
                 <%= course.students.count %>
               <% end %>
             </li>
+            <% if logged_in? %>
+            <li>
+              <label>Student comments</label>
+              <% if !course.students.empty? %>
+                <%= link_to course.comments.count, course_comments_path(course) %>
+              <% else %>
+                <%= course.comments.count %>
+              <% end %>
+            </li>
+            <% end %>
             <li class="course-listing-code">Code: <%= course.code %></li>
           </ul>
         </div>

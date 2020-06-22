@@ -1,12 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
+  before_action :set_course, only: [:new, :edit]
 
-  def new
-    @course = Course.find(params[:course_id])
+  def index
+    @comments = Comment.where(course_id: params['course_id'])
   end
 
+  def new; end
+
   def edit
-    @course = Course.find(params[:course_id])
     @comment = Comment.find(params[:id])
   end
 
@@ -47,8 +49,12 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
-
+  
   def comment_params
     params.require(:comment).permit(:user_id, :course_id, :content)
+  end
+
+  def set_course
+    @course = Course.find(params[:course_id])
   end
 end

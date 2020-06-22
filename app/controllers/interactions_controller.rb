@@ -75,7 +75,6 @@ class InteractionsController < ApplicationController
       end
     end
 
-    # TODO: clunky? in the correct spot?
     def title_by_path
       if request.path.include?("announcements")
         "Announcements"
@@ -86,7 +85,6 @@ class InteractionsController < ApplicationController
       end
     end
 
-    # TODO: clunky? in the correct spot?
     def interactions_by_path
       if title_by_path == "Announcements"
         Announcement.all

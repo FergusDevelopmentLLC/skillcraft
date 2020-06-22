@@ -1,0 +1,36 @@
+<div class="full">
+  <main class="main">
+
+    <p id="notice"><%= notice %></p>
+    <div class="parent_info">
+      <h1>Edit comment</h1>
+      <div>for the <strong>course</strong>: <%= @course.name %></div>
+      <div>by the <strong>student</strong>: <%= current_user.user_name %></div>
+    </div>
+
+    <% if @comment && @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+      <label for="comment">My comment</label>
+      <%= form_with url: "/courses/#{@course.id}/comments/#{@comment.id}", local: true, model: @comment, method: "patch" do |form| %>
+        <%= form.hidden_field "[comment]user_id", value: current_user.id %>
+        <div id="comment"><%= text_area(:comment, :content, cols: 20, rows: 40) %></div>
+          <div class="update-comment-wrapper">
+          <div class="save-comment-wrapper">
+              <%= submit_tag "Update comment"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </main>
+</div>

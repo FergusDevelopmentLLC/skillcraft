@@ -115,31 +115,17 @@
     </div>
     <% end %>
     
-    <% if logged_in? && @course.students.include?(current_user) %>
-      <div class="field">
-        <label for="comment">My comment</label>
-        <%= form_with id: @form_id, url: @form_comment_url, model: @comment, local: true, method: @form_method do |form| %>
-          <%= form.hidden_field "[comment]course_id", value: @course.id %>
-          <%= form.hidden_field "[comment]user_id", value: current_user.id %>
-          <div id="comment"><%= text_area(:comment, :content, cols: 20, rows: 40) %></div>
-        <% end %>
-        <div class="update-comment-wrapper">
-          <% if @comment %>
-          <div class="save-comment-wrapper">
-            <%= submit_tag "Update comment", form: @form_id %>
-          </div>
-          <div class="save-comment-wrapper">
-            <%= button_to 'Delete comment', @comment, method: :delete, data: { confirm: 'Are you sure?', form: @form_id } %>
-          </div>
-          <% else %>
-          <div class="save-comment-wrapper">
-            <%= submit_tag "Save comment", form: @form_id%>
-          </div>
-          <% end %>
-        </div>
-      </div>
+    <% if logged_in? && is_enrolled_in?(@course) %>
+    <div class="actions">
+      <% if has_commented_on?(@course) %>
+        <%= link_to 'Update your course comment', edit_course_comment_path(@course, @comment) %> |
+        <%= link_to 'Delete your course comment', course_comment_path(@course, @comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% else %>
+        <%= link_to 'Add course comment', new_course_comment_path(@course) %>
+      <% end %>
+    </div>
     <% end %>
-    
+
     <% if logged_in? && is_teacher_of?(@course) %>
     <div class="actions">
       <%= link_to 'Edit course', edit_course_path(@course) %> | 

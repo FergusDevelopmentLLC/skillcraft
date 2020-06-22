@@ -125,7 +125,7 @@
             </div>
             <div class="course-comment-delete">
               <% if !comment.id.blank? %>
-              < <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              < <%= link_to 'Delete', course_comment_path(comment.course, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
             </div>
           </div>

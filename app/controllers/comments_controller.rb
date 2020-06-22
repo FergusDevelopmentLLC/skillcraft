@@ -1,13 +1,22 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy]
 
+  def new
+    @course = Course.find(params[:course_id])
+  end
+
+  def edit
+    @course = Course.find(params[:course_id])
+    @comment = Comment.find(params[:id])
+  end
+
   def create
     @comment = Comment.new(comment_params)
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.course, notice: 'Your course comment was successfully created' }
       else
-        format.html { redirect_to course_path(@comment.course), notice: @comment.errors.full_messages.first }
+        format.html { render :new }
       end
     end
   end
@@ -17,7 +26,8 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         format.html { redirect_to @comment.course, notice: 'Update successful' }
       else
-        format.html { redirect_to course_path(@comment.course), notice: @comment.errors.full_messages.first }
+        @course = Course.find(params[:course_id])
+        format.html { render :edit }
       end
     end
   end

@@ -8,9 +8,6 @@ class CoursesController < ApplicationController
 
   def show
     @comment = Comment.find_by(user: current_user, course: @course)
-    @form_id = @comment ? "comment_update" : "comment_save"
-    @form_comment_url = @comment ? "/comments/#{@comment.id}" : "/comments/"
-    @form_method = @comment ? "patch" : "post"
   end
 
   def new

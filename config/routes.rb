@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
   get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
   
-  resources :courses
+  resources :courses do
+    resources :comments
+  end
+
   resources :users
   resources :teachers, controller: 'users'
   resources :students, controller: 'users'
@@ -18,8 +21,6 @@ Rails.application.routes.draw do
   resources :responses #TODO remove
   resources :questions, controller: 'responses'
   resources :completed_assignments, controller: 'responses'
-
-  resources :comments, only: [:create, :update, :destroy]
 
   get '/welcome', to: 'layouts#welcome'
 

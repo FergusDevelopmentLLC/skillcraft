@@ -25,10 +25,5 @@ class SessionsTwitterController < ApplicationController
     redirect_to path, notice: "Welcome to SkillCraft, a place to craft your skills!"
     
   end
-
-  #TODO: how is this used? in correct spot?
-  def destroy
-    reset_session
-    redirect_to root_url, notice: 'Signed out!'
-  end
+  
 end

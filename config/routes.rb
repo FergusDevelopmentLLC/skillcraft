@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   
   root 'layouts#index'
 
+  # various course listings
+  get '/courses/free', to: 'courses#free', as: 'courses_free'
+  get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
+  get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
+  
   resources :courses
   resources :users
   resources :teachers, controller: 'users'
@@ -40,11 +45,6 @@ Rails.application.routes.draw do
   # withdraw a student/teacher from a course
   get '/courses_users/:course_id/:student_id/destroy', to: 'courses_users#destroy', as: 'courses_user'
   
-  # various course listings
-  get '/courses/free', to: 'courses#free', as: 'courses_free'
-  get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
-  get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
-
   # courses for student/teacher
   get '/teachers/:teacher_id/courses', to: 'courses#courses_for_teacher', as: 'courses_for_teacher'
   get '/students/:student_id/courses', to: 'courses#courses_for_student', as: 'courses_for_student'

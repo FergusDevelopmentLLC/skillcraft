@@ -75,29 +75,18 @@ class UsersController < ApplicationController
         @user.errors.add(:course, 'code incorrect')
       end
     end
-    if @user.errors.count.zero? && @user.save
+    if @user.save
       path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
       redirect_to path, notice: "#{@user.type} was successfully created"
     else #if they entered a course code, repopulate form
-      #@user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
       @course_code = match.code if match
       @select_users = User.teacher_student
-      render :index
+      respond_to do |format|
+        format.html { render :new }
+      end
     end
   end
 
-  # respond_to do |format|
-  #   if @user.errors.count.zero? && @user.save
-  #     path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
-  #     format.html { redirect_to path, notice: "#{@user.type} was successfully created" }
-  #   else #if they entered a course code, repopulate form
-  #     @user = @user.becomes(User) #TODO: why is this necessary, if not, form fields are student[user_name], student[email], etc.
-  #     @course_code = match.code if match
-  #     @select_users = User.teacher_student
-  #     format.html { render :new }
-  #   end
-  # end
-  
   def update
     @user.attributes = user_params
     unless params[:code].blank?

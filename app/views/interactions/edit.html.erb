@@ -32,25 +32,21 @@
     </div>
 
     <% if @interaction.type != 'Announcement' %>
-
     <div class="field date-select">
       <%= form.label :due_date %>
       <%= form.date_select :due_date %>
     </div>
-
     <div class="field graded">
       <%= form.label :graded %>
       <%= form.check_box :graded %>
     </div>
-
     <div class="field points">
       <%= form.label :points %>
       <%= form.number_field :points %>
     </div>
-
     <div class="field">
       <%= form.label :instructions %>
-      <%= text_area(:interaction, :instructions, cols: 20, rows: 40) %>
+      <%= text_area(:assignment, :instructions, value: @interaction.instructions, cols: 20, rows: 40) %>
     </div>
     <% end %>
 

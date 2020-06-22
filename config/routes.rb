@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
   
-  get '/courses/free', to: 'courses#free', as: 'courses_free'
-  get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
-  get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
+  root 'layouts#index'
 
-  get '/teachers/:teacher_id/courses', to: 'courses#courses_for_teacher', as: 'courses_for_teacher'
-  get '/students/:student_id/courses', to: 'courses#courses_for_student', as: 'courses_for_student'
-
-  get '/courses/:course_id/students', to: 'users#students_for_course', as: 'students_for_course'
-  get '/courses/:course_id/teachers', to: 'users#teachers_for_course', as: 'teachers_for_course'
-  
   resources :courses
   resources :users
   resources :teachers, controller: 'users'
@@ -24,8 +16,6 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :update, :destroy]
 
-  root 'layouts#index'
-
   get '/welcome', to: 'layouts#welcome'
 
   get '/signin', to: 'users#signin'
@@ -36,18 +26,32 @@ Rails.application.routes.draw do
 
   get '/signup', to:'users#new'
 
+  #randomize user avatar
   get '/users/:id/randomize_avatar', to: 'users#randomize_avatar'
 
-  get '/courses_users/:course_id/:student_id/destroy', to: 'courses_users#destroy', as: 'courses_user'
-
+  # new announcement/assignment for a course
   get '/announcements/:course_id/new', to: 'interactions#new', as: 'announcements_course_new'
   get '/assignments/:course_id/new', to: 'interactions#new', as: 'assignments_course_new'
   
-  get '/responses/:interaction_id/new', to: 'responses#new', as: 'responses_interaction_new'
+  # new question/completed_assignment for an interaction (assignment/announcement)
   get '/questions/:announcement_id/new', to: 'responses#new', as: 'questions_announcement_new'
   get '/completed_assignments/:assignment_id/new', to: 'responses#new', as: 'completed_assignments_assignment_new'
 
+  # withdraw a student/teacher from a course
+  get '/courses_users/:course_id/:student_id/destroy', to: 'courses_users#destroy', as: 'courses_user'
   
+  # various course listings
+  get '/courses/free', to: 'courses#free', as: 'courses_free'
+  get '/courses/featured', to: 'courses#featured', as: 'courses_featured'
+  get '/courses/featured/free', to: 'courses#featured_free', as: 'courses_featured_free'
+
+  # courses for student/teacher
+  get '/teachers/:teacher_id/courses', to: 'courses#courses_for_teacher', as: 'courses_for_teacher'
+  get '/students/:student_id/courses', to: 'courses#courses_for_student', as: 'courses_for_student'
+
+  # students/teachers for course
+  get '/courses/:course_id/students', to: 'users#students_for_course', as: 'students_for_course'
+  get '/courses/:course_id/teachers', to: 'users#teachers_for_course', as: 'teachers_for_course'
 
   # auths
   get '/auth/twitter/callback', to: 'sessions_twitter#create'

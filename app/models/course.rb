@@ -8,6 +8,9 @@ class Course < ApplicationRecord
   has_many :teachers, -> { where type: "Teacher" }, through: :courses_users, source: :user
   has_many :students, -> { where type: "Student" }, through: :courses_users, source: :user
   
+  # https://apidock.com/rails/ActiveRecord/Associations/ClassMethods/has_many
+  # You can pass a second argument scope as a callable (i.e. proc or lambda) to retrieve a specific set of records or 
+  # customize the generated query when you access the associated collection.
   has_many :interactions, dependent: :destroy
   has_many :announcements, -> { where type: "Announcement" }, source: :interaction
   has_many :assignments, -> { where type: "Assignment" }, source: :interaction

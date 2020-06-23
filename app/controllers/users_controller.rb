@@ -18,10 +18,8 @@ class UsersController < ApplicationController
   def index
     
     @users ||= if request.path == "/students"
-                @courses_title = "Courses enrolled"
                 Student.all
                else
-                @courses_title = "Courses taught"  
                 Teacher.all
                end
           
@@ -36,7 +34,6 @@ class UsersController < ApplicationController
   def students_for_course
     @course = Course.find_by(:id => params[:course_id])
     @users = @course.students
-    @courses_title = "Courses enrolled"
     render_index
   end
   
@@ -66,20 +63,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.avatar = Avatar.unused_avatar
-    unless params[:code].blank?
-      match = Course.find_by(:code => params[:code]) #TODO: is this unprotected?
-      if match
-        @user.courses << match unless @user.courses.include?(match)
-      else
-        @user.validate
-        @user.errors.add(:course, 'code incorrect')
-      end
-    end
-    if @user.save
+    @matched_course_based_on_code = nil
+    assign_course_to_user_based_on_code
+    if @user.errors.full_messages.empty? && @user.save
       path = @user.type == "Student" ? student_path(@user) : teacher_path(@user)
       redirect_to path, notice: "#{@user.type} was successfully created"
     else #if they entered a course code, repopulate form
-      @course_code = match.code if match
+      @course_code = @matched_course_based_on_code.code if @matched_course_based_on_code
       @select_users = User.teacher_student
       respond_to do |format|
         format.html { render :new }
@@ -89,20 +79,13 @@ class UsersController < ApplicationController
 
   def update
     @user.attributes = user_params
-    unless params[:code].blank?
-      match = Course.find_by(:code => params[:code]) #TODO: is this unprotected?
-      if match
-        @user.courses << match unless @user.courses.include?(match)
-      else
-        @user.validate
-        @user.errors.add(:course, 'code incorrect')
-      end
-    end
+    @matched_course_based_on_code = nil
+    assign_course_to_user_based_on_code
     respond_to do |format|
       if @user.errors.count.zero? && @user.save
         format.html { redirect_to @user, notice: "#{@user.user_name} was successfully updated" }
       else
-        @course_code = match.code if match
+        @course_code = @matched_course_based_on_code.code if @matched_course_based_on_code
         format.html { render :edit }
       end
     end
@@ -151,6 +134,18 @@ class UsersController < ApplicationController
   end
   
   private
+
+    def assign_course_to_user_based_on_code
+      unless params[:code].blank?
+        @matched_course_based_on_code = Course.find_by(:code => params[:code])
+        if @matched_course_based_on_code
+          @user.courses << @matched_course_based_on_code unless @user.courses.include?(@matched_course_based_on_code)
+        else
+          @user.validate
+          @user.errors.add(:course, 'code incorrect')
+        end
+      end
+    end
   
     def set_user
       @user = User.find(params[:id])
